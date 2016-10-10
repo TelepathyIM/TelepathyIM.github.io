@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.MessageArchive &mdash; Telepathy D-Bus Interface Specification</title>
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.MessageArchive'>Channel.Interface.MessageArchive</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+      | <a href="#description">Description</a>
+   | <a href="#methods">Methods</a>
+      | <a href="#properties">Properties</a>
+              </div>
+  <div class="main">
+
+    <div class="summary">
+     <a name="summary"></a>
+     <h3>Methods</h3>
+     <table class="summary">
+        <tr>
+       <td><a href="Channel_Interface_Message_Archive.html#Method:GetMessages">GetMessages</a></td>
+       <td>(a{sv}: Filter)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+               </td>
+      </tr>
+     </table>
+
+
+     <h3>Properties</h3>
+     <table class="summary">
+        <tr>
+       <td><a href="Channel_Interface_Message_Archive.html#Property:SupportedFilterKeys">SupportedFilterKeys</a></td>
+       <td>
+        as
+               </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+               </td>
+      </tr>
+    </table>
+
+
+
+
+   </div>
+
+   <div class="annotation added"><span class="version">Added in 0.28.0. </span></div>
+   
+   
+
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+     <li><a href="Channel_Type_Text.html" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">org.freedesktop.Telepathy.Channel.Type.Text</a></li>
+     <li><a href="Channel_Interface_Messages.html" title="Interface org.freedesktop.Telepathy.Channel.Interface.Messages">org.freedesktop.Telepathy.Channel.Interface.Messages</a></li>
+    </ul>
+   </div>
+
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface extends the <a href="Channel_Type_Text.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Text</a>
+        interface to support logs retrieval</p>
+
+      <p>If this interface is present, clients SHOULD listen for the <a href="Channel_Interface_Messages.html#Signal:MessageReceived" namespace="org.freedesktop.Telepathy.Channel.Interface.Messages" title="Signal org.freedesktop.Telepathy.Channel.Interface.Messages.MessageReceived">MessageReceived</a>
+          signal for requested scrollback messages.
+      </p>
+    </div>
+
+
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    <div class="inset method">
+     <a name="Method:GetMessages"></a>
+     <span class="permalink">(<a href="Channel_Interface_Message_Archive.html#Method:GetMessages">Permalink</a>)</span>
+     <h2>GetMessages (a{sv}: Filter) &#8594; nothing</h2>
+
+     
+     
+     
+
+
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+       <li>
+        Filter &mdash; a{sv}
+        (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+       </li>
+       
+       
+       
+       <div class="docstring">
+          See <a href="Channel_Interface_Message_Archive.html#Property:SupportedFilterKeys" title="Property org.freedesktop.Telepathy.Channel.Interface.MessageArchive.SupportedFilterKeys">SupportedFilterKeys</a> for details.
+        <h4>Example calls</h4>
+            <p>A request for 20 messages after a certain one might be represented as:</p>
+          <pre>
+{
+  'limit': 20,
+  'offset': 1, # Skip the known message
+  'message-token': '9de9546a-3400-4419-a505-3ea270cb834c',
+}</pre>
+            <p>A request for a single message by its token:</p>
+          <pre>
+{
+  'limit': 1,
+  'offset': 0, # Can be omitted
+  'message-token': '9de9546a-3400-4419-a505-3ea270cb834c',
+}</pre>
+            <p>A request for all messages in a certain timespan:</p>
+          <pre>
+{
+  'limit': 0,
+  'start-timestamp': 1210123456,
+  'end-timestamp': 1210234567,
+}</pre>
+        </div>
+      </ul>
+     </div>
+
+
+     
+
+    </div>
+   </div>
+
+
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    <div class="inset property">
+     <a name="Property:SupportedFilterKeys"></a>
+     <span class="permalink">(<a href="Channel_Interface_Message_Archive.html#Property:SupportedFilterKeys">Permalink</a>)</span>
+     <h2>
+      SupportedFilterKeys &mdash; as
+           </h2>
+      <div class="access">Read only</div>
+
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannels">NewChannels</a>
+       signals.
+     </div>
+
+
+     
+     
+     
+
+
+
+     <div class="docstring">
+          <p>List of supported filter keys, sorted by preference (more suitable keys listed first).</p>
+              <div class="rationale"><h5>Rationale:</h5><div>
+                <p>Various protocols have different history retrieval API. Order of the keys let the CM
+                    to inform a client about possible overhead of various API calls (especially in case if the CM supports one API is ontop of the other).</p>
+                <p>For instance, XMPP with XEP-0313 natively supports filtering by time received, but emulation
+                    of &quot;offset from a message-token&quot; API would take an uncertain amount of traffic and would be tricky.</p>
+                <p>On the other side, Telegram offers the &quot;skip N messages after the message X and return M messages that&quot; API and it would require to get
+                    all messages in order to filter them by timestamp.</p>
+              </div></div>
+          <dl>
+            <dt>limit (u)</dt>
+            <dd>Maximum number of messages to be returned. Must be supported by all CMs and must be presented in all request. If 0, the number of messages is unlimited.</dd>
+
+            <dt>offset (u)</dt>
+            <dd>Number of messages to be skipped. Usually goes well with the 'message-token' key.</dd>
+            
+            <dt>message-token (s - <a href="Channel_Interface_Messages.html#Simple-Type:Protocol_Message_Token">Protocol_Message_Token</a>)</dt>
+            <dd>If specified, the connection manager MUST only return messages starting with the referenced one. This key is not compatible with the 'start-timestamp' key.</dd>
+
+            <dt>start-timestamp (x - <a href="generic-types.html#Simple-Type:Unix_Timestamp64">Unix_Timestamp64</a>)</dt>
+            <dd>A value to filter out messages before a certain date/time. If specified,
+                the connection manager MUST only return messages whose timestamp is equal to or later
+                than the given timestamp.
+            </dd>
+
+            <dt>end-timestamp (x - <a href="generic-types.html#Simple-Type:Unix_Timestamp64">Unix_Timestamp64</a>)</dt>
+            <dd>A value to filter out messages after a certain date/time. If specified,
+                the connection manager MUST only return messages whose timestamp is equal to or earlier
+                than the given timestamp.
+            </dd>
+        </dl>
+        </div>
+    </div>
+   </div>
+
+
+
+
+
+   </div>
+
+ </body>
+</html>
+
