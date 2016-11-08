@@ -17,7 +17,8 @@
       | <a href="#description">Description</a>
    | <a href="#methods">Methods</a>
       | <a href="#properties">Properties</a>
-              </div>
+            | <a href="#types">Types</a>
+  </div>
   <div class="main">
 
     <div class="summary">
@@ -38,7 +39,7 @@
      <h3>Properties</h3>
      <table class="summary">
         <tr>
-       <td><a href="Channel_Interface_Message_Archive.html#Property:SupportedFilterKeys">SupportedFilterKeys</a></td>
+       <td><a href="Channel_Interface_Message_Archive.html#Property:AvailableFilterKeys">AvailableFilterKeys</a></td>
        <td>
         as
                </td>
@@ -52,6 +53,23 @@
 
 
 
+     <h3>Types</h3>
+     <table class="summary">
+        <tr>
+       <td><a href="Channel_Interface_Message_Archive.html#Simple-Type:Message_Filter_Key">Message_Filter_Key</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+               </td>
+      </tr>
+        <tr>
+       <td><a href="Channel_Interface_Message_Archive.html#Mapping:Message_Filter_Map">Message_Filter_Map</a></td>
+       <td>Mapping</td>
+       <td>a{sv}</td>
+       <td>
+               </td>
+      </tr>
+     </table>
    </div>
 
    <div class="annotation added"><span class="version">Added in 0.28.0. </span></div>
@@ -96,13 +114,19 @@
       <ul>
        <li>
         Filter &mdash; a{sv}
-        (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+        (<a href="Channel_Interface_Message_Archive.html#Mapping:Message_Filter_Map" title="Mapping Message_Filter_Map">Message_Filter_Map</a>)
        </li>
        
        
        
        <div class="docstring">
-          See <a href="Channel_Interface_Message_Archive.html#Property:SupportedFilterKeys" title="Property org.freedesktop.Telepathy.Channel.Interface.MessageArchive.SupportedFilterKeys">SupportedFilterKeys</a> for details.
+          A dictionary mapping filter key names to the desired values
+        </div>
+      </ul>
+     </div>
+
+
+     <div class="docstring">
         <h4>Example calls</h4>
             <p>A request for 20 messages after a certain one might be represented as:</p>
           <pre>
@@ -125,12 +149,7 @@
   'start-timestamp': 1210123456,
   'end-timestamp': 1210234567,
 }</pre>
-        </div>
-      </ul>
-     </div>
-
-
-     
+      </div>
 
     </div>
    </div>
@@ -145,10 +164,10 @@
      interface.
     </div>
     <div class="inset property">
-     <a name="Property:SupportedFilterKeys"></a>
-     <span class="permalink">(<a href="Channel_Interface_Message_Archive.html#Property:SupportedFilterKeys">Permalink</a>)</span>
+     <a name="Property:AvailableFilterKeys"></a>
+     <span class="permalink">(<a href="Channel_Interface_Message_Archive.html#Property:AvailableFilterKeys">Permalink</a>)</span>
      <h2>
-      SupportedFilterKeys &mdash; as
+      AvailableFilterKeys &mdash; as
            </h2>
       <div class="access">Read only</div>
 
@@ -168,37 +187,15 @@
 
 
      <div class="docstring">
-          <p>List of supported filter keys, sorted by preference (more suitable keys listed first).</p>
-              <div class="rationale"><h5>Rationale:</h5><div>
-                <p>Various protocols have different history retrieval API. Order of the keys let the CM
-                    to inform a client about possible overhead of various API calls (especially in case if the CM supports one API is ontop of the other).</p>
-                <p>For instance, XMPP with XEP-0313 natively supports filtering by time received, but emulation
-                    of &quot;offset from a message-token&quot; API would take an uncertain amount of traffic and would be tricky.</p>
-                <p>On the other side, Telegram offers the &quot;skip N messages after the message X and return M messages that&quot; API and it would require to get
-                    all messages in order to filter them by timestamp.</p>
-              </div></div>
-          <dl>
-            <dt>limit (u)</dt>
-            <dd>Maximum number of messages to be returned. Must be supported by all CMs and must be presented in all request. If 0, the number of messages is unlimited.</dd>
-
-            <dt>offset (u)</dt>
-            <dd>Number of messages to be skipped. Usually goes well with the 'message-token' key.</dd>
-            
-            <dt>message-token (s - <a href="Channel_Interface_Messages.html#Simple-Type:Protocol_Message_Token">Protocol_Message_Token</a>)</dt>
-            <dd>If specified, the connection manager MUST only return messages starting with the referenced one. This key is not compatible with the 'start-timestamp' key.</dd>
-
-            <dt>start-timestamp (x - <a href="generic-types.html#Simple-Type:Unix_Timestamp64">Unix_Timestamp64</a>)</dt>
-            <dd>A value to filter out messages before a certain date/time. If specified,
-                the connection manager MUST only return messages whose timestamp is equal to or later
-                than the given timestamp.
-            </dd>
-
-            <dt>end-timestamp (x - <a href="generic-types.html#Simple-Type:Unix_Timestamp64">Unix_Timestamp64</a>)</dt>
-            <dd>A value to filter out messages after a certain date/time. If specified,
-                the connection manager MUST only return messages whose timestamp is equal to or earlier
-                than the given timestamp.
-            </dd>
-        </dl>
+          <p>List of available filter keys, sorted by preference (more suitable keys listed first).</p>
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>Various protocols have different history retrieval API. Order of the keys let the CM
+               to inform a client about possible overhead of various API calls (especially in case if the CM supports one API is ontop of the other).</p>
+            <p>For instance, XMPP with XEP-0313 natively supports filtering by time received, but emulation
+               of &quot;offset from a message-token&quot; API would take an uncertain amount of traffic and would be tricky.</p>
+            <p>On the other side, Telegram offers the &quot;skip N messages after the message X and return M messages that&quot; API and it would require to get
+               all messages in order to filter them by timestamp.</p>
+          </div></div>
         </div>
     </div>
    </div>
@@ -206,6 +203,67 @@
 
 
 
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+     <div class="inset type">
+      <a name="Simple-Type:Message_Filter_Key"></a>
+      <span class="permalink">Simple Type (<a href="Channel_Interface_Message_Archive.html#Simple-Type:Message_Filter_Key">Permalink</a>)</span>
+      <h2>
+       Message_Filter_Key &mdash; s
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <dl>
+          <dt>limit (u)</dt>
+          <dd>Maximum number of messages to be returned. Must be supported by all CMs and must be presented in all request. If 0, the number of messages is unlimited.</dd>
+
+          <dt>offset (u)</dt>
+          <dd>Number of messages to be skipped. Usually goes well with the 'message-token' key.</dd>
+            
+          <dt>message-token (s - <a href="Channel_Interface_Messages.html#Simple-Type:Protocol_Message_Token">Protocol_Message_Token</a>)</dt>
+          <dd>If specified, the connection manager MUST only return messages starting with the referenced one. This key is not compatible with the 'start-timestamp' key.</dd>
+
+          <dt>start-timestamp (x - <a href="generic-types.html#Simple-Type:Unix_Timestamp64">Unix_Timestamp64</a>)</dt>
+          <dd>A value to filter out messages before a certain date/time. If specified,
+              the connection manager MUST only return messages whose timestamp is equal to or later
+              than the given timestamp.
+          </dd>
+
+          <dt>end-timestamp (x - <a href="generic-types.html#Simple-Type:Unix_Timestamp64">Unix_Timestamp64</a>)</dt>
+          <dd>A value to filter out messages after a certain date/time. If specified,
+              the connection manager MUST only return messages whose timestamp is equal to or earlier
+              than the given timestamp.
+          </dd>
+        </dl>
+      </div>
+      
+     </div>
+     <div class="inset type">
+      <a name="Mapping:Message_Filter_Map"></a>
+      <span class="permalink">Mapping (<a href="Channel_Interface_Message_Archive.html#Mapping:Message_Filter_Map">Permalink</a>)</span>
+      <h2>
+       Message_Filter_Map &mdash; a{sv}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A map from filter keys to values.</div>
+      <ul>
+<li>Key &mdash; s (<a href="Channel_Interface_Message_Archive.html#Simple-Type:Message_Filter_Key" title="Simple Type Message_Filter_Key">Message_Filter_Key</a>)</li>
+<div class="docstring">
+          The filter key to match against.
+        </div><li>Value &mdash; v</li>
+<div class="docstring">
+          The value of the corresponding filter key.
+        </div></ul>
+
+     </div>
+   </div>
 
    </div>
 
