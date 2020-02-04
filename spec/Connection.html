@@ -1,0 +1,2830 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Connection &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection'>Connection</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+    | <a href="#contact-attributes">Contact Attributes</a> 
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Method:Connect">Connect</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Method:Disconnect">Disconnect</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Method:GetInterfaces">GetInterfaces</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>as: Interfaces</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Method:GetProtocol">GetProtocol</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>s: Protocol</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Connection.html#Method:GetSelfHandle">GetSelfHandle</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>u: Self_Handle</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Method:GetStatus">GetStatus</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>u: Status</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Method:HoldHandles">HoldHandles</a></td>
+       <td>(u: Handle_Type, au: Handles)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Method:InspectHandles">InspectHandles</a></td>
+       <td>(u: Handle_Type, au: Handles)</td>
+       <td>&#8594;</td>
+       <td>as: Identifiers</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Connection.html#Method:ListChannels">ListChannels</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>a(osuu): Channel_Info</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Method:ReleaseHandles">ReleaseHandles</a></td>
+       <td>(u: Handle_Type, au: Handles)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Connection.html#Method:RequestChannel">RequestChannel</a></td>
+       <td>(s: Type, u: Handle_Type, u: Handle, b: Suppress_Handler)</td>
+       <td>&#8594;</td>
+       <td>o: Object_Path</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Method:RequestHandles">RequestHandles</a></td>
+       <td>(u: Handle_Type, as: Identifiers)</td>
+       <td>&#8594;</td>
+       <td>au: Handles</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Method:AddClientInterest">AddClientInterest</a></td>
+       <td>(as: Tokens)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Method:RemoveClientInterest">RemoveClientInterest</a></td>
+       <td>(as: Tokens)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Connection.html#Signal:SelfHandleChanged">SelfHandleChanged</a></td>
+       <td>(u: Self_Handle)</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Signal:SelfContactChanged">SelfContactChanged</a></td>
+       <td>(u: Self_Handle, s: Self_ID)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Connection.html#Signal:NewChannel">NewChannel</a></td>
+       <td>(o: Object_Path, s: Channel_Type, u: Handle_Type, u: Handle, b: Suppress_Handler)</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Signal:ConnectionError">ConnectionError</a></td>
+       <td>(s: Error, a{sv}: Details)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Signal:StatusChanged">StatusChanged</a></td>
+       <td>(u: Status, u: Reason)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Property:Interfaces">Interfaces</a></td>
+       <td>
+        as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">
+              DBus_Interface_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Property:SelfHandle">SelfHandle</a></td>
+       <td>
+        u
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">
+              Contact_Handle</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Property:SelfID">SelfID</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Property:Status">Status</a></td>
+       <td>
+        u
+        
+          (<a href="Connection.html#Enum:Connection_Status" title="Enum Connection_Status">
+              Connection_Status</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Property:HasImmortalHandles">HasImmortalHandles</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+     <h3>Contact Attributes</h3>
+     <table class="summary">
+      
+       <tr class="contact-attribute">
+       <td><a href="Connection.html#Contact-Attribute:contact-id">org.freedesktop.Telepathy.Connection/contact-id</a></td>
+       <td>
+        s
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Simple-Type:Handle">Handle</a></td>
+       <td>Simple Type</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Simple-Type:Contact_Handle">Contact_Handle</a></td>
+       <td>Simple Type</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Simple-Type:Room_Handle">Room_Handle</a></td>
+       <td>Simple Type</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Connection.html#Simple-Type:List_Handle">List_Handle</a></td>
+       <td>Simple Type</td>
+       <td>u</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Connection.html#Simple-Type:Group_Handle">Group_Handle</a></td>
+       <td>Simple Type</td>
+       <td>u</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Enum:Handle_Type">Handle_Type</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Enum:Connection_Status">Connection_Status</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Connection.html#Struct:Channel_Info">Channel_Info</a></td>
+       <td>Struct</td>
+       <td>(osuu)</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   
+   <div class="annotation changed"><span class="version">Changed in 0.17.10. </span>Previously, the account part of
+      Connection bus names/object paths was allowed to have more than one
+      component (i.e. contain dots or slashes), resulting in Connection
+      bus names and object paths with more than 7 components. We now restrict
+      Connection bus names/object paths to have exactly 7
+      components.</div>
+<div class="annotation changed"><span class="version">Changed in 0.17.23. </span>The Requests and Contacts interfaces
+      are now mandatory. Their functionality will be merged into the main
+      Connection interface at some point in future.</div>
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection_Interface_Requests.html" title="Interface org.freedesktop.Telepathy.Connection.Interface.Requests">org.freedesktop.Telepathy.Connection.Interface.Requests</a></li>
+    
+     <li><a href="Connection_Interface_Contacts.html" title="Interface org.freedesktop.Telepathy.Connection.Interface.Contacts">org.freedesktop.Telepathy.Connection.Interface.Contacts</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This models a connection to a single user account on a communication
+        service. Its basic capability is to provide the facility to request and
+        receive channels of differing types (such as text channels or streaming
+        media channels) which are used to carry out further communication.</p>
+
+      <p>In order to allow Connection objects to be discovered by new clients,
+        the object path and well-known bus name MUST be of the form
+        <code>/org/freedesktop/Telepathy/Connection/cmname/proto/account</code>
+        and
+        <code>org.freedesktop.Telepathy.Connection.cmname.proto.account</code>
+        where:</p>
+
+      <ul>
+        <li><em>cmname</em> is the same
+          <a href="Connection_Manager.html#Simple-Type:Connection_Manager_Name">Connection_Manager_Name</a> that appears
+          in the connection manager's object path and well-known bus name</li>
+        <li><em>proto</em> is the <a href="Connection_Manager.html#Simple-Type:Protocol">Protocol</a> name as seen in
+          <a href="Connection_Manager.html#Method:ListProtocols" namespace="org.freedesktop.Telepathy.ConnectionManager" title="Method org.freedesktop.Telepathy.ConnectionManager.ListProtocols">ListProtocols</a>,
+          but with &quot;-&quot; replaced with &quot;_&quot; to get a valid
+          object path/bus name</li>
+        <li><em>account</em> is some non-empty sequence of ASCII letters,
+          digits and underscores not starting with a digit</li>
+      </ul>
+
+      <p><em>account</em> SHOULD be formed such that any valid distinct
+        connection instance on this protocol has a distinct name. This
+        might be formed by including the server name followed by the user
+        name (escaped via some suitable mechanism like telepathy-glib's
+        tp_escape_as_identifier() function to preserve uniqueness); on
+        protocols where connecting multiple times is permissable, a
+        per-connection identifier might be necessary to ensure
+        uniqueness.</p>
+
+      <p>Clients MAY parse the object path to determine the connection
+        manager name and the protocol, but MUST NOT attempt to parse the
+        <em>account</em> part. Connection managers MAY use any unique string
+        for this part.</p>
+
+    <p>As well as the methods and signatures below, arbitrary interfaces may be
+    provided by the Connection object to represent extra connection-wide
+    functionality, such as the Connection.Interface.SimplePresence for
+    receiving and
+    reporting presence information, and Connection.Interface.Aliasing for
+    connections where contacts may set and change an alias for themselves.
+    These interfaces can be discovered using the
+    <a href="Connection.html#Method:GetInterfaces" title="Method org.freedesktop.Telepathy.Connection.GetInterfaces">GetInterfaces</a> method.</p>
+
+    <p>Contacts, rooms, and server-stored lists (such as subscribed contacts,
+    block lists, or allow lists) on a service are all represented by
+    immutable <em>handles</em>, which are unsigned non-zero integers which are
+    valid only for the lifetime of the connection object, and are used
+    throughout the protocol where these entities are represented, allowing
+    simple testing of equality within clients.</p>
+
+    <p>Zero as a handle value is sometimes used as a &quot;null&quot; value to mean
+    the absence of a contact, room, etc.</p>
+
+    <p>Handles have per-type uniqueness, meaning that
+    every (handle type, handle number) tuple is guaranteed to be unique within
+    a connection and that a handle alone (without its type) is meaningless or
+    ambiguous. Connection manager implementations should reference count these
+    handles to determine if they are in use either by any active clients or any
+    open channels, and may deallocate them when this ceases to be true. Clients
+    may request handles of a given type and identifier with the
+    <a href="Connection.html#Method:RequestHandles" title="Method org.freedesktop.Telepathy.Connection.RequestHandles">RequestHandles</a> method, inspect the entity
+    identifier with the <a href="Connection.html#Method:InspectHandles" title="Method org.freedesktop.Telepathy.Connection.InspectHandles">InspectHandles</a>
+    method, keep handles from being released with
+    <a href="Connection.html#Method:HoldHandles" title="Method org.freedesktop.Telepathy.Connection.HoldHandles">HoldHandles</a>, and notify that they are no
+    longer storing handles with
+    <a href="Connection.html#Method:ReleaseHandles" title="Method org.freedesktop.Telepathy.Connection.ReleaseHandles">ReleaseHandles</a>.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:Connect"></a>
+     <span class="permalink">(<a href="Connection.html#Method:Connect">Permalink</a>)</span>
+     <h2>Connect () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request that the connection be established. This will be done
+          asynchronously and errors will be returned by emitting
+          <a href="Connection.html#Signal:StatusChanged" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a> signals.</p>
+
+        <p>Calling this method on a Connection that is already connecting
+          or connected is allowed, and has no effect.</p>
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:Disconnect"></a>
+     <span class="permalink">(<a href="Connection.html#Method:Disconnect">Permalink</a>)</span>
+     <h2>Disconnect () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring">
+        Request that the connection be closed. This closes the connection if
+        it's not already in DISCONNECTED state, and destroys the connection
+        object.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetInterfaces"></a>
+     <span class="permalink">(<a href="Connection.html#Method:GetInterfaces">Permalink</a>)</span>
+     <h2>GetInterfaces () &#8594; as: Interfaces</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Interfaces &mdash; as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The value of the <a href="Connection.html#Property:Interfaces" title="Property org.freedesktop.Telepathy.Connection.Interfaces">Interfaces</a> property
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Returns the set of optional interfaces supported by this
+          connection. See <a href="Connection.html#Property:Interfaces" title="Property org.freedesktop.Telepathy.Connection.Interfaces">Interfaces</a> for more
+          details.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+             Before version 0.17.8 calling GetInterfaces while
+             on a connection that is not yet CONNECTED wasn't allowed. If a
+             CM returns this error, its list of interfaces should be regarded
+             as empty until it becomes CONNECTED.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetProtocol"></a>
+     <span class="permalink">(<a href="Connection.html#Method:GetProtocol">Permalink</a>)</span>
+     <h2>GetProtocol () &#8594; s: Protocol</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Protocol &mdash; s
+        
+          (<a href="Connection_Manager.html#Simple-Type:Protocol" title="Simple Type Protocol">Protocol</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A string identifier for the protocol
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Get the protocol this connection is using.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetSelfHandle"></a>
+     <span class="permalink">(<a href="Connection.html#Method:GetSelfHandle">Permalink</a>)</span>
+     <h2>GetSelfHandle () &#8594; u: Self_Handle</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.10. </span>Use GetAll to get the
+        SelfHandle property (and all other Connection properties)
+        instead.</div>
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Self_Handle &mdash; u
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The value of the <a href="Connection.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Connection.SelfHandle">SelfHandle</a> property
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Returns the value of the SelfHandle property. Change notification
+        is via the SelfHandleChanged signal.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetStatus"></a>
+     <span class="permalink">(<a href="Connection.html#Method:GetStatus">Permalink</a>)</span>
+     <h2>GetStatus () &#8594; u: Status</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Status &mdash; u
+        
+          (<a href="Connection.html#Enum:Connection_Status" title="Enum Connection_Status">Connection_Status</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The value of the <a href="Connection.html#Property:Status" title="Property org.freedesktop.Telepathy.Connection.Status">Status</a> property
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Get the current status as defined in the
+        <a href="Connection.html#Signal:StatusChanged" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a> signal.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:HoldHandles"></a>
+     <span class="permalink">(<a href="Connection.html#Method:HoldHandles">Permalink</a>)</span>
+     <h2>HoldHandles (u: Handle_Type, au: Handles) &#8594; nothing</h2>
+
+     
+     <div class="annotation changed"><span class="version">Changed in 0.21.6. </span>If
+        <a href="Connection.html#Property:HasImmortalHandles" title="Property org.freedesktop.Telepathy.Connection.HasImmortalHandles">HasImmortalHandles</a> is true,
+        this method no longer does anything.</div>
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Handle_Type &mdash; u
+        
+          (<a href="Connection.html#Enum:Handle_Type" title="Enum Handle_Type">Handle_Type</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The type of handle to be held
+        </div>
+      
+       <li>
+        Handles &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Handle" title="Array of Simple Type Handle">Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A array of integer handles to hold
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If <a href="Connection.html#Property:HasImmortalHandles" title="Property org.freedesktop.Telepathy.Connection.HasImmortalHandles">HasImmortalHandles</a> is true,
+          which SHOULD always be the case in this version of telepathy-spec,
+          this method does nothing and returns successfully, unless
+          the given handle type or any of the given handles is invalid.</p>
+
+        <p>In older connection managers, this method
+        notifies the connection manger that your client is holding a copy
+        of handles which may not be in use in any existing channel or
+        list, and were not obtained by using the
+        <a href="Connection.html#Method:RequestHandles" title="Method org.freedesktop.Telepathy.Connection.RequestHandles">RequestHandles</a> method. For
+        example, a handle observed in an emitted signal, or displayed
+        somewhere in the UI that is not associated with a channel. The
+        connection manager must not deallocate a handle where any clients
+        have used this method to indicate it is in use until the
+        <a href="Connection.html#Method:ReleaseHandles" title="Method org.freedesktop.Telepathy.Connection.ReleaseHandles">ReleaseHandles</a>
+        method is called, or the clients disappear from the bus.</p>
+
+        <p>Note that HoldHandles is idempotent - calling it multiple times
+          is equivalent to calling it once. If a handle is &quot;referenced&quot; by
+          several components which share a D-Bus unique name, the client
+          should perform reference counting internally, and only call
+          ReleaseHandles when none of the cooperating components need the
+          handle any longer.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The handle type is invalid
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+            One of the given handles is not valid
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:InspectHandles"></a>
+     <span class="permalink">(<a href="Connection.html#Method:InspectHandles">Permalink</a>)</span>
+     <h2>InspectHandles (u: Handle_Type, au: Handles) &#8594; as: Identifiers</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Handle_Type &mdash; u
+        
+          (<a href="Connection.html#Enum:Handle_Type" title="Enum Handle_Type">Handle_Type</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The type of handle to be inspected
+        </div>
+      
+       <li>
+        Handles &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Handle" title="Array of Simple Type Handle">Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of integer handles of this type
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Identifiers &mdash; as
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of identifiers corresponding to the given handles, in the same order.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Return a string representation for a number of handles of a given
+        type.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The handle type is invalid
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+            One of the given handles is not valid
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:ListChannels"></a>
+     <span class="permalink">(<a href="Connection.html#Method:ListChannels">Permalink</a>)</span>
+     <h2>ListChannels () &#8594; a(osuu): Channel_Info</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.23. </span>Use the
+        <a href="Connection_Interface_Requests.html#Property:Channels" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Property org.freedesktop.Telepathy.Connection.Interface.Requests.Channels">Requests.Channels</a>
+        property instead.
+      </div>
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Channel_Info &mdash; a(osuu)
+        
+          (<a href="Connection.html#Struct:Channel_Info" title="Array of Struct Channel_Info">Channel_Info_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of structs representing channels.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        List all the channels which currently exist on this connection.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:ReleaseHandles"></a>
+     <span class="permalink">(<a href="Connection.html#Method:ReleaseHandles">Permalink</a>)</span>
+     <h2>ReleaseHandles (u: Handle_Type, au: Handles) &#8594; nothing</h2>
+
+     
+     <div class="annotation changed"><span class="version">Changed in 0.21.6. </span>If
+        <a href="Connection.html#Property:HasImmortalHandles" title="Property org.freedesktop.Telepathy.Connection.HasImmortalHandles">HasImmortalHandles</a> is true,
+        this method no longer does anything.</div>
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Handle_Type &mdash; u
+        
+          (<a href="Connection.html#Enum:Handle_Type" title="Enum Handle_Type">Handle_Type</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An integer handle type (as defined in RequestHandle)
+        </div>
+      
+       <li>
+        Handles &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Handle" title="Array of Simple Type Handle">Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of integer handles being held by the client
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        <p>If <a href="Connection.html#Property:HasImmortalHandles" title="Property org.freedesktop.Telepathy.Connection.HasImmortalHandles">HasImmortalHandles</a> is true,
+          which SHOULD always be the case in this version of telepathy-spec,
+          this method does nothing and returns successfully, unless
+          the given handle type or any of the given handles is invalid.</p>
+
+        <p>In older connection managers, this method
+        explicitly notifies the connection manager that your client is no
+        longer holding any references to the given handles, and that they
+        may be deallocated if they are not held by any other clients or
+        referenced by any existing channels. See
+        <a href="Connection.html#Method:HoldHandles" title="Method org.freedesktop.Telepathy.Connection.HoldHandles">HoldHandles</a> for notes.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The handle type is invalid
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+            One of the given handles is not valid
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RequestChannel"></a>
+     <span class="permalink">(<a href="Connection.html#Method:RequestChannel">Permalink</a>)</span>
+     <h2>RequestChannel (s: Type, u: Handle_Type, u: Handle, b: Suppress_Handler) &#8594; o: Object_Path</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.23. </span>Use
+        <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">Requests.CreateChannel</a>
+        or <a href="Connection_Interface_Requests.html#Method:EnsureChannel" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">Requests.EnsureChannel</a>
+        instead. Connection managers MAY implement RequestChannel by
+        raising NotImplemented, or implement fewer types of channel via
+        this API.</div>
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Type &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Simple Type DBus_Interface">DBus_Interface</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A D-Bus interface name representing base channel type
+        </div>
+      
+       <li>
+        Handle_Type &mdash; u
+        
+          (<a href="Connection.html#Enum:Handle_Type" title="Enum Handle_Type">Handle_Type</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An integer representing the handle type, or Handle_Type_None if
+          no handle is specified
+        </div>
+      
+       <li>
+        Handle &mdash; u
+        
+          (<a href="Connection.html#Simple-Type:Handle" title="Simple Type Handle">Handle</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A nonzero integer handle representing a contact, room, list etc.
+          according to handle_type, or zero if the handle_type is
+          Handle_Type_None
+        </div>
+      
+       <li>
+        Suppress_Handler &mdash; b
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          <p>Clients SHOULD always set this to true.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>The historical meaning was that clients that did not
+              intend to take responsibility for displaying the channel to
+              the user could set this to FALSE, in which case the channel
+              dispatcher would launch an appropriate channel handler.</p>
+
+            <p>However, clients whose functionality relies on having a
+              working channel dispatcher should obtain that functionality by
+              calling methods on the channel dispatcher, so that they will
+              get an appropriate error if the channel dispatcher is missing
+              or not working.</p>
+
+            <p>The channel dispatcher itself should set this to true too,
+              so that it will ignore the
+              <a href="Connection.html#Signal:NewChannel" title="Signal org.freedesktop.Telepathy.Connection.NewChannel">NewChannel</a> signal that results
+              from the creation of the channel. It can then dispatch the
+              channel returned from this method to an
+              appropriate handler.</p>
+
+            <p>So, there is no sensible use-case for setting this to false,
+              and setting it to false can result in unhandled channels (in
+              the case where clients assume that a channel dispatcher is
+              present, but it isn't).</p>
+          </div></div>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Object_Path &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The D-Bus object path for the channel created or retrieved
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request a channel satisfying the specified type and communicating
+          with the contact, room, list etc. indicated by the given
+          handle_type and handle. The handle_type and handle may both be
+          zero to request the creation of a new, empty channel, which may
+          or may not be possible, depending on the protocol and channel
+          type.</p>
+
+        <p>On success, the returned channel will always be of the requested
+          type (i.e. implement the requested channel-type interface).</p>
+
+        <p>If a new, empty channel is requested, on success the returned
+          channel will always be an &quot;anonymous&quot; channel for which the type
+          and handle are both zero.</p>
+
+        <p>If a channel to a contact, room etc. is requested, on success, the
+          returned channel may either be a new or existing channel to
+          the requested entity (i.e. its
+          <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+          and <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>
+          properties are the
+          requested handle type and handle), or a newly created &quot;anonymous&quot;
+          channel associated with the requested handle in some
+          implementation-specific way.</p>
+
+        <p>For example, for a contact handle, the returned channel
+          might be &quot;anonymous&quot;, but implement the groups interface and have
+          the requested contact already present among the members.</p>
+
+        <p>If the request cannot be satisfied, an error is raised and no
+          channel is created.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            Unknown channel type
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+            The given handle does not exist or cannot be created
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested channel type cannot be created with the given handle
+          </div>
+      
+       <li><a href="errors.html#Error:Not Capable" title="Error org.freedesktop.Telepathy.Error.NotCapable">Not Capable</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested channel cannot be created because contact doesn't
+            have the required capabilities.
+          </div>
+      
+       <li><a href="errors.html#Error:Channel.Banned" title="Error org.freedesktop.Telepathy.Error.Channel.Banned">Channel.Banned</a></li>
+       
+       
+       
+       <div class="docstring">
+    You are banned from the channel.
+    </div>
+      
+       <li><a href="errors.html#Error:Channel.Full" title="Error org.freedesktop.Telepathy.Error.Channel.Full">Channel.Full</a></li>
+       
+       
+       
+       <div class="docstring">
+    The channel is full.
+    </div>
+      
+       <li><a href="errors.html#Error:Channel.Invite Only" title="Error org.freedesktop.Telepathy.Error.Channel.InviteOnly">Channel.Invite Only</a></li>
+       
+       
+       
+       <div class="docstring">
+    The requested channel is invite-only.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RequestHandles"></a>
+     <span class="permalink">(<a href="Connection.html#Method:RequestHandles">Permalink</a>)</span>
+     <h2>RequestHandles (u: Handle_Type, as: Identifiers) &#8594; au: Handles</h2>
+
+     
+     <div class="annotation changed"><span class="version">Changed in 0.21.6. </span>If
+        <a href="Connection.html#Property:HasImmortalHandles" title="Property org.freedesktop.Telepathy.Connection.HasImmortalHandles">HasImmortalHandles</a> is true,
+        this method no longer has its reference-counting effect.</div>
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Handle_Type &mdash; u
+        
+          (<a href="Connection.html#Enum:Handle_Type" title="Enum Handle_Type">Handle_Type</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The type of handle required
+        </div>
+      
+       <li>
+        Identifiers &mdash; as
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of identifiers of entities to request handles for
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Handles &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Handle" title="Array of Simple Type Handle">Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of integer handle numbers in the same order as the given identifiers.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request several handles from the connection manager which represent a
+          number of contacts, rooms or server-stored lists on the service.</p>
+
+        <p>If <a href="Connection.html#Property:HasImmortalHandles" title="Property org.freedesktop.Telepathy.Connection.HasImmortalHandles">HasImmortalHandles</a> is true,
+          which SHOULD always be the case in this version of telepathy-spec,
+          the handles remain valid until the connection disconnects.</p>
+
+        <p>The implementation of this method in older connection managers
+        must record that these handles are in use by the
+        client who invokes this method, and must not deallocate the handles
+        until the client disconnects from the bus or calls the
+        <a href="Connection.html#Method:ReleaseHandles" title="Method org.freedesktop.Telepathy.Connection.ReleaseHandles">ReleaseHandles</a>
+        method. Where the identifier refers to an entity that already has a
+        handle in this connection manager, this handle should be returned
+        instead. The handle number 0 must not be returned by the connection
+        manager.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+            The given identifier does not identify a valid entity of the given
+            type.
+
+            <div class="rationale"><h5>Rationale:</h5><div>
+              For instance, an XMPP connection would raise this error for
+              identifiers with type Handle_Type_Room that do not contain
+              exactly one '@' character, that contain spaces, and so on.
+            </div></div>
+          </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The given handle type is not valid, or is not implemented on this
+            connection.
+
+            <div class="rationale"><h5>Rationale:</h5><div>
+              For instance, a connection to a protocol that doesn't have
+              chat rooms would raise this error for room handles, and all CMs
+              would raise this error for Handle_Type_None.
+            </div></div>
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:AddClientInterest"></a>
+     <span class="permalink">(<a href="Connection.html#Method:AddClientInterest">Permalink</a>)</span>
+     <h2>AddClientInterest (as: Tokens) &#8594; nothing</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.21.3. </span></div>
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Tokens &mdash; as
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Interfaces or parts of interfaces in which to register an
+            interest, represented by either a
+            <a href="generic-types.html#Simple-Type:DBus_Interface">DBus_Interface</a>, or a string prefixed with a
+            <a href="generic-types.html#Simple-Type:DBus_Interface">DBus_Interface</a>.</p>
+
+          <p>If the Connection does not support one of these tokens, this
+            is not considered to be an error; the unsupported token is
+            simply ignored.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Register a client's interest in notifications related to one or
+          more interfaces.</p>
+
+        <p>Groups of notifications are identified by a token which is either
+          a D-Bus interface name, or a string that starts with a D-Bus
+          interface name. The meaning of each token is given by that D-Bus
+          interface, which MUST define it in its documentation.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Initially, all interests are in entire interface, but allowing
+            other strings allows subscription to part of an interface; for
+            instance, an interest in ...MailNotification/count could track
+            the number of messages without caring about their detailed
+            content.</p>
+        </div></div>
+
+        <p>For each token with which this method interacts, the
+          Connection tracks an &quot;interest count&quot; (like a reference count) for
+          each unique bus name that has called this method. When a client
+          calls this method, for each token, the interest count for its
+          unique bus name is incremented; when
+          <a href="Connection.html#Method:RemoveClientInterest" title="Method org.freedesktop.Telepathy.Connection.RemoveClientInterest">RemoveClientInterest</a> is called,
+          all interest counts for that unique bus name are decremented.
+          If the unique bus name leaves the bus (for instance, if the
+          client crashes or exits), all interest counts for that unique bus
+          name are set to zero.</p>
+
+        <p>The Connection can then use these reference counts to
+          avoid subscribing to protocol-level notifications unless at least
+          one client has a non-zero interest count for the relevant
+          token.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This method exists to reduce memory and network overhead when
+            there is no active subscription.</p>
+
+          <p>One situation where this is useful is <a href="Connection_Interface_Location.html" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.Location">Location</a>: on XMPP, location updates are received
+            over PEP. If the Connection advertises the
+            <code>geoloc+notify</code> capability, it will be sent location
+            updates for all contacts. To avoid consuming resources for this,
+            the connection should avoid advertising that capability until
+            a client has expressed an interest in contacts' locations.</p>
+
+          <p>Another example of a protocol that benefits from this method is
+            the Google XMPP Mail Notification extension, which can be used
+            to implement <a href="Connection_Interface_Mail_Notification.html#Client-Interest:org.freedesktop.Telepathy.Connection.Interface.MailNotification" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Client Interest org.freedesktop.Telepathy.Connection.Interface.MailNotification">MailNotification</a>. In this protocol, the CM
+            receives a notification that something has changed, but to get
+            more information, the CM must request this information. Knowing
+            that nobody is currently interested in this information, the CM
+            can avoid generating useless network traffic. Similarly, the CM
+            may free the list of unread messages to reduce memory overhead.</p>
+        </div></div>
+
+        <p>If this method is called for an interface that might require
+          protocol-level subscription, but the connection cannot set up
+          that subscription yet (for instance because the
+          <a href="Connection.html#Property:Status" title="Property org.freedesktop.Telepathy.Connection.Status">Status</a> is not Connected yet), the
+          Connection MUST remember the client's interest, and attempt to
+          subscribe to the appropriate protocol feature when this becomes
+          possible.</p>
+
+        <p>Clients MAY ignore any errors raised by this method; it is intended
+          to be called with the reply ignored.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The only reason it could fail is if it's unimplemented, in which
+            case the only thing the client can usefully do is to proceed as if
+            it had succeeded.</p>
+        </div></div>
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RemoveClientInterest"></a>
+     <span class="permalink">(<a href="Connection.html#Method:RemoveClientInterest">Permalink</a>)</span>
+     <h2>RemoveClientInterest (as: Tokens) &#8594; nothing</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.21.3. </span></div>
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Tokens &mdash; as
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Interfaces or parts of interfaces that were previously passed to
+            <a href="Connection.html#Method:AddClientInterest" title="Method org.freedesktop.Telepathy.Connection.AddClientInterest">AddClientInterest</a>.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Release an interest registered using
+          <a href="Connection.html#Method:AddClientInterest" title="Method org.freedesktop.Telepathy.Connection.AddClientInterest">AddClientInterest</a>. See that
+          method's documentation for details.</p>
+
+        <p>Clients MAY ignore any errors raised by this method; it is intended
+          to be called with the reply ignored.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The only reasons it could fail are if it's unimplemented, or if
+            the client's reference-counting is wrong and it has tried to
+            remove a client interest that it did not add. In both cases,
+            there's nothing the client could do about it.</p>
+        </div></div>
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:SelfHandleChanged"></a>
+     <span class="permalink">(<a href="Connection.html#Signal:SelfHandleChanged">Permalink</a>)</span>
+     <h2>SelfHandleChanged (u: Self_Handle)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.17.10. </span>Clients MAY assume that if the
+        SelfHandle property exists, this signal will be emitted when
+        necessary.</div>
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.27.2. </span>Use SelfContactChanged to get the
+      new SelfID at the same time</div>
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Self_Handle &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of the SelfHandle property.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted whenever the <a href="Connection.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Connection.SelfHandle">SelfHandle</a> property
+        changes. If the connection
+        is not yet in the CONNECTED state, this signal is not guaranteed
+        to be emitted.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:SelfContactChanged"></a>
+     <span class="permalink">(<a href="Connection.html#Signal:SelfContactChanged">Permalink</a>)</span>
+     <h2>SelfContactChanged (u: Self_Handle, s: Self_ID)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.27.2. </span>Clients MAY assume that if the
+        SelfHandle and SelfID property exists, this signal will be emitted when
+        necessary.</div>
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Self_Handle &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of the SelfHandle property.
+        </div>
+      
+       <li>
+       Self_ID &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of the SelfID property.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted whenever the <a href="Connection.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Connection.SelfHandle">SelfHandle</a> and
+        <a href="Connection.html#Property:SelfID" title="Property org.freedesktop.Telepathy.Connection.SelfID">SelfID</a> property
+        changes. If the connection
+        is not yet in the CONNECTED state, this signal is not guaranteed
+        to be emitted.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:NewChannel"></a>
+     <span class="permalink">(<a href="Connection.html#Signal:NewChannel">Permalink</a>)</span>
+     <h2>NewChannel (o: Object_Path, s: Channel_Type, u: Handle_Type, u: Handle, b: Suppress_Handler)</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.23. </span>Connection managers MUST still
+        emit this signal, but clients SHOULD listen for the <a href="Connection_Interface_Requests.html#Signal:NewChannels" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Signal org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannels">Requests.NewChannels</a>
+        signal instead.
+      </div>
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Object_Path &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A D-Bus object path for the channel object on this service
+        </div>
+      
+       <li>
+       Channel_Type &mdash; s
+       
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Simple Type DBus_Interface">DBus_Interface</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A D-Bus interface name representing the channel type
+        </div>
+      
+       <li>
+       Handle_Type &mdash; u
+       
+        (<a href="Connection.html#Enum:Handle_Type" title="Enum Handle_Type">Handle_Type</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An integer representing the type of handle this channel
+          communicates with, or Handle_Type_None if no handle is specified
+        </div>
+      
+       <li>
+       Handle &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Handle" title="Simple Type Handle">Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A handle indicating the specific contact, room or list this
+          channel communicates with, or zero if no handle is specified
+        </div>
+      
+       <li>
+       Suppress_Handler &mdash; b
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>If true, the channel was requested by a client that intends to
+            present it to the user itself (i.e. it passed suppress_handler=TRUE
+            to the <a href="Connection.html#Method:RequestChannel" title="Method org.freedesktop.Telepathy.Connection.RequestChannel">RequestChannel</a> method), so no
+            other handler should be
+            launched. Clients MAY assume that channels where this is true
+            were created by a user request.</p>
+
+          <p>If false, either the channel was created due to incoming
+            information from the service, or the channel was requested by
+            a local client that does not intend to handle the channel itself
+            (this usage is deprecated).</p>
+
+          <p>Clients MUST NOT assume that only incoming channels will have
+            this flag set to false.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when a new Channel object is created, either through user
+        request or incoming information from the service.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:ConnectionError"></a>
+     <span class="permalink">(<a href="Connection.html#Signal:ConnectionError">Permalink</a>)</span>
+     <h2>ConnectionError (s: Error, a{sv}: Details)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Error &mdash; s
+       
+        (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">DBus_Error_Name</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The name of a D-Bus error describing the error that occurred,
+          which may correspond to a
+          <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a>, or may be a more
+          specific Telepathy error
+          (such as
+          <code>org.freedesktop.Telepathy.Error.ConnectionRefused</code>
+          for Connection_Status_Reason_Network_Error)
+          or a protocol-specific or connection-manager-specific error in a
+          suitable namespace.
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            For instance, a SIP connection manager could signal
+            &quot;402 Payment Required&quot; as an error in a
+            connection-manager-specific namespace, or a link-local
+            XMPP implementation that used Avahi could provide the error
+            given to it by the avahi-daemon.
+          </div></div>
+        </div>
+      
+       <li>
+       Details &mdash; a{sv}
+       
+        (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Additional information about the error, which may include
+            the following well-known keys:</p>
+
+          <dl>
+            <dt>debug-message (s)</dt>
+            <dd>Debugging information on the change, corresponding to the
+              message part of a D-Bus error message, which SHOULD NOT be
+              displayed to users under normal circumstances</dd>
+
+            <dt>server-message (s)</dt>
+            <dd>A human-readable message from the server explaining what
+              happened. This may be in the user's native language, or in the
+              server operator's native language, or even in Lojban.</dd>
+
+	    <dt>user-requested (b), expected-hostname (s), certificate-hostname (s)</dt>
+	    <dd>The same details defined in <a href="Authentication_TLS_Certificate.html#Struct:TLS_Certificate_Rejection">TLS_Certificate_Rejection</a>.</dd>
+          </dl>
+
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when an error occurs that renders this connection unusable.
+        </p>
+
+        <p>Whenever this signal is emitted, it MUST immediately be followed by
+          a <a href="Connection.html#Signal:StatusChanged" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a> signal with status
+          Connection_Status_Disconnected and an appropriate reason
+          code.</p>
+
+        <p>Connection managers SHOULD emit this signal on disconnection, but
+          need not do so. Clients MUST support connection managers that emit
+          StatusChanged(Disconnected, ...) without first emitting
+          ConnectionError.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This signal provides additional information about the reason
+            for disconnection. The reason for connection is always
+            straightforward - it was requested - so it does not need further
+            explanation. However, on errors, it can be useful to provide
+            additional information.</p>
+
+          <p>The <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> is not given
+            here, since it will be signalled in
+            <a href="Connection.html#Signal:StatusChanged" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>. A reasonable client
+            implementation would be to store the information given by this
+            signal until StatusChanged is received, at which point the
+            information given by this signal can be used to supplement the
+            StatusChanged signal.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:StatusChanged"></a>
+     <span class="permalink">(<a href="Connection.html#Signal:StatusChanged">Permalink</a>)</span>
+     <h2>StatusChanged (u: Status, u: Reason)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Status &mdash; u
+       
+        (<a href="Connection.html#Enum:Connection_Status" title="Enum Connection_Status">Connection_Status</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An integer indicating the new status, as defined by ConnectionStatus
+        </div>
+      
+       <li>
+       Reason &mdash; u
+       
+        (<a href="Connection.html#Enum:Connection_Status_Reason" title="Enum Connection_Status_Reason">Connection_Status_Reason</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An integer indicating the reason for the status change, as defined
+          by ConnectionStatusReason
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the status of the connection changes.  All states and
+        reasons have numerical values, as defined in ConnectionStatus
+        and ConnectionStatusReason.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Interfaces"></a>
+     <span class="permalink">(<a href="Connection.html#Property:Interfaces">Permalink</a>)</span>
+     <h2>
+      Interfaces &mdash; as
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.19.2. </span>Clients SHOULD fall back
+        to calling <a href="Connection.html#Method:GetInterfaces" title="Method org.freedesktop.Telepathy.Connection.GetInterfaces">GetInterfaces</a> if this
+        property is not supported.</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The set of optional interfaces supported by this connection.
+          Before the connection status changes to CONNECTED,
+          this property may change at any time, but it is guaranteed that
+          interfaces will only be added, not removed. After the connection
+          status changes to CONNECTED, this property cannot
+          change further.</p>
+
+        <p>There is no explicit change notification; reasonable behaviour
+          for a client would be to retrieve the interfaces list once
+          initially, and once more when it becomes CONNECTED.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>In some connection managers, certain capabilities of a connection
+            are known to be implemented for all connections (e.g. support
+            for SimplePresence), and some interfaces (like SimplePresence) can
+            even be used before connecting. Other capabilities may
+            or may not exist, depending on server functionality; by the time
+            the connection goes CONNECTED, the connection manager is expected
+            to have evaluated the server's functionality and enabled any extra
+            interfaces for the remainder of the Connection's lifetime.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SelfHandle"></a>
+     <span class="permalink">(<a href="Connection.html#Property:SelfHandle">Permalink</a>)</span>
+     <h2>
+      SelfHandle &mdash; u
+      
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.10. </span>For compatibility with older
+        versions, clients should fall back to calling the
+        <a href="Connection.html#Method:GetSelfHandle" title="Method org.freedesktop.Telepathy.Connection.GetSelfHandle">GetSelfHandle</a>
+        method.</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The handle which represents the user on this connection, which will
+        remain valid for the lifetime of this connection, or until a change
+        in the user's identifier is signalled by the
+        <a href="Connection.html#Signal:SelfContactChanged" title="Signal org.freedesktop.Telepathy.Connection.SelfContactChanged">SelfContactChanged</a> signal.
+        If the connection is not yet in the CONNECTED state, the value of
+        this property MAY be zero.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SelfID"></a>
+     <span class="permalink">(<a href="Connection.html#Property:SelfID">Permalink</a>)</span>
+     <h2>
+      SelfID &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.27.2. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The identifier which represents the user on this connection, which will
+        remain valid for the lifetime of this connection, or until a change
+        in the user's identifier is signalled by the
+        <a href="Connection.html#Signal:SelfContactChanged" title="Signal org.freedesktop.Telepathy.Connection.SelfContactChanged">SelfContactChanged</a> signal.
+        If the connection is not yet in the CONNECTED state, the value of
+        this property MAY be empty string.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Status"></a>
+     <span class="permalink">(<a href="Connection.html#Property:Status">Permalink</a>)</span>
+     <h2>
+      Status &mdash; u
+      
+        (<a href="Connection.html#Enum:Connection_Status" title="Enum Connection_Status">Connection_Status</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.19.2. </span>Clients SHOULD fall back
+        to calling <a href="Connection.html#Method:GetStatus" title="Method org.freedesktop.Telepathy.Connection.GetStatus">GetStatus</a> if this
+        property is not supported.</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The current status of the connection. Change notification is via
+          the <a href="Connection.html#Signal:StatusChanged" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a> signal.</p>
+
+        <p>If retrieval of property succeeds and yields the value Disconnected,
+          this indicates that the connection has not yet been established.
+          If connection has been attempted and failed, the Connection object
+          SHOULD be removed from the bus entirely, meaning that retrieval of
+          this property SHOULD fail.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:HasImmortalHandles"></a>
+     <span class="permalink">(<a href="Connection.html#Property:HasImmortalHandles">Permalink</a>)</span>
+     <h2>
+      HasImmortalHandles &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.21.6. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>True if handles last for the whole lifetime of the Connection.
+          This SHOULD be the case in all connection managers, but clients
+          MUST interoperate with older connection managers
+          (which reference-count handles).</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset contact-attributes">
+    <a name="contact-attributes"></a>
+    <h1>Contact Attributes</h1>
+    <div>
+      Attributes that a contact can have, accessed with the
+      org.freedesktop.Telepathy.Connection.Interface.Contacts interface.
+    </div>
+    
+    <div class="inset contact-attribute">
+     <a name="Contact-Attribute:contact-id"></a>
+     <span class="permalink">(<a href="Connection.html#Contact-Attribute:contact-id">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Connection/contact-id &mdash; s
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The same string that would be returned by
+          <a href="Connection.html#Method:InspectHandles" title="Method org.freedesktop.Telepathy.Connection.InspectHandles">InspectHandles</a>. As a special case,
+          this is always present in the result of <a href="Connection_Interface_Contacts.html#Method:GetContactAttributes" namespace="org.freedesktop.Telepathy.Connection.Interface.Contacts" title="Method org.freedesktop.Telepathy.Connection.Interface.Contacts.GetContactAttributes">GetContactAttributes</a>,
+          whether it was explicitly requested or not.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Handle"></a>
+      <span class="permalink">Simple Type (<a href="Connection.html#Simple-Type:Handle">Permalink</a>)</span>
+      <h2>
+       Handle &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">An unsigned 32-bit integer representing a
+        handle</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Contact_Handle"></a>
+      <span class="permalink">Simple Type (<a href="Connection.html#Simple-Type:Contact_Handle">Permalink</a>)</span>
+      <h2>
+       Contact_Handle &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">An unsigned 32-bit integer representing a handle of type
+        Handle_Type_Contact</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Room_Handle"></a>
+      <span class="permalink">Simple Type (<a href="Connection.html#Simple-Type:Room_Handle">Permalink</a>)</span>
+      <h2>
+       Room_Handle &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">An unsigned 32-bit integer representing a handle of type
+        Handle_Type_Room</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:List_Handle"></a>
+      <span class="permalink">Simple Type (<a href="Connection.html#Simple-Type:List_Handle">Permalink</a>)</span>
+      <h2>
+       List_Handle &mdash; u
+      </h2>
+
+      
+      
+      <div class="annotation deprecated"><span class="version">Deprecated since 0.25.0. </span>Replaced by <a href="Connection_Interface_Contact_List.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection.Interface.ContactList">Connection.Interface.ContactList</a>
+      </div>
+      <div class="docstring">An unsigned 32-bit integer representing a handle of type
+        Handle_Type_List</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Group_Handle"></a>
+      <span class="permalink">Simple Type (<a href="Connection.html#Simple-Type:Group_Handle">Permalink</a>)</span>
+      <h2>
+       Group_Handle &mdash; u
+      </h2>
+
+      
+      
+      <div class="annotation deprecated"><span class="version">Deprecated since 0.25.0. </span>Replaced by <a href="Connection_Interface_Contact_List.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection.Interface.ContactList">Connection.Interface.ContactList</a>
+      </div>
+      <div class="docstring">An unsigned 32-bit integer representing a handle of type
+        Handle_Type_Group</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Handle_Type"></a>
+      <span class="permalink">Enum (<a href="Connection.html#Enum:Handle_Type">Permalink</a>)</span>
+      <h2>
+       Handle_Type &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>None (0)</li>
+<div class="docstring">
+          A &quot;null&quot; handle type used to indicate the absence of a handle.
+          When a handle type and a handle appear as a pair, if the handle
+          type is zero, the handle must also be zero.
+        </div><li>Contact (1)</li>
+<div class="docstring">
+          A contact
+        </div><li>Room (2)</li>
+<div class="docstring">
+          A chat room
+        </div><li>List (3)</li>
+<div class="annotation deprecated"><span class="version">Deprecated since 0.25.0. </span>Replaced by <a href="Connection_Interface_Contact_List.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection.Interface.ContactList">Connection.Interface.ContactList</a>
+        </div><div class="docstring">
+          A server-generated contact list (see Channel.Interface.Group)
+        </div><li>Group (4)</li>
+<div class="annotation deprecated"><span class="version">Deprecated since 0.25.0. </span>Replaced by <a href="Connection_Interface_Contact_List.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection.Interface.ContactList">Connection.Interface.ContactList</a>
+        </div><div class="docstring">
+          A user-defined contact list (see Channel.Interface.Group)
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Connection_Status"></a>
+      <span class="permalink">Enum (<a href="Connection.html#Enum:Connection_Status">Permalink</a>)</span>
+      <h2>
+       Connection_Status &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Connected (0)</li>
+<div class="docstring">
+          The connection is fully connected and all methods are available.
+        </div><li>Connecting (1)</li>
+<div class="docstring">
+          <a href="Connection.html#Method:Connect" title="Method org.freedesktop.Telepathy.Connection.Connect">Connect</a> has been called but the
+          connection has not yet been established. Some methods may fail
+          until the connection has been established.
+        </div><li>Disconnected (2)</li>
+<div class="docstring">
+          If this is retrieved from <a href="Connection.html#Method:GetStatus" title="Method org.freedesktop.Telepathy.Connection.GetStatus">GetStatus</a> or
+          <a href="Connection.html#Property:Status" title="Property org.freedesktop.Telepathy.Connection.Status">Status</a>, it indicates that connection
+          has not yet been attempted. If seen in a
+          <a href="Connection.html#Signal:StatusChanged" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a> signal, it indicates
+          that the connection has failed; the Connection object SHOULD be
+          removed from D-Bus immediately, and all subsequent method calls
+          SHOULD fail.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Connection_Status_Reason"></a>
+      <span class="permalink">Enum (<a href="Connection.html#Enum:Connection_Status_Reason">Permalink</a>)</span>
+      <h2>
+       Connection_Status_Reason &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A reason why the status of the connection changed. Apart from
+          Requested, the values of this enumeration only make sense as
+          reasons why the status changed to Disconnected.</p>
+      </div>
+      <ul>
+<li>None_Specified (0)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>There is no reason set for this state change. Unknown status
+            reasons SHOULD be treated like this reason.</p>
+
+          <p>When disconnected for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.<a href="errors.html#Error:Disconnected" title="org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></code>.</p>
+        </div><li>Requested (1)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The change is in response to a user request. Changes to the
+            Connecting or Connected status SHOULD always indicate this reason;
+            changes to the Disconnected status SHOULD indicate this reason
+            if and only if the disconnection was requested by the user.</p>
+
+          <p>When disconnected for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Cancelled</code>.</p>
+        </div><li>Network_Error (2)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>There was an error sending or receiving on the network socket.</p>
+
+          <p>When the status changes from Connecting to Disconnected for this
+            reason, the equivalent D-Bus error is either
+            <code>org.freedesktop.Telepathy.Error.NetworkError</code>,
+            <code>org.freedesktop.Telepathy.Error.ConnectionRefused</code>,
+            <code>org.freedesktop.Telepathy.Error.ConnectionFailed</code>
+            or some more specific error.</p>
+
+          <p>When the status changes from Connected to Disconnected for this
+            reason, the equivalent D-Bus error is either
+            <code>org.freedesktop.Telepathy.Error.NetworkError</code>,
+            <code>org.freedesktop.Telepathy.Error.ConnectionLost</code>
+            or some more specific error.</p>
+        </div><li>Authentication_Failed (3)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The username or password was invalid.</p>
+
+          <p>When disconnected for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.AuthenticationFailed</code>.
+          </p>
+        </div><li>Encryption_Error (4)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>There was an error negotiating SSL on this connection, or
+            encryption was unavailable and require-encryption was set when the
+            connection was created.</p>
+
+          <p>When disconnected for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.EncryptionNotAvailable</code>
+            if encryption was not available at all, or
+            <code>org.freedesktop.Telepathy.Error.EncryptionError</code>
+            if encryption failed.</p>
+        </div><li>Name_In_Use (5)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>In general, this reason indicates that the requested account
+            name or other identification could not be used due to conflict
+            with another connection. It can be divided into three cases:</p>
+
+          <ul>
+            <li>If the status change is from Connecting to Disconnected
+              and the 'register' parameter to RequestConnection was present
+              and true, the requested account could not be created on the
+              server because it already exists.
+              The equivalent D-Bus error is
+              <code>org.freedesktop.Telepathy.Error.RegistrationExists</code>.
+            </li>
+
+            <li>If the status change is from Connecting to Disconnected
+              but the 'register' parameter is absent or false, the connection
+              manager could not connect to the specified account because
+              a connection to that account already exists.
+              The equivalent D-Bus error is
+              <code>org.freedesktop.Telepathy.Error.AlreadyConnected</code>.
+
+              <div class="rationale"><h5>Rationale:</h5><div>
+                In some protocols, like XMPP (when connecting with the same
+                JID and resource as an existing connection), the existing
+                connection &quot;wins&quot; and the new one fails to connect.
+              </div></div>
+            </li>
+
+            <li>If the status change is from Connected to Disconnected,
+              the existing connection was automatically disconnected because
+              a new connection to the same account (perhaps from a different
+              client or location) was established.
+              The equivalent D-Bus error is
+              <code>org.freedesktop.Telepathy.Error.ConnectionReplaced</code>.
+
+              <div class="rationale"><h5>Rationale:</h5><div>
+                In some protocols, like MSNP (when connecting twice with the
+                same Passport), the new connection &quot;wins&quot; and the
+                existing one is automatically disconnected.
+              </div></div>
+            </li>
+          </ul>
+        </div><li>Cert_Not_Provided (6)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The server did not provide a SSL certificate.</p>
+
+          <p>When disconnected for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Cert.NotProvided</code>.
+          </p>
+        </div><li>Cert_Untrusted (7)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The server's SSL certificate is signed by an untrusted certifying
+            authority. This error SHOULD NOT be used to represent a self-signed
+            certificate: use the more specific Cert_Self_Signed reason for
+            that.</p>
+
+          <p>When disconnected for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Cert.Untrusted</code>.
+          </p>
+        </div><li>Cert_Expired (8)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The server's SSL certificate has expired.</p>
+
+          <p>When disconnected for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Cert.Expired</code>.
+          </p>
+        </div><li>Cert_Not_Activated (9)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The server's SSL certificate is not yet valid.</p>
+
+          <p>When disconnected for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Cert.NotActivated</code>.
+          </p>
+        </div><li>Cert_Hostname_Mismatch (10)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The server's SSL certificate did not match its hostname.</p>
+
+          <p>When disconnected for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Cert.HostnameMismatch</code>.
+          </p>
+        </div><li>Cert_Fingerprint_Mismatch (11)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The server's SSL certificate does not have the expected
+            fingerprint.</p>
+
+          <p>When disconnected for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Cert.FingerprintMismatch</code>.
+          </p>
+        </div><li>Cert_Self_Signed (12)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The server's SSL certificate is self-signed.</p>
+
+          <p>When disconnected for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Cert.SelfSigned</code>.
+          </p>
+        </div><li>Cert_Other_Error (13)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>There was some other error validating the server's SSL
+            certificate.</p>
+
+          <p>When disconnected for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Cert.Invalid</code>.
+          </p>
+        </div><li>Cert_Revoked (14)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The server's SSL certificate has been revoked.</p>
+
+          <p>When disconnected for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Cert.Revoked</code>.
+          </p>
+        </div><li>Cert_Insecure (15)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The server's SSL certificate uses an insecure algorithm,
+	  or is cryptographically weak.</p>
+
+          <p>When disconnected for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Cert.Insecure</code>.
+          </p>
+        </div><li>Cert_Limit_Exceeded (16)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+	  <p>The length in bytes of the server certificate, or the depth of the
+	  sever certificate chain exceed the limits imposed by the crypto
+	  library.</p>
+
+	  <p>When disconnected for this reason, the equivalent D-Bus error is
+	    <code>org.freedesktop.Telepathy.Error.Cert.LimitExceeded</code>
+	  </p>
+	</div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Channel_Info"></a>
+      <span class="permalink">Struct (<a href="Connection.html#Struct:Channel_Info">Permalink</a>)</span>
+      <h2>
+       Channel_Info &mdash; (osuu)
+      </h2>
+
+      
+      
+      <div class="annotation deprecated"><span class="version">Deprecated since 0.17.23. </span></div>
+      <div class="docstring">A struct representing a channel, as returned by
+        ListChannels on the Connection interface.</div>
+      <ul>
+<li>Channel &mdash; o</li>
+<div class="docstring">The object path of the channel, which is on the
+          same bus name as the connection</div><li>Channel_Type &mdash; s (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Simple Type DBus_Interface">DBus_Interface</a>)</li>
+<div class="docstring">The channel's type</div><li>Handle_Type &mdash; u (<a href="Connection.html#Enum:Handle_Type" title="Enum Handle_Type">Handle_Type</a>)</li>
+<div class="docstring">The type of the handle that the channel communicates
+          with, or Handle_Type_None if there is no associated
+          handle</div><li>Handle &mdash; u (<a href="Connection.html#Simple-Type:Handle" title="Simple Type Handle">Handle</a>)</li>
+<div class="docstring">The handle that the channel communicates with,
+          or 0 if there is no associated handle</div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

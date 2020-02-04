@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>AccountManager &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.AccountManager'>AccountManager</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Account_Manager.html#Method:CreateAccount">CreateAccount</a></td>
+       <td>(s: Connection_Manager, s: Protocol, s: Display_Name, a{sv}: Parameters, a{sv}: Properties)</td>
+       <td>&#8594;</td>
+       <td>o: Account</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Account_Manager.html#Signal:AccountRemoved">AccountRemoved</a></td>
+       <td>(o: Account)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account_Manager.html#Signal:AccountValidityChanged">AccountValidityChanged</a></td>
+       <td>(o: Account, b: Valid)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Account_Manager.html#Property:Interfaces">Interfaces</a></td>
+       <td>
+        as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">
+              DBus_Interface_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account_Manager.html#Property:ValidAccounts">ValidAccounts</a></td>
+       <td>
+        ao
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account_Manager.html#Property:InvalidAccounts">InvalidAccounts</a></td>
+       <td>
+        ao
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account_Manager.html#Property:SupportedAccountProperties">SupportedAccountProperties</a></td>
+       <td>
+        as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Qualified_Member" title="Array of Simple Type DBus_Qualified_Member">
+              DBus_Qualified_Member_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.2. </span></div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>The account manager is a central service used to store account
+        details.</p>
+
+      <p>The current account manager is defined to be the process that owns
+        the well-known bus name <tt>org.freedesktop.Telepathy.AccountManager</tt> on
+        the session bus. This process must export an
+        <tt>/org/freedesktop/Telepathy/AccountManager</tt> object with the
+        AccountManager interface.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:CreateAccount"></a>
+     <span class="permalink">(<a href="Account_Manager.html#Method:CreateAccount">Permalink</a>)</span>
+     <h2>CreateAccount (s: Connection_Manager, s: Protocol, s: Display_Name, a{sv}: Parameters, a{sv}: Properties) &#8594; o: Account</h2>
+
+     
+     <div class="annotation changed"><span class="version">Changed in 0.17.24. </span>added the Properties argument</div>
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Connection_Manager &mdash; s
+        
+          (<a href="Connection_Manager.html#Simple-Type:Connection_Manager_Name" title="Simple Type Connection_Manager_Name">Connection_Manager_Name</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The name of the connection manager, e.g. &quot;salut&quot;.
+        </div>
+      
+       <li>
+        Protocol &mdash; s
+        
+          (<a href="Connection_Manager.html#Simple-Type:Protocol" title="Simple Type Protocol">Protocol</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The protocol, e.g. &quot;local-xmpp&quot;.</div>
+      
+       <li>
+        Display_Name &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The initial value of the new account's <a href="Account.html#Property:DisplayName" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.DisplayName">DisplayName</a>
+          property. The account manager SHOULD modify this to make it unique if
+          an Account already exists with the same display name, for instance by
+          appending a number or the 'account' parameter. Account manager
+          implementations SHOULD accept an empty string, but account editing
+          user interfaces should avoid passing an empty string for this
+          parameter.
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>The account creation UI may ask the user for a name for the new
+              account. If the author of the UI chooses not to do this, the
+              account creation UI is better able to suggest a default display
+              name because it has protocol-specific knowledge which the account
+              manager does not.</p>
+
+            <p>The account manager always knows the complete list of accounts so
+              it can easily tell whether it should append something to the
+              display name to avoid presenting two identically-named accounts to
+              the user.</p>
+          </div></div>
+        </div>
+      
+       <li>
+        Parameters &mdash; a{sv}
+        
+       </li>
+       
+       
+       
+       <div class="docstring">Initial parameter values, as would be passed to
+          <a href="Connection_Manager.html#Method:RequestConnection" namespace="org.freedesktop.Telepathy.ConnectionManager" title="Method org.freedesktop.Telepathy.ConnectionManager.RequestConnection">RequestConnection</a>.</div>
+      
+       <li>
+        Properties &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The values of any other properties to be set immediately on the
+            new Account.</p>
+
+          <p>Only the properties mentioned in
+            <a href="Account_Manager.html#Property:SupportedAccountProperties" title="Property org.freedesktop.Telepathy.AccountManager.SupportedAccountProperties">SupportedAccountProperties</a> are
+            acceptable here. In particular, the <a href="Account.html#Property:DisplayName" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.DisplayName">DisplayName</a>
+            and <a href="Account.html#Property:Parameters" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.Parameters">Parameters</a>
+            properties are never allowed here, since they are set using the other
+            arguments to this method.</p>
+
+          <p>Account manager implementations SHOULD support creating accounts
+            with an empty value for this argument.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Account &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The new <a href="Account.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Account">Account</a>.</div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Request the creation of a new <a href="Account.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Account">Account</a>. The
+        account manager SHOULD NOT allow invalid accounts to be created.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+            <p>The <var>Connection_Manager</var> is not installed or does not
+              implement the given <var>Protocol</var>.</p>
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+            <p>The <var>Parameters</var> provided were unacceptable: they might
+              omit a
+              <a href="Connection_Manager.html#Flags:Conn_Mgr_Param_Flags" type="Conn_Mgr_Param_Flags">Required</a>
+              parameter, include an unsupported parameter, or have a value of
+              the wrong type.</p>
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:AccountRemoved"></a>
+     <span class="permalink">(<a href="Account_Manager.html#Signal:AccountRemoved">Permalink</a>)</span>
+     <h2>AccountRemoved (o: Account)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Account &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An Account, which must not be used any more.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        The given account has been removed.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          This is effectively change notification for the valid and invalid
+          accounts lists. On emission of this signal, the Account indicated
+          will no longer be present in either of the lists.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:AccountValidityChanged"></a>
+     <span class="permalink">(<a href="Account_Manager.html#Signal:AccountValidityChanged">Permalink</a>)</span>
+     <h2>AccountValidityChanged (o: Account, b: Valid)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Account &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An <a href="Account.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Account">Account</a>.
+        </div>
+      
+       <li>
+       Valid &mdash; b
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          True if the account is now valid.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        The validity of the given account has changed. New accounts are
+        also indicated by this signal, as an account validity change
+        (usually to True) on an account that did not previously exist.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          This is effectively change notification for the valid and invalid
+          accounts lists.
+        </div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Interfaces"></a>
+     <span class="permalink">(<a href="Account_Manager.html#Property:Interfaces">Permalink</a>)</span>
+     <h2>
+      Interfaces &mdash; as
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        A list of the interfaces provided by the account manager object.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ValidAccounts"></a>
+     <span class="permalink">(<a href="Account_Manager.html#Property:ValidAccounts">Permalink</a>)</span>
+     <h2>
+      ValidAccounts &mdash; ao
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        A list of the valid (complete, usable) <a href="Account.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Account">Account</a>s. Change
+        notification is via
+        <a href="Account_Manager.html#Signal:AccountValidityChanged" title="Signal org.freedesktop.Telepathy.AccountManager.AccountValidityChanged">AccountValidityChanged</a>.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          This split between valid and invalid accounts makes it easy to
+          ignore the invalid ones. The only things that should be manipulating
+          invalid accounts are account-editing UIs, which might be able to
+          rescue them.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:InvalidAccounts"></a>
+     <span class="permalink">(<a href="Account_Manager.html#Property:InvalidAccounts">Permalink</a>)</span>
+     <h2>
+      InvalidAccounts &mdash; ao
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        A list of incomplete or otherwise unusable <a href="Account.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Account">Account</a>s. Change
+        notification is via
+        <a href="Account_Manager.html#Signal:AccountValidityChanged" title="Signal org.freedesktop.Telepathy.AccountManager.AccountValidityChanged">AccountValidityChanged</a>.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SupportedAccountProperties"></a>
+     <span class="permalink">(<a href="Account_Manager.html#Property:SupportedAccountProperties">Permalink</a>)</span>
+     <h2>
+      SupportedAccountProperties &mdash; as
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Qualified_Member" title="Array of Simple Type DBus_Qualified_Member">DBus_Qualified_Member_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.24. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A list of the fully qualified names of properties that can be set
+          via the Properties argument to
+          <a href="Account_Manager.html#Method:CreateAccount" title="Method org.freedesktop.Telepathy.AccountManager.CreateAccount">CreateAccount</a> when an account is
+          created.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Examples of good properties to support here include
+            <a href="Account.html#Property:Icon" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.Icon">Icon</a>,
+            <a href="Account.html#Property:Enabled" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.Enabled">Enabled</a>,
+            <a href="Account.html#Property:Nickname" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.Nickname">Nickname</a>,
+            <a href="Account.html#Property:AutomaticPresence" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.AutomaticPresence">AutomaticPresence</a>,
+            <a href="Account.html#Property:ConnectAutomatically" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.ConnectAutomatically">ConnectAutomatically</a>,
+            <a href="Account.html#Property:Supersedes" namespace="ofdT.Account" title="Property org.freedesktop.Telepathy.Account.Supersedes">Supersedes</a>,
+            <a href="Account.html#Property:RequestedPresence" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.RequestedPresence">RequestedPresence</a>
+            and
+            <a href="Account_Interface_Avatar.html#Property:Avatar" namespace="org.freedesktop.Telepathy.Account.Interface.Avatar" title="Property org.freedesktop.Telepathy.Account.Interface.Avatar.Avatar">Avatar</a>.
+            </p>
+
+          <p>Examples of properties that would make no sense here include
+            <a href="Account.html#Property:Valid" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.Valid">Valid</a>,
+            <a href="Account.html#Property:Connection" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.Connection">Connection</a>,
+            <a href="Account.html#Property:ConnectionStatus" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.ConnectionStatus">ConnectionStatus</a>,
+            <a href="Account.html#Property:ConnectionStatusReason" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.ConnectionStatusReason">ConnectionStatusReason</a>,
+            <a href="Account.html#Property:CurrentPresence" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.CurrentPresence">CurrentPresence</a>
+            and
+            <a href="Account.html#Property:NormalizedName" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.NormalizedName">NormalizedName</a>.
+          </p>
+        </div></div>
+
+        <p>This property MUST NOT include include the <a href="Account.html#Property:DisplayName" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.DisplayName">DisplayName</a>
+          and <a href="Account.html#Property:Parameters" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.Parameters">Parameters</a>
+          properties, which are set using separate arguments.</p>
+
+        <p>This property MAY include the names of properties that, after
+          account creation, will be read-only: this indicates that the property
+          can be set at account creation but not changed later.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>For example, an account manager might support migration tools that
+            use this to preserve the <a href="Account.html#Property:HasBeenOnline" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.HasBeenOnline">HasBeenOnline</a>
+            property, even though that property is usually read-only.</p>
+        </div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Call1.I.Mute &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Call1.Interface.Mute'>Call1.Interface.Mute</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Interface_Mute.html#Method:RequestMuted">RequestMuted</a></td>
+       <td>(b: Muted)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Interface_Mute.html#Signal:MuteStateChanged">MuteStateChanged</a></td>
+       <td>(u: MuteState)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Interface_Mute.html#Property:LocalMuteState">LocalMuteState</a></td>
+       <td>
+        u
+        
+          (<a href="Call_Interface_Mute.html#Enum:Local_Mute_State" title="Enum Local_Mute_State">
+              Local_Mute_State</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Interface_Mute.html#Enum:Local_Mute_State">Local_Mute_State</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is experimental and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   <div class="annotation added"><span class="version">Added in 0.25.2. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+     <li>
+      
+       <a href="Channel_Type_Call.html" title="Interface org.freedesktop.Telepathy.Channel.Type.Call1">org.freedesktop.Telepathy.Channel.Type.Call1</a>
+        <strong>or</strong> 
+      
+       <a href="Call_Content.html" title="Interface org.freedesktop.Telepathy.Call1.Content">org.freedesktop.Telepathy.Call1.Content</a>
+        <strong>or</strong> 
+      
+       <a href="Call_Stream.html" title="Interface org.freedesktop.Telepathy.Call1.Stream">org.freedesktop.Telepathy.Call1.Stream</a>
+       
+      
+     </li>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>Interface for calls which may be muted.  This only makes sense
+        for channels where audio or video is streaming between members.</p>
+
+      <p>Muting a call content indicates that the user does not wish to send
+        outgoing audio or video.</p>
+
+      <p>It should always be possible to mute an entire call. It is sometimes
+        also possible to mute individual Contents (e.g. to prevent background
+        noise from disturbing other participants, but remain visible on
+        webcam) or to mute individual streams (e.g. to &quot;whisper&quot; to other call
+        participants)</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        For some protocols, the fact that the content is muted needs
+        to be transmitted to the peer; for others, the notification
+        to the peer is only informational (eg. XMPP), and some
+        protocols may have no notion of muting at all.
+      </div></div>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:RequestMuted"></a>
+     <span class="permalink">(<a href="Call_Interface_Mute.html#Method:RequestMuted">Permalink</a>)</span>
+     <h2>RequestMuted (b: Muted) &#8594; nothing</h2>
+
+     
+     <div class="annotation changed"><span class="version">Changed in 0.21.2. </span>renamed from SetMuted to Mute</div>
+<div class="annotation changed"><span class="version">Changed in 0.21.3. </span>renamed back from Mute to SetMuted</div>
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Muted &mdash; b
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          True if the client wishes to mute the Content or Call.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        <p>Inform the CM that the Call, Content or Stream should be muted or
+          unmuted.</p>
+
+        <p>The CM will tell the streaming implementation to Mute Streams as
+          required, and emit <a href="Call_Interface_Mute.html#Signal:MuteStateChanged" title="Signal org.freedesktop.Telepathy.Call1.Interface.Mute.MuteStateChanged">MuteStateChanged</a>
+          when done.</p>
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:MuteStateChanged"></a>
+     <span class="permalink">(<a href="Call_Interface_Mute.html#Signal:MuteStateChanged">Permalink</a>)</span>
+     <h2>MuteStateChanged (u: MuteState)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       MuteState &mdash; u
+       
+        (<a href="Call_Interface_Mute.html#Enum:Local_Mute_State" title="Enum Local_Mute_State">Local_Mute_State</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new mute state.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted to indicate that the mute state has changed for this call content.
+        This may occur as a consequence of the client calling
+        <a href="Call_Interface_Mute.html#Method:RequestMuted" title="Method org.freedesktop.Telepathy.Call1.Interface.Mute.RequestMuted">RequestMuted</a>, or as an indication that another
+        client has (un)muted the content.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:LocalMuteState"></a>
+     <span class="permalink">(<a href="Call_Interface_Mute.html#Property:LocalMuteState">Permalink</a>)</span>
+     <h2>
+      LocalMuteState &mdash; u
+      
+        (<a href="Call_Interface_Mute.html#Enum:Local_Mute_State" title="Enum Local_Mute_State">Local_Mute_State</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The current mute state of this part of the call. New
+        <a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a>s should
+        inherit the value of this property from the parent
+        <a href="Channel_Type_Call.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Call1">Call1</a>.
+        Similarly, <a href="Call_Stream.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Stream">Stream</a>s
+        should inherit it from the parent <a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a>.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Local_Mute_State"></a>
+      <span class="permalink">Enum (<a href="Call_Interface_Mute.html#Enum:Local_Mute_State">Permalink</a>)</span>
+      <h2>
+       Local_Mute_State &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        The mute state of (at least part of) the call. See
+        <a href="Call_Interface_Mute.html#Property:LocalMuteState" title="Property org.freedesktop.Telepathy.Call1.Interface.Mute.LocalMuteState">LocalMuteState</a> for more details.
+      </div>
+      <ul>
+<li>Unmuted (0)</li>
+<div class="docstring">
+          All streams are unmuted (the call is active). New channels SHOULD
+          have this mute state.
+        </div><li>Muted (1)</li>
+<div class="docstring">
+          All streams are Muted.
+        </div><li>Pending_Mute (2)</li>
+<div class="docstring">
+          The connection manager is attempting to move to state Muted, but
+          has not yet completed that operation. It is unspecified whether
+          any, all or none of the streams making up the channel are muted.
+          Examining the Mute state of Call Contents (if applicable) may
+          provide more useful information.
+        </div><li>Pending_Unmute (3)</li>
+<div class="docstring">
+          The connection manager is attempting to move to state Unmuted, but
+          has not yet completed that operation. It is unspecified whether
+          any, all or none of the streams making up the channel are muted.
+          Examining the Mute state of Call Contents or Streams may
+          provide more useful information.
+        </div><li>Partially_Muted (4)</li>
+<div class="docstring">
+          Some of the constituent Streams are Muted. This state only makes
+          sense on Call Channels or Contents.
+          Examining the Mute state of Call Contents or Streams should
+          provide more useful information.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

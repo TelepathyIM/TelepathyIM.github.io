@@ -1,0 +1,1792 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.T.Tubes &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Type.Tubes'>Channel.Type.Tubes</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+   
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Method:GetAvailableStreamTubeTypes">GetAvailableStreamTubeTypes</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>a{uau}: Available_Stream_Tube_Types</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Method:GetAvailableTubeTypes">GetAvailableTubeTypes</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>au: Available_Tube_Types</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Method:ListTubes">ListTubes</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>a(uuusa{sv}u): Tubes</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Method:OfferDBusTube">OfferDBusTube</a></td>
+       <td>(s: Service, a{sv}: Parameters)</td>
+       <td>&#8594;</td>
+       <td>u: Tube_ID</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Method:OfferStreamTube">OfferStreamTube</a></td>
+       <td>(s: Service, a{sv}: Parameters, u: Address_Type, v: Address, u: Access_Control, v: Access_Control_Param)</td>
+       <td>&#8594;</td>
+       <td>u: Tube_ID</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Method:AcceptDBusTube">AcceptDBusTube</a></td>
+       <td>(u: ID)</td>
+       <td>&#8594;</td>
+       <td>s: Address</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Method:AcceptStreamTube">AcceptStreamTube</a></td>
+       <td>(u: ID, u: Address_Type, u: Access_Control, v: Access_Control_Param)</td>
+       <td>&#8594;</td>
+       <td>v: Address</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Method:CloseTube">CloseTube</a></td>
+       <td>(u: ID)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Method:GetDBusTubeAddress">GetDBusTubeAddress</a></td>
+       <td>(u: ID)</td>
+       <td>&#8594;</td>
+       <td>s: Address</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Method:GetDBusNames">GetDBusNames</a></td>
+       <td>(u: ID)</td>
+       <td>&#8594;</td>
+       <td>a(us): DBus_Names</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Method:GetStreamTubeSocketAddress">GetStreamTubeSocketAddress</a></td>
+       <td>(u: ID)</td>
+       <td>&#8594;</td>
+       <td>u: Address_Type, v: Address</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Signal:NewTube">NewTube</a></td>
+       <td>(u: ID, u: Initiator, u: Type, s: Service, a{sv}: Parameters, u: State)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Signal:TubeStateChanged">TubeStateChanged</a></td>
+       <td>(u: ID, u: State)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Signal:TubeClosed">TubeClosed</a></td>
+       <td>(u: ID)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Signal:DBusNamesChanged">DBusNamesChanged</a></td>
+       <td>(u: ID, a(us): Added, au: Removed)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Signal:StreamTubeNewConnection">StreamTubeNewConnection</a></td>
+       <td>(u: ID, u: Handle)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Simple-Type:Tube_ID">Tube_ID</a></td>
+       <td>Simple Type</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Enum:Tube_Type">Tube_Type</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Enum:Tube_State">Tube_State</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Mapping:Supported_Socket_Map">Supported_Socket_Map</a></td>
+       <td>Mapping</td>
+       <td>a{uau}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Struct:Tube_Info">Tube_Info</a></td>
+       <td>Struct</td>
+       <td>(uuusa{sv}u)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Tubes.html#Struct:DBus_Tube_Member">DBus_Tube_Member</a></td>
+       <td>Struct</td>
+       <td>(us)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   
+   
+   <div class="annotation deprecated"><span class="version">Deprecated since 0.17.25. </span>Client implementations
+      SHOULD use <a href="Channel_Type_Stream_Tube.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamTube">StreamTube</a> and
+        <a href="Channel_Type_DBus_Tube.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.DBusTube">DBusTube</a>
+      instead.</div>
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>A &quot;tube&quot; is a mechanism for arbitrary data transfer. Two types of
+        data transfer are currently specified: D-Bus messages, and streams of
+        bytes. Each tube has a service name, which is a string specifying the
+        kind of communication that takes place over it, and a dictionary of
+        arbitrary parameters. Tube parameters are commonly used for bootstrap
+        information such as usernames and passwords. Each tube is identified
+        by a locally unique identifier.</p>
+
+       <p>The Tubes channel type may be requested for handles of type
+         HANDLE_TYPE_CONTACT and HANDLE_TYPE_ROOM.</p>
+
+       <p>Stream tubes specify listening addresses using pairs of parameters
+         with signature 'u', 'v', where the integer 'u' is a member of
+         Socket_Address_Type and the v is dependent on the type of address.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:GetAvailableStreamTubeTypes"></a>
+     <span class="permalink">(<a href="Channel_Type_Tubes.html#Method:GetAvailableStreamTubeTypes">Permalink</a>)</span>
+     <h2>GetAvailableStreamTubeTypes () &#8594; a{uau}: Available_Stream_Tube_Types</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Available_Stream_Tube_Types &mdash; a{uau}
+        
+          (<a href="Channel_Type_Tubes.html#Mapping:Supported_Socket_Map" title="Mapping Supported_Socket_Map">Supported_Socket_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A mapping from address types (members of Socket_Address_Type) to
+          arrays of access-control type (members of Socket_Access_Control)
+          that the connection manager supports for stream tubes with that
+          address type. For simplicity, if a CM supports offering a
+          particular type of tube, it is assumed to support accepting it.</p>
+
+          <p>A typical value for a host without IPv6 support:</p>
+
+          <pre>
+            {
+              Socket_Address_Type_IPv4:
+                [Socket_Access_Control_Localhost, Socket_Access_Control_Port,
+                 Socket_Access_Control_Netmask],
+              Socket_Address_Type_Unix:
+                [Socket_Access_Control_Localhost, Socket_Access_Control_Credentials]
+            }
+          </pre>
+
+          <p>If stream tubes are not supported, this will be an empty
+            dictionary.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">List the available address types and access-control types
+        for stream tubes.</div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetAvailableTubeTypes"></a>
+     <span class="permalink">(<a href="Channel_Type_Tubes.html#Method:GetAvailableTubeTypes">Permalink</a>)</span>
+     <h2>GetAvailableTubeTypes () &#8594; au: Available_Tube_Types</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Available_Tube_Types &mdash; au
+        
+          (<a href="Channel_Type_Tubes.html#Enum:Tube_Type" title="Array of Enum Tube_Type">Tube_Type_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of the available tube types, as defined by the Tube_Type
+          enum.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:ListTubes"></a>
+     <span class="permalink">(<a href="Channel_Type_Tubes.html#Method:ListTubes">Permalink</a>)</span>
+     <h2>ListTubes () &#8594; a(uuusa{sv}u): Tubes</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Tubes &mdash; a(uuusa{sv}u)
+        
+          (<a href="Channel_Type_Tubes.html#Struct:Tube_Info" title="Array of Struct Tube_Info">Tube_Info_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+         Return an array of tuples, each representing a tube, with the
+         following members:
+
+         <ul>
+           <li>the tube's ID</li>
+           <li>the tube's initiator</li>
+           <li>the tube's type</li>
+           <li>the tube's service</li>
+           <li>the tube's parameters</li>
+           <li>the tube's state</li>
+         </ul>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:OfferDBusTube"></a>
+     <span class="permalink">(<a href="Channel_Type_Tubes.html#Method:OfferDBusTube">Permalink</a>)</span>
+     <h2>OfferDBusTube (s: Service, a{sv}: Parameters) &#8594; u: Tube_ID</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Service &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A string representing the service name that will be used over the
+          tube.
+          It should be a well-known D-Bus service name, of the form
+          com.example.ServiceName.
+        </div>
+      
+       <li>
+        Parameters &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A dictionary of properties for the new tube; the allowable keys,
+          types and values are defined by the service. Connection managers
+          must support the value being any primitive (non-container)
+          D-Bus type, or a byte array 'ay'.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Tube_ID &mdash; u
+        
+          (<a href="Channel_Type_Tubes.html#Simple-Type:Tube_ID" title="Simple Type Tube_ID">Tube_ID</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The ID of the new tube.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Offers a D-Bus tube providing the service specified.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The contact associated with this channel doesn't have tubes
+            capabilities.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The connection manager doesn't support D-Bus tubes.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:OfferStreamTube"></a>
+     <span class="permalink">(<a href="Channel_Type_Tubes.html#Method:OfferStreamTube">Permalink</a>)</span>
+     <h2>OfferStreamTube (s: Service, a{sv}: Parameters, u: Address_Type, v: Address, u: Access_Control, v: Access_Control_Param) &#8594; u: Tube_ID</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Service &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          A string representing the service name that will be used over the
+          tube.
+          It should be a well-known TCP service name as defined by
+          <a href="http://www.iana.org/assignments/port-numbers">
+            http://www.iana.org/assignments/port-numbers</a> or
+          <a href="http://www.dns-sd.org/ServiceTypes.html">
+            http://www.dns-sd.org/ServiceTypes.html</a>, for instance
+          &quot;rsync&quot; or &quot;daap&quot;.
+        </div>
+      
+       <li>
+        Parameters &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A dictionary of properties for the new tube; the allowable keys,
+          types and values are defined by the service. Connection managers
+          must support the value being any primitive (non-container)
+          D-Bus type, or a byte array 'ay'.</p>
+          <p>These should usually be the same key-value pairs specified for
+          use in the DNS-SD TXT record for that service.</p>
+        </div>
+      
+       <li>
+        Address_Type &mdash; u
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Socket_Address_Type" title="Enum Socket_Address_Type">Socket_Address_Type</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The type of the listening address of the local service, as a member of
+          Socket_Address_Type.
+        </div>
+      
+       <li>
+        Address &mdash; v
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The listening address of the local service, as indicated by the
+          address_type.
+        </div>
+      
+       <li>
+        Access_Control &mdash; u
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Socket_Access_Control" title="Enum Socket_Access_Control">Socket_Access_Control</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The access control the local service applies to the local socket,
+          specified so the connection manager can behave appropriately
+          when it connects.
+        </div>
+      
+       <li>
+        Access_Control_Param &mdash; v
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A parameter for the access control type, to be interpreted as
+          specified in the documentation for the Socket_Access_Control enum.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Tube_ID &mdash; u
+        
+          (<a href="Channel_Type_Tubes.html#Simple-Type:Tube_ID" title="Simple Type Tube_ID">Tube_ID</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The ID of the new tube.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Offer a stream tube exporting the local socket specified.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The contact associated with this channel doesn't have tube
+            capabilities.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The connection manager doesn't support stream tubes, or
+            does not support the given address type or access-control type.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:AcceptDBusTube"></a>
+     <span class="permalink">(<a href="Channel_Type_Tubes.html#Method:AcceptDBusTube">Permalink</a>)</span>
+     <h2>AcceptDBusTube (u: ID) &#8594; s: Address</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        ID &mdash; u
+        
+          (<a href="Channel_Type_Tubes.html#Simple-Type:Tube_ID" title="Simple Type Tube_ID">Tube_ID</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The ID of the tube to accept.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Address &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The string describing the address of the private bus. The client
+          should not attempt to connect to the address until the tube is open.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Accept a D-Bus tube that's in the &quot;local pending&quot; state. The
+        connection manager will attempt to open the tube. The tube remains in
+        the &quot;local pending&quot; state until the TubeStateChanged signal is
+        emitted.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The given tube ID is invalid or does not refer to a D-Bus
+            tube.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:AcceptStreamTube"></a>
+     <span class="permalink">(<a href="Channel_Type_Tubes.html#Method:AcceptStreamTube">Permalink</a>)</span>
+     <h2>AcceptStreamTube (u: ID, u: Address_Type, u: Access_Control, v: Access_Control_Param) &#8594; v: Address</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        ID &mdash; u
+        
+          (<a href="Channel_Type_Tubes.html#Simple-Type:Tube_ID" title="Simple Type Tube_ID">Tube_ID</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The ID of the tube to accept.
+        </div>
+      
+       <li>
+        Address_Type &mdash; u
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Socket_Address_Type" title="Enum Socket_Address_Type">Socket_Address_Type</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The type of address the connection manager should listen on.
+        </div>
+      
+       <li>
+        Access_Control &mdash; u
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Socket_Access_Control" title="Enum Socket_Access_Control">Socket_Access_Control</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The type of access control the connection manager should apply to
+          the socket.
+        </div>
+      
+       <li>
+        Access_Control_Param &mdash; v
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A parameter for the access control type, to be interpreted as
+          specified in the documentation for the Socket_Access_Control enum.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Address &mdash; v
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The address on which the connection manager will listen for
+          connections to this tube. The client should not attempt to connect
+          to the address until the tube is open.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Accept a stream tube that's in the &quot;local pending&quot; state. The
+        connection manager will attempt to open the tube. The tube remains in
+        the &quot;local pending&quot; state until the TubeStateChanged signal is
+        emitted.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The given tube ID is invalid or does not refer to a stream
+            tube.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The given address type or access-control mechanism is not supported.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:CloseTube"></a>
+     <span class="permalink">(<a href="Channel_Type_Tubes.html#Method:CloseTube">Permalink</a>)</span>
+     <h2>CloseTube (u: ID) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        ID &mdash; u
+        
+          (<a href="Channel_Type_Tubes.html#Simple-Type:Tube_ID" title="Simple Type Tube_ID">Tube_ID</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The ID of the tube to close.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Close a tube.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when one of the provided arguments is invalid.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetDBusTubeAddress"></a>
+     <span class="permalink">(<a href="Channel_Type_Tubes.html#Method:GetDBusTubeAddress">Permalink</a>)</span>
+     <h2>GetDBusTubeAddress (u: ID) &#8594; s: Address</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        ID &mdash; u
+        
+          (<a href="Channel_Type_Tubes.html#Simple-Type:Tube_ID" title="Simple Type Tube_ID">Tube_ID</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The ID of the tube to get an address for.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Address &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The bus address.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        For a D-Bus tube, return a string describing the address of the
+        private bus.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The tube is not a D-Bus tube.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            This tube is not in the &quot;open&quot; state.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetDBusNames"></a>
+     <span class="permalink">(<a href="Channel_Type_Tubes.html#Method:GetDBusNames">Permalink</a>)</span>
+     <h2>GetDBusNames (u: ID) &#8594; a(us): DBus_Names</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        ID &mdash; u
+        
+          (<a href="Channel_Type_Tubes.html#Simple-Type:Tube_ID" title="Simple Type Tube_ID">Tube_ID</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The ID of the tube to get names for.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        DBus_Names &mdash; a(us)
+        
+          (<a href="Channel_Type_Tubes.html#Struct:DBus_Tube_Member" title="Array of Struct DBus_Tube_Member">DBus_Tube_Member_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of structures, each containing a contact handle and a D-Bus
+          bus name.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        For a multi-user (i.e. Handle_Type_Room) D-Bus tube, obtain a mapping
+        between contact handles and their unique bus names on this tube.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The tube is not a multi-user D-Bus tube.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            This tube is not in the &quot;open&quot; state.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetStreamTubeSocketAddress"></a>
+     <span class="permalink">(<a href="Channel_Type_Tubes.html#Method:GetStreamTubeSocketAddress">Permalink</a>)</span>
+     <h2>GetStreamTubeSocketAddress (u: ID) &#8594; u: Address_Type, v: Address</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        ID &mdash; u
+        
+          (<a href="Channel_Type_Tubes.html#Simple-Type:Tube_ID" title="Simple Type Tube_ID">Tube_ID</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The ID of the stream tube to get the socket for.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Address_Type &mdash; u
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Socket_Address_Type" title="Enum Socket_Address_Type">Socket_Address_Type</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The type of the listening address of the socket, as a member of
+          Socket_Address_Type.
+        </div>
+      
+       <li>
+        Address &mdash; v
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The listening address of the socket, as indicated by the
+          address_type.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        For a stream tube, obtain the address of the socket used to
+        communicate over this tube.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The tube is not a stream tube.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            This tube is not in the &quot;open&quot; state.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:NewTube"></a>
+     <span class="permalink">(<a href="Channel_Type_Tubes.html#Signal:NewTube">Permalink</a>)</span>
+     <h2>NewTube (u: ID, u: Initiator, u: Type, s: Service, a{sv}: Parameters, u: State)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       ID &mdash; u
+       
+        (<a href="Channel_Type_Tubes.html#Simple-Type:Tube_ID" title="Simple Type Tube_ID">Tube_ID</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The ID of the new tube.
+        </div>
+      
+       <li>
+       Initiator &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The handle of the contact who initiated the tube.
+        </div>
+      
+       <li>
+       Type &mdash; u
+       
+        (<a href="Channel_Type_Tubes.html#Enum:Tube_Type" title="Enum Tube_Type">Tube_Type</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The tube type, as defined by the Tube_Type enum.
+        </div>
+      
+       <li>
+       Service &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A string representing the service that will be used over the tube.
+        </div>
+      
+       <li>
+       Parameters &mdash; a{sv}
+       
+        (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new tube's properties.
+        </div>
+      
+       <li>
+       State &mdash; u
+       
+        (<a href="Channel_Type_Tubes.html#Enum:Tube_State" title="Enum Tube_State">Tube_State</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new tube's state.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when a tube is created.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:TubeStateChanged"></a>
+     <span class="permalink">(<a href="Channel_Type_Tubes.html#Signal:TubeStateChanged">Permalink</a>)</span>
+     <h2>TubeStateChanged (u: ID, u: State)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       ID &mdash; u
+       
+        (<a href="Channel_Type_Tubes.html#Simple-Type:Tube_ID" title="Simple Type Tube_ID">Tube_ID</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The ID of the tube that changed state.
+        </div>
+      
+       <li>
+       State &mdash; u
+       
+        (<a href="Channel_Type_Tubes.html#Enum:Tube_State" title="Enum Tube_State">Tube_State</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new state of the tube; see the Tube_State enumeration.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the state of a tube changes.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:TubeClosed"></a>
+     <span class="permalink">(<a href="Channel_Type_Tubes.html#Signal:TubeClosed">Permalink</a>)</span>
+     <h2>TubeClosed (u: ID)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       ID &mdash; u
+       
+        (<a href="Channel_Type_Tubes.html#Simple-Type:Tube_ID" title="Simple Type Tube_ID">Tube_ID</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The ID of the tube that was closed.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+       Emitted when a tube has been closed. The ID of a closed tube is no
+       longer valid. The ID may later be reused for a new tube.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:DBusNamesChanged"></a>
+     <span class="permalink">(<a href="Channel_Type_Tubes.html#Signal:DBusNamesChanged">Permalink</a>)</span>
+     <h2>DBusNamesChanged (u: ID, a(us): Added, au: Removed)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       ID &mdash; u
+       
+        (<a href="Channel_Type_Tubes.html#Simple-Type:Tube_ID" title="Simple Type Tube_ID">Tube_ID</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The ID of the tube whose names have changed.
+        </div>
+      
+       <li>
+       Added &mdash; a(us)
+       
+        (<a href="Channel_Type_Tubes.html#Struct:DBus_Tube_Member" title="Array of Struct DBus_Tube_Member">DBus_Tube_Member_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Array of handles and D-Bus names of new participants.
+        </div>
+      
+       <li>
+       Removed &mdash; au
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Array of handles of former participants.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted on a multi-user (i.e. Handle_Type_Room) D-Bus tube when a
+        participant opens or closes the tube.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:StreamTubeNewConnection"></a>
+     <span class="permalink">(<a href="Channel_Type_Tubes.html#Signal:StreamTubeNewConnection">Permalink</a>)</span>
+     <h2>StreamTubeNewConnection (u: ID, u: Handle)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       ID &mdash; u
+       
+        (<a href="Channel_Type_Tubes.html#Simple-Type:Tube_ID" title="Simple Type Tube_ID">Tube_ID</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The ID of the tube
+        </div>
+      
+       <li>
+       Handle &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The handle of the participant who opened the new connection
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted on a stream tube when a participant opens a new connection
+        to its socket.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Tube_ID"></a>
+      <span class="permalink">Simple Type (<a href="Channel_Type_Tubes.html#Simple-Type:Tube_ID">Permalink</a>)</span>
+      <h2>
+       Tube_ID &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">An identifier for a tube. These are local to a Tubes
+        channel, and may not be assumed to be the same as the other
+        participants' idea of the tube identifier.</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Tube_Type"></a>
+      <span class="permalink">Enum (<a href="Channel_Type_Tubes.html#Enum:Tube_Type">Permalink</a>)</span>
+      <h2>
+       Tube_Type &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>DBus (0)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The tube is D-Bus tube as described by the
+            org.freedesktop.Telepathy.Channel.Type.DBusTube interface.</p>
+        </div><li>Stream (1)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The tube is stream tube as described by the
+            org.freedesktop.Telepathy.Channel.Type.StreamTube interface.</p>
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Tube_State"></a>
+      <span class="permalink">Enum (<a href="Channel_Type_Tubes.html#Enum:Tube_State">Permalink</a>)</span>
+      <h2>
+       Tube_State &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Local_Pending (0)</li>
+<div class="docstring">
+          The tube is waiting to be accepted/closed locally.
+        </div><li>Remote_Pending (1)</li>
+<div class="docstring">
+          The tube is waiting to be accepted/closed remotely.
+        </div><li>Open (2)</li>
+<div class="docstring">
+          The tube is open for traffic.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Supported_Socket_Map"></a>
+      <span class="permalink">Mapping (<a href="Channel_Type_Tubes.html#Mapping:Supported_Socket_Map">Permalink</a>)</span>
+      <h2>
+       Supported_Socket_Map &mdash; a{uau}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">The supported socket address and access-control types
+        for tubes. See GetAvailableStreamTubeTypes.</div>
+      <ul>
+<li>Address_Type &mdash; u (<a href="Channel_Interface_Tube.html#Enum:Socket_Address_Type" title="Enum Socket_Address_Type">Socket_Address_Type</a>)</li>
+<li>Access_Control &mdash; au (<a href="Channel_Interface_Tube.html#Enum:Socket_Access_Control" title="Array of Enum Socket_Access_Control">Socket_Access_Control_List</a>)</li>
+</ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Tube_Info"></a>
+      <span class="permalink">Struct (<a href="Channel_Type_Tubes.html#Struct:Tube_Info">Permalink</a>)</span>
+      <h2>
+       Tube_Info &mdash; (uuusa{sv}u)
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A struct (tube ID, initiator handle, tube type,
+        service name, parameters, state) representing a tube, as returned
+        by ListTubes on the Tubes channel type.</div>
+      <ul>
+<li>Identifier &mdash; u (<a href="Channel_Type_Tubes.html#Simple-Type:Tube_ID" title="Simple Type Tube_ID">Tube_ID</a>)</li>
+<li>Initiator &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<li>Type &mdash; u (<a href="Channel_Type_Tubes.html#Enum:Tube_Type" title="Enum Tube_Type">Tube_Type</a>)</li>
+<li>Service &mdash; s</li>
+<li>Parameters &mdash; a{sv} (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)</li>
+<li>State &mdash; u (<a href="Channel_Type_Tubes.html#Enum:Tube_State" title="Enum Tube_State">Tube_State</a>)</li>
+</ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:DBus_Tube_Member"></a>
+      <span class="permalink">Struct (<a href="Channel_Type_Tubes.html#Struct:DBus_Tube_Member">Permalink</a>)</span>
+      <h2>
+       DBus_Tube_Member &mdash; (us)
+      </h2>
+
+      
+      
+      
+      <div class="docstring">Represents a participant in a multi-user D-Bus tube, as
+        returned by <a href="Channel_Type_Tubes.html#Method:GetDBusNames" title="Method org.freedesktop.Telepathy.Channel.Type.Tubes.GetDBusNames">GetDBusNames</a> and seen in the
+        <a href="Channel_Type_Tubes.html#Signal:DBusNamesChanged" title="Signal org.freedesktop.Telepathy.Channel.Type.Tubes.DBusNamesChanged">DBusNamesChanged</a> signal.</div>
+      <ul>
+<li>Handle &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+          The handle of a participant in this D-Bus tube.
+        </div><li>Unique_Name &mdash; s (<a href="generic-types.html#Simple-Type:DBus_Unique_Name" title="Simple Type DBus_Unique_Name">DBus_Unique_Name</a>)</li>
+<div class="docstring">
+          That participant's unique name.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

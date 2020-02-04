@@ -1,0 +1,1266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Call1.Content.I.Media &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Call1.Content.Interface.Media'>Call1.Content.Interface.Media</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Method:UpdateLocalMediaDescription">UpdateLocalMediaDescription</a></td>
+       <td>(a{sv}: MediaDescription)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Method:AcknowledgeDTMFChange">AcknowledgeDTMFChange</a></td>
+       <td>(y: Event, u: State)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Method:Fail">Fail</a></td>
+       <td>((uuss): Reason)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Signal:NewMediaDescriptionOffer">NewMediaDescriptionOffer</a></td>
+       <td>(o: Media_Description, a{sv}: Properties)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Signal:MediaDescriptionOfferDone">MediaDescriptionOfferDone</a></td>
+       <td>()</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Signal:LocalMediaDescriptionChanged">LocalMediaDescriptionChanged</a></td>
+       <td>(a{sv}: Updated_Media_Description)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Signal:RemoteMediaDescriptionsChanged">RemoteMediaDescriptionsChanged</a></td>
+       <td>(a{ua{sv}}: Updated_Media_Descriptions)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Signal:MediaDescriptionsRemoved">MediaDescriptionsRemoved</a></td>
+       <td>(au: Removed_Media_Descriptions)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Signal:DTMFChangeRequested">DTMFChangeRequested</a></td>
+       <td>(y: Event, u: State)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Property:RemoteMediaDescriptions">RemoteMediaDescriptions</a></td>
+       <td>
+        a{ua{sv}}
+        
+          (<a href="Call_Content_Interface_Media.html#Mapping:Contact_Media_Description_Properties_Map" title="Mapping Contact_Media_Description_Properties_Map">
+              Contact_Media_Description_Properties_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Property:LocalMediaDescriptions">LocalMediaDescriptions</a></td>
+       <td>
+        a{ua{sv}}
+        
+          (<a href="Call_Content_Interface_Media.html#Mapping:Contact_Media_Description_Properties_Map" title="Mapping Contact_Media_Description_Properties_Map">
+              Contact_Media_Description_Properties_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Property:MediaDescriptionOffer">MediaDescriptionOffer</a></td>
+       <td>
+        (oa{sv})
+        
+          (<a href="Call_Content_Interface_Media.html#Struct:Media_Description_Offer" title="Struct Media_Description_Offer">
+              Media_Description_Offer</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Property:Packetization">Packetization</a></td>
+       <td>
+        u
+        
+          (<a href="Call_Content_Interface_Media.html#Enum:Call_Content_Packetization_Type" title="Enum Call_Content_Packetization_Type">
+              Call_Content_Packetization_Type</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Property:CurrentDTMFEvent">CurrentDTMFEvent</a></td>
+       <td>
+        y
+        
+          (<a href="Channel_Interface_DTMF.html#Enum:DTMF_Event" title="Enum DTMF_Event">
+              DTMF_Event</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Property:CurrentDTMFState">CurrentDTMFState</a></td>
+       <td>
+        u
+        
+          (<a href="Call_Stream.html#Enum:Sending_State" title="Enum Sending_State">
+              Sending_State</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Enum:Call_Content_Packetization_Type">Call_Content_Packetization_Type</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Mapping:Contact_Codec_Map">Contact_Codec_Map</a></td>
+       <td>Mapping</td>
+       <td>a{ua(usuuba{ss})}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Mapping:Contact_Media_Description_Properties_Map">Contact_Media_Description_Properties_Map</a></td>
+       <td>Mapping</td>
+       <td>a{ua{sv}}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Struct:Codec">Codec</a></td>
+       <td>Struct</td>
+       <td>(usuuba{ss})</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Media.html#Struct:Media_Description_Offer">Media_Description_Offer</a></td>
+       <td>Struct</td>
+       <td>(oa{sv})</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.25.2. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Call_Content.html" title="Interface org.freedesktop.Telepathy.Call1.Content">org.freedesktop.Telepathy.Call1.Content</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>Interface to use by a software implementation of media
+        streaming. The reason behind splitting the members of this
+        interface out from the main <a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a> interface is
+        that the software is not necessarily what controls the
+        media. An example of this is in GSM phones, where the CM just
+        tells the phone to dial a number and it does the audio routing
+        in a device specific hardware way and the CM does not need
+        to concern itself with codecs.</p>
+
+      <h4>Codec Negotiation</h4>
+
+      <p>When a new <a href="Channel_Type_Call.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Call1">Call1</a> channel
+        appears (whether it was requested or not) a <a href="Call_Content_Media_Description.html" namespace="ofdT.Call1.Content" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription">MediaDescription</a>
+        object will either be waiting in the
+        <a href="Call_Content_Interface_Media.html#Property:MediaDescriptionOffer" title="Property org.freedesktop.Telepathy.Call1.Content.Interface.Media.MediaDescriptionOffer">MediaDescriptionOffer</a> property, or will
+        appear at some point via the
+        <a href="Call_Content_Interface_Media.html#Signal:NewMediaDescriptionOffer" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.Media.NewMediaDescriptionOffer">NewMediaDescriptionOffer</a> signal.</p>
+
+      <p>If nothing is known about the remote side's Media capabilities
+        (e.g. outgoing SIP/XMPP call), this <a href="Call_Content_Media_Description.html" namespace="ofdT.Call1.Content" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription">MediaDescription</a> will pop up with {<a href="Call_Content_Media_Description.html#Property:HasRemoteInformation" namespace="ofdT.Call1.Content.MediaDescription" title="Property org.freedesktop.Telepathy.Call1.Content.MediaDescription.HasRemoteInformation">HasRemoteInformation</a> = false, <a href="Call_Content_Media_Description.html#Property:FurtherNegotiationRequired" namespace="ofdT.Call1.Content.MediaDescription" title="Property org.freedesktop.Telepathy.Call1.Content.MediaDescription.FurtherNegotiationRequired">FurtherNegotiationRequired</a> = true}, and the local
+        user's streaming implementation SHOULD call 
+        <a href="Call_Content_Media_Description.html#Method:Accept" namespace="ofdT.Call1.Content.MediaDescription" title="Method org.freedesktop.Telepathy.Call1.Content.MediaDescription.Accept">Accept</a>,
+        with a description of all supported codecs and other features.
+        The CM will then send this information to the remote side (and
+        <a href="Call_Content_Interface_Media.html#Signal:LocalMediaDescriptionChanged" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.Media.LocalMediaDescriptionChanged">LocalMediaDescriptionChanged</a> will fire
+        with details of the description passed into <a href="Call_Content_Media_Description.html#Method:Accept" namespace="ofdT.Call1.Content.MediaDescription" title="Method org.freedesktop.Telepathy.Call1.Content.MediaDescription.Accept">Accept</a> for debugging purposes).
+      </p>
+      <p>When the remote codecs and other content information are available
+        (e.g. Remote user replies to initial offer, or sends a new offer of
+        their own, a new <a href="Call_Content_Media_Description.html" namespace="ofdT.Call1.Content" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription">MediaDescription</a> will appear, with {<a href="Call_Content_Media_Description.html#Property:HasRemoteInformation" namespace="ofdT.Call1.Content.MediaDescription" title="Property org.freedesktop.Telepathy.Call1.Content.MediaDescription.HasRemoteInformation">HasRemoteInformation</a> = true, <a href="Call_Content_Media_Description.html#Property:FurtherNegotiationRequired" namespace="ofdT.Call1.Content.MediaDescription" title="Property org.freedesktop.Telepathy.Call1.Content.MediaDescription.FurtherNegotiationRequired">FurtherNegotiationRequired</a> = false},
+        and the <a href="Call_Content_Media_Description.html#Property:Codecs" namespace="ofdT.Call1.Content.MediaDescription" title="Property org.freedesktop.Telepathy.Call1.Content.MediaDescription.Codecs">Codecs</a>
+        property on the description offer set to the codecs which are
+        supported by the remote contact. The local user's streaming
+        implementation SHOULD then call Accept, with a description
+        that is compatible with the one one in the offer. After the codec
+        set is accepted, both
+         <a href="Call_Content_Interface_Media.html#Signal:LocalMediaDescriptionChanged" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.Media.LocalMediaDescriptionChanged">LocalMediaDescriptionChanged</a> and
+         <a href="Call_Content_Interface_Media.html#Signal:RemoteMediaDescriptionsChanged" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.Media.RemoteMediaDescriptionsChanged">RemoteMediaDescriptionsChanged</a>
+        will fire to signal their respective changes, to aid with debugging.
+        Note that if <a href="Call_Content_Media_Description.html#Method:Accept" namespace="ofdT.Call1.Content.MediaDescription" title="Method org.freedesktop.Telepathy.Call1.Content.MediaDescription.Accept">Accept</a> is called, with <a href="Call_Content_Media_Description.html#Property:FurtherNegotiationRequired" namespace="ofdT.Call1.Content.MediaDescription" title="Property org.freedesktop.Telepathy.Call1.Content.MediaDescription.FurtherNegotiationRequired">FurtherNegotiationRequired</a> set to false,
+        the CM should be able to rely on the fact that the
+        description passed into Accept is compatible with the one in the
+        offer, and the description passed into Accept will not be signalled to
+        the remote side.
+      </p>
+
+      <h4>Changing codecs mid-call</h4>
+
+      <p>To update the codecs in the local (and optionally remote) media
+        descriptions mid-call, the
+        <a href="Call_Content_Interface_Media.html#Method:UpdateLocalMediaDescription" title="Method org.freedesktop.Telepathy.Call1.Content.Interface.Media.UpdateLocalMediaDescription">UpdateLocalMediaDescription</a> method
+        should be called with details of the new codec list. If this is
+        accepted, then
+        <a href="Call_Content_Interface_Media.html#Signal:LocalMediaDescriptionChanged" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.Media.LocalMediaDescriptionChanged">LocalMediaDescriptionChanged</a>
+        will be emitted with the new codec set.
+      </p>
+      <p> If parameters requiring negotiation are changed, then the
+        <a href="Call_Content_Media_Description.html#Property:FurtherNegotiationRequired" namespace="ofdT.Call1.Content.MediaDescription" title="Property org.freedesktop.Telepathy.Call1.Content.MediaDescription.FurtherNegotiationRequired">FurtherNegotiationRequired</a> property should be set to
+        TRUE, and the new media description should
+        only be used once they come in a new MediaDescriptionOffer
+      </p>
+
+      <p>If the other side decides to update his or her codec list
+        during a call, a new <a href="Call_Content_Media_Description.html" namespace="ofdT.Call1.Content" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription">MediaDescription</a>
+        object will appear through
+        <a href="Call_Content_Interface_Media.html#Signal:NewMediaDescriptionOffer" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.Media.NewMediaDescriptionOffer">NewMediaDescriptionOffer</a> which should be
+        acted on as documented above.</p>
+
+      <h4>Protocols without negotiation</h4>
+
+      <p>For protocols where the codecs are not negotiable, the initial content's <a href="Call_Content_Media_Description.html" namespace="ofdT.Call1.Content" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription">MediaDescription</a>
+        object will appear with <a href="Call_Content_Media_Description.html#Property:HasRemoteInformation" namespace="ofdT.Call1.Content.MediaDescription" title="Property org.freedesktop.Telepathy.Call1.Content.MediaDescription.HasRemoteInformation">HasRemoteInformation</a>,
+        set to true and the known supported codec values in <a href="Call_Content_Media_Description.html#Property:Codecs" namespace="ofdT.Call1.Content.MediaDescription" title="Property org.freedesktop.Telepathy.Call1.Content.MediaDescription.Codecs">Codecs</a>.
+      </p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:UpdateLocalMediaDescription"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Media.html#Method:UpdateLocalMediaDescription">Permalink</a>)</span>
+     <h2>UpdateLocalMediaDescription (a{sv}: MediaDescription) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        MediaDescription &mdash; a{sv}
+        
+          (<a href="Call_Content_Media_Description.html#Mapping:Media_Description_Properties" title="Mapping Media_Description_Properties">Media_Description_Properties</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The updated media description that the local side wants to use.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Update the local codec mapping and other interfaces of the
+        MediaDescription. This method should only be
+        used during an existing call to update the local media description.
+        This may trigger a re-negotiation which may result in new
+        new MediaDescriptionOffers if the &quot;FurtherNegotiationRequired&quot;
+        property is TRUE.
+        Otherwise, only parameters which strictly describe the media being sent
+        can be changed.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The protocol does not support changing the codecs mid-call.
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The description given is invalid in some way.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:AcknowledgeDTMFChange"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Media.html#Method:AcknowledgeDTMFChange">Permalink</a>)</span>
+     <h2>AcknowledgeDTMFChange (y: Event, u: State) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Event &mdash; y
+        
+          (<a href="Channel_Interface_DTMF.html#Enum:DTMF_Event" title="Enum DTMF_Event">DTMF_Event</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The event referred to in the corresponding
+          <a href="Call_Content_Interface_Media.html#Signal:DTMFChangeRequested" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.Media.DTMFChangeRequested">DTMFChangeRequested</a> signal.
+        </div>
+      
+       <li>
+        State &mdash; u
+        
+          (<a href="Call_Stream.html#Enum:Sending_State" title="Enum Sending_State">Sending_State</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Either <a href="Call_Stream.html#Enum:Sending_State" type="Sending_State">Sending</a> or
+          <a href="Call_Stream.html#Enum:Sending_State" type="Sending_State">None</a>.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Called by the streaming implementation in response to
+        <a href="Call_Content_Interface_Media.html#Signal:DTMFChangeRequested" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.Media.DTMFChangeRequested">DTMFChangeRequested</a> to confirm that it
+        has started or stopped sending the event in question.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:Fail"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Media.html#Method:Fail">Permalink</a>)</span>
+     <h2>Fail ((uuss): Reason) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Reason &mdash; (uuss)
+        
+          (<a href="Channel_Type_Call.html#Struct:Call_State_Reason" title="Struct Call_State_Reason">Call_State_Reason</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A reason struct describing the error.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Signal an unrecoverable error for this content, and remove it.
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:NewMediaDescriptionOffer"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Media.html#Signal:NewMediaDescriptionOffer">Permalink</a>)</span>
+     <h2>NewMediaDescriptionOffer (o: Media_Description, a{sv}: Properties)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Media_Description &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The object path of the new media description. This replaces any
+          previous media description.
+        </div>
+      
+       <li>
+       Properties &mdash; a{sv}
+       
+        (<a href="Call_Content_Media_Description.html#Mapping:Media_Description_Properties" title="Mapping Media_Description_Properties">Media_Description_Properties</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The immutable properties of the remote media description.
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+          Having all the MediaDescription properties here saves a D-Bus
+          round-trip - it shouldn't be necessary to get the properties from the
+          MediaDescription object, in practice.
+          </div></div>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when a new <a href="Call_Content_Media_Description.html" namespace="ofdT.Call1.Content" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription">MediaDescription</a> appears. The streaming
+          &gt;implementation MUST respond by calling the
+          <a href="Call_Content_Media_Description.html#Method:Accept" namespace="ofdT.Call1.Content.MediaDescription" title="Method org.freedesktop.Telepathy.Call1.Content.MediaDescription.Accept">Accept</a> or <a href="Call_Content_Media_Description.html#Method:Reject" namespace="ofdT.Call1.Content.MediaDescription" title="Method org.freedesktop.Telepathy.Call1.Content.MediaDescription.Reject">Reject</a> method on the description object appeared.</p>
+
+        <p>Emission of this signal indicates that the
+          <a href="Call_Content_Interface_Media.html#Property:MediaDescriptionOffer" title="Property org.freedesktop.Telepathy.Call1.Content.Interface.Media.MediaDescriptionOffer">MediaDescriptionOffer</a> property has
+          changed to
+            <code>(Description, Contact, MediaDescriptionProperties)</code>.</p>
+
+        <p>When the MediaDescriptionOffer has been dealt with then
+          <a href="Call_Content_Interface_Media.html#Signal:MediaDescriptionOfferDone" namespace="ofdT.Call1.Content.Interface.Media" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.Media.MediaDescriptionOfferDone">MediaDescriptionOfferDone</a> must be emitted
+          before <a href="Call_Content_Interface_Media.html#Signal:NewMediaDescriptionOffer" namespace="ofdT.Call1.Content.Interface.Media" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.Media.NewMediaDescriptionOffer">NewMediaDescriptionOffer</a> is emitted again.
+        </p>
+
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:MediaDescriptionOfferDone"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Media.html#Signal:MediaDescriptionOfferDone">Permalink</a>)</span>
+     <h2>MediaDescriptionOfferDone ()</h2>
+
+     
+     
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when a <a href="Call_Content_Media_Description.html" namespace="ofdT.Call1.Content" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription">MediaDescription</a> has been handled. </p>
+        <p>Emission of this signal indicates that the
+          <a href="Call_Content_Interface_Media.html#Property:MediaDescriptionOffer" title="Property org.freedesktop.Telepathy.Call1.Content.Interface.Media.MediaDescriptionOffer">MediaDescriptionOffer</a> property has
+          changed to
+            <code>(&quot;/&quot;, 0, {})</code>.</p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:LocalMediaDescriptionChanged"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Media.html#Signal:LocalMediaDescriptionChanged">Permalink</a>)</span>
+     <h2>LocalMediaDescriptionChanged (a{sv}: Updated_Media_Description)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Updated_Media_Description &mdash; a{sv}
+       
+        (<a href="Call_Content_Media_Description.html#Mapping:Media_Description_Properties" title="Mapping Media_Description_Properties">Media_Description_Properties</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The local content description that was updated</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Change notification for
+            <a href="Call_Content_Interface_Media.html#Property:LocalMediaDescriptions" namespace="ofdT.Call1.Content.Interface.Media" title="Property org.freedesktop.Telepathy.Call1.Content.Interface.Media.LocalMediaDescriptions">LocalMediaDescriptions</a>
+        </p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:RemoteMediaDescriptionsChanged"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Media.html#Signal:RemoteMediaDescriptionsChanged">Permalink</a>)</span>
+     <h2>RemoteMediaDescriptionsChanged (a{ua{sv}}: Updated_Media_Descriptions)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Updated_Media_Descriptions &mdash; a{ua{sv}}
+       
+        (<a href="Call_Content_Interface_Media.html#Mapping:Contact_Media_Description_Properties_Map" title="Mapping Contact_Media_Description_Properties_Map">Contact_Media_Description_Properties_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The remote content descriptions that were updated</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Change notification for
+            <a href="Call_Content_Interface_Media.html#Property:RemoteMediaDescriptions" namespace="ofdT.Call1.Content.Interface.Media" title="Property org.freedesktop.Telepathy.Call1.Content.Interface.Media.RemoteMediaDescriptions">RemoteMediaDescriptions</a>
+        </p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:MediaDescriptionsRemoved"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Media.html#Signal:MediaDescriptionsRemoved">Permalink</a>)</span>
+     <h2>MediaDescriptionsRemoved (au: Removed_Media_Descriptions)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Removed_Media_Descriptions &mdash; au
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The local and remote content descriptions that are no longer part
+             of this content</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Removal notification for
+            <a href="Call_Content_Interface_Media.html#Property:RemoteMediaDescriptions" namespace="ofdT.Call1.Content.Interface.Media" title="Property org.freedesktop.Telepathy.Call1.Content.Interface.Media.RemoteMediaDescriptions">RemoteMediaDescriptions</a>
+            and
+            <a href="Call_Content_Interface_Media.html#Property:LocalMediaDescriptions" namespace="ofdT.Call1.Content.Interface.Media" title="Property org.freedesktop.Telepathy.Call1.Content.Interface.Media.LocalMediaDescriptions">LocalMediaDescriptions</a>
+        </p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:DTMFChangeRequested"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Media.html#Signal:DTMFChangeRequested">Permalink</a>)</span>
+     <h2>DTMFChangeRequested (y: Event, u: State)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Event &mdash; y
+       
+        (<a href="Channel_Interface_DTMF.html#Enum:DTMF_Event" title="Enum DTMF_Event">DTMF_Event</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The event to send (or stop sending).
+        </div>
+      
+       <li>
+       State &mdash; u
+       
+        (<a href="Call_Stream.html#Enum:Sending_State" title="Enum Sending_State">Sending_State</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Either <a href="Call_Stream.html#Enum:Sending_State" type="Sending_State">Pending_Send</a> or
+          <a href="Call_Stream.html#Enum:Sending_State" type="Sending_State">Pending_Stop_Sending</a>.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Used by the CM to relay instructions from <a href="Channel_Interface_DTMF.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.Channel.Interface.DTMF">Channel.Interface.DTMF</a> to the streaming
+        implementation. If any contact in this call supports the
+        telephone-event codec in their MediaDescription, this event should be
+        sent as outlined in RFC 4733. Otherwise, it should be sent as an
+        audible tone.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RemoteMediaDescriptions"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Media.html#Property:RemoteMediaDescriptions">Permalink</a>)</span>
+     <h2>
+      RemoteMediaDescriptions &mdash; a{ua{sv}}
+      
+        (<a href="Call_Content_Interface_Media.html#Mapping:Contact_Media_Description_Properties_Map" title="Mapping Contact_Media_Description_Properties_Map">Contact_Media_Description_Properties_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        <p>A map from contact handles to descriptions supported by that
+          contact.</p>
+
+        <p>Keys of this map will appear in at most one <a href="Call_Stream.html#Property:RemoteMembers" namespace="ofdT.Call1.Stream" title="Property org.freedesktop.Telepathy.Call1.Stream.RemoteMembers">RemoteMembers</a>.
+          See <a href="Call_Content_Media_Description.html#Property:RemoteContact" namespace="ofdT.Call1.Content.MediaDescription" title="Property org.freedesktop.Telepathy.Call1.Content.MediaDescription.RemoteContact">RemoteContact</a> for more details on how to map between
+          MediaDescriptions and Streams.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:LocalMediaDescriptions"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Media.html#Property:LocalMediaDescriptions">Permalink</a>)</span>
+     <h2>
+      LocalMediaDescriptions &mdash; a{ua{sv}}
+      
+        (<a href="Call_Content_Interface_Media.html#Mapping:Contact_Media_Description_Properties_Map" title="Mapping Contact_Media_Description_Properties_Map">Contact_Media_Description_Properties_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        <p>A map from contact handles to the descriptions the local side
+           responsed with.</p> </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MediaDescriptionOffer"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Media.html#Property:MediaDescriptionOffer">Permalink</a>)</span>
+     <h2>
+      MediaDescriptionOffer &mdash; (oa{sv})
+      
+        (<a href="Call_Content_Interface_Media.html#Struct:Media_Description_Offer" title="Struct Media_Description_Offer">Media_Description_Offer</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The object path to the current
+          <a href="Call_Content_Media_Description.html" namespace="ofdT.Call1.Content" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription">MediaDescription</a> object, its
+            <a href="Call_Content_Media_Description.html#Property:RemoteContact" namespace="ofdT.Call1.Content.MediaDescription" title="Property org.freedesktop.Telepathy.Call1.Content.MediaDescription.RemoteContact">RemoteContact</a> and
+            a mapping of the MediaDescriptions properties.
+            If the object path is &quot;/&quot; then there isn't an outstanding
+            content description, and the mapping MUST be empty.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          Having all <a href="Call_Content_Media_Description.html" namespace="ofdT.Call1.Content" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription">MediaDescription</a>
+          properties here saves a D-Bus round-trip - it shouldn't be
+          necessary to get these properties from the Content MediaDescription
+          object, in practice.
+        </div></div>
+
+        <p>Change notification is via the
+          <a href="Call_Content_Interface_Media.html#Signal:NewMediaDescriptionOffer" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.Media.NewMediaDescriptionOffer">NewMediaDescriptionOffer</a> and
+          <a href="Call_Content_Interface_Media.html#Signal:MediaDescriptionOfferDone" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.Media.MediaDescriptionOfferDone">MediaDescriptionOfferDone</a> signals.
+         </p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Packetization"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Media.html#Property:Packetization">Permalink</a>)</span>
+     <h2>
+      Packetization &mdash; u
+      
+        (<a href="Call_Content_Interface_Media.html#Enum:Call_Content_Packetization_Type" title="Enum Call_Content_Packetization_Type">Call_Content_Packetization_Type</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.21.2. </span></div>
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The packetization method in use for this content.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CurrentDTMFEvent"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Media.html#Property:CurrentDTMFEvent">Permalink</a>)</span>
+     <h2>
+      CurrentDTMFEvent &mdash; y
+      
+        (<a href="Channel_Interface_DTMF.html#Enum:DTMF_Event" title="Enum DTMF_Event">DTMF_Event</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The currently requested DTMF event (for state-recoverability of
+        <a href="Call_Content_Interface_Media.html#Signal:DTMFChangeRequested" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.Media.DTMFChangeRequested">DTMFChangeRequested</a>). Should be ignored
+        if <a href="Call_Content_Interface_Media.html#Property:CurrentDTMFState" title="Property org.freedesktop.Telepathy.Call1.Content.Interface.Media.CurrentDTMFState">CurrentDTMFState</a> is None.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CurrentDTMFState"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Media.html#Property:CurrentDTMFState">Permalink</a>)</span>
+     <h2>
+      CurrentDTMFState &mdash; u
+      
+        (<a href="Call_Stream.html#Enum:Sending_State" title="Enum Sending_State">Sending_State</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The current DTMF state (for state-recoverability of
+        <a href="Call_Content_Interface_Media.html#Signal:DTMFChangeRequested" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.Media.DTMFChangeRequested">DTMFChangeRequested</a>).
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Call_Content_Packetization_Type"></a>
+      <span class="permalink">Enum (<a href="Call_Content_Interface_Media.html#Enum:Call_Content_Packetization_Type">Permalink</a>)</span>
+      <h2>
+       Call_Content_Packetization_Type &mdash; u
+      </h2>
+
+      <div class="annotation added"><span class="version">Added in 0.21.2. </span></div>
+      
+      
+      <div class="docstring">
+        A packetization method that can be used for a content.
+      </div>
+      <ul>
+<li>RTP (0)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          Real-time Transport Protocol, as documented by RFC 3550.
+        </div><li>Raw (1)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          Raw media.
+        </div><li>MSN_Webcam (2)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          MSN webcam. This is the video-only one-way type which was
+          used in earlier versions of WLM. Although no longer used,
+          modern WLM clients still support the MSN webcam protocol.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Contact_Codec_Map"></a>
+      <span class="permalink">Mapping (<a href="Call_Content_Interface_Media.html#Mapping:Contact_Codec_Map">Permalink</a>)</span>
+      <h2>
+       Contact_Codec_Map &mdash; a{ua(usuuba{ss})}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A map from contact to the list of codecs he or she supports.
+      </div>
+      <ul>
+<li>Handle &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+          A contact handle.
+        </div><li>Codecs &mdash; a(usuuba{ss}) (<a href="Call_Content_Interface_Media.html#Struct:Codec" title="Array of Struct Codec">Codec_List</a>)</li>
+<div class="docstring">
+          The codecs that the contact supports.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Contact_Media_Description_Properties_Map"></a>
+      <span class="permalink">Mapping (<a href="Call_Content_Interface_Media.html#Mapping:Contact_Media_Description_Properties_Map">Permalink</a>)</span>
+      <h2>
+       Contact_Media_Description_Properties_Map &mdash; a{ua{sv}}
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Remote_Contact &mdash; u (<a href="Connection.html#Simple-Type:Handle" title="Simple Type Handle">Handle</a>)</li>
+<div class="docstring">
+          The remote contact this description refers to or 0. This matches the
+          <a href="Call_Content_Media_Description.html#Property:RemoteContact" namespace="ofdT.Call1.Content.MediaDescription" title="Property org.freedesktop.Telepathy.Call1.Content.MediaDescription.RemoteContact">RemoteContact</a> property on
+          <a href="Call_Content_Media_Description.html" namespace="ofdT.Call1.Content" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription">MediaDescription</a>
+        </div><li>Media_Description_Properties &mdash; a{sv} (<a href="Call_Content_Media_Description.html#Mapping:Media_Description_Properties" title="Mapping Media_Description_Properties">Media_Description_Properties</a>)</li>
+<div class="docstring">
+          The properties of the description
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Codec"></a>
+      <span class="permalink">Struct (<a href="Call_Content_Interface_Media.html#Struct:Codec">Permalink</a>)</span>
+      <h2>
+       Codec &mdash; (usuuba{ss})
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A description of a codec.
+      </div>
+      <ul>
+<li>Identifier &mdash; u</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          Numeric identifier for the codec. This will be used as the PT in the
+          SDP or content description.
+        </div><li>Name &mdash; s</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          The name of the codec.
+        </div><li>Clockrate &mdash; u</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          The clockrate of the codec.
+        </div><li>Channels &mdash; u</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          Number of channels of the codec if applicable, otherwise 0.
+        </div><li>Updated &mdash; b</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          This should be set to true in calls to <a href="Call_Content_Media_Description.html#Method:Accept" namespace="ofdT.Call1.Content.MediaDescription" title="Method org.freedesktop.Telepathy.Call1.Content.MediaDescription.Accept">Accept</a> and
+          <a href="Call_Content_Interface_Media.html#Method:UpdateLocalMediaDescription" title="Method org.freedesktop.Telepathy.Call1.Content.Interface.Media.UpdateLocalMediaDescription">UpdateLocalMediaDescription</a> if this
+          codec has changed in a way that needs to be signalled over the
+          network. If it is set to false, the CM is allowed ignore any
+          differences between the current parameters and the previous ones
+          <div class="rationale"><h5>Rationale:</h5><div>
+            This mechanism may be used to save bandwidth and avoid the CM
+            having to calculate diffs against previous versions of this
+            struct, which can lead to false-positives (e.g. redundant ptime
+            updates).
+          </div></div>
+        </div><li>Parameters &mdash; a{ss} (<a href="generic-types.html#Mapping:String_String_Map" title="Mapping String_String_Map">String_String_Map</a>)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          Extra parameters for this codec.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Media_Description_Offer"></a>
+      <span class="permalink">Struct (<a href="Call_Content_Interface_Media.html#Struct:Media_Description_Offer">Permalink</a>)</span>
+      <h2>
+       Media_Description_Offer &mdash; (oa{sv})
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        The remote description offer and its information
+      </div>
+      <ul>
+<li>Media_Description &mdash; o</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          The object path to the <a href="Call_Content_Media_Description.html" namespace="ofdT.Call1.Content" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription">MediaDescription</a>
+        </div><li>Properties &mdash; a{sv} (<a href="Call_Content_Media_Description.html#Mapping:Media_Description_Properties" title="Mapping Media_Description_Properties">Media_Description_Properties</a>)</li>
+<div class="docstring">
+          The immutable properties of all interfaces of the codec description.
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+          Having all the codec description properties here saves a D-Bus
+          round-trip - it shouldn't be necessary to get the properties from the
+          MediaDescription object, in practice.
+          </div></div>
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

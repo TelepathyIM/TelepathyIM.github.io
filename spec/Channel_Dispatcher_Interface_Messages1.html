@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>ChannelDispatcher.I.Messages1 &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.ChannelDispatcher.Interface.Messages1'>ChannelDispatcher.Interface.Messages1</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+   
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Dispatcher_Interface_Messages1.html#Method:SendMessage">SendMessage</a></td>
+       <td>(o: Account, s: Target_ID, aa{sv}: Message, u: Flags)</td>
+       <td>&#8594;</td>
+       <td>s: Token</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel_Dispatcher.html" title="Interface org.freedesktop.Telepathy.ChannelDispatcher">org.freedesktop.Telepathy.ChannelDispatcher</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        This interface allows DBus clients to use the ChannelDispatcher to
+        send one-off text messages to a contact, identified by account and
+        target ID, without requiring the caller to handle channels or be
+        the primary message UI.
+      </p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>
+          This enables entities other than the main UI to send messages
+          to contacts.
+        </p>
+      </div></div>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:SendMessage"></a>
+     <span class="permalink">(<a href="Channel_Dispatcher_Interface_Messages1.html#Method:SendMessage">Permalink</a>)</span>
+     <h2>SendMessage (o: Account, s: Target_ID, aa{sv}: Message, u: Flags) &#8594; s: Token</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Account &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The <a href="Account.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.Account">Account</a>
+          through which to communicate.
+        </div>
+      
+       <li>
+        Target_ID &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contact to send the message to.
+        </div>
+      
+       <li>
+        Message &mdash; aa{sv}
+        
+          (<a href="Channel_Interface_Messages.html#Mapping:Message_Part" title="Array of Mapping Message_Part">Message_Part_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The parts of the message, the same as for <a href="Channel_Interface_Messages.html#Method:SendMessage" namespace="ofdT.Channel.Interface" title="Method org.freedesktop.Telepathy.Channel.Interface.Messages.SendMessage">Messages.SendMessage</a>.
+        </div>
+      
+       <li>
+        Flags &mdash; u
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Flags influencing how to send the message, the same as for <a href="Channel_Interface_Messages.html#Method:SendMessage" namespace="ofdT.Channel.Interface" title="Method org.freedesktop.Telepathy.Channel.Interface.Messages.SendMessage">Messages.SendMessage</a>.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Token &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An opaque token equivalent to the one returned by <a href="Channel_Interface_Messages.html#Method:SendMessage" namespace="ofdT.Channel.Interface" title="Method org.freedesktop.Telepathy.Channel.Interface.Messages.SendMessage">Messages.SendMessage</a>.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Submit a message to the server for sending, like the
+          <a href="Channel_Interface_Messages.html#Method:SendMessage" namespace="ofdT.Channel.Interface" title="Method org.freedesktop.Telepathy.Channel.Interface.Messages.SendMessage">Messages.SendMessage</a>
+          method.</p>
+
+        <p>If the <var>Account</var> is connected and a Text channel to the
+          <var>Target_ID</var> already exists, this method is equivalent to
+          sending the same message via that channel.</p>
+
+        <p>Otherwise, this method creates a channel (connecting the
+          Account if appropriate), sends the desired message, and
+          closes the channel as if via <a href="Channel.html#Method:Close" namespace="ofdT" title="Method org.freedesktop.Telepathy.Channel.Close">Channel.Close</a>, without
+          acknowledging any messages received on that channel
+          during that time.</p>
+
+        <p>If any messages are received on that channel before it is
+          closed, a correct connection manager implementation will reopen
+          the channel when it is closed, resulting in those &quot;rescued&quot; messages
+          being processed by the system's normal <a href="Client_Handler.html" namespace="ofdT.Client" title="Interface org.freedesktop.Telepathy.Client.Handler">Handler</a> for text
+          channels. In particular, this deals with the situation where
+          a successful or failed delivery report is received
+          before the channel is closed.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Expecting a trivial client (perhaps a send-only IRC bot,
+            or a simple SMS-sending API) to go through all those steps to
+            send a message seems somewhat unreasonable. Having this as a
+            method in the ChannelDispatcher lets it take some short-cuts if
+            required, and centralizes the implementation to reduce the risk of
+            mistakes that cause message loss.</p>
+        </div></div>
+
+        <p>The ChannelDispatcher SHOULD support this method for any
+          connection manager that would accept channel requests of this
+          form:</p>
+
+        <pre>  {
+    …<a href="Channel.html#Property:ChannelType" namespace="ofdT" title="Property org.freedesktop.Telepathy.Channel.ChannelType">Channel.ChannelType</a>:
+        …<a href="Channel_Type_Text.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Channel.Type.Text</a>,
+    …<a href="Channel.html#Property:TargetHandleType" namespace="ofdT" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">Channel.TargetHandleType</a>:
+        <a href="Connection.html#Enum:Handle_Type" type="Handle_Type">Contact</a>,
+    …<a href="Channel.html#Property:TargetID" namespace="ofdT" title="Property org.freedesktop.Telepathy.Channel.TargetID">Channel.TargetID</a>:
+    <var>Target_ID</var>
+  }</pre>
+
+        <p>However, if the connection manager provides additional APIs
+          (such as a way to open &quot;send-only&quot; channels), the
+          ChannelDispatcher MAY use those: it is not required to use
+          those exact request parameters.</p>
+
+        <p>This method may raise any error that would be raised by the
+          <a href="Connection_Interface_Requests.html#Method:EnsureChannel" namespace="ofdT.Connection.Interface" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">Requests.EnsureChannel</a>
+          or <a href="Channel_Interface_Messages.html#Method:SendMessage" namespace="ofdT.Channel.Interface" title="Method org.freedesktop.Telepathy.Channel.Interface.Messages.SendMessage">Messages.SendMessage</a>
+          methods, or signalled by the <a href="Channel_Request.html#Signal:Failed" namespace="ofdT.ChannelRequest" title="Signal org.freedesktop.Telepathy.ChannelRequest.Failed">Failed</a>
+          signal.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The connection manager does not implement Text channels
+            that communicate with a named contact.
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+            The <var>Target_ID</var> was not syntactically valid for the
+            <var>Account</var>'s protocol.
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested message is malformed and cannot be sent.
+          </div>
+      
+       <li><a href="errors.html#Error:Offline" title="Error org.freedesktop.Telepathy.Error.Offline">Offline</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested channel cannot be created because the target is
+            offline.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested channel cannot be created, but in
+            principle, a similar request might succeed in future.
+          </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

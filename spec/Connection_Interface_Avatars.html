@@ -1,0 +1,1753 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.Avatars &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.Avatars'>Connection.Interface.Avatars</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+    | <a href="#contact-attributes">Contact Attributes</a> 
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Connection_Interface_Avatars.html#Method:GetAvatarRequirements">GetAvatarRequirements</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>as: MIME_Types, q: Min_Width, q: Min_Height, q: Max_Width, q: Max_Height, u: Max_Bytes</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Connection_Interface_Avatars.html#Method:GetAvatarTokens">GetAvatarTokens</a></td>
+       <td>(au: Contacts)</td>
+       <td>&#8594;</td>
+       <td>as: Tokens</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Avatars.html#Method:GetKnownAvatarTokens">GetKnownAvatarTokens</a></td>
+       <td>(au: Contacts)</td>
+       <td>&#8594;</td>
+       <td>a{us}: Tokens</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Connection_Interface_Avatars.html#Method:RequestAvatar">RequestAvatar</a></td>
+       <td>(u: Contact)</td>
+       <td>&#8594;</td>
+       <td>ay: Data, s: MIME_Type</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Avatars.html#Method:RequestAvatars">RequestAvatars</a></td>
+       <td>(au: Contacts)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Avatars.html#Method:SetAvatar">SetAvatar</a></td>
+       <td>(ay: Avatar, s: MIME_Type)</td>
+       <td>&#8594;</td>
+       <td>s: Token</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Avatars.html#Method:ClearAvatar">ClearAvatar</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Avatars.html#Signal:AvatarUpdated">AvatarUpdated</a></td>
+       <td>(u: Contact, s: New_Avatar_Token)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Avatars.html#Signal:AvatarRetrieved">AvatarRetrieved</a></td>
+       <td>(u: Contact, s: Token, ay: Avatar, s: Type)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Avatars.html#Property:SupportedAvatarMIMETypes">SupportedAvatarMIMETypes</a></td>
+       <td>
+        as
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Avatars.html#Property:MinimumAvatarHeight">MinimumAvatarHeight</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Avatars.html#Property:MinimumAvatarWidth">MinimumAvatarWidth</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Avatars.html#Property:RecommendedAvatarHeight">RecommendedAvatarHeight</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Avatars.html#Property:RecommendedAvatarWidth">RecommendedAvatarWidth</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Avatars.html#Property:MaximumAvatarHeight">MaximumAvatarHeight</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Avatars.html#Property:MaximumAvatarWidth">MaximumAvatarWidth</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Avatars.html#Property:MaximumAvatarBytes">MaximumAvatarBytes</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+     <h3>Contact Attributes</h3>
+     <table class="summary">
+      
+       <tr class="contact-attribute">
+       <td><a href="Connection_Interface_Avatars.html#Contact-Attribute:token">org.freedesktop.Telepathy.Connection.Interface.Avatars/token</a></td>
+       <td>
+        s
+        
+        (<a href="Connection_Interface_Avatars.html#Simple-Type:Avatar_Token" title="Simple Type Avatar_Token">
+            Avatar_Token</a>)
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Avatars.html#Simple-Type:Avatar_Token">Avatar_Token</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Avatars.html#Mapping:Avatar_Token_Map">Avatar_Token_Map</a></td>
+       <td>Mapping</td>
+       <td>a{us}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for requesting avatars for contacts on a given connection,
+    receiving notification when avatars are changed, and publishing your own
+    avatar.</p>
+
+    <p>Avatars are identified by a string, the <a href="Connection_Interface_Avatars.html#Simple-Type:Avatar_Token">Avatar_Token</a>,
+    which represents a particular avatar. Tokens MUST be chosen by the
+    connection manager in such a way that the triple
+    (<a href="Connection_Manager.html#Simple-Type:Connection_Manager_Name">Connection_Manager_Name</a>, <a href="Connection_Manager.html#Simple-Type:Protocol">Protocol</a>,
+    <a href="Connection_Interface_Avatars.html#Simple-Type:Avatar_Token">Avatar_Token</a>) uniquely identifies an avatar.
+    An empty token means that an avatar has not been set for this contact, and
+    a changed token implies the contact's avatar has changed, but the strings
+    should otherwise be considered opaque by clients.</p>
+
+    <p>A client should use <a href="Connection_Interface_Avatars.html#Method:GetKnownAvatarTokens" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.GetKnownAvatarTokens">GetKnownAvatarTokens</a>
+    to request the tokens for the
+    avatars of all the contacts it is interested in when it connects. The
+    avatars can then be requested using
+    <a href="Connection_Interface_Avatars.html#Method:RequestAvatars" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.RequestAvatars">RequestAvatars</a> for the contacts.  Clients
+    should bind to the <a href="Connection_Interface_Avatars.html#Signal:AvatarUpdated" title="Signal org.freedesktop.Telepathy.Connection.Interface.Avatars.AvatarUpdated">AvatarUpdated</a> signal and
+    request a new copy of
+    the avatar when a contacts' avatar token changes. Clients should cache the
+    token and data of each contact's avatar between connections, to avoid
+    repeatedly retrieving the same avatar.</p>
+
+    <p>To publish an avatar, a client should use
+    <a href="Connection_Interface_Avatars.html#Method:SetAvatar" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.SetAvatar">SetAvatar</a> to provide an image which meets
+    the requirements returned by the
+    <a href="Connection_Interface_Avatars.html#Method:GetAvatarRequirements" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.GetAvatarRequirements">GetAvatarRequirements</a>
+    function. On some protocols the avatar is stored on the server, so setting
+    the avatar is persistent, but on others it is transferred via a peer to
+    peer mechanism, so needs to be set every connection. Hence, on every
+    connection, clients should inspect the avatar token of the connection's
+    self handle using <a href="Connection_Interface_Avatars.html#Method:GetKnownAvatarTokens" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.GetKnownAvatarTokens">GetKnownAvatarTokens</a>; if
+    the self handle is not in the
+    returned map, the client should re-set the avatar. If the self handle's
+    avatar token is known, but the avatar has been changed locally since the
+    last connection, the client should upload the new avatar; if the avatar has
+    not changed locally, then the client should download the avatar from the
+    server if its token differs from the that of the local avatar.</p>
+
+    <p>To remove the published avatar on protocols which have persistent avatars,
+    a client should use the <a href="Connection_Interface_Avatars.html#Method:ClearAvatar" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.ClearAvatar">ClearAvatar</a> method.
+    This method can safely be used even if there is no avatar for this
+    connection.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:GetAvatarRequirements"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Method:GetAvatarRequirements">Permalink</a>)</span>
+     <h2>GetAvatarRequirements () &#8594; as: MIME_Types, q: Min_Width, q: Min_Height, q: Max_Width, q: Max_Height, u: Max_Bytes</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.22. </span>Use GetAll to retrieve the
+        D-Bus properties on this interface, falling back to this method
+        on failure.</div>
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        MIME_Types &mdash; as
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of supported MIME types (eg image/jpeg)
+        </div>
+      
+       <li>
+        Min_Width &mdash; q
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The minimum image width in pixels
+        </div>
+      
+       <li>
+        Min_Height &mdash; q
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The minimum image height in pixels
+        </div>
+      
+       <li>
+        Max_Width &mdash; q
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The maximum image width in pixels, or 0 if there is no limit
+        </div>
+      
+       <li>
+        Max_Height &mdash; q
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The maximum image height in pixels, or 0 if there is no limit
+        </div>
+      
+       <li>
+        Max_Bytes &mdash; u
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The maximum image size in bytes, or 0 if there is no limit
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Get the required format of avatars on this connection.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when the requested functionality is temporarily unavailable.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetAvatarTokens"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Method:GetAvatarTokens">Permalink</a>)</span>
+     <h2>GetAvatarTokens (au: Contacts) &#8594; as: Tokens</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.15.5. </span>Use GetKnownAvatarTokens
+        instead.</div>
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contacts &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+        An array of handles representing contacts
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Tokens &mdash; as
+        
+          (<a href="Connection_Interface_Avatars.html#Simple-Type:Avatar_Token" title="Array of Simple Type Avatar_Token">Avatar_Token_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of avatar tokens or empty strings (if no avatar is set) in the
+          same order as the given array of contact handles
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Get the unique tokens for all of the given contacts' avatars.
+
+        Using this method in new Telepathy clients is deprecated; use
+        <a href="Connection_Interface_Avatars.html#Method:GetKnownAvatarTokens" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.GetKnownAvatarTokens">GetKnownAvatarTokens</a> instead.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when one of the provided arguments is invalid.
+    </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when the requested functionality is temporarily unavailable.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetKnownAvatarTokens"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Method:GetKnownAvatarTokens">Permalink</a>)</span>
+     <h2>GetKnownAvatarTokens (au: Contacts) &#8594; a{us}: Tokens</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contacts &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+        An array of handles representing contacts
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Tokens &mdash; a{us}
+        
+          (<a href="Connection_Interface_Avatars.html#Mapping:Avatar_Token_Map" title="Mapping Avatar_Token_Map">Avatar_Token_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A dictionary of handles mapped to avatar tokens, containing only
+          the known avatar tokens.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Get the unique tokens for the given contacts' avatars. These tokens
+        can be persisted across connections, and should be used by the client
+        to check whether the avatars have been updated.  For handles other than
+        the self handle, only tokens that are already known are returned; an
+        empty token means the given contact has no avatar.  However, a CM must
+        always have the tokens for the self handle if one is set (even if it is
+        set to no avatar).  On protocols where the avatar does not persist
+        between connections, a CM should omit the self handle from the returned
+        map until an avatar is explicitly set or cleared.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when one of the provided arguments is invalid.
+    </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when the requested functionality is temporarily unavailable.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RequestAvatar"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Method:RequestAvatar">Permalink</a>)</span>
+     <h2>RequestAvatar (u: Contact) &#8594; ay: Data, s: MIME_Type</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.15.5. </span>Use RequestAvatars
+        instead.</div>
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contact &mdash; u
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An integer handle for the contact to request the avatar for
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Data &mdash; ay
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of bytes containing the image data
+        </div>
+      
+       <li>
+        MIME_Type &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+        A string containing the image MIME type (eg image/jpeg), or empty if
+        unknown
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Request the avatar for a given contact. Using this method in new
+        Telepathy clients is deprecated; use RequestAvatars instead.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The contact does not currently have an avatar.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RequestAvatars"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Method:RequestAvatars">Permalink</a>)</span>
+     <h2>RequestAvatars (au: Contacts) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contacts &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contacts to retrieve avatars for
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Request avatars for a number of contacts. The
+        <a href="Connection_Interface_Avatars.html#Signal:AvatarRetrieved" title="Signal org.freedesktop.Telepathy.Connection.Interface.Avatars.AvatarRetrieved">AvatarRetrieved</a> signal is emitted for
+        each avatar retrieved. If the handles are valid but retrieving an
+        avatar fails (for any reason, including the contact not having an
+        avatar) the AvatarRetrieved signal is not emitted for that contact.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:SetAvatar"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Method:SetAvatar">Permalink</a>)</span>
+     <h2>SetAvatar (ay: Avatar, s: MIME_Type) &#8594; s: Token</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Avatar &mdash; ay
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of bytes representing the avatar image data
+        </div>
+      
+       <li>
+        MIME_Type &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A string representing the image MIME type
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Token &mdash; s
+        
+          (<a href="Connection_Interface_Avatars.html#Simple-Type:Avatar_Token" title="Simple Type Avatar_Token">Avatar_Token</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The string token of the new avatar
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Set a new avatar image for this connection. The avatar image must
+        respect the requirements obtained by
+        <a href="Connection_Interface_Avatars.html#Method:GetAvatarRequirements" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.GetAvatarRequirements">GetAvatarRequirements</a>.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when one of the provided arguments is invalid.
+    </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when the requested functionality is temporarily unavailable.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:ClearAvatar"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Method:ClearAvatar">Permalink</a>)</span>
+     <h2>ClearAvatar () &#8594; nothing</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.15.0. </span></div>
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring">
+        Remove the avatar image for this connection.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:AvatarUpdated"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Signal:AvatarUpdated">Permalink</a>)</span>
+     <h2>AvatarUpdated (u: Contact, s: New_Avatar_Token)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Contact &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An integer handle for the contact whose avatar has changed
+        </div>
+      
+       <li>
+       New_Avatar_Token &mdash; s
+       
+        (<a href="Connection_Interface_Avatars.html#Simple-Type:Avatar_Token" title="Simple Type Avatar_Token">Avatar_Token</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Unique token for their new avatar
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the avatar for a contact has been updated, or first
+        discovered on this connection. If the token differs from the token
+        associated with the client's cached avatar for this contact, the new
+        avatar should be requested with
+        <a href="Connection_Interface_Avatars.html#Method:RequestAvatars" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.RequestAvatars">RequestAvatars</a>.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:AvatarRetrieved"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Signal:AvatarRetrieved">Permalink</a>)</span>
+     <h2>AvatarRetrieved (u: Contact, s: Token, ay: Avatar, s: Type)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Contact &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contact whose avatar has been retrieved
+        </div>
+      
+       <li>
+       Token &mdash; s
+       
+        (<a href="Connection_Interface_Avatars.html#Simple-Type:Avatar_Token" title="Simple Type Avatar_Token">Avatar_Token</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The token corresponding to the avatar
+        </div>
+      
+       <li>
+       Avatar &mdash; ay
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of bytes containing the image data
+        </div>
+      
+       <li>
+       Type &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A string containing the image MIME type (eg image/jpeg), or empty if
+          unknown
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the avatar for a contact has been retrieved.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SupportedAvatarMIMETypes"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Property:SupportedAvatarMIMETypes">Permalink</a>)</span>
+     <h2>
+      SupportedAvatarMIMETypes &mdash; as
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.22. </span>Fall back to calling
+        <a href="Connection_Interface_Avatars.html#Method:GetAvatarRequirements" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.GetAvatarRequirements">GetAvatarRequirements</a> if getting this
+          property fails.</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        An array of supported MIME types (e.g. &quot;image/jpeg&quot;).
+        Clients MAY assume that the first type in this array is preferred.
+        This property cannot change after the Connection goes to the Connected
+        state.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MinimumAvatarHeight"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Property:MinimumAvatarHeight">Permalink</a>)</span>
+     <h2>
+      MinimumAvatarHeight &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.22. </span>Fall back to calling
+        <a href="Connection_Interface_Avatars.html#Method:GetAvatarRequirements" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.GetAvatarRequirements">GetAvatarRequirements</a> if getting this
+          property fails.</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The minimum height in pixels of an avatar on this protocol, which MAY
+        be 0.
+        This property cannot change after the Connection goes to the Connected
+        state.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MinimumAvatarWidth"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Property:MinimumAvatarWidth">Permalink</a>)</span>
+     <h2>
+      MinimumAvatarWidth &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.22. </span>Fall back to calling
+        <a href="Connection_Interface_Avatars.html#Method:GetAvatarRequirements" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.GetAvatarRequirements">GetAvatarRequirements</a> if getting this
+          property fails.</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The minimum width in pixels of an avatar on this protocol, which MAY
+        be 0.
+        This property cannot change after the Connection goes to the Connected
+        state.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RecommendedAvatarHeight"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Property:RecommendedAvatarHeight">Permalink</a>)</span>
+     <h2>
+      RecommendedAvatarHeight &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.22. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The recommended height in pixels of an avatar on this protocol, or 0 if
+        there is no preferred height.
+        This property cannot change after the Connection goes to the Connected
+        state.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          In XMPP a recommended width is given by the protocol specification;
+          in proprietary protocols, using the same avatar size as the
+          proprietary client is likely to lead to the best display to other
+          users.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RecommendedAvatarWidth"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Property:RecommendedAvatarWidth">Permalink</a>)</span>
+     <h2>
+      RecommendedAvatarWidth &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.22. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The recommended width in pixels of an avatar on this protocol, or 0 if
+        there is no preferred width.
+        This property cannot change after the Connection goes to the Connected
+        state.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          The rationale is the same as for
+          <a href="Connection_Interface_Avatars.html#Property:RecommendedAvatarHeight" title="Property org.freedesktop.Telepathy.Connection.Interface.Avatars.RecommendedAvatarHeight">RecommendedAvatarHeight</a>.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MaximumAvatarHeight"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Property:MaximumAvatarHeight">Permalink</a>)</span>
+     <h2>
+      MaximumAvatarHeight &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.22. </span>Fall back to calling
+        <a href="Connection_Interface_Avatars.html#Method:GetAvatarRequirements" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.GetAvatarRequirements">GetAvatarRequirements</a> if getting this
+          property fails.</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The maximum height in pixels of an avatar on this protocol, or 0 if
+        there is no limit.
+        This property cannot change after the Connection goes to the Connected
+        state.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MaximumAvatarWidth"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Property:MaximumAvatarWidth">Permalink</a>)</span>
+     <h2>
+      MaximumAvatarWidth &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.22. </span>Fall back to calling
+        <a href="Connection_Interface_Avatars.html#Method:GetAvatarRequirements" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.GetAvatarRequirements">GetAvatarRequirements</a> if getting this
+          property fails.</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The maximum width in pixels of an avatar on this protocol, or 0 if
+        there is no limit.
+        This property cannot change after the Connection goes to the Connected
+        state.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MaximumAvatarBytes"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Property:MaximumAvatarBytes">Permalink</a>)</span>
+     <h2>
+      MaximumAvatarBytes &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.22. </span>Fall back to calling
+        <a href="Connection_Interface_Avatars.html#Method:GetAvatarRequirements" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.GetAvatarRequirements">GetAvatarRequirements</a> if getting this
+          property fails.</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The maximum size in bytes of an avatar on this protocol, or 0 if
+        there is no limit.
+        This property cannot change after the Connection goes to the Connected
+        state.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset contact-attributes">
+    <a name="contact-attributes"></a>
+    <h1>Contact Attributes</h1>
+    <div>
+      Attributes that a contact can have, accessed with the
+      org.freedesktop.Telepathy.Connection.Interface.Contacts interface.
+    </div>
+    
+    <div class="inset contact-attribute">
+     <a name="Contact-Attribute:token"></a>
+     <span class="permalink">(<a href="Connection_Interface_Avatars.html#Contact-Attribute:token">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Connection.Interface.Avatars/token &mdash; s
+      
+       (<a href="Connection_Interface_Avatars.html#Simple-Type:Avatar_Token" title="Simple Type Avatar_Token">Avatar_Token</a>)
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The same string that would be returned by
+          <a href="Connection_Interface_Avatars.html#Method:GetKnownAvatarTokens" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.GetKnownAvatarTokens">GetKnownAvatarTokens</a>
+          (omitted from the result if the contact's avatar token is not known,
+          present as an empty string if the contact is known not to have
+          an avatar). Unlike in the
+          <a href="Connection_Interface_Avatars.html#Method:GetKnownAvatarTokens" title="Method org.freedesktop.Telepathy.Connection.Interface.Avatars.GetKnownAvatarTokens">GetKnownAvatarTokens</a>
+          method, the avatar tokens for the self handle aren't required to be
+          present. This attribute should not be used to determine whether or
+          not the Avatar needs to be set.
+        </p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Avatar_Token"></a>
+      <span class="permalink">Simple Type (<a href="Connection_Interface_Avatars.html#Simple-Type:Avatar_Token">Permalink</a>)</span>
+      <h2>
+       Avatar_Token &mdash; s
+      </h2>
+
+      
+      <div class="annotation changed"><span class="version">Changed in 0.17.16. </span>strengthened uniqueness requirements
+        so (CM name, protocol, token) is unique; previously only
+        (our Account, remote contact identifier, token) was required to be
+        unique</div>
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>An opaque token chosen by the connection manager, representing
+          a particular avatar.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Because avatars can be relatively large images, most protocols
+            provide a way to detect whether an old avatar is still valid,
+            or whether an avatar has changed, without pushing the actual
+            avatar data to all clients.</p>
+        </div></div>
+
+        <p>The connection manager MUST choose these tokens in a way that
+          makes it highly unlikely that two different avatars with the same
+          connection manager and protocol will have the same token.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This means that clients MAY use the triple
+            (<a href="Connection_Manager.html#Simple-Type:Connection_Manager_Name">Connection_Manager_Name</a>,
+            <a href="Connection_Manager.html#Simple-Type:Protocol">Protocol</a>, avatar token) as a key for
+            their avatar cache. For instance, an avatar for a
+            telepathy-gabble Jabber contact might be stored in a file
+            .../gabble/jabber/4e199b4a1c40b497a95fcd1cd896351733849949.png.</p>
+        </div></div>
+
+        <p>For instance, some protocols (like XMPP) identify avatars by a
+          hash of the avatar data; in this case, the hash can be used as the
+          avatar token.</p>
+
+        <p>Some protocols identify avatars by the timestamp of the last
+          change to the avatar; in these protocols it would be necessary for
+          the connection manager to encode both the timestamp and the
+          contact's identifier into the avatar token in order to ensure
+          uniqueness.</p>
+
+        <p>This token SHOULD be kept short and reasonably suitable for use
+          in a filename, but MAY contain any UTF-8 character (so clients using
+          avatar tokens in filenames MUST be prepared to escape characters
+          that are not valid in filenames). Connection managers for protocols
+          where tokens would otherwise become inconveniently large or contain
+          many unsuitable characters SHOULD hash the identifying data to
+          generate the token.</p>
+      </div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Avatar_Token_Map"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Avatars.html#Mapping:Avatar_Token_Map">Permalink</a>)</span>
+      <h2>
+       Avatar_Token_Map &mdash; a{us}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A dictionary whose keys are contact handles and whose
+        values are avatar tokens.</div>
+      <ul>
+<li>Handle &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<li>Token &mdash; s (<a href="Connection_Interface_Avatars.html#Simple-Type:Avatar_Token" title="Simple Type Avatar_Token">Avatar_Token</a>)</li>
+</ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

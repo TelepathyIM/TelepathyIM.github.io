@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Properties &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Properties'>Properties</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+   
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Properties_Interface.html#Method:GetProperties">GetProperties</a></td>
+       <td>(au: Properties)</td>
+       <td>&#8594;</td>
+       <td>a(uv): Values</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Properties_Interface.html#Method:ListProperties">ListProperties</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>a(ussu): Available_Properties</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Properties_Interface.html#Method:SetProperties">SetProperties</a></td>
+       <td>(a(uv): Properties)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Properties_Interface.html#Signal:PropertiesChanged">PropertiesChanged</a></td>
+       <td>(a(uv): Properties)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Properties_Interface.html#Signal:PropertyFlagsChanged">PropertyFlagsChanged</a></td>
+       <td>(a(uu): Properties)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Properties_Interface.html#Simple-Type:Property_ID">Property_ID</a></td>
+       <td>Simple Type</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Properties_Interface.html#Flags:Property_Flags">Property_Flags</a></td>
+       <td>Flags</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Properties_Interface.html#Struct:Property_Spec">Property_Spec</a></td>
+       <td>Struct</td>
+       <td>(ussu)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Properties_Interface.html#Struct:Property_Flags_Change">Property_Flags_Change</a></td>
+       <td>Struct</td>
+       <td>(uu)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Properties_Interface.html#Struct:Property_Value">Property_Value</a></td>
+       <td>Struct</td>
+       <td>(uv)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   
+   
+   <div class="annotation deprecated"><span class="version">Deprecated since 0.24.0. </span>All uses of this interface have been
+      expunged, and it may now be laid to rest.</div>
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>Interface for channels and other objects, to allow querying and setting
+    properties. ListProperties returns which properties are valid for
+    the given channel, including their type, and an integer handle used to
+    refer to them in GetProperties, SetProperties, and the PropertiesChanged
+    signal. The values are represented by D-Bus variant types, and are
+    accompanied by flags indicating whether or not the property is readable or
+    writable.</p>
+
+    <p>Each property also has a flags value to indicate what methods are
+    available. This is a bitwise OR of PropertyFlags values.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:GetProperties"></a>
+     <span class="permalink">(<a href="Properties_Interface.html#Method:GetProperties">Permalink</a>)</span>
+     <h2>GetProperties (au: Properties) &#8594; a(uv): Values</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Properties &mdash; au
+        
+          (<a href="Properties_Interface.html#Simple-Type:Property_ID" title="Array of Simple Type Property_ID">Property_ID_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">An array of property identifiers</div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Values &mdash; a(uv)
+        
+          (<a href="Properties_Interface.html#Struct:Property_Value" title="Array of Struct Property_Value">Property_Value_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>An array of structs containing:</p>
+          <ul>
+            <li>integer identifiers</li>
+            <li>variant boxed values</li>
+          </ul>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Returns an array of (identifier, value) pairs containing the current
+        values of the given properties.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            Some property identifier requested is invalid
+          </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+            Some property requested does not have the PROPERTY_FLAG_READ flag
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:ListProperties"></a>
+     <span class="permalink">(<a href="Properties_Interface.html#Method:ListProperties">Permalink</a>)</span>
+     <h2>ListProperties () &#8594; a(ussu): Available_Properties</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Available_Properties &mdash; a(ussu)
+        
+          (<a href="Properties_Interface.html#Struct:Property_Spec" title="Array of Struct Property_Spec">Property_Spec_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of structs containing:
+          <ul>
+            <li>an integer identifier</li>
+            <li>a string property name</li>
+            <li>a string representing the D-Bus signature of this property</li>
+            <li>a bitwise OR of the flags applicable to this property</li>
+          </ul>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Returns a dictionary of the properties available on this channel.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:SetProperties"></a>
+     <span class="permalink">(<a href="Properties_Interface.html#Method:SetProperties">Permalink</a>)</span>
+     <h2>SetProperties (a(uv): Properties) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Properties &mdash; a(uv)
+        
+          (<a href="Properties_Interface.html#Struct:Property_Value" title="Array of Struct Property_Value">Property_Value_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+        An array mapping integer property identifiers to boxed values
+      </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Takes an array of (identifier, value) pairs containing desired
+          values to set the given properties. In the case of any errors, no
+          properties will be changed. When the changes have been acknowledged
+          by the server, the PropertiesChanged signal will be emitted.</p>
+
+        <p>All properties given must have the PROPERTY_FLAG_WRITE flag, or
+        PermissionDenied will be returned. If any variants are of the wrong
+        type, NotAvailable will be returned.  If any given property identifiers
+        are invalid, InvalidArgument will be returned.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when one of the provided arguments is invalid.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when the requested functionality is temporarily unavailable.
+    </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:PropertiesChanged"></a>
+     <span class="permalink">(<a href="Properties_Interface.html#Signal:PropertiesChanged">Permalink</a>)</span>
+     <h2>PropertiesChanged (a(uv): Properties)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Properties &mdash; a(uv)
+       
+        (<a href="Properties_Interface.html#Struct:Property_Value" title="Array of Struct Property_Value">Property_Value_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>An array of structs containing:</p>
+          <ul>
+            <li>integer identifiers</li>
+            <li>variant boxed values</li>
+          </ul>
+          <p>The array should contain only properties whose values have
+            actually changed.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the value of readable properties has changed.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:PropertyFlagsChanged"></a>
+     <span class="permalink">(<a href="Properties_Interface.html#Signal:PropertyFlagsChanged">Permalink</a>)</span>
+     <h2>PropertyFlagsChanged (a(uu): Properties)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Properties &mdash; a(uu)
+       
+        (<a href="Properties_Interface.html#Struct:Property_Flags_Change" title="Array of Struct Property_Flags_Change">Property_Flags_Change_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>An array of structs containing:</p>
+          <ul>
+            <li>integer identifiers</li>
+            <li>a bitwise OR of the current flags</li>
+          </ul>
+          <p>The array should contain only properties whose flags have actually
+            changed.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the flags of some room properties have changed.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Property_ID"></a>
+      <span class="permalink">Simple Type (<a href="Properties_Interface.html#Simple-Type:Property_ID">Permalink</a>)</span>
+      <h2>
+       Property_ID &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        An unsigned integer used to represent a Telepathy property.
+      </div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Flags:Property_Flags"></a>
+      <span class="permalink">Flags (<a href="Properties_Interface.html#Flags:Property_Flags">Permalink</a>)</span>
+      <h2>
+       Property_Flags &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Read (1)</li>
+<div class="docstring">The property can be read</div><li>Write (2)</li>
+<div class="docstring">The property can be written</div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Property_Spec"></a>
+      <span class="permalink">Struct (<a href="Properties_Interface.html#Struct:Property_Spec">Permalink</a>)</span>
+      <h2>
+       Property_Spec &mdash; (ussu)
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A struct (property ID, property name, D-Bus signature,
+        flags) representing a property, as returned by ListProperties on the
+        Properties interface.</div>
+      <ul>
+<li>Property_ID &mdash; u</li>
+<li>Name &mdash; s</li>
+<li>Signature &mdash; s (<a href="generic-types.html#Simple-Type:DBus_Signature" title="Simple Type DBus_Signature">DBus_Signature</a>)</li>
+<li>Flags &mdash; u (<a href="Properties_Interface.html#Flags:Property_Flags" title="Flags Property_Flags">Property_Flags</a>)</li>
+</ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Property_Flags_Change"></a>
+      <span class="permalink">Struct (<a href="Properties_Interface.html#Struct:Property_Flags_Change">Permalink</a>)</span>
+      <h2>
+       Property_Flags_Change &mdash; (uu)
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A struct (property ID, flags) representing a change to
+        a property's flags, as seen in the PropertyFlagsChanged signal on
+        the Properties interface.</div>
+      <ul>
+<li>Property_ID &mdash; u</li>
+<li>New_Flags &mdash; u</li>
+</ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Property_Value"></a>
+      <span class="permalink">Struct (<a href="Properties_Interface.html#Struct:Property_Value">Permalink</a>)</span>
+      <h2>
+       Property_Value &mdash; (uv)
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A struct (property ID, value) representing a
+        property's value, as seen in the PropertiesChanged signal on
+        the Properties interface, returned by the GetProperties method
+        and passed to the SetProperties method.</div>
+      <ul>
+<li>Identifier &mdash; u (<a href="Properties_Interface.html#Simple-Type:Property_ID" title="Simple Type Property_ID">Property_ID</a>)</li>
+<li>Value &mdash; v</li>
+</ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

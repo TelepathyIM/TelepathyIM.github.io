@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.MediaSignalling &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.MediaSignalling'>Channel.Interface.MediaSignalling</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+   
+   
+    | <a href="#handler-capability-tokens">Handler Capability Tokens</a> 
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Media_Signalling.html#Method:GetSessionHandlers">GetSessionHandlers</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>a(os): Session_Handlers</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Media_Signalling.html#Signal:NewSessionHandler">NewSessionHandler</a></td>
+       <td>(o: Session_Handler, s: Session_Type)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+
+     
+
+     
+     <h3>Handler Capability Tokens</h3>
+     <table class="summary">
+      
+       <tr class="handler-capability-token">
+         <td><a href="Channel_Interface_Media_Signalling.html#Handler-Capability-Token:gtalk-p2p">org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/gtalk-p2p</a>
+           
+         </td>
+       <td>
+       </td>
+      </tr>
+      
+       <tr class="handler-capability-token">
+         <td><a href="Channel_Interface_Media_Signalling.html#Handler-Capability-Token:ice-udp">org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/ice-udp</a>
+           
+         </td>
+       <td>
+       </td>
+      </tr>
+      
+       <tr class="handler-capability-token">
+         <td><a href="Channel_Interface_Media_Signalling.html#Handler-Capability-Token:wlm-8.5">org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/wlm-8.5</a>
+           
+         </td>
+       <td>
+       </td>
+      </tr>
+      
+       <tr class="handler-capability-token">
+         <td><a href="Channel_Interface_Media_Signalling.html#Handler-Capability-Token:wlm-2009">org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/wlm-2009</a>
+           
+         </td>
+       <td>
+       </td>
+      </tr>
+      
+       <tr class="handler-capability-token">
+         <td><a href="Channel_Interface_Media_Signalling.html#Handler-Capability-Token:video/h264">org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/video/h264</a>
+           
+             (etc.)
+           
+         </td>
+       <td>
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Media_Signalling.html#Simple-Type:Media_Session_Type">Media_Session_Type</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Media_Signalling.html#Struct:Media_Session_Handler_Info">Media_Session_Handler_Info</a></td>
+       <td>Struct</td>
+       <td>(os)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   
+   <div class="annotation changed"><span class="version">Changed in 0.24.0. </span>The old-style Telepathy properties,
+      deprecated since March 2009, have been removed.</div>
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+     <li><a href="Channel_Type_Streamed_Media.html" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamedMedia">org.freedesktop.Telepathy.Channel.Type.StreamedMedia</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for signalling a channel containing synchronised media
+        sessions which can contain an arbitrary number of streams. The
+        presence of this interface on a Channel indicates that the connection
+        manager will not carry out the actual streaming for this channel,
+        and that the client handling the channel is responsible for doing
+        so; in most cases we recommend doing this by using the
+        telepathy-farsight library.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>Streaming audio and (particularly) video requires a high level of
+          integration with the UI, and having the connection manager act as
+          a proxy would be likely to introduce unacceptable latency. As a
+          result, audio/video streaming is offloaded into the client
+          where possible, as an exception to the general design of
+          Telepathy.</p>
+      </div></div>
+
+      <p>The negotiation interface is based on the API of the
+        <a href="http://farsight.freedesktop.org/">Farsight</a> library.
+        This, in turn, is based upon the IETF MMusic ICE drafts, where
+        connections are established by signalling potential connection
+        candidates to the peer until a usable connection is found, and
+        codecs are negotiated with an SDP-style offer and answer. However,
+        the principles should be applicable to other media streaming methods
+        and the API re-used without difficulty.</p>
+
+      <p>Note that the naming conventions used in the MediaStreamHandler
+        and MediaSessionHandler interfaces are rather confusing; methods
+        have signal-like names and signals have method-like names, due to
+        the API being based rather too closely on that of Farsight. This
+        is for historical reasons and will be fixed in a future release
+        of the Telepathy specification.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:GetSessionHandlers"></a>
+     <span class="permalink">(<a href="Channel_Interface_Media_Signalling.html#Method:GetSessionHandlers">Permalink</a>)</span>
+     <h2>GetSessionHandlers () &#8594; a(os): Session_Handlers</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Session_Handlers &mdash; a(os)
+        
+          (<a href="Channel_Interface_Media_Signalling.html#Struct:Media_Session_Handler_Info" title="Array of Struct Media_Session_Handler_Info">Media_Session_Handler_Info_List</a>)
+        
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Returns all currently active session handlers on this channel
+        as a list of (session_handler_path, type).
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:NewSessionHandler"></a>
+     <span class="permalink">(<a href="Channel_Interface_Media_Signalling.html#Signal:NewSessionHandler">Permalink</a>)</span>
+     <h2>NewSessionHandler (o: Session_Handler, s: Session_Type)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Session_Handler &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Object path of the new <a href="Media_Session_Handler.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Media.SessionHandler">Media.SessionHandler</a>
+          object
+        </div>
+      
+       <li>
+       Session_Type &mdash; s
+       
+        (<a href="Channel_Interface_Media_Signalling.html#Simple-Type:Media_Session_Type" title="Simple Type Media_Session_Type">Media_Session_Type</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          String indicating type of session, eg &quot;rtp&quot;
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Signal that a session handler object has been created. The client
+        should create a session object and create streams for the streams
+        within.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset handler-capability-tokens">
+    <a name="handler-capability-tokens"></a>
+    <h1>Handler Capability Tokens</h1>
+    <div>
+      Tokens representing capabilities that a Client.Handler can have.
+    </div>
+    
+    <div class="inset handler-capability-token">
+     <a name="Handler-Capability-Token:gtalk-p2p"></a>
+     <span class="permalink">(<a href="Channel_Interface_Media_Signalling.html#Handler-Capability-Token:gtalk-p2p">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/gtalk-p2p
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The client can implement streaming for streams whose <a href="Media_Stream_Handler.html#Property:NATTraversal" namespace="org.freedesktop.Telepathy.Media.StreamHandler" title="Property org.freedesktop.Telepathy.Media.StreamHandler.NATTraversal">NATTraversal</a>
+          property is <code>gtalk-p2p</code>.</p>
+      </div>
+    </div>
+    
+    <div class="inset handler-capability-token">
+     <a name="Handler-Capability-Token:ice-udp"></a>
+     <span class="permalink">(<a href="Channel_Interface_Media_Signalling.html#Handler-Capability-Token:ice-udp">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/ice-udp
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The client can implement streaming for streams whose <a href="Media_Stream_Handler.html#Property:NATTraversal" namespace="org.freedesktop.Telepathy.Media.StreamHandler" title="Property org.freedesktop.Telepathy.Media.StreamHandler.NATTraversal">NATTraversal</a>
+          property is <code>ice-udp</code>.</p>
+      </div>
+    </div>
+    
+    <div class="inset handler-capability-token">
+     <a name="Handler-Capability-Token:wlm-8.5"></a>
+     <span class="permalink">(<a href="Channel_Interface_Media_Signalling.html#Handler-Capability-Token:wlm-8.5">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/wlm-8.5
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The client can implement streaming for streams whose <a href="Media_Stream_Handler.html#Property:NATTraversal" namespace="org.freedesktop.Telepathy.Media.StreamHandler" title="Property org.freedesktop.Telepathy.Media.StreamHandler.NATTraversal">NATTraversal</a>
+          property is <code>wlm-8.5</code>.</p>
+      </div>
+    </div>
+    
+    <div class="inset handler-capability-token">
+     <a name="Handler-Capability-Token:wlm-2009"></a>
+     <span class="permalink">(<a href="Channel_Interface_Media_Signalling.html#Handler-Capability-Token:wlm-2009">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/wlm-2009
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The client can implement streaming for streams whose <a href="Media_Stream_Handler.html#Property:NATTraversal" namespace="org.freedesktop.Telepathy.Media.StreamHandler" title="Property org.freedesktop.Telepathy.Media.StreamHandler.NATTraversal">NATTraversal</a>
+          property is <code>wlm-2009</code>.</p>
+      </div>
+    </div>
+    
+    <div class="inset handler-capability-token">
+     <a name="Handler-Capability-Token:video/h264"></a>
+     <span class="permalink">(<a href="Channel_Interface_Media_Signalling.html#Handler-Capability-Token:video/h264">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/video/h264
+      
+      (etc.)
+      
+     </h2>
+     
+     
+     
+     <div class="docstring">
+        <p>The client supports media streaming with H264 (etc.).</p>
+
+        <p>This handler capability token is a one of a family
+          of similar tokens: for any other audio or video codec whose MIME
+          type is audio/<em>subtype</em> or video/<em>subtype</em>, a handler
+          capability token of this form may exist (the subtype MUST appear
+          in lower case in this context). Clients MAY support more
+          codecs than they explicitly advertise support for; clients SHOULD
+          explicitly advertise support for their preferred codec(s), and
+          for codecs like H264 that are, in practice, significant in codec
+          negotiation.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>For instance, the XMPP capability used by the Google Video
+            Chat web client to determine whether a client is compatible
+            with it requires support for H264 video, so an XMPP
+            connection manager that supports this version of Jingle should
+            not advertise the Google Video Chat capability unless there
+            is at least one installed client that declares that it supports
+            <code>video/h264</code> on StreamedMedia channels.</p>
+        </div></div>
+
+        <p>For example, a client could advertise support for
+          Speex, Theora and H264 by having three
+          handler capability tokens,
+          <code>org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/audio/speex</code>,
+          <code>org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/video/theora</code> and
+          <code>org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/video/h264</code>,
+          in its <a href="Client_Handler.html#Property:Capabilities" namespace="org.freedesktop.Telepathy.Client.Handler" title="Property org.freedesktop.Telepathy.Client.Handler.Capabilities">Capabilities</a>
+          property.</p>
+
+        <p>Clients MAY have media signalling abilities without explicitly
+          supporting any particular codec, and connection managers SHOULD
+          support this usage.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This is necessary to support gatewaying between two Telepathy
+            connections, in which case the available codecs might not be
+            known to the gatewaying process.</p>
+        </div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Media_Session_Type"></a>
+      <span class="permalink">Simple Type (<a href="Channel_Interface_Media_Signalling.html#Simple-Type:Media_Session_Type">Permalink</a>)</span>
+      <h2>
+       Media_Session_Type &mdash; s
+      </h2>
+
+      
+      
+      
+      <div class="docstring">The type of a media session. Currently, the only supported
+        value is &quot;rtp&quot;.</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Media_Session_Handler_Info"></a>
+      <span class="permalink">Struct (<a href="Channel_Interface_Media_Signalling.html#Struct:Media_Session_Handler_Info">Permalink</a>)</span>
+      <h2>
+       Media_Session_Handler_Info &mdash; (os)
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A struct representing a active session handler.</div>
+      <ul>
+<li>Session_Handler &mdash; o</li>
+<div class="docstring">The object path of the session handler, which is on the
+          same bus name as the channel.</div><li>Media_Session_Type &mdash; s (<a href="Channel_Interface_Media_Signalling.html#Simple-Type:Media_Session_Type" title="Simple Type Media_Session_Type">Media_Session_Type</a>)</li>
+<div class="docstring">The media session's type</div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

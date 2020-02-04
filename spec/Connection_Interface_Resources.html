@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.Resources.DRAFT &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.Resources.DRAFT'>Connection.Interface.Resources.DRAFT</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+    | <a href="#contact-attributes">Contact Attributes</a> 
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Resources.html#Method:GetResources">GetResources</a></td>
+       <td>(au: Contacts)</td>
+       <td>&#8594;</td>
+       <td>a{ua{sa{sv}}}: Resources</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Resources.html#Signal:ResourcesUpdated">ResourcesUpdated</a></td>
+       <td>(u: Contact, a{sa{sv}}: Resources)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Resources.html#Property:ResourcesHumanReadable">ResourcesHumanReadable</a></td>
+       <td>
+        u
+        
+          (<a href="Connection_Interface_Resources.html#Enum:Resources_Human_Readability" title="Enum Resources_Human_Readability">
+              Resources_Human_Readability</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+     <h3>Contact Attributes</h3>
+     <table class="summary">
+      
+       <tr class="contact-attribute">
+       <td><a href="Connection_Interface_Resources.html#Contact-Attribute:resources">org.freedesktop.Telepathy.Connection.Interface.Resources.DRAFT/resources</a></td>
+       <td>
+        a{sa{sv}}
+        
+        (<a href="Connection_Interface_Resources.html#Mapping:Resource_Information_Map" title="Mapping Resource_Information_Map">
+            Resource_Information_Map</a>)
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Resources.html#Enum:Resources_Human_Readability">Resources_Human_Readability</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Resources.html#Mapping:Resource_Information_Map">Resource_Information_Map</a></td>
+       <td>Mapping</td>
+       <td>a{sa{sv}}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Resources.html#Mapping:Resources_Attributes_Map">Resources_Attributes_Map</a></td>
+       <td>Mapping</td>
+       <td>a{ua{sa{sv}}}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is experimental and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   <div class="annotation added"><span class="version">Added in 0.21.1. </span>(draft 1)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface on connections to show contact attributes for
+        specific resources of a contact, if the protocol supports
+        multiple resources. Resources are most common in XMPP, hence the
+        name of this interface, but they are also present in MSN, where
+        they are called points of presence.</p>
+
+      <p>When a client requests some attribute of a contact using its
+        handle on the connection, the CM uses an algorithm to choose the
+        most appropriate resource for the job. If there is only one
+        resource, then the choice is obvious. If, however, there is more
+        than one resource connected at any one time, the CM either
+        aggregates all appropriate information to return (in the case of
+        capabilities), or chooses one specific resource (in the case of
+        presence).</p>
+
+      <p>Resources in XMPP have names, and it can be extremely useful
+        for the user to be able to know which resources of a contact are
+        online, providing the names are human-readable. Before now,
+        resources have not been exposed in Telepathy, but this interface
+        attempts to change this.</p>
+
+      <p>When using this interface, it is a little like using the
+        <a href="Connection_Interface_Contacts.html" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.Contacts">Contacts</a> interface, but only resource-specific
+        attributes are ever returned. The resource-specific contact
+        attributes are decided on by the CM, but XMPP's are listed
+        below:</p>
+
+      <ul>
+        <li><a href="Connection_Interface_Simple_Presence.html#Contact-Attribute:presence" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Contact Attribute org.freedesktop.Telepathy.Connection.Interface.SimplePresence/presence">SimplePresence/presence</a></li>
+        <li><a href="Connection_Interface_Contact_Capabilities.html#Contact-Attribute:capabilities" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Contact Attribute org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities/capabilities">ContactCapabilities/capabilities</a></li>
+        <li><a href="Connection_Interface_Client_Types.html#Contact-Attribute:client-types" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Contact Attribute org.freedesktop.Telepathy.Connection.Interface.ClientTypes/client-types">ClientTypes/client-types</a></li>
+      </ul>
+
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:GetResources"></a>
+     <span class="permalink">(<a href="Connection_Interface_Resources.html#Method:GetResources">Permalink</a>)</span>
+     <h2>GetResources (au: Contacts) &#8594; a{ua{sa{sv}}}: Resources</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contacts &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contacts whose resource attributes should be returned.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Resources &mdash; a{ua{sa{sv}}}
+        
+          (<a href="Connection_Interface_Resources.html#Mapping:Resources_Attributes_Map" title="Mapping Resources_Attributes_Map">Resources_Attributes_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The contacts' resources and the contact attributes specific
+            to each resource. If contact attributes are not immediately
+            known, the behaviour is defined by the interface; the
+            attribute should either be omitted from the result or
+            replaced with a default value.</p>
+
+          <p>For every contact handle passed into this method, it is
+            guaranteed that there will be a key in the returned map
+            that corresponds to said handle. If there is no information
+            regarding the contact the resource information map will be
+            empty.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Return the resource information of the given contacts. If any
+        of the contact attributes for specific resources of the given
+        contacts' are not known return immediately without waiting for
+        a reply.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:ResourcesUpdated"></a>
+     <span class="permalink">(<a href="Connection_Interface_Resources.html#Signal:ResourcesUpdated">Permalink</a>)</span>
+     <h2>ResourcesUpdated (u: Contact, a{sa{sv}}: Resources)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Contact &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contact.
+        </div>
+      
+       <li>
+       Resources &mdash; a{sa{sv}}
+       
+        (<a href="Connection_Interface_Resources.html#Mapping:Resource_Information_Map" title="Mapping Resource_Information_Map">Resource_Information_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contact's resource information. All resource information
+          is given, not just the details which have changed.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when a contact has a resource added or removed, or any
+        contact attribute for any resource changes.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ResourcesHumanReadable"></a>
+     <span class="permalink">(<a href="Connection_Interface_Resources.html#Property:ResourcesHumanReadable">Permalink</a>)</span>
+     <h2>
+      ResourcesHumanReadable &mdash; u
+      
+        (<a href="Connection_Interface_Resources.html#Enum:Resources_Human_Readability" title="Enum Resources_Human_Readability">Resources_Human_Readability</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Whether the resources returned from <a href="Connection_Interface_Resources.html#Method:GetResources" title="Method org.freedesktop.Telepathy.Connection.Interface.Resources.DRAFT.GetResources">GetResources</a>
+          are human readable or not.</p>
+
+        <p>If the connection manager knows that all resource names are
+          automatically generated, then the resource strings mean
+          nothing to the user. Showing these strings in the UI would
+          be confusing, so by setting this to
+          Resources_Human_Readability_Never, the UI is advised not to
+          show resources.</p>
+
+        <p>If on the other hand, all resources are set to nice names
+          (such as &quot;office&quot; or &quot;home&quot;) then it might be wise to expose
+          these strings in the UI, so this property would be set to
+          Resources_Human_Readability_Maybe. This is the case in XMPP --
+          most resources are set in a way that the user can deduce some
+          information from them. The absence of an Always enum value is
+          because in the case of XMPP, the resource string could be
+          partially human-readable (as on Google Talk, where a resource
+          of &quot;home&quot; is changed by the server to a unique string like
+          &quot;home_1234fdec&quot;) or not at all human-readable.</p>
+
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset contact-attributes">
+    <a name="contact-attributes"></a>
+    <h1>Contact Attributes</h1>
+    <div>
+      Attributes that a contact can have, accessed with the
+      org.freedesktop.Telepathy.Connection.Interface.Contacts interface.
+    </div>
+    
+    <div class="inset contact-attribute">
+     <a name="Contact-Attribute:resources"></a>
+     <span class="permalink">(<a href="Connection_Interface_Resources.html#Contact-Attribute:resources">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Connection.Interface.Resources.DRAFT/resources &mdash; a{sa{sv}}
+      
+       (<a href="Connection_Interface_Resources.html#Mapping:Resource_Information_Map" title="Mapping Resource_Information_Map">Resource_Information_Map</a>)
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The same mapping that would be returned by
+          <a href="Connection_Interface_Resources.html#Method:GetResources" title="Method org.freedesktop.Telepathy.Connection.Interface.Resources.DRAFT.GetResources">GetResources</a> for this contact.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Resources_Human_Readability"></a>
+      <span class="permalink">Enum (<a href="Connection_Interface_Resources.html#Enum:Resources_Human_Readability">Permalink</a>)</span>
+      <h2>
+       Resources_Human_Readability &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Never (0)</li>
+<div class="docstring">
+          The resource string is never human-readable.
+        </div><li>Maybe (1)</li>
+<div class="docstring">
+          The resource string might be human-readable.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Resource_Information_Map"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Resources.html#Mapping:Resource_Information_Map">Permalink</a>)</span>
+      <h2>
+       Resource_Information_Map &mdash; a{sa{sv}}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A map of a contact's resources to their resource-specific
+        information.
+      </div>
+      <ul>
+<li>Key &mdash; s</li>
+<div class="docstring">
+          <p>The name of the resource.</p>
+        </div><li>Contact_Attributes &mdash; a{sv} (<a href="Connection_Interface_Contacts.html#Mapping:Single_Contact_Attributes_Map" title="Mapping Single_Contact_Attributes_Map">Single_Contact_Attributes_Map</a>)</li>
+<div class="docstring">
+          A map of contact attributes whose data is specific to this
+          resource.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Resources_Attributes_Map"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Resources.html#Mapping:Resources_Attributes_Map">Permalink</a>)</span>
+      <h2>
+       Resources_Attributes_Map &mdash; a{ua{sa{sv}}}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">Mapping returned by
+        <a href="Connection_Interface_Resources.html#Method:GetResources" title="Method org.freedesktop.Telepathy.Connection.Interface.Resources.DRAFT.GetResources">GetResources</a>, representing a
+        collection of Contacts, their resources, and their
+        resource-specific contact attributes.</div>
+      <ul>
+<li>Contact &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+          A contact.
+        </div><li>Resources &mdash; a{sa{sv}} (<a href="Connection_Interface_Resources.html#Mapping:Resource_Information_Map" title="Mapping Resource_Information_Map">Resource_Information_Map</a>)</li>
+<div class="docstring">
+          A map of the contact's resources to their resource-specific
+          information.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

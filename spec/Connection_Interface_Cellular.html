@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.Cellular &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.Cellular'>Connection.Interface.Cellular</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Cellular.html#Signal:IMSIChanged">IMSIChanged</a></td>
+       <td>(s: IMSI)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Cellular.html#Property:MessageValidityPeriod">MessageValidityPeriod</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Cellular.html#Property:OverrideMessageServiceCentre">OverrideMessageServiceCentre</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Cellular.html#Property:MessageServiceCentre">MessageServiceCentre</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Cellular.html#Property:IMSI">IMSI</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Cellular.html#Property:MessageReducedCharacterSet">MessageReducedCharacterSet</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Cellular.html#Property:MessageNationalCharacterSet">MessageNationalCharacterSet</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.19.8. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface is for various cellular things (GSM and/or CDMA) that
+        aren't really applicable to other protocols.</p>
+    </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:IMSIChanged"></a>
+     <span class="permalink">(<a href="Connection_Interface_Cellular.html#Signal:IMSIChanged">Permalink</a>)</span>
+     <h2>IMSIChanged (s: IMSI)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       IMSI &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new IMSI value.  This may be an empty string in the case where
+          the IMSI is being reset or removed.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the IMSI for the connection changes.  This sort of thing
+        is rare, but could happen on cellular phones that allow hot-swapping
+        of SIM cards.  In the case of SIM swapping, this signal would be
+        emitted twice; the first time while the SIM is being ejected (with an
+        empty string), and the second time after a new SIM has been inserted
+        (assuming that the IMSI can be determined from the new SIM).
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MessageValidityPeriod"></a>
+     <span class="permalink">(<a href="Connection_Interface_Cellular.html#Property:MessageValidityPeriod">Permalink</a>)</span>
+     <h2>
+      MessageValidityPeriod &mdash; u
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+      <div class="annotation connection-parameter">
+        <p><span class='note'>Note:</span> Connections implementing this
+          property SHOULD provide a corresponding parameter named
+          <tt>org.freedesktop.Telepathy.Connection.Interface.Cellular.MessageValidityPeriod</tt> with the <a
+          href="Connection_Manager.html#Conn_Mgr_Param_Flags">DBus_Property</a>
+          flag. Clients SHOULD update this property by
+          calling <a
+            href="Account.html#org.freedesktop.Telepathy.Account.UpdateParameters">UpdateParameters</a>
+          on the relevant <a href="Account.html">Account</a> rather than
+          setting the property directly; change notification is via <a
+            href="Account.html#org.freedesktop.Telepathy.Account.AccountPropertyChanged">AccountPropertyChanged</a>.
+          </p>
+      </div>
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Define how long should the service centre try message delivery before
+          giving up, failing delivery and deleting the message. A value of 0
+          means to use the service centre's default period.</p>
+
+        <p>The value specified is in seconds. Note that various protocols or
+          implementations may round the value up (eg. to a minute or hour
+          precision). The maximum validity period may vary depending on
+          protocol or provider.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:OverrideMessageServiceCentre"></a>
+     <span class="permalink">(<a href="Connection_Interface_Cellular.html#Property:OverrideMessageServiceCentre">Permalink</a>)</span>
+     <h2>
+      OverrideMessageServiceCentre &mdash; b
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.19.12. </span>Previously, as an undocumented
+        feature, setting <a href="Connection_Interface_Cellular.html#Property:MessageServiceCentre" title="Property org.freedesktop.Telepathy.Connection.Interface.Cellular.MessageServiceCentre">MessageServiceCentre</a>
+        to the empty string caused the SIM's default SMSC to be used.</div>
+     
+     
+
+     
+     
+     
+
+      
+      <div class="annotation connection-parameter">
+        <p><span class='note'>Note:</span> Connections implementing this
+          property SHOULD provide a corresponding parameter named
+          <tt>org.freedesktop.Telepathy.Connection.Interface.Cellular.OverrideMessageServiceCentre</tt> with the <a
+          href="Connection_Manager.html#Conn_Mgr_Param_Flags">DBus_Property</a>
+          flag. Clients SHOULD update this property by
+          calling <a
+            href="Account.html#org.freedesktop.Telepathy.Account.UpdateParameters">UpdateParameters</a>
+          on the relevant <a href="Account.html">Account</a> rather than
+          setting the property directly; change notification is via <a
+            href="Account.html#org.freedesktop.Telepathy.Account.AccountPropertyChanged">AccountPropertyChanged</a>.
+          </p>
+      </div>
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If <code>True</code>, SMSes will be sent via the service centre
+          specified by <a href="Connection_Interface_Cellular.html#Property:MessageServiceCentre" title="Property org.freedesktop.Telepathy.Connection.Interface.Cellular.MessageServiceCentre">MessageServiceCentre</a>. If
+          <code>False</code>, the SIM's default SMSC will be used, ignoring the
+          value of MessageServiceCentre.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>It could be desirable for a configuration interface to remember
+            the user's previous choice of custom SMSC, even if it's not in use.
+            This boolean allows that choice to be saved as an account parameter
+            by Mission Control, rather than the UI needing to save it elsewhere
+            to be restored if the user wants to reactivate it.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MessageServiceCentre"></a>
+     <span class="permalink">(<a href="Connection_Interface_Cellular.html#Property:MessageServiceCentre">Permalink</a>)</span>
+     <h2>
+      MessageServiceCentre &mdash; s
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     
+     <div class="annotation changed"><span class="version">Changed in 0.19.12. </span>This property's value is now
+        ignored unless
+        <a href="Connection_Interface_Cellular.html#Property:OverrideMessageServiceCentre" title="Property org.freedesktop.Telepathy.Connection.Interface.Cellular.OverrideMessageServiceCentre">OverrideMessageServiceCentre</a> is
+        <code>True</code>.</div>
+     
+
+     
+     
+     
+
+      
+      <div class="annotation connection-parameter">
+        <p><span class='note'>Note:</span> Connections implementing this
+          property SHOULD provide a corresponding parameter named
+          <tt>org.freedesktop.Telepathy.Connection.Interface.Cellular.MessageServiceCentre</tt> with the <a
+          href="Connection_Manager.html#Conn_Mgr_Param_Flags">DBus_Property</a>
+          flag. Clients SHOULD update this property by
+          calling <a
+            href="Account.html#org.freedesktop.Telepathy.Account.UpdateParameters">UpdateParameters</a>
+          on the relevant <a href="Account.html">Account</a> rather than
+          setting the property directly; change notification is via <a
+            href="Account.html#org.freedesktop.Telepathy.Account.AccountPropertyChanged">AccountPropertyChanged</a>.
+          </p>
+      </div>
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+
+        <p>Address for the messaging service centre. Typically (as is the case
+          for GSM's SMSC), it's the ISDN / telephony address (ie. a phone
+          number). If
+          <a href="Connection_Interface_Cellular.html#Property:OverrideMessageServiceCentre" title="Property org.freedesktop.Telepathy.Connection.Interface.Cellular.OverrideMessageServiceCentre">OverrideMessageServiceCentre</a> is
+          <code>False</code>, this property's value should be ignored by the CM
+          in favour of the SIM's default SMSC.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:IMSI"></a>
+     <span class="permalink">(<a href="Connection_Interface_Cellular.html#Property:IMSI">Permalink</a>)</span>
+     <h2>
+      IMSI &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The International Mobile Subscriber Identifier, if it exists. This
+          would originate from a SIM card.  If the IMSI is unknown, this will
+          contain an empty string (&quot;&quot;).</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MessageReducedCharacterSet"></a>
+     <span class="permalink">(<a href="Connection_Interface_Cellular.html#Property:MessageReducedCharacterSet">Permalink</a>)</span>
+     <h2>
+      MessageReducedCharacterSet &mdash; b
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+      <div class="annotation connection-parameter">
+        <p><span class='note'>Note:</span> Connections implementing this
+          property SHOULD provide a corresponding parameter named
+          <tt>org.freedesktop.Telepathy.Connection.Interface.Cellular.MessageReducedCharacterSet</tt> with the <a
+          href="Connection_Manager.html#Conn_Mgr_Param_Flags">DBus_Property</a>
+          flag. Clients SHOULD update this property by
+          calling <a
+            href="Account.html#org.freedesktop.Telepathy.Account.UpdateParameters">UpdateParameters</a>
+          on the relevant <a href="Account.html">Account</a> rather than
+          setting the property directly; change notification is via <a
+            href="Account.html#org.freedesktop.Telepathy.Account.AccountPropertyChanged">AccountPropertyChanged</a>.
+          </p>
+      </div>
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Determines how to encode SMSes containing characters that do not
+          fit into a non-Unicode character set.
+          If <code>False</code> (which SHOULD be the default), messages will
+          be encoded as UCS-2 and sent with no loss of fidelity (at the
+          potential financial cost of using twice as many SMSes); if
+          <code>True</code>, the message will be recoded in an
+          implementation‐specific way to fit into a GSM reduced character
+          set.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MessageNationalCharacterSet"></a>
+     <span class="permalink">(<a href="Connection_Interface_Cellular.html#Property:MessageNationalCharacterSet">Permalink</a>)</span>
+     <h2>
+      MessageNationalCharacterSet &mdash; s
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.21.12. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+      <div class="annotation connection-parameter">
+        <p><span class='note'>Note:</span> Connections implementing this
+          property SHOULD provide a corresponding parameter named
+          <tt>org.freedesktop.Telepathy.Connection.Interface.Cellular.MessageNationalCharacterSet</tt> with the <a
+          href="Connection_Manager.html#Conn_Mgr_Param_Flags">DBus_Property</a>
+          flag. Clients SHOULD update this property by
+          calling <a
+            href="Account.html#org.freedesktop.Telepathy.Account.UpdateParameters">UpdateParameters</a>
+          on the relevant <a href="Account.html">Account</a> rather than
+          setting the property directly; change notification is via <a
+            href="Account.html#org.freedesktop.Telepathy.Account.AccountPropertyChanged">AccountPropertyChanged</a>.
+          </p>
+      </div>
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Hint for the connection manager for the GSM character set that
+          should be used to send SMSes. The connection manager SHOULD follow
+          this hint unless it has other ways to determine a better encoding.
+          If the value is <code>&quot;gsm&quot;</code> (which SHOULD be the default),
+          SMSes will be encoded in the normal 7-bit GSM character set,
+          eventually falling back to UCS-2; see the
+          <a href="Connection_Interface_Cellular.html#Property:MessageReducedCharacterSet" title="Property org.freedesktop.Telepathy.Connection.Interface.Cellular.MessageReducedCharacterSet">MessageReducedCharacterSet</a> property
+          for details.
+          Other valid character sets are specified in the
+          <a href="http://www.3gpp.org/ftp/specs/archive/23_series/23.038/">GSM standard</a> and are, for instance, <code>&quot;turkey&quot;</code>,
+          <code>&quot;spain&quot;</code> or <code>&quot;portugal&quot;</code>.
+          If the SMS cannot be encoded using the requested character set the
+          behaviour is implementation-specific, but it is RECOMMENDED that
+          the connection manager should behave as if this property was set
+          to <code>&quot;gsm&quot;</code>.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Call1.Content.MediaDescription.I.RTCPExtendedReports &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Call1.Content.MediaDescription.Interface.RTCPExtendedReports'>Call1.Content.MediaDescription.Interface.RTCPExtendedReports</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Property:LossRLEMaxSize">LossRLEMaxSize</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Property:DuplicateRLEMaxSize">DuplicateRLEMaxSize</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Property:PacketReceiptTimesMaxSize">PacketReceiptTimesMaxSize</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Property:DLRRMaxSize">DLRRMaxSize</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Property:RTTMode">RTTMode</a></td>
+       <td>
+        u
+        
+          (<a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Enum:RCPT_XR_RTT_Mode" title="Enum RCPT_XR_RTT_Mode">
+              RCPT_XR_RTT_Mode</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Property:StatisticsFlags">StatisticsFlags</a></td>
+       <td>
+        u
+        
+          (<a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Flags:RTCP_XR_Statistics_Flags" title="Flags RTCP_XR_Statistics_Flags">
+              RTCP_XR_Statistics_Flags</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Property:EnableMetrics">EnableMetrics</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Enum:RCPT_XR_RTT_Mode">RCPT_XR_RTT_Mode</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Flags:RTCP_XR_Statistics_Flags">RTCP_XR_Statistics_Flags</a></td>
+       <td>Flags</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.25.2. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Call_Content_Media_Description.html" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription">org.freedesktop.Telepathy.Call1.Content.MediaDescription</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This codec offer interface provides a method of signalling for
+        RTCP extended reports, documented by <em>RTP Control Protocol
+        Extended Reports (RTCP XR)</em> (RFC 3611). CMs should ignore
+        all RTCP Extended Report parameters that are not listed
+        in this spec at the time of implementation. More parameters can be
+        added to the spec as required.</p>
+
+      <p>For more details on what RTCP extended reports can do and how
+        to use them, one should refer to
+        <a href="http://www.faqs.org/rfcs/rfc3611.html">RFC 3611</a>.</p>
+
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:LossRLEMaxSize"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Property:LossRLEMaxSize">Permalink</a>)</span>
+     <h2>
+      LossRLEMaxSize &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        If non-zero, enable Loss Run Length Encoded Report Blocks. The value
+        of this integer represents the max-size of report blocks, as specified
+        in RFC 3611 section 5.1. MAXUINT32 is used to indicate that there is
+        no limit.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:DuplicateRLEMaxSize"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Property:DuplicateRLEMaxSize">Permalink</a>)</span>
+     <h2>
+      DuplicateRLEMaxSize &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        If non-zero, enable Duplicate Run-Length-Encoded Report Blocks. The
+        value of this integer represents the max-size of report blocks, as
+        specified in RFC 3611 section 5.1. MAXUINT32 is used to indicate that
+        there is no limit.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:PacketReceiptTimesMaxSize"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Property:PacketReceiptTimesMaxSize">Permalink</a>)</span>
+     <h2>
+      PacketReceiptTimesMaxSize &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        If non-zero, enable Packet Receipt Times Report Blocks. The
+        value of this integer represents the max-size of report blocks, as
+        specified in RFC 3611 section 5.1. MAXUINT32 is used to indicate that
+        there is no limit.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:DLRRMaxSize"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Property:DLRRMaxSize">Permalink</a>)</span>
+     <h2>
+      DLRRMaxSize &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        If non-zero, enable Receiver Reference Time and Delay since Last
+        Receiver Report Blocks (for estimating Round Trip Times between
+        non-senders and other parties in the call. The value of this integer
+        represents the max-size of report blocks, as specified in RFC 3611
+        section 5.1. MAXUINT32 is used to indicate that there is no limit.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RTTMode"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Property:RTTMode">Permalink</a>)</span>
+     <h2>
+      RTTMode &mdash; u
+      
+        (<a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Enum:RCPT_XR_RTT_Mode" title="Enum RCPT_XR_RTT_Mode">RCPT_XR_RTT_Mode</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        Who is allowed to send Delay since Last Receiver Reports.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:StatisticsFlags"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Property:StatisticsFlags">Permalink</a>)</span>
+     <h2>
+      StatisticsFlags &mdash; u
+      
+        (<a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Flags:RTCP_XR_Statistics_Flags" title="Flags RTCP_XR_Statistics_Flags">RTCP_XR_Statistics_Flags</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        Which fields SHOULD be included in the statistics summary
+        report blocks that are sent, and whether to send VoIP Metrics Report
+        Blocks. There can be zero or more flags
+        set.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:EnableMetrics"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Property:EnableMetrics">Permalink</a>)</span>
+     <h2>
+      EnableMetrics &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        Whether to enable VoIP Metrics Report Blocks. These blocks are of a
+        fixed size.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:RCPT_XR_RTT_Mode"></a>
+      <span class="permalink">Enum (<a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Enum:RCPT_XR_RTT_Mode">Permalink</a>)</span>
+      <h2>
+       RCPT_XR_RTT_Mode &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>All (0)</li>
+<div class="docstring">
+          Both RTP data senders and data receivers MAY send DLRR
+          blocks.
+        </div><li>Sender (1)</li>
+<div class="docstring">
+          Only active RTP senders MAY send DLRR blocks, i.e., non RTP
+          senders SHALL NOT send DLRR blocks.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Flags:RTCP_XR_Statistics_Flags"></a>
+      <span class="permalink">Flags (<a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html#Flags:RTCP_XR_Statistics_Flags">Permalink</a>)</span>
+      <h2>
+       RTCP_XR_Statistics_Flags &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Loss (1)</li>
+<div class="docstring">
+          Loss report flag, as defined in RFC3611 section 4.6.
+        </div><li>Duplicate (2)</li>
+<div class="docstring">
+          Duplicate report flag, as defined in RFC3611 section 4.6.
+        </div><li>Jitter (4)</li>
+<div class="docstring">
+          Jitter flag, as defined in RFC3611 section 4.6.
+        </div><li>TTL (8)</li>
+<div class="docstring">
+          First bit of TTL or Hop Limit flag, as defined in RFC3611 section
+          4.6.
+        </div><li>HL (16)</li>
+<div class="docstring">
+          Second bit of TTL or Hop Limit flag, as defined in RFC3611 section
+          4.6.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>ChannelHandler &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.ChannelHandler'>ChannelHandler</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+   
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Handler.html#Method:HandleChannel">HandleChannel</a></td>
+       <td>(s: Bus_Name, o: Connection, s: Channel_Type, o: Channel, u: Handle_Type, u: Handle)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.0. </span></div>
+   
+   <div class="annotation deprecated"><span class="version">Deprecated since 0.17.23. </span>
+      Clients should implement <a href="Client_Handler.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Client.Handler">Client.Handler</a>
+      instead.
+    </div>
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface exported by Mission Control 4 client applications which
+        are able to handle incoming channels.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:HandleChannel"></a>
+     <span class="permalink">(<a href="Channel_Handler.html#Method:HandleChannel">Permalink</a>)</span>
+     <h2>HandleChannel (s: Bus_Name, o: Connection, s: Channel_Type, o: Channel, u: Handle_Type, u: Handle) &#8594; nothing</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.17.0. </span></div>
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Bus_Name &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Bus_Name" title="Simple Type DBus_Bus_Name">DBus_Bus_Name</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The bus name of the connection and channel
+        </div>
+      
+       <li>
+        Connection &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The object-path of the connection that owns the channel
+        </div>
+      
+       <li>
+        Channel_Type &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Simple Type DBus_Interface">DBus_Interface</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The channel type
+        </div>
+      
+       <li>
+        Channel &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The object-path of the channel
+        </div>
+      
+       <li>
+        Handle_Type &mdash; u
+        
+          (<a href="Connection.html#Enum:Handle_Type" title="Enum Handle_Type">Handle_Type</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The type of the handle that the channel communicates
+          with, or 0 if there is no associated handle</div>
+      
+       <li>
+        Handle &mdash; u
+        
+          (<a href="Connection.html#Simple-Type:Handle" title="Simple Type Handle">Handle</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The handle that the channel communicates with,
+          or 0 if there is no associated handle</div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Called when a channel handler should handle a new channel.
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

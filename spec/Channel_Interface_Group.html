@@ -1,0 +1,2965 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.Group &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.Group'>Channel.Interface.Group</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Method:AddMembers">AddMembers</a></td>
+       <td>(au: Contacts, s: Message)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Channel_Interface_Group.html#Method:GetAllMembers">GetAllMembers</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>au: Members, au: Local_Pending, au: Remote_Pending</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Channel_Interface_Group.html#Method:GetGroupFlags">GetGroupFlags</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>u: Group_Flags</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Channel_Interface_Group.html#Method:GetHandleOwners">GetHandleOwners</a></td>
+       <td>(au: Handles)</td>
+       <td>&#8594;</td>
+       <td>au: Owners</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Channel_Interface_Group.html#Method:GetLocalPendingMembers">GetLocalPendingMembers</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>au: Handles</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Channel_Interface_Group.html#Method:GetLocalPendingMembersWithInfo">GetLocalPendingMembersWithInfo</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>a(uuus): Info</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Channel_Interface_Group.html#Method:GetMembers">GetMembers</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>au: Handles</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Channel_Interface_Group.html#Method:GetRemotePendingMembers">GetRemotePendingMembers</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>au: Handles</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Channel_Interface_Group.html#Method:GetSelfHandle">GetSelfHandle</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>u: Self_Handle</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Method:RemoveMembers">RemoveMembers</a></td>
+       <td>(au: Contacts, s: Message)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Method:RemoveMembersWithReason">RemoveMembersWithReason</a></td>
+       <td>(au: Contacts, s: Message, u: Reason)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Channel_Interface_Group.html#Signal:HandleOwnersChanged">HandleOwnersChanged</a></td>
+       <td>(a{uu}: Added, au: Removed)</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Signal:HandleOwnersChangedDetailed">HandleOwnersChangedDetailed</a></td>
+       <td>(a{uu}: Added, au: Removed, a{us}: Identifiers)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Channel_Interface_Group.html#Signal:SelfHandleChanged">SelfHandleChanged</a></td>
+       <td>(u: Self_Handle)</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Signal:SelfContactChanged">SelfContactChanged</a></td>
+       <td>(u: Self_Handle, s: Self_ID)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Signal:GroupFlagsChanged">GroupFlagsChanged</a></td>
+       <td>(u: Added, u: Removed)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Signal:MembersChanged">MembersChanged</a></td>
+       <td>(s: Message, au: Added, au: Removed, au: Local_Pending, au: Remote_Pending, u: Actor, u: Reason)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Signal:MembersChangedDetailed">MembersChangedDetailed</a></td>
+       <td>(au: Added, au: Removed, au: Local_Pending, au: Remote_Pending, a{sv}: Details)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Property:GroupFlags">GroupFlags</a></td>
+       <td>
+        u
+        
+          (<a href="Channel_Interface_Group.html#Flags:Channel_Group_Flags" title="Flags Channel_Group_Flags">
+              Channel_Group_Flags</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Property:HandleOwners">HandleOwners</a></td>
+       <td>
+        a{uu}
+        
+          (<a href="Channel_Interface_Group.html#Mapping:Handle_Owner_Map" title="Mapping Handle_Owner_Map">
+              Handle_Owner_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Property:LocalPendingMembers">LocalPendingMembers</a></td>
+       <td>
+        a(uuus)
+        
+          (<a href="Channel_Interface_Group.html#Struct:Local_Pending_Info" title="Array of Struct Local_Pending_Info">
+              Local_Pending_Info_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Property:Members">Members</a></td>
+       <td>
+        au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">
+              Contact_Handle_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Property:RemotePendingMembers">RemotePendingMembers</a></td>
+       <td>
+        au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">
+              Contact_Handle_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Property:SelfHandle">SelfHandle</a></td>
+       <td>
+        u
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">
+              Contact_Handle</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Property:MemberIdentifiers">MemberIdentifiers</a></td>
+       <td>
+        a{us}
+        
+          (<a href="Channel_Interface_Group.html#Mapping:Handle_Identifier_Map" title="Mapping Handle_Identifier_Map">
+              Handle_Identifier_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Enum:Channel_Group_Change_Reason">Channel_Group_Change_Reason</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Flags:Channel_Group_Flags">Channel_Group_Flags</a></td>
+       <td>Flags</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Mapping:Handle_Owner_Map">Handle_Owner_Map</a></td>
+       <td>Mapping</td>
+       <td>a{uu}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Mapping:Handle_Identifier_Map">Handle_Identifier_Map</a></td>
+       <td>Mapping</td>
+       <td>a{us}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Group.html#Struct:Local_Pending_Info">Local_Pending_Info</a></td>
+       <td>Struct</td>
+       <td>(uuus)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>Interface for channels which have multiple members, and where the members
+    of the channel can change during its lifetime. Your presence in the channel
+    cannot be presumed by the channel's existence (for example, a channel you
+    may request membership of but your request may not be granted).</p>
+
+  <p>This interface implements three lists: a list of current members
+    (<a href="Channel_Interface_Group.html#Property:Members" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.Members">Members</a>), and two lists of local pending
+    and remote pending members
+    (<a href="Channel_Interface_Group.html#Property:LocalPendingMembers" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.LocalPendingMembers">LocalPendingMembers</a> and
+    <a href="Channel_Interface_Group.html#Property:RemotePendingMembers" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.RemotePendingMembers">RemotePendingMembers</a>, respectively).
+    Contacts on the remote
+    pending list have been invited to the channel, but the remote user has not
+    accepted the invitation. Contacts on the local pending list have requested
+    membership of the channel, but the local user of the framework must accept
+    their request before they may join. A single contact should never appear on
+    more than one of the three lists. The lists are empty when the channel is
+    created, and the <a href="Channel_Interface_Group.html#Signal:MembersChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.MembersChanged">MembersChanged</a> signal
+    (and, if the channel's <a href="Channel_Interface_Group.html#Property:GroupFlags" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.GroupFlags">GroupFlags</a> contains
+    Members_Changed_Detailed, the
+    <a href="Channel_Interface_Group.html#Signal:MembersChangedDetailed" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.MembersChangedDetailed">MembersChangedDetailed</a> signal)
+    should be emitted when information
+    is retrieved from the server, or changes occur.</p>
+
+  <p>If the <a href="Channel_Interface_Group.html#Signal:MembersChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.MembersChanged">MembersChanged</a> or
+    <a href="Channel_Interface_Group.html#Signal:MembersChangedDetailed" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.MembersChangedDetailed">MembersChangedDetailed</a> signal indicates
+    that the <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a> has been removed from
+    the channel, and the channel subsequently emits <a href="Channel.html#Signal:Closed" namespace="org.freedesktop.Telepathy.Channel" title="Signal org.freedesktop.Telepathy.Channel.Closed">Closed</a>,
+    clients SHOULD consider the details given in the MembersChanged or
+    MembersChangedDetailed signal to be the reason why the channel closed.</p>
+
+  <p>Addition of members to the channel may be requested by using
+    <a href="Channel_Interface_Group.html#Method:AddMembers" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.AddMembers">AddMembers</a>. If
+    remote acknowledgement is required, use of the AddMembers method will cause
+    users to appear on the remote pending list. If no acknowledgement is
+    required, AddMembers will add contacts to the member list directly.  If a
+    contact is awaiting authorisation on the local pending list, AddMembers
+    will grant their membership request.</p>
+
+  <p>Removal of contacts from the channel may be requested by using
+    <a href="Channel_Interface_Group.html#Method:RemoveMembers" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.RemoveMembers">RemoveMembers</a>.  If a contact is awaiting
+    authorisation on the local pending
+    list, RemoveMembers will refuse their membership request. If a contact is
+    on the remote pending list but has not yet accepted the invitation,
+    RemoveMembers will rescind the request if possible.</p>
+
+  <p>It should not be presumed that the requester of a channel implementing this
+    interface is immediately granted membership, or indeed that they are a
+    member at all, unless they appear in the list. They may, for instance,
+    be placed into the remote pending list until a connection has been
+    established or the request acknowledged remotely.</p>
+
+  <p>If the local user joins a Group channel whose members or other state
+    cannot be discovered until the user joins (e.g. many chat room
+    implementations), the connection manager should ensure that the channel
+    is, as far as possible, in a consistent state before adding the local
+    contact to the members set; until this happens, the local contact should
+    be in the remote-pending set. For instance, if the connection manager
+    queries the server to find out the initial members list for the
+    channel, it should leave the local contact in the remote-pending set
+    until it has finished receiving the initial members list.
+  </p>
+
+  <p>If the protocol provides no reliable way to tell whether the complete
+    initial members list has been received yet, the connection manager
+    should make a best-effort attempt to wait for the full list
+    (in the worst case, waiting for a suitable arbitrary timeout)
+    rather than requiring user interfaces to do so on its behalf.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:AddMembers"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Method:AddMembers">Permalink</a>)</span>
+     <h2>AddMembers (au: Contacts, s: Message) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contacts &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of contact handles to invite to the channel
+        </div>
+      
+       <li>
+        Message &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A string message, which can be blank if desired
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Invite all the given contacts into the channel, or accept requests for
+          channel membership for contacts on the pending local list.</p>
+
+        <p>A message may be provided along with the request, which will be sent
+        to the server if supported. See the CHANNEL_GROUP_FLAG_MESSAGE_ADD and
+        CHANNEL_GROUP_FLAG_MESSAGE_ACCEPT
+        <a href="Channel_Interface_Group.html#Property:GroupFlags" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.GroupFlags">GroupFlags</a> to see in which cases this
+        message should be provided.</p>
+
+        <p>Attempting to add contacts who are already members is allowed;
+          connection managers must silently accept this, without error.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when the requested functionality is temporarily unavailable.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Capable" title="Error org.freedesktop.Telepathy.Error.NotCapable">Not Capable</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when requested functionality is unavailable due to contact
+    not having required capabilities.
+    </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+       <li><a href="errors.html#Error:Channel.Full" title="Error org.freedesktop.Telepathy.Error.Channel.Full">Channel.Full</a></li>
+       
+       
+       
+       <div class="docstring">
+    The channel is full.
+    </div>
+      
+       <li><a href="errors.html#Error:Channel.Invite Only" title="Error org.freedesktop.Telepathy.Error.Channel.InviteOnly">Channel.Invite Only</a></li>
+       
+       
+       
+       <div class="docstring">
+    The requested channel is invite-only.
+    </div>
+      
+       <li><a href="errors.html#Error:Channel.Banned" title="Error org.freedesktop.Telepathy.Error.Channel.Banned">Channel.Banned</a></li>
+       
+       
+       
+       <div class="docstring">
+    You are banned from the channel.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetAllMembers"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Method:GetAllMembers">Permalink</a>)</span>
+     <h2>GetAllMembers () &#8594; au: Members, au: Local_Pending, au: Remote_Pending</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.6. </span>Use GetAll on the D-Bus
+        Properties D-Bus interface to get properties including Members,
+        RemotePendingMembers and LocalPendingMembers instead, falling back to
+        this method and GetLocalPendingMembersWithInfo if necessary.
+      </div>
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Members &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          array of handles of current members
+        </div>
+      
+       <li>
+        Local_Pending &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          array of handles of local pending members
+        </div>
+      
+       <li>
+        Remote_Pending &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          array of handles of remote pending members
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Returns arrays of all current, local and remote pending channel
+        members.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetGroupFlags"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Method:GetGroupFlags">Permalink</a>)</span>
+     <h2>GetGroupFlags () &#8594; u: Group_Flags</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.6. </span>Use GetAll on the D-Bus
+        Properties D-Bus interface to get properties including GroupFlags
+        instead, falling back to this method if necessary.</div>
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Group_Flags &mdash; u
+        
+          (<a href="Channel_Interface_Group.html#Flags:Channel_Group_Flags" title="Flags Channel_Group_Flags">Channel_Group_Flags</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The value of the GroupFlags property
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Returns the value of the <a href="Channel_Interface_Group.html#Property:GroupFlags" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.GroupFlags">GroupFlags</a> property.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetHandleOwners"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Method:GetHandleOwners">Permalink</a>)</span>
+     <h2>GetHandleOwners (au: Handles) &#8594; au: Owners</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.6. </span>Clients should use the
+        HandleOwners property and HandleOwnersChanged signal if
+        Channel_Group_Flag_Properties is present.</div>
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Handles &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A list of integer handles representing members of the channel
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Owners &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of integer handles representing the owner handles of
+          the given room members, in the same order, or 0 if the
+          owner is not available
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        If the CHANNEL_GROUP_FLAG_CHANNEL_SPECIFIC_HANDLES flag is set on
+        the channel, then the handles of the group members are specific
+        to this channel, and are not meaningful in a connection-wide
+        context such as contact lists. This method allows you to find
+        the owner of the handle if it can be discovered in this channel,
+        or 0 if the owner is not available.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            This channel doesn't have the CHANNEL_SPECIFIC_HANDLES flag,
+            so handles in this channel are globally meaningful and calling
+            this method is not necessary
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            One of the given handles is not a member
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetLocalPendingMembers"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Method:GetLocalPendingMembers">Permalink</a>)</span>
+     <h2>GetLocalPendingMembers () &#8594; au: Handles</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.6. </span>Use the LocalPendingMembers
+        property, if Channel_Group_Flag_Properties is present.</div>
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Handles &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Returns the To_Be_Added handle (only) for each structure in the
+        <a href="Channel_Interface_Group.html#Property:LocalPendingMembers" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.LocalPendingMembers">LocalPendingMembers</a> property.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetLocalPendingMembersWithInfo"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Method:GetLocalPendingMembersWithInfo">Permalink</a>)</span>
+     <h2>GetLocalPendingMembersWithInfo () &#8594; a(uuus): Info</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.15.0. </span></div>
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.6. </span>Use the LocalPendingMembers
+        property, if Channel_Group_Flag_Properties is present.</div>
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Info &mdash; a(uuus)
+        
+          (<a href="Channel_Interface_Group.html#Struct:Local_Pending_Info" title="Array of Struct Local_Pending_Info">Local_Pending_Info_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of structs containing:
+          <ul>
+            <li>
+              A handle representing the contact requesting channel membership
+            </li>
+            <li>
+              A handle representing the contact making the request, or 0 if
+              unknown
+            </li>
+            <li>
+              The reason for the request: one of the values of
+              <a href="Channel_Interface_Group.html#Enum:Channel_Group_Change_Reason">Channel_Group_Change_Reason</a>
+            </li>
+            <li>
+              A string message containing the reason for the request if any (or
+              blank if none)
+            </li>
+          </ul>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Returns the <a href="Channel_Interface_Group.html#Property:LocalPendingMembers" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.LocalPendingMembers">LocalPendingMembers</a> property.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetMembers"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Method:GetMembers">Permalink</a>)</span>
+     <h2>GetMembers () &#8594; au: Handles</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.6. </span>Use the Members
+        property, if Channel_Group_Flag_Properties is present.</div>
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Handles &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Returns the <a href="Channel_Interface_Group.html#Property:Members" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.Members">Members</a> property.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetRemotePendingMembers"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Method:GetRemotePendingMembers">Permalink</a>)</span>
+     <h2>GetRemotePendingMembers () &#8594; au: Handles</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.6. </span>Use the
+        <a href="Channel_Interface_Group.html#Property:RemotePendingMembers" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.RemotePendingMembers">RemotePendingMembers</a>
+        property, if Channel_Group_Flag_Properties is present.</div>
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Handles &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Returns an array of handles representing contacts who have been
+        invited to the channel and are awaiting remote approval.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetSelfHandle"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Method:GetSelfHandle">Permalink</a>)</span>
+     <h2>GetSelfHandle () &#8594; u: Self_Handle</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.6. </span>Clients should retrieve the
+        SelfHandle property using GetAll instead,
+        if Channel_Group_Flag_Properties is present.</div>
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Self_Handle &mdash; u
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+        
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Returns the value of the <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a>
+        property.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RemoveMembers"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Method:RemoveMembers">Permalink</a>)</span>
+     <h2>RemoveMembers (au: Contacts, s: Message) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contacts &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of contact handles to remove from the channel
+        </div>
+      
+       <li>
+        Message &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A string message, which can be blank if desired
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Requests the removal of contacts from a channel, reject their
+          request for channel membership on the pending local list, or
+          rescind their invitation on the pending remote list.</p>
+
+        <p>If the <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a> is in a Group,
+          it can be removed via this method, in order to leave the group
+          gracefully. This is the recommended way to leave a chatroom, close
+          or reject a <a href="Channel_Type_Streamed_Media.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamedMedia">StreamedMedia</a>
+          call, and so on.</p>
+
+        <p>Accordingly, connection managers SHOULD support
+          doing this, regardless of the value of
+          <a href="Channel_Interface_Group.html#Property:GroupFlags" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.GroupFlags">GroupFlags</a>.
+          If doing so fails with PermissionDenied, this is considered to a bug
+          in the connection manager, but clients MUST recover by falling back
+          to closing the channel with the <a href="Channel.html#Method:Close" namespace="org.freedesktop.Telepathy.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a>
+          method.</p>
+
+        <p>Removing any contact from the local pending list is always
+          allowed. Removing contacts other than the
+          <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a> from the channel's members
+          is allowed if and only if Channel_Group_Flag_Can_Remove is in the
+          <a href="Channel_Interface_Group.html#Property:GroupFlags" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.GroupFlags">GroupFlags</a>,
+          while removing contacts other than the
+          <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a> from the remote pending list
+          is allowed if and only if Channel_Group_Flag_Can_Rescind is in the
+          <a href="Channel_Interface_Group.html#Property:GroupFlags" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.GroupFlags">GroupFlags</a>.</p>
+
+        <p>A message may be provided along with the request, which will be
+          sent to the server if supported. See the
+          Channel_Group_Flag_Message_Remove,
+          Channel_Group_Flag_Message_Depart,
+          Channel_Group_Flag_Message_Reject and
+          Channel_Group_Flag_Message_Rescind
+          <a href="Channel_Interface_Group.html#Property:GroupFlags" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.GroupFlags">GroupFlags</a> to see in which cases this
+          message should be provided.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when the requested functionality is temporarily unavailable.
+    </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RemoveMembersWithReason"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Method:RemoveMembersWithReason">Permalink</a>)</span>
+     <h2>RemoveMembersWithReason (au: Contacts, s: Message, u: Reason) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contacts &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of contact handles to remove from the channel
+        </div>
+      
+       <li>
+        Message &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A string message, which can be blank if desired
+        </div>
+      
+       <li>
+        Reason &mdash; u
+        
+          (<a href="Channel_Interface_Group.html#Enum:Channel_Group_Change_Reason" title="Enum Channel_Group_Change_Reason">Channel_Group_Change_Reason</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A reason for the change
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        As <a href="Channel_Interface_Group.html#Method:RemoveMembers" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.RemoveMembers">RemoveMembers</a>, but a reason code may
+        be provided where
+        appropriate. The reason code may be ignored if the underlying
+        protocol is unable to represent the given reason.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when the requested functionality is temporarily unavailable.
+    </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The provided reason code was invalid.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:HandleOwnersChanged"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Signal:HandleOwnersChanged">Permalink</a>)</span>
+     <h2>HandleOwnersChanged (a{uu}: Added, au: Removed)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.17.6. </span>This signal should not be relied on
+        unless Channel_Group_Flag_Properties is present.</div>
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.23.4. </span>Clients should listen to
+        <a href="Channel_Interface_Group.html#Signal:HandleOwnersChangedDetailed" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.HandleOwnersChangedDetailed">HandleOwnersChangedDetailed</a> instead to
+        get the new identifiers as well.
+        </div>
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Added &mdash; a{uu}
+       
+        (<a href="Channel_Interface_Group.html#Mapping:Handle_Owner_Map" title="Mapping Handle_Owner_Map">Handle_Owner_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A map from channel-specific handles to their owners, in which the
+          keys include all the handles that were added to the keys of the
+          HandleOwners property, and all the handles in that property whose
+          owner has changed
+        </div>
+      
+       <li>
+       Removed &mdash; au
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The channel-specific handles that were removed from the keys of the
+          HandleOwners property, as a result of the contact leaving this group
+          in a previous <a href="Channel_Interface_Group.html#Signal:MembersChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.MembersChanged">MembersChanged</a> signal
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted whenever the <a href="Channel_Interface_Group.html#Property:HandleOwners" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.HandleOwners">HandleOwners</a>
+        property changes.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:HandleOwnersChangedDetailed"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Signal:HandleOwnersChangedDetailed">Permalink</a>)</span>
+     <h2>HandleOwnersChangedDetailed (a{uu}: Added, au: Removed, a{us}: Identifiers)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.23.4. </span></div>
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Added &mdash; a{uu}
+       
+        (<a href="Channel_Interface_Group.html#Mapping:Handle_Owner_Map" title="Mapping Handle_Owner_Map">Handle_Owner_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A map from channel-specific handles to their owners, in which the
+          keys include all the handles that were added to the keys of the
+          HandleOwners property, and all the handles in that property whose
+          owner has changed
+        </div>
+      
+       <li>
+       Removed &mdash; au
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The channel-specific handles that were removed from the keys of the
+          HandleOwners property, as a result of the contact leaving this group
+          in a previous <a href="Channel_Interface_Group.html#Signal:MembersChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.MembersChanged">MembersChanged</a> signal
+        </div>
+      
+       <li>
+       Identifiers &mdash; a{us}
+       
+        (<a href="Channel_Interface_Group.html#Mapping:Handle_Identifier_Map" title="Mapping Handle_Identifier_Map">Handle_Identifier_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The string identifiers for handles mentioned in this signal, to
+          give clients the minimal information necessary to create contacts
+          without waiting for round-trips. Connection managers MUST include at
+          least the identifiers for all handles in the Added map, and MAY
+          include those from Removed array.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        <p>Emitted whenever the <a href="Channel_Interface_Group.html#Property:HandleOwners" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.HandleOwners">HandleOwners</a>
+        property changes.</p>
+
+        <p>Clients can assume this signal is emitted by the Connection Manager
+        if the <a href="Channel_Interface_Group.html#Property:MemberIdentifiers" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.MemberIdentifiers">MemberIdentifiers</a> property exists
+        </p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:SelfHandleChanged"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Signal:SelfHandleChanged">Permalink</a>)</span>
+     <h2>SelfHandleChanged (u: Self_Handle)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.17.6. </span>This signal should not be relied on
+        unless Channel_Group_Flag_Properties is present.</div>
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.23.4. </span>Clients should listen to
+        <a href="Channel_Interface_Group.html#Signal:SelfContactChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.SelfContactChanged">SelfContactChanged</a> instead to get the new
+        identifier as well.
+        </div>
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Self_Handle &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of the SelfHandle property.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted whenever the <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a> property
+        changes.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:SelfContactChanged"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Signal:SelfContactChanged">Permalink</a>)</span>
+     <h2>SelfContactChanged (u: Self_Handle, s: Self_ID)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.23.4. </span></div>
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Self_Handle &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of the SelfHandle property.
+        </div>
+      
+       <li>
+       Self_ID &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of the SelfHandle property's identifier.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        <p>Emitted whenever the <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a> property
+        changes.</p>
+
+        <p>Clients can assume this signal is emitted by the Connection Manager
+        if the <a href="Channel_Interface_Group.html#Property:MemberIdentifiers" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.MemberIdentifiers">MemberIdentifiers</a> property exists.
+        </p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:GroupFlagsChanged"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Signal:GroupFlagsChanged">Permalink</a>)</span>
+     <h2>GroupFlagsChanged (u: Added, u: Removed)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Added &mdash; u
+       
+        (<a href="Channel_Interface_Group.html#Flags:Channel_Group_Flags" title="Flags Channel_Group_Flags">Channel_Group_Flags</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A bitwise OR of the flags which have been set
+        </div>
+      
+       <li>
+       Removed &mdash; u
+       
+        (<a href="Channel_Interface_Group.html#Flags:Channel_Group_Flags" title="Flags Channel_Group_Flags">Channel_Group_Flags</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A bitwise OR of the flags which have been cleared
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the flags as returned by
+        <a href="Channel_Interface_Group.html#Method:GetGroupFlags" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.GetGroupFlags">GetGroupFlags</a> are changed.
+        The user interface should be updated as appropriate.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:MembersChanged"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Signal:MembersChanged">Permalink</a>)</span>
+     <h2>MembersChanged (s: Message, au: Added, au: Removed, au: Local_Pending, au: Remote_Pending, u: Actor, u: Reason)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Message &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A string message from the server, or blank if not
+        </div>
+      
+       <li>
+       Added &mdash; au
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A list of members added to the channel
+        </div>
+      
+       <li>
+       Removed &mdash; au
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A list of members removed from the channel
+        </div>
+      
+       <li>
+       Local_Pending &mdash; au
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A list of members who are pending local approval
+        </div>
+      
+       <li>
+       Remote_Pending &mdash; au
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A list of members who are pending remote approval
+        </div>
+      
+       <li>
+       Actor &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contact handle of the person who made the change, or 0
+          if not known
+        </div>
+      
+       <li>
+       Reason &mdash; u
+       
+        (<a href="Channel_Interface_Group.html#Enum:Channel_Group_Change_Reason" title="Enum Channel_Group_Change_Reason">Channel_Group_Change_Reason</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A reason for the change
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when contacts join any of the three lists (members, local
+          pending or remote pending) or when they leave any of the three lists.
+          There may also be a message from the server regarding this change,
+          which may be displayed to the user if desired.</p>
+
+        <p>All channel-specific handles that are mentioned in this signal
+          MUST be represented in the value of the
+          <a href="Channel_Interface_Group.html#Property:HandleOwners" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.HandleOwners">HandleOwners</a> property.
+          In practice, this will mean that
+          <a href="Channel_Interface_Group.html#Signal:HandleOwnersChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.HandleOwnersChanged">HandleOwnersChanged</a> is
+          emitted <em>before</em> emitting a MembersChanged signal in which
+          channel-specific handles are added, but that it is emitted
+          <em>after</em> emitting a MembersChanged signal in which
+          channel-specific handles are removed.</p>
+
+        <p>See <a href="Channel_Type_Streamed_Media.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamedMedia">StreamedMedia</a>
+          for an overview of how group state changes are used to indicate the
+          progress of a call.</p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:MembersChangedDetailed"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Signal:MembersChangedDetailed">Permalink</a>)</span>
+     <h2>MembersChangedDetailed (au: Added, au: Removed, au: Local_Pending, au: Remote_Pending, a{sv}: Details)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.17.16. </span></div>
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Added &mdash; au
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A list of members added to the channel
+        </div>
+      
+       <li>
+       Removed &mdash; au
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A list of members removed from the channel
+        </div>
+      
+       <li>
+       Local_Pending &mdash; au
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A list of members who are pending local approval
+        </div>
+      
+       <li>
+       Remote_Pending &mdash; au
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A list of members who are pending remote approval
+        </div>
+      
+       <li>
+       Details &mdash; a{sv}
+       
+        (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Information about the change, which may include the following
+            well-known keys:</p>
+
+          <dl>
+            <dt>actor (u — <a href="Connection.html#Simple-Type:Contact_Handle">Contact_Handle</a>)</dt>
+            <dd>The contact handle of the person who made the change; 0 or
+              omitted if unknown or not applicable.</dd>
+
+            <dt>change-reason (u — <a href="Channel_Interface_Group.html#Enum:Channel_Group_Change_Reason">Channel_Group_Change_Reason</a>)</dt>
+            <dd>A reason for the change.</dd>
+
+            <dt>contact-ids (a{us} — <a href="Channel_Interface_Group.html#Mapping:Handle_Identifier_Map">Handle_Identifier_Map</a>)</dt>
+            <dd>
+              <p>The string identifiers for handles mentioned in this signal, to
+              give clients the minimal information necessary to react to the
+              event without waiting for round-trips.  Connection managers
+              SHOULD include the identifiers for members added to the group and
+              for the actor (if any); they MAY omit the identifiers for handles
+              which have been removed from the group.</p>
+
+              <div class="rationale"><h5>Rationale:</h5><div>
+                <p>On IRC, an event such as a netsplit could cause the vast
+                majority of a channel to leave.  Given that clients should
+                already know the identifiers of a channel's members, including
+                potentially hundreds of strings in the netsplit signal is
+                unnecessary.</p>
+              </div></div>
+
+              <p>Clients MUST NOT assume that the presence or absence of a
+                handle in this mapping is meaningful. This mapping is merely
+                an optimization for round-trip reduction, and connection
+                managers MAY add additional handles, omit some handles, or
+                omit the mapping completely.</p>
+            </dd>
+
+            <dt>message (s)</dt>
+            <dd>A string message from the server regarding the change</dd>
+
+            <dt>error (s — <a href="generic-types.html#Simple-Type:DBus_Error_Name">DBus_Error_Name</a>)</dt>
+            <dd>A (possibly implementation-specific) DBus error describing the
+              change, providing more specific information than the
+              <a href="Channel_Interface_Group.html#Enum:Channel_Group_Change_Reason">Channel_Group_Change_Reason</a> enum allows. This
+              MUST only be present if it is strictly more informative than
+              'change-reason'; if present, 'change-reason' MUST be set to the
+              closest available reason.
+
+              <div class="rationale"><h5>Rationale:</h5><div>
+                A SIP connection manager might want to signal &quot;402 Payment
+                required&quot; as something more specific than Error or
+                Permission_Denied so that a SIP-aware UI could handle it
+                specially; including a namespaced error permits this to be done
+                without <a href="Channel_Interface_Group.html#Enum:Channel_Group_Change_Reason">Channel_Group_Change_Reason</a> being
+                extended to encompass every error any CM ever wants to report.
+              </div></div>
+            </dd>
+
+            <dt>debug-message (s)</dt>
+            <dd>Debugging information on the change. SHOULD NOT be shown to
+              users in normal circumstances.</dd>
+          </dl>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when contacts join any of the three lists (members, local
+          pending or remote pending) or when they leave any of the three
+          lists. This signal provides a superset of the information provided by
+          <a href="Channel_Interface_Group.html#Signal:MembersChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.MembersChanged">MembersChanged</a>;
+          if the channel's <a href="Channel_Interface_Group.html#Property:GroupFlags" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.GroupFlags">GroupFlags</a>
+          contains Members_Changed_Detailed, then clients may listen exclusively
+          to this signal in preference to that signal.</p>
+
+        <p>All channel-specific handles that are mentioned in this signal
+          MUST be represented in the value of the
+          <a href="Channel_Interface_Group.html#Property:HandleOwners" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.HandleOwners">HandleOwners</a> property.  In practice,
+          this will mean that
+          <a href="Channel_Interface_Group.html#Signal:HandleOwnersChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.HandleOwnersChanged">HandleOwnersChanged</a> is emitted
+          <em>before</em> emitting a MembersChangedDetailed signal in which
+          channel-specific handles are added, but that it is emitted
+          <em>after</em> emitting a MembersChangedDetailed signal in which
+          channel-specific handles are removed.</p>
+
+        <p>See <a href="Channel_Type_Streamed_Media.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamedMedia">StreamedMedia</a>
+          for an overview of how group state changes are used to indicate the
+          progress of a call.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:GroupFlags"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Property:GroupFlags">Permalink</a>)</span>
+     <h2>
+      GroupFlags &mdash; u
+      
+        (<a href="Channel_Interface_Group.html#Flags:Channel_Group_Flags" title="Flags Channel_Group_Flags">Channel_Group_Flags</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.6. </span>For backwards compatibility,
+        clients should fall back to calling GetGroupFlags if
+        Channel_Group_Flag_Properties is not present.</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        An integer representing the bitwise-OR of flags on this
+        channel. The user interface can use this to present information about
+        which operations are currently valid. Change notification is via
+        the <a href="Channel_Interface_Group.html#Signal:GroupFlagsChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.GroupFlagsChanged">GroupFlagsChanged</a> signal.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:HandleOwners"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Property:HandleOwners">Permalink</a>)</span>
+     <h2>
+      HandleOwners &mdash; a{uu}
+      
+        (<a href="Channel_Interface_Group.html#Mapping:Handle_Owner_Map" title="Mapping Handle_Owner_Map">Handle_Owner_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.6. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        A map from channel-specific handles to their owners, including
+        at least all of the channel-specific handles in this channel's members,
+        local-pending or remote-pending sets as keys. Any handle not in
+        the keys of this mapping is not channel-specific in this channel.
+        Handles which are channel-specific, but for which the owner is
+        unknown, MUST appear in this mapping with 0 as owner. Change
+        notification is via the
+        <a href="Channel_Interface_Group.html#Signal:HandleOwnersChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.HandleOwnersChanged">HandleOwnersChanged</a> signal.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:LocalPendingMembers"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Property:LocalPendingMembers">Permalink</a>)</span>
+     <h2>
+      LocalPendingMembers &mdash; a(uuus)
+      
+        (<a href="Channel_Interface_Group.html#Struct:Local_Pending_Info" title="Array of Struct Local_Pending_Info">Local_Pending_Info_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.6. </span>If Channel_Group_Flag_Properties is
+        not present, clients should fall back to using the
+        deprecated GetLocalPendingMembersWithInfo method, or fall back
+        from that to the deprecated GetAllMembers method.</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        An array of structs containing handles representing contacts
+        requesting channel membership and awaiting local approval with
+        <a href="Channel_Interface_Group.html#Method:AddMembers" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.AddMembers">AddMembers</a>.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Members"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Property:Members">Permalink</a>)</span>
+     <h2>
+      Members &mdash; au
+      
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.6. </span>If Channel_Group_Flag_Properties
+        is not set, fall back to calling GetAllMembers.</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The members of this channel.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RemotePendingMembers"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Property:RemotePendingMembers">Permalink</a>)</span>
+     <h2>
+      RemotePendingMembers &mdash; au
+      
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.6. </span>If Channel_Group_Flag_Properties
+        is not set, fall back to calling GetAllMembers.</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        An array of handles representing contacts who have been
+        invited to the channel and are awaiting remote approval.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SelfHandle"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Property:SelfHandle">Permalink</a>)</span>
+     <h2>
+      SelfHandle &mdash; u
+      
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.6. </span>For backwards compatibility,
+        clients should fall back to calling GetSelfHandle if
+        Channel_Group_Flag_Properties is not present.</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The handle for the user on this channel (which can also be a
+        local or remote pending member), or 0 if the user is not a member at
+        all (which is likely to be the case, for instance, on <a href="Channel_Type_Contact_List.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ContactList">ContactList</a>
+        channels). Note that this is different from the result of
+        <a href="Connection.html#Method:GetSelfHandle" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.GetSelfHandle">Connection.GetSelfHandle</a>
+        on some protocols, so the value of this handle should
+        always be used with the methods of this interface.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MemberIdentifiers"></a>
+     <span class="permalink">(<a href="Channel_Interface_Group.html#Property:MemberIdentifiers">Permalink</a>)</span>
+     <h2>
+      MemberIdentifiers &mdash; a{us}
+      
+        (<a href="Channel_Interface_Group.html#Mapping:Handle_Identifier_Map" title="Mapping Handle_Identifier_Map">Handle_Identifier_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.23.4. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The string identifiers for handles mentioned in this channel, to
+        give clients the minimal information necessary to create contacts
+        without waiting for round-trips. Connection managers MUST include at
+        least the identifiers for
+        <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a>,
+        <a href="Channel_Interface_Group.html#Property:Members" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.Members">Members</a>,
+        <a href="Channel_Interface_Group.html#Property:LocalPendingMembers" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.LocalPendingMembers">LocalPendingMembers</a> (and their actors if
+        any),
+        <a href="Channel_Interface_Group.html#Property:RemotePendingMembers" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.RemotePendingMembers">RemotePendingMembers</a> and
+        <a href="Channel_Interface_Group.html#Property:HandleOwners" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.HandleOwners">HandleOwners</a>.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Channel_Group_Change_Reason"></a>
+      <span class="permalink">Enum (<a href="Channel_Interface_Group.html#Enum:Channel_Group_Change_Reason">Permalink</a>)</span>
+      <h2>
+       Channel_Group_Change_Reason &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The reason for a set of handles to move to one of
+          <a href="Channel_Interface_Group.html#Property:Members" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.Members">Members</a>,
+          <a href="Channel_Interface_Group.html#Property:LocalPendingMembers" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.LocalPendingMembers">LocalPendingMembers</a> or
+          <a href="Channel_Interface_Group.html#Property:RemotePendingMembers" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.RemotePendingMembers">RemotePendingMembers</a>, or to be removed
+          from the group. A client may supply a reason when attempting to
+          remove members from a group with
+          <a href="Channel_Interface_Group.html#Method:RemoveMembersWithReason" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.RemoveMembersWithReason">RemoveMembersWithReason</a>, and reasons
+          are supplied by the CM when emitting
+          <a href="Channel_Interface_Group.html#Signal:MembersChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.MembersChanged">MembersChanged</a> and
+          <a href="Channel_Interface_Group.html#Signal:MembersChangedDetailed" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.MembersChangedDetailed">MembersChangedDetailed</a>. Some reason
+          codes have different meanings depending on the <var>Actor</var> in a
+          MembersChanged signal.</p>
+      </div>
+      <ul>
+<li>None (0)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>No reason was provided for this change.</p>
+
+          <p>In particular, this reason SHOULD be used when representing
+            users joining a named chatroom in the usual way, users leaving
+            a chatroom by their own request, and normal termination of a
+            StreamedMedia call by the remote user.</p>
+
+          <p>If the <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a> is removed from
+            a group for this reason and the actor is not the SelfHandle, the
+            equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Terminated</code>.</p>
+
+          <p>If the SelfHandle is removed from a group for this reason and
+            the actor is also the SelfHandle, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Cancelled</code>.</p>
+        </div><li>Offline (1)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The change is due to a user going offline. Also used when
+            user is already offline, but this wasn't known previously.</p>
+
+          <p>If a one-to-one <a href="Channel_Type_Streamed_Media.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamedMedia">StreamedMedia</a>
+            call fails because the contact being called is offline, the
+            connection manager SHOULD indicate this by removing both the
+            <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a> and the other contact's
+            handle from the Group interface with reason Offline.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            For 1-1 calls, the call terminates as a result of removing the
+            remote contact, so the SelfHandle should be removed at the same
+            time as the remote contact and for the same reason.
+          </div></div>
+
+          <p>If a handle is removed from a group for this reason, the
+            equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Offline</code>.</p>
+        </div><li>Kicked (2)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The change is due to a kick operation.</p>
+
+          <p>If the <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a> is removed
+            from a group for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Channel.Kicked</code>.
+          </p>
+        </div><li>Busy (3)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The change is due to a busy indication.</p>
+
+          <p>If a one-to-one <a href="Channel_Type_Streamed_Media.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamedMedia">StreamedMedia</a>
+            call fails because the contact being called is busy, the
+            connection manager SHOULD indicate this by removing both the
+            <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a> and the other contact's
+            handle from the Group interface with reason Busy.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            For 1-1 calls, the call terminates as a result of removing the
+            remote contact, so the SelfHandle should be removed at the same
+            time as the remote contact and for the same reason.
+          </div></div>
+
+          <p>If the <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a> is removed
+            from a group for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Busy</code>.
+          </p>
+        </div><li>Invited (4)</li>
+<div class="docstring">
+          The change is due to an invitation. This reason SHOULD only be used
+          when contacts are added to the remote-pending set (to indicate that
+          the contact has been invited) or to the members (to indicate that
+          the contact has accepted the invitation).
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            Otherwise, what would it mean?
+          </div></div>
+        </div><li>Banned (5)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The change is due to a kick+ban operation.</p>
+
+          <p>If the <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a> is removed
+            from a group for this reason, the equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.Channel.Banned</code>.
+          </p>
+        </div><li>Error (6)</li>
+<div class="docstring">
+            The change is due to an error occurring.
+        </div><li>Invalid_Contact (7)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The change is because the requested contact does not exist.</p>
+
+          <p>For instance, if the user invites a nonexistent contact to a
+            chatroom or attempts to call a nonexistent contact, this could
+            be indicated by the CM adding that contact's handle to
+            remote-pending for reason None or Invited, then removing it for
+            reason Invalid_Contact. In the case of a 1-1 StreamedMedia
+            call, the CM SHOULD remove the self handle from the Group
+            in the same signal.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            For 1-1 calls, the call terminates as a result of removing the
+            remote contact, so the SelfHandle should be removed at the same
+            time as the remote contact and for the same reason.
+          </div></div>
+
+          <p>If a contact is removed from a group for this reason, the
+            equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.DoesNotExist</code>.
+          </p>
+        </div><li>No_Answer (8)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The change is because the requested contact did not respond.</p>
+
+          <p>If a one-to-one <a href="Channel_Type_Streamed_Media.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamedMedia">StreamedMedia</a>
+            call fails because the contact being called did not respond, or the
+            local user did not respond to an incoming call, the
+            connection manager SHOULD indicate this by removing both the
+            <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a> and the other contact's
+            handle from the Group interface with reason No_Answer.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            Documenting existing practice.
+          </div></div>
+
+          <p>If a contact is removed from a group for this reason, the
+            equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.NoAnswer</code>.
+          </p>
+        </div><li>Renamed (9)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The change is because a contact's unique identifier changed.
+          There must be exactly one handle in the removed set and exactly
+          one handle in one of the added sets. The <a href="Connection_Interface_Renaming.html#Signal:Renamed" namespace="org.freedesktop.Telepathy.Connection.Interface.Renaming" title="Signal org.freedesktop.Telepathy.Connection.Interface.Renaming.Renamed">Renamed</a>
+          signal on the
+          <a href="Connection_Interface_Renaming.html" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.Renaming">Renaming</a>
+          interface will have been emitted for the same handles,
+          shortly before this <a href="Channel_Interface_Group.html#Signal:MembersChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.MembersChanged">MembersChanged</a> signal is emitted.</p>
+        </div><li>Permission_Denied (10)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The change is because there was no permission to contact the
+            requested handle.</p>
+
+          <p>If a contact is removed from a group for this reason, the
+            equivalent D-Bus error is
+            <code>org.freedesktop.Telepathy.Error.PermissionDenied</code>.
+          </p>
+        </div><li>Separated (11)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>If members are removed with this reason code, the change is
+            because the group has split into unconnected parts which can only
+            communicate within themselves (e.g. netsplits on IRC use this
+            reason code).
+          </p>
+          <p>
+            If members are added with this reason code, the change is because
+            unconnected parts of the group have rejoined. If this channel
+            carries messages (e.g. <a href="Channel_Type_Text.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Text</a>
+            or <a href="Channel_Type_Tubes.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Tubes">Tubes</a>
+            channels) applications must
+            assume that the contacts being added are likely to have missed some
+            messages as a result of the separation, and that the contacts
+            in the group are likely to have missed some messages from the
+            contacts being added.
+          </p>
+          <p>Note that from the added contacts' perspective, they have been
+            in the group all along, and the contacts we indicate to be in
+            the group (including the local user) have just rejoined
+            the group with reason Separated. Application protocols in Tubes
+            should be prepared to cope with this situation.
+          </p>
+
+          <p>The <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a> SHOULD NOT be
+            removed from channels with this reason.</p>
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Flags:Channel_Group_Flags"></a>
+      <span class="permalink">Flags (<a href="Channel_Interface_Group.html#Flags:Channel_Group_Flags">Permalink</a>)</span>
+      <h2>
+       Channel_Group_Flags &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Can_Add (1)</li>
+<div class="docstring">
+            The <a href="Channel_Interface_Group.html#Method:AddMembers" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.AddMembers">AddMembers</a> method can be used to
+            add or invite members who are
+            not already in the local pending list (which is always valid).
+        </div><li>Can_Remove (2)</li>
+<div class="docstring">
+            The <a href="Channel_Interface_Group.html#Method:RemoveMembers" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.RemoveMembers">RemoveMembers</a> method can be used
+            to remove channel members
+            (removing those on the pending local list is always valid).
+        </div><li>Can_Rescind (4)</li>
+<div class="docstring">
+            The <a href="Channel_Interface_Group.html#Method:RemoveMembers" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.RemoveMembers">RemoveMembers</a> method can be used
+            on people on the remote
+            pending list.
+        </div><li>Message_Add (8)</li>
+<div class="docstring">
+            A message may be sent to the server when calling
+            <a href="Channel_Interface_Group.html#Method:AddMembers" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.AddMembers">AddMembers</a> on
+            contacts who are not currently pending members.
+        </div><li>Message_Remove (16)</li>
+<div class="docstring">
+            A message may be sent to the server when calling
+            <a href="Channel_Interface_Group.html#Method:RemoveMembers" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.RemoveMembers">RemoveMembers</a> on
+            contacts who are currently channel members.
+        </div><li>Message_Accept (32)</li>
+<div class="docstring">
+            A message may be sent to the server when calling
+            <a href="Channel_Interface_Group.html#Method:AddMembers" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.AddMembers">AddMembers</a> on
+            contacts who are locally pending.
+        </div><li>Message_Reject (64)</li>
+<div class="docstring">
+            A message may be sent to the server when calling
+            <a href="Channel_Interface_Group.html#Method:RemoveMembers" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.RemoveMembers">RemoveMembers</a> on
+            contacts who are locally pending.
+        </div><li>Message_Rescind (128)</li>
+<div class="docstring">
+            A message may be sent to the server when calling
+            <a href="Channel_Interface_Group.html#Method:RemoveMembers" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.RemoveMembers">RemoveMembers</a> on
+            contacts who are remote pending.
+        </div><li>Channel_Specific_Handles (256)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>
+            The members of this group have handles which are specific to
+            this channel, and are not valid as general-purpose handles on
+            the connection. Depending on the channel, it may be possible to
+            check the <a href="Channel_Interface_Group.html#Property:HandleOwners" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.HandleOwners">HandleOwners</a> property or
+            call <a href="Channel_Interface_Group.html#Method:GetHandleOwners" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.GetHandleOwners">GetHandleOwners</a> to find the
+            owners of these handles, which should be done if you wish to (e.g.)
+            subscribe to the contact's presence.
+          </p>
+
+          <p>
+            Connection managers must ensure that any given handle is not
+            simultaneously a general-purpose handle and a channel-specific
+            handle.
+          </p>
+        </div><li>Only_One_Group (512)</li>
+<div class="docstring">
+            Placing a contact in multiple groups of this type is not allowed
+            and will raise NotAvailable (on services where contacts may only
+            be in one user-defined group, user-defined groups will have
+            this flag).
+        </div><li>Handle_Owners_Not_Available (1024)</li>
+<div class="docstring">
+          In rooms with channel specific handles (ie Channel_Specific_Handles
+          flag is set), this flag indicates that no handle owners are
+          available, apart from the owner of the
+          <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a>.
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            This used to be an important optimization to avoid repeated
+            GetHandleOwners calls, before we introduced the
+            <a href="Channel_Interface_Group.html#Property:HandleOwners" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.HandleOwners">HandleOwners</a> property and
+            <a href="Channel_Interface_Group.html#Signal:HandleOwnersChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.HandleOwnersChanged">HandleOwnersChanged</a> signal.
+          </div></div>
+        </div><li>Properties (2048)</li>
+<div class="docstring">
+          This flag indicates that all the properties introduced in
+          specification 0.17.6 are fully supported.
+        </div><li>Members_Changed_Detailed (4096)</li>
+<div class="docstring">
+          Indicates that <a href="Channel_Interface_Group.html#Signal:MembersChangedDetailed" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.MembersChangedDetailed">MembersChangedDetailed</a>
+          will be emitted for changes to this group's members in addition to
+          <a href="Channel_Interface_Group.html#Signal:MembersChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.MembersChanged">MembersChanged</a>.
+          Clients can then connect to the former and ignore emission of the
+          latter. This flag's state MUST NOT change over the lifetime of a
+          channel.
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            If it were allowed to change, client bindings would have to always
+            connect to MembersChanged just in case the flag ever went away (and
+            generally be unnecessarily complicated), which would mostly negate
+            the point of having this flag in the first place.
+          </div></div>
+        </div><li>Message_Depart (8192)</li>
+<div class="annotation added"><span class="version">Added in 0.17.21. </span></div><div class="docstring">
+          A message may be sent to the server when calling
+          <a href="Channel_Interface_Group.html#Method:RemoveMembers" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.RemoveMembers">RemoveMembers</a> on
+          the <a href="Channel_Interface_Group.html#Property:SelfHandle" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">SelfHandle</a>.
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            This would be set for XMPP Multi-User Chat or IRC channels,
+            but not for a typical implementation of streamed media calls.
+          </div></div>
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Handle_Owner_Map"></a>
+      <span class="permalink">Mapping (<a href="Channel_Interface_Group.html#Mapping:Handle_Owner_Map">Permalink</a>)</span>
+      <h2>
+       Handle_Owner_Map &mdash; a{uu}
+      </h2>
+
+      <div class="annotation added"><span class="version">Added in 0.17.6. </span>For backwards compatibility,
+        clients should fall back to calling GetHandleOwners if
+        Channel_Group_Flag_Properties is not present.</div>
+      
+      
+      <div class="docstring">
+        A map from channel-specific handles to their owners.
+      </div>
+      <ul>
+<li>Channel_Specific_Handle &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+          A nonzero channel-specific handle
+        </div><li>Global_Handle &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+          The global handle that owns the corresponding channel-specific
+          handle, or 0 if this could not be determined
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Handle_Identifier_Map"></a>
+      <span class="permalink">Mapping (<a href="Channel_Interface_Group.html#Mapping:Handle_Identifier_Map">Permalink</a>)</span>
+      <h2>
+       Handle_Identifier_Map &mdash; a{us}
+      </h2>
+
+      <div class="annotation added"><span class="version">Added in 0.17.17. </span></div>
+      
+      
+      <div class="docstring">
+        A map from handles to the corresponding normalized string identifier.
+      </div>
+      <ul>
+<li>Handle &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+          A nonzero handle
+        </div><li>Identifier &mdash; s</li>
+<div class="docstring">
+          The same string that would be returned by <a href="Connection.html#Method:InspectHandles" namespace="org.freedesktop.Telepathy.Connection" title="Method org.freedesktop.Telepathy.Connection.InspectHandles">InspectHandles</a>
+          for this handle.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Local_Pending_Info"></a>
+      <span class="permalink">Struct (<a href="Channel_Interface_Group.html#Struct:Local_Pending_Info">Permalink</a>)</span>
+      <h2>
+       Local_Pending_Info &mdash; (uuus)
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A structure representing a contact whose attempt to
+        join a group is to be confirmed by the local user using
+        <a href="Channel_Interface_Group.html#Method:AddMembers" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.AddMembers">AddMembers</a>.</div>
+      <ul>
+<li>To_Be_Added &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+          The contact to be added to the group
+        </div><li>Actor &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+          The contact requesting or causing the change
+        </div><li>Reason &mdash; u (<a href="Channel_Interface_Group.html#Enum:Channel_Group_Change_Reason" title="Enum Channel_Group_Change_Reason">Channel_Group_Change_Reason</a>)</li>
+<div class="docstring">
+          The reason for the change
+        </div><li>Message &mdash; s</li>
+<div class="docstring">
+          A human-readable message from the Actor, or an empty string
+          if there is no message
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

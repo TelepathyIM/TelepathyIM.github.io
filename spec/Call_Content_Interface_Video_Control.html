@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Call1.Content.I.VideoControl &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Call1.Content.Interface.VideoControl'>Call1.Content.Interface.VideoControl</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Video_Control.html#Signal:KeyFrameRequested">KeyFrameRequested</a></td>
+       <td>()</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Video_Control.html#Signal:VideoResolutionChanged">VideoResolutionChanged</a></td>
+       <td>((uu): NewResolution)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Video_Control.html#Signal:BitrateChanged">BitrateChanged</a></td>
+       <td>(u: NewBitrate)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Video_Control.html#Signal:FramerateChanged">FramerateChanged</a></td>
+       <td>(u: NewFramerate)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Video_Control.html#Signal:MTUChanged">MTUChanged</a></td>
+       <td>(u: NewMTU)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Video_Control.html#Property:VideoResolution">VideoResolution</a></td>
+       <td>
+        (uu)
+        
+          (<a href="Call_Content_Interface_Video_Control.html#Struct:Video_Resolution" title="Struct Video_Resolution">
+              Video_Resolution</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Video_Control.html#Property:Bitrate">Bitrate</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Video_Control.html#Property:Framerate">Framerate</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Video_Control.html#Property:MTU">MTU</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Video_Control.html#Property:ManualKeyFrames">ManualKeyFrames</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_Video_Control.html#Struct:Video_Resolution">Video_Resolution</a></td>
+       <td>Struct</td>
+       <td>(uu)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.25.2. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Call_Content_Interface_Media.html" title="Interface org.freedesktop.Telepathy.Call1.Content.Interface.Media">org.freedesktop.Telepathy.Call1.Content.Interface.Media</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface that allows the connection manager to control the video
+          stream.</p>
+      <p>This interface is generally not needed. In cases where the connection
+          manager handles the network communication and the media is transferred
+          from the client to the connection manager via shared memory, it can
+          sometimes be beneficial for the connection manager to be able to
+          control certain aspects of the video stream.</p>
+    </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:KeyFrameRequested"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Video_Control.html#Signal:KeyFrameRequested">Permalink</a>)</span>
+     <h2>KeyFrameRequested ()</h2>
+
+     
+     
+     
+
+     
+
+     <div class="docstring">
+        Request that the video encoder produce a new key frame as soon as
+        possible.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:VideoResolutionChanged"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Video_Control.html#Signal:VideoResolutionChanged">Permalink</a>)</span>
+     <h2>VideoResolutionChanged ((uu): NewResolution)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       NewResolution &mdash; (uu)
+       
+        (<a href="Call_Content_Interface_Video_Control.html#Struct:Video_Resolution" title="Struct Video_Resolution">Video_Resolution</a>)
+       
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        The desired video resolution has changed.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:BitrateChanged"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Video_Control.html#Signal:BitrateChanged">Permalink</a>)</span>
+     <h2>BitrateChanged (u: NewBitrate)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       NewBitrate &mdash; u
+       
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        The desired bitrate has changed
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:FramerateChanged"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Video_Control.html#Signal:FramerateChanged">Permalink</a>)</span>
+     <h2>FramerateChanged (u: NewFramerate)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       NewFramerate &mdash; u
+       
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        The desired framerate has changed
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:MTUChanged"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Video_Control.html#Signal:MTUChanged">Permalink</a>)</span>
+     <h2>MTUChanged (u: NewMTU)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       NewMTU &mdash; u
+       
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        The Maximum Transmission Unit has changed
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:VideoResolution"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Video_Control.html#Property:VideoResolution">Permalink</a>)</span>
+     <h2>
+      VideoResolution &mdash; (uu)
+      
+        (<a href="Call_Content_Interface_Video_Control.html#Struct:Video_Resolution" title="Struct Video_Resolution">Video_Resolution</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The resolution at which the streaming engine should be sending.
+
+        <p>Change notification is via the
+          <a href="Call_Content_Interface_Video_Control.html#Signal:VideoResolutionChanged" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.VideoControl.VideoResolutionChanged">VideoResolutionChanged</a> signal.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Bitrate"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Video_Control.html#Property:Bitrate">Permalink</a>)</span>
+     <h2>
+      Bitrate &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The bitrate the streaming engine should be sending at.
+
+        <p>Change notification is via the
+          <a href="Call_Content_Interface_Video_Control.html#Signal:BitrateChanged" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.VideoControl.BitrateChanged">BitrateChanged</a> signal.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Framerate"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Video_Control.html#Property:Framerate">Permalink</a>)</span>
+     <h2>
+      Framerate &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The framerate the streaming engine should be sending at.
+
+        <p>Change notification is via the
+          <a href="Call_Content_Interface_Video_Control.html#Signal:FramerateChanged" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.VideoControl.FramerateChanged">FramerateChanged</a> signal.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MTU"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Video_Control.html#Property:MTU">Permalink</a>)</span>
+     <h2>
+      MTU &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The Maximum Transmission Unit
+
+        <p>Change notification is via the
+          <a href="Call_Content_Interface_Video_Control.html#Signal:MTUChanged" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.VideoControl.MTUChanged">MTUChanged</a> signal.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ManualKeyFrames"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_Video_Control.html#Property:ManualKeyFrames">Permalink</a>)</span>
+     <h2>
+      ManualKeyFrames &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+       Only send key frames when manually requested
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Struct:Video_Resolution"></a>
+      <span class="permalink">Struct (<a href="Call_Content_Interface_Video_Control.html#Struct:Video_Resolution">Permalink</a>)</span>
+      <h2>
+       Video_Resolution &mdash; (uu)
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Width &mdash; u</li>
+<div class="docstring">
+          With of the video stream.
+        </div><li>Height &mdash; u</li>
+<div class="docstring">
+          Height of the video stream.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

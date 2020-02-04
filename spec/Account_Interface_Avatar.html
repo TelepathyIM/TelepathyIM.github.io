@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Account.I.Avatar &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Account.Interface.Avatar'>Account.Interface.Avatar</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Account_Interface_Avatar.html#Signal:AvatarChanged">AvatarChanged</a></td>
+       <td>()</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Account_Interface_Avatar.html#Property:Avatar">Avatar</a></td>
+       <td>
+        (ays)
+        
+          (<a href="Account_Interface_Avatar.html#Struct:Avatar" title="Struct Avatar">
+              Avatar</a>)
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Account_Interface_Avatar.html#Struct:Avatar">Avatar</a></td>
+       <td>Struct</td>
+       <td>(ays)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.6. </span></div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Account.html" title="Interface org.freedesktop.Telepathy.Account">org.freedesktop.Telepathy.Account</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface extends the core Account interface to provide a
+        user-settable avatar image.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>The avatar could have been a property on the core Account interface,
+          but was moved to a separate interface because it is likely to be
+          large. This means that clients can safely use GetAll to get
+          properties on the core Account interface without flooding the
+          session bus with large images.</p>
+      </div></div>
+
+    </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:AvatarChanged"></a>
+     <span class="permalink">(<a href="Account_Interface_Avatar.html#Signal:AvatarChanged">Permalink</a>)</span>
+     <h2>AvatarChanged ()</h2>
+
+     
+     
+     
+
+     
+
+     <div class="docstring">
+        Emitted when the Avatar property changes.
+
+        <div class="rationale"><h5>Rationale:</h5><div>The avatar itself is deliberately not included in this
+          signal, to reduce bus traffic in the (likely common) case where no
+          running application cares about the user's own avatar.</div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Avatar"></a>
+     <span class="permalink">(<a href="Account_Interface_Avatar.html#Property:Avatar">Permalink</a>)</span>
+     <h2>
+      Avatar &mdash; (ays)
+      
+        (<a href="Account_Interface_Avatar.html#Struct:Avatar" title="Struct Avatar">Avatar</a>)
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The avatar to set on this account for display to other contacts,
+        represented as a structure containing the bytes of the avatar,
+        and the MIME type as a string; may be set to an empty byte-array and
+        an empty string to indicate no avatar. When the account becomes
+        connected, the account manager SHOULD set this avatar using SetAvatar
+        if appropriate.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Struct:Avatar"></a>
+      <span class="permalink">Struct (<a href="Account_Interface_Avatar.html#Struct:Avatar">Permalink</a>)</span>
+      <h2>
+       Avatar &mdash; (ays)
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A struct containing avatar data marked with its MIME type.</p>
+
+        <p>May be set to an empty byte-array and an empty string, indicating
+          no avatar.</p>
+      </div>
+      <ul>
+<li>Avatar_Data &mdash; ay</li>
+<li>MIME_Type &mdash; s</li>
+</ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

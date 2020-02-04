@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>ChannelRequest &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.ChannelRequest'>ChannelRequest</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Request.html#Method:Proceed">Proceed</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Request.html#Method:Cancel">Cancel</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Request.html#Signal:Failed">Failed</a></td>
+       <td>(s: Error, s: Message)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Request.html#Signal:Succeeded">Succeeded</a></td>
+       <td>()</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Request.html#Signal:SucceededWithChannel">SucceededWithChannel</a></td>
+       <td>(o: Connection, a{sv}: Connection_Properties, o: Channel, a{sv}: Channel_Properties)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Request.html#Property:Account">Account</a></td>
+       <td>
+        o
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Request.html#Property:UserActionTime">UserActionTime</a></td>
+       <td>
+        x
+        
+          (<a href="generic-types.html#Simple-Type:User_Action_Timestamp" title="Simple Type User_Action_Timestamp">
+              User_Action_Timestamp</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Request.html#Property:PreferredHandler">PreferredHandler</a></td>
+       <td>
+        s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Well_Known_Name" title="Simple Type DBus_Well_Known_Name">
+              DBus_Well_Known_Name</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Request.html#Property:Requests">Requests</a></td>
+       <td>
+        aa{sv}
+        
+          (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Array of Mapping Qualified_Property_Value_Map">
+              Qualified_Property_Value_Map_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Request.html#Property:Interfaces">Interfaces</a></td>
+       <td>
+        as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">
+              DBus_Interface_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Request.html#Property:Hints">Hints</a></td>
+       <td>
+        a{sv}
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.26. </span>(as a stable interface)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>A channel request is an object in the <a href="Channel_Dispatcher.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.ChannelDispatcher">ChannelDispatcher</a> representing
+        an ongoing request for some channels to be created or found. They are
+        created by methods such as <a href="Channel_Dispatcher.html#Method:CreateChannel" namespace="ofdT.ChannelDispatcher" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannel">CreateChannel</a>. There
+        can be any number of ChannelRequest objects at the same time.</p>
+
+      <p>Its well-known bus name is the same as that of the ChannelDispatcher,
+        <code>&quot;org.freedesktop.Telepathy.ChannelDispatcher&quot;</code>.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>See
+          <a href="Channel_Dispatcher.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannel">ChannelDispatcher.CreateChannel</a>
+          for rationale for ChannelRequest being a separate object.</p>
+      </div></div>
+
+      <p>A channel request can be cancelled by any client (not just the one
+        that requested it). This means that the ChannelDispatcher will
+        <a href="Channel.html#Method:Close" namespace="org.freedesktop.Telepathy.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a>
+        the resulting channel, or refrain from requesting it at all, rather
+        than dispatching it to a handler.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:Proceed"></a>
+     <span class="permalink">(<a href="Channel_Request.html#Method:Proceed">Permalink</a>)</span>
+     <h2>Proceed () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Proceed with the channel request.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The client that created this object calls this method
+            when it has connected signal handlers for
+            <a href="Channel_Request.html#Signal:Succeeded" title="Signal org.freedesktop.Telepathy.ChannelRequest.Succeeded">Succeeded</a> and
+            <a href="Channel_Request.html#Signal:Failed" title="Signal org.freedesktop.Telepathy.ChannelRequest.Failed">Failed</a>.</p>
+        </div></div>
+
+        <p>Clients other than the client which created the ChannelRequest
+          MUST NOT call this method.</p>
+
+        <p>This method SHOULD return immediately; on success, the request
+          might still fail, but this will be indicated asynchronously
+          by the <a href="Channel_Request.html#Signal:Failed" title="Signal org.freedesktop.Telepathy.ChannelRequest.Failed">Failed</a> signal.</p>
+
+        <p>Proceed cannot fail, unless clients have got the life-cycle
+          of a ChannelRequest seriously wrong (e.g. a client calls this
+          method twice, or a client that did not create the ChannelRequest
+          calls this method). If it fails, clients SHOULD assume that the
+          whole ChannelRequest has become useless.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            This method has already been called, so it is no longer
+            available. Stop calling it.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:Cancel"></a>
+     <span class="permalink">(<a href="Channel_Request.html#Method:Cancel">Permalink</a>)</span>
+     <h2>Cancel () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Cancel the channel request. The precise effect depends on the
+          current progress of the request.</p>
+
+        <p>If the connection manager has not already been asked to create
+          a channel, then <a href="Channel_Request.html#Signal:Failed" title="Signal org.freedesktop.Telepathy.ChannelRequest.Failed">Failed</a> is emitted
+          immediately, and the channel request is removed.</p>
+
+        <p>If the connection manager has already been asked to create a
+          channel but has not produced one yet (e.g. if <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">Connection.Interface.Requests.CreateChannel</a>
+          has been called, but has not yet returned), then the
+          ChannelDispatcher will remember that the request has been cancelled.
+          When the channel appears, it will be closed (if it was newly
+          created and can be closed), and will not be dispatched to a
+          handler.</p>
+
+        <p>If the connection manager has already returned a channel, but the
+          channel has not yet been dispatched to a handler
+          then the channel dispatcher will not dispatch that
+          channel to a handler. If the channel was newly created for this
+          request, the channel dispatcher will close it with <a href="Channel.html#Method:Close" namespace="org.freedesktop.Telepathy.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a>;
+          otherwise, the channel dispatcher will ignore it. In either case,
+          <a href="Channel_Request.html#Signal:Failed" title="Signal org.freedesktop.Telepathy.ChannelRequest.Failed">Failed</a> will be emitted when processing
+          has been completed.</p>
+
+        <p>If <a href="Channel_Request.html#Signal:Failed" title="Signal org.freedesktop.Telepathy.ChannelRequest.Failed">Failed</a> is emitted in response to
+          this method, the error SHOULD be
+          <code>org.freedesktop.Telepathy.Error.Cancelled</code>.</p>
+
+        <p>If the channel has already been dispatched to a handler, then
+          it's too late to call this method, and the channel request will
+          no longer exist.</p>
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:Failed"></a>
+     <span class="permalink">(<a href="Channel_Request.html#Signal:Failed">Permalink</a>)</span>
+     <h2>Failed (s: Error, s: Message)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Error &mdash; s
+       
+        (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">DBus_Error_Name</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The name of a D-Bus error. This can come from various sources,
+            including the error raised by <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy.Connection.Interface.Requests" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>,
+            or an error generated
+            to represent failure to establish the <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>.</p>
+        </div>
+      
+       <li>
+       Message &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          If the first argument of the D-Bus error message was a string,
+          that string. Otherwise, an empty string.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The channel request has failed. It is no longer present,
+          and further methods must not be called on it.</p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:Succeeded"></a>
+     <span class="permalink">(<a href="Channel_Request.html#Signal:Succeeded">Permalink</a>)</span>
+     <h2>Succeeded ()</h2>
+
+     
+     
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The channel request has succeeded. It is no longer present,
+          and further methods must not be called on it.</p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:SucceededWithChannel"></a>
+     <span class="permalink">(<a href="Channel_Request.html#Signal:SucceededWithChannel">Permalink</a>)</span>
+     <h2>SucceededWithChannel (o: Connection, a{sv}: Connection_Properties, o: Channel, a{sv}: Channel_Properties)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.21.5. </span></div>
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Connection &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The Connection owning the channel.</p>
+        </div>
+      
+       <li>
+       Connection_Properties &mdash; a{sv}
+       
+        (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A subset of the Connection's properties, currently unused.
+            This parameter may be used in future.</p>
+        </div>
+      
+       <li>
+       Channel &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The channel which has been created.</p>
+        </div>
+      
+       <li>
+       Channel_Properties &mdash; a{sv}
+       
+        (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The same immutable properties of the Channel that would appear
+            in a <a href="Connection_Interface_Requests.html#Signal:NewChannels" namespace="ofdT.Connection.Interface.Requests" title="Signal org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannels">NewChannels</a> signal.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Variant of the <a href="Channel_Request.html#Signal:Succeeded" namespace="ofdT.ChannelRequest" title="Signal org.freedesktop.Telepathy.ChannelRequest.Succeeded">Succeeded</a> signal
+        allowing to get the channel which has been created.</p>
+
+        <p>This signal MUST be emitted if the
+          <a href="Channel_Dispatcher.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.ChannelDispatcher">ChannelDispatcher</a>'s
+          <a href="Channel_Dispatcher.html#Property:SupportsRequestHints" namespace="ofdT.ChannelDispatcher" title="Property org.freedesktop.Telepathy.ChannelDispatcher.SupportsRequestHints">SupportsRequestHints</a>
+          property is true. If supported, it MUST be emitted before
+          the <a href="Channel_Request.html#Signal:Succeeded" title="Signal org.freedesktop.Telepathy.ChannelRequest.Succeeded">Succeeded</a> signal.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Account"></a>
+     <span class="permalink">(<a href="Channel_Request.html#Property:Account">Permalink</a>)</span>
+     <h2>
+      Account &mdash; o
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The <a href="Account.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Account">Account</a>
+        on which this request was made. This property cannot change.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:UserActionTime"></a>
+     <span class="permalink">(<a href="Channel_Request.html#Property:UserActionTime">Permalink</a>)</span>
+     <h2>
+      UserActionTime &mdash; x
+      
+        (<a href="generic-types.html#Simple-Type:User_Action_Timestamp" title="Simple Type User_Action_Timestamp">User_Action_Timestamp</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The time at which user action occurred, or 0 if this channel
+          request is for some reason not involving user action.</p>
+
+        <p>This property is set when the channel request is created,
+          and can never change.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:PreferredHandler"></a>
+     <span class="permalink">(<a href="Channel_Request.html#Property:PreferredHandler">Permalink</a>)</span>
+     <h2>
+      PreferredHandler &mdash; s
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Well_Known_Name" title="Simple Type DBus_Well_Known_Name">DBus_Well_Known_Name</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Either the well-known bus name (starting with
+            <code>org.freedesktop.Telepathy.Client.</code>)
+            of the preferred handler for this
+            channel, or an empty string to indicate that any handler would be
+            acceptable.</p>
+
+        <p>This property is set when the channel request is created,
+          and can never change.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Requests"></a>
+     <span class="permalink">(<a href="Channel_Request.html#Property:Requests">Permalink</a>)</span>
+     <h2>
+      Requests &mdash; aa{sv}
+      
+        (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Array of Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>An array of dictionaries containing desirable properties for
+          the channel or channels to be created.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This is an array so that we could add a CreateChannels method in
+            future without redefining the API of ChannelRequest.</p>
+        </div></div>
+
+        <p>This property is set when the channel request is created,
+          and can never change.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Interfaces"></a>
+     <span class="permalink">(<a href="Channel_Request.html#Property:Interfaces">Permalink</a>)</span>
+     <h2>
+      Interfaces &mdash; as
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        A list of the extra interfaces provided by this channel request.
+        This property cannot change.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Hints"></a>
+     <span class="permalink">(<a href="Channel_Request.html#Property:Hints">Permalink</a>)</span>
+     <h2>
+      Hints &mdash; a{sv}
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.21.5. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A dictionary of metadata provided by the channel
+          requester, which the handler and other clients MAY choose to
+          interpret.  Clients MAY
+          choose to use platform-specific keys for their own purposes, but MUST
+          ignore unknown keys and MUST cope with expected keys being
+          missing. Clients SHOULD namespace hint names by having them
+          start with a reversed domain name, in the same way as D-Bus
+          interface names.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>This property might be used to pass a contact ID for a
+          telephone number shared between two contacts from the address book to
+          the call UI, so that if you try to call “Mum”, the call UI knows this
+          rather than having to guess or show “Calling Mum or Dad”. The format
+          of these contact IDs would be platform-specific, so we leave the
+          definition of the dictionary entry up to the platform in question.
+          But third-party channel requesters might not include the contact ID,
+          so the call UI has to be able to deal with it not being
+          there.</div></div>
+
+        <p>The channel dispatcher does not currently interpret any of these
+          hints: they are solely for communication between cooperating
+          clients. If hints that do affect the channel dispatcher are added in
+          future, their names will start with an appropriate reversed domain
+          name (e.g. <code>org.freedesktop.Telepathy</code> for hints defined
+          by this specification, or an appropriate vendor name for third-party
+          plugins).</p>
+
+        <p>This property may be set when the channel request is created, and
+          can never change. Since it is immutable, it SHOULD be included in the
+          dictionary of properties passed to <a href="Client_Interface_Requests.html#Method:AddRequest" namespace="ofdT.Client.Interface.Requests" title="Method org.freedesktop.Telepathy.Client.Interface.Requests.AddRequest">AddRequest</a>
+          by the <a href="Channel_Dispatcher.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ChannelDispatcher">ChannelDispatcher</a>.</p>
+        <p>The following standardised hints are defined:</p>
+
+        <dl>
+          <dt>org.freedesktop.Telepathy.ChannelRequest.DelegateToPreferredHandler - b</dt>
+          <dd>If present and True the client currently handling the channel
+            SHOULD pass the channel to the
+            <a href="Channel_Request.html#Property:PreferredHandler" title="Property org.freedesktop.Telepathy.ChannelRequest.PreferredHandler">PreferredHandler</a> using
+            <a href="Channel_Dispatcher.html#Method:DelegateChannels" namespace="ofdT.ChannelDispatcher" title="Method org.freedesktop.Telepathy.ChannelDispatcher.DelegateChannels">DelegateChannels</a>.
+
+            <div class="rationale"><h5>Rationale:</h5><div>
+              This hint allows the user to request a channel in their
+              preferred client in a situation where there are two chat
+              handlers (for example: requesting a channel in Empathy which is
+              currently being handled by gnome-shell).
+            </div></div>
+
+            If the channel is currently unhandled, clients SHOULD ignore this
+            hint.
+
+            <div class="rationale"><h5>Rationale:</h5><div>
+              It is assumed that Mission Control will correctly delegate an
+              unhandled channel to the preferred Handler. This allows
+              requesting clients to always include this hint in their channel
+              request.
+            </div></div>
+
+            The Handler should check each
+            <a href="Channel_Request.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.ChannelRequest">ChannelRequest</a>
+            of the Requests_Satisfied parameter of
+            <a href="Client_Handler.html#Method:HandleChannels" namespace="ofdT.Client.Handler" title="Method org.freedesktop.Telepathy.Client.Handler.HandleChannels">HandleChannels</a>
+            for the hint. The first request containing the hint SHOULD be used
+            and all further hints SHOULD be ignored.
+
+            <div class="rationale"><h5>Rationale:</h5><div>
+              This covers the very unlikely case where
+              <a href="Client_Handler.html#Method:HandleChannels" namespace="ofdT.Client.Handler" title="Method org.freedesktop.Telepathy.Client.Handler.HandleChannels">HandleChannels</a>
+              satisfies two separate requests which have different
+              <a href="Channel_Request.html#Property:PreferredHandler" title="Property org.freedesktop.Telepathy.ChannelRequest.PreferredHandler">PreferredHandler</a>s.
+            </div></div>
+          </dd>
+        </dl>
+
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.T.DBusTube &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Type.DBusTube'>Channel.Type.DBusTube</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_DBus_Tube.html#Method:Offer">Offer</a></td>
+       <td>(a{sv}: parameters, u: access_control)</td>
+       <td>&#8594;</td>
+       <td>s: address</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_DBus_Tube.html#Method:Accept">Accept</a></td>
+       <td>(u: access_control)</td>
+       <td>&#8594;</td>
+       <td>s: address</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_DBus_Tube.html#Signal:DBusNamesChanged">DBusNamesChanged</a></td>
+       <td>(a{us}: Added, au: Removed)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_DBus_Tube.html#Property:ServiceName">ServiceName</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_DBus_Tube.html#Property:DBusNames">DBusNames</a></td>
+       <td>
+        a{us}
+        
+          (<a href="Channel_Type_DBus_Tube.html#Mapping:DBus_Tube_Participants" title="Mapping DBus_Tube_Participants">
+              DBus_Tube_Participants</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_DBus_Tube.html#Property:SupportedAccessControls">SupportedAccessControls</a></td>
+       <td>
+        au
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Socket_Access_Control" title="Array of Enum Socket_Access_Control">
+              Socket_Access_Control_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_DBus_Tube.html#Mapping:DBus_Tube_Participants">DBus_Tube_Participants</a></td>
+       <td>Mapping</td>
+       <td>a{us}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+     <li><a href="Channel_Interface_Tube.html" title="Interface org.freedesktop.Telepathy.Channel.Interface.Tube">org.freedesktop.Telepathy.Channel.Interface.Tube</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>A D-Bus tube is an ordered reliable transport, for transporting D-Bus
+        traffic.</p>
+
+      <p>For each D-Bus tube, the connection manager listens on a D-Bus
+        server address, as detailed in the D-Bus specification. On this
+        address, it emulates a bus upon which each tube participant appears
+        as an endpoint.</p>
+
+      <p>The objects and interfaces which are expected to exist on the
+        emulated bus depend on the well-known name; typically, either the
+        participant who initiated the tube is expected to export the same
+        objects/interfaces that would be exported by a service of that name
+        on a bus, or all participants are expected to export those
+        objects/interfaces.</p>
+
+      <p>In a multi-user context (Handle_Type_Room) the tube behaves
+        like the D-Bus bus daemon, so participants can send each other
+        private messages, or can send broadcast messages which are
+        received by everyone in the tube (including themselves).
+        Each participant has a D-Bus unique name; connection managers
+        MUST prevent participants from sending messages with the wrong
+        sender unique name, and SHOULD attempt to avoid participants
+        receiving messages not intended for them.</p>
+
+      <p>In a 1-1 context (Handle_Type_Contact) the tube behaves like
+        a peer-to-peer D-Bus connection - arbitrary D-Bus messages with
+        any sender and/or destination can be sent by each participant,
+        and each participant receives all messages sent by the other
+        participant.</p>
+
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:Offer"></a>
+     <span class="permalink">(<a href="Channel_Type_DBus_Tube.html#Method:Offer">Permalink</a>)</span>
+     <h2>Offer (a{sv}: parameters, u: access_control) &#8594; s: address</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        parameters &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The dictionary of arbitrary
+          <a href="Channel_Interface_Tube.html#Property:Parameters" namespace="org.freedesktop.Telepathy.Channel.Interface.Tube" title="Property org.freedesktop.Telepathy.Channel.Interface.Tube.Parameters">Parameters</a>
+          to send with the tube offer.
+        </div>
+      
+       <li>
+        access_control &mdash; u
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Socket_Access_Control" title="Enum Socket_Access_Control">Socket_Access_Control</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The access control the connection manager applies to the D-Bus socket.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        address &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The string describing the address of the private bus. The client
+          SHOULD NOT attempt to connect to the address until the tube is open.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Offers a D-Bus tube providing the service specified.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The contact associated with this channel doesn't have tubes
+            capabilities.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:Accept"></a>
+     <span class="permalink">(<a href="Channel_Type_DBus_Tube.html#Method:Accept">Permalink</a>)</span>
+     <h2>Accept (u: access_control) &#8594; s: address</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        access_control &mdash; u
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Socket_Access_Control" title="Enum Socket_Access_Control">Socket_Access_Control</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The access control the connection manager applies to the D-Bus socket.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        address &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The string describing the address of the private bus. The client
+          SHOULD NOT attempt to connect to the address until the tube is open.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Accept a D-Bus tube that's in the &quot;local pending&quot; state. The
+        connection manager will attempt to open the tube. The tube remains in
+        the &quot;local pending&quot; state until the <a href="Channel_Interface_Tube.html#Signal:TubeChannelStateChanged" namespace="org.freedesktop.Telepathy.Channel.Interface.Tube" title="Signal org.freedesktop.Telepathy.Channel.Interface.Tube.TubeChannelStateChanged">TubeChannelStateChanged</a>
+        signal is emitted.
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:DBusNamesChanged"></a>
+     <span class="permalink">(<a href="Channel_Type_DBus_Tube.html#Signal:DBusNamesChanged">Permalink</a>)</span>
+     <h2>DBusNamesChanged (a{us}: Added, au: Removed)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Added &mdash; a{us}
+       
+        (<a href="Channel_Type_DBus_Tube.html#Mapping:DBus_Tube_Participants" title="Mapping DBus_Tube_Participants">DBus_Tube_Participants</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Array of handles and D-Bus names of new participants.
+        </div>
+      
+       <li>
+       Removed &mdash; au
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Array of handles of former participants.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted on a multi-user (i.e. Handle_Type_Room) D-Bus tube when a
+        participant opens or closes the tube.  This provides change
+        notification for the <a href="Channel_Type_DBus_Tube.html#Property:DBusNames" title="Property org.freedesktop.Telepathy.Channel.Type.DBusTube.DBusNames">DBusNames</a> property.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ServiceName"></a>
+     <span class="permalink">(<a href="Channel_Type_DBus_Tube.html#Property:ServiceName">Permalink</a>)</span>
+     <h2>
+      ServiceName &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A string representing the service name that will be used over the
+          tube. It SHOULD be a well-known D-Bus service name, of the form
+          <tt>com.example.ServiceName</tt>.</p>
+        <p>When the tube is offered, the service name is transmitted to the
+          other end.</p>
+        <p>When requesting a channel with
+          <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy.Connection.Interface.Requests" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>,
+          this property MUST be included in the request.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:DBusNames"></a>
+     <span class="permalink">(<a href="Channel_Type_DBus_Tube.html#Property:DBusNames">Permalink</a>)</span>
+     <h2>
+      DBusNames &mdash; a{us}
+      
+        (<a href="Channel_Type_DBus_Tube.html#Mapping:DBus_Tube_Participants" title="Mapping DBus_Tube_Participants">DBus_Tube_Participants</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        For a multi-user (i.e. Handle_Type_Room) D-Bus tube, a mapping
+        between contact handles and their unique bus names on this tube.
+        For a peer-to-peer (i.e. Handle_Type_Contact) D-Bus tube, the empty
+        dictionary.  Change notification is via
+        <a href="Channel_Type_DBus_Tube.html#Signal:DBusNamesChanged" title="Signal org.freedesktop.Telepathy.Channel.Type.DBusTube.DBusNamesChanged">DBusNamesChanged</a>.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SupportedAccessControls"></a>
+     <span class="permalink">(<a href="Channel_Type_DBus_Tube.html#Property:SupportedAccessControls">Permalink</a>)</span>
+     <h2>
+      SupportedAccessControls &mdash; au
+      
+        (<a href="Channel_Interface_Tube.html#Enum:Socket_Access_Control" title="Array of Enum Socket_Access_Control">Socket_Access_Control_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A list of the access control types that are supported with this channel.
+        Note that only Socket_Access_Control_Localhost and
+        Socket_Access_Control_Credentials can be used with D-Bus tubes.
+        Using Socket_Access_Control_Credentials is recommended.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Socket_Access_Control_Credentials is easy to implement for a
+            D-Bus tube, because typical D-Bus library implementations like
+            libdbus and GDBus already have to support it to be able to
+            connect to the system or session bus, and usually enable it
+            by default; so there's typically no good reason to relax
+            access control to Localhost.</p>
+        </div></div>
+
+        <p>When requesting a channel with
+          <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">Connection.Interface.Requests.CreateChannel</a>,
+          this property MUST NOT be included in the request.</p>
+
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Mapping:DBus_Tube_Participants"></a>
+      <span class="permalink">Mapping (<a href="Channel_Type_DBus_Tube.html#Mapping:DBus_Tube_Participants">Permalink</a>)</span>
+      <h2>
+       DBus_Tube_Participants &mdash; a{us}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">Represents the participants in a multi-user D-Bus tube, as
+        used by the <a href="Channel_Type_DBus_Tube.html#Property:DBusNames" title="Property org.freedesktop.Telepathy.Channel.Type.DBusTube.DBusNames">DBusNames</a> property and the
+        <a href="Channel_Type_DBus_Tube.html#Signal:DBusNamesChanged" title="Signal org.freedesktop.Telepathy.Channel.Type.DBusTube.DBusNamesChanged">DBusNamesChanged</a> signal.</div>
+      <ul>
+<li>Handle &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+          The handle of a participant in this D-Bus tube.
+        </div><li>Unique_Name &mdash; s (<a href="generic-types.html#Simple-Type:DBus_Unique_Name" title="Simple Type DBus_Unique_Name">DBus_Unique_Name</a>)</li>
+<div class="docstring">
+          That participant's unique name.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

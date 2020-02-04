@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.FileTransfer.Metadata &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.FileTransfer.Metadata'>Channel.Interface.FileTransfer.Metadata</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_File_Transfer_Metadata.html#Property:ServiceName">ServiceName</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read/Write</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_File_Transfer_Metadata.html#Property:Metadata">Metadata</a></td>
+       <td>
+        a{sas}
+        
+          (<a href="Channel_Interface_File_Transfer_Metadata.html#Mapping:Metadata" title="Mapping Metadata">
+              Metadata</a>)
+        
+       </td>
+       <td>Read/Write</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_File_Transfer_Metadata.html#Mapping:Metadata">Metadata</a></td>
+       <td>Mapping</td>
+       <td>a{sas}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.25.0. </span></div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel_Type_File_Transfer.html" title="Interface org.freedesktop.Telepathy.Channel.Type.FileTransfer">org.freedesktop.Telepathy.Channel.Type.FileTransfer</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface exists to provide a mechanism to include
+        arbitrary additional information in file transfers. For
+        example, one might want to send a document and include the
+        number of times the character P appeared in the file, so would
+        add <tt>NumberOfPs=42</tt> to the
+        <a href="Channel_Interface_File_Transfer_Metadata.html#Property:Metadata" title="Property org.freedesktop.Telepathy.Channel.Interface.FileTransfer.Metadata.Metadata">Metadata</a> property.</p>
+
+      <p><a href="Channel_Interface_File_Transfer_Metadata.html#Property:ServiceName" title="Property org.freedesktop.Telepathy.Channel.Interface.FileTransfer.Metadata.ServiceName">ServiceName</a> living in its own
+        property makes it easier for specific applications to send
+        files to each other, bypassing the standard handler. For
+        example, the Banshee Telepathy plugin handler could match on
+        <a href="Channel_Interface_File_Transfer_Metadata.html#Property:ServiceName" title="Property org.freedesktop.Telepathy.Channel.Interface.FileTransfer.Metadata.ServiceName">ServiceName</a> so the Empathy file
+        transfer is not used instead.</p>
+   </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ServiceName"></a>
+     <span class="permalink">(<a href="Channel_Interface_File_Transfer_Metadata.html#Property:ServiceName">Permalink</a>)</span>
+     <h2>
+      ServiceName &mdash; s
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A string representing the service name that will be used
+          over the file transfer channel. This property is equivalent
+          to the <a href="Channel_Type_DBus_Tube.html#Property:ServiceName" namespace="ofdT" title="Property org.freedesktop.Telepathy.Channel.Type.DBusTube.ServiceName">Channel.Type.DBusTube.ServiceName</a>
+          and <a href="Channel_Type_Stream_Tube.html#Property:Service" namespace="ofdT" title="Property org.freedesktop.Telepathy.Channel.Type.StreamTube.Service">Channel.Type.StreamTube.Service</a>
+          properties. If no service name is given then this property
+          will be the empty string.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Metadata"></a>
+     <span class="permalink">(<a href="Channel_Interface_File_Transfer_Metadata.html#Property:Metadata">Permalink</a>)</span>
+     <h2>
+      Metadata &mdash; a{sas}
+      
+        (<a href="Channel_Interface_File_Transfer_Metadata.html#Mapping:Metadata" title="Mapping Metadata">Metadata</a>)
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Additional information about the file transfer set by the
+          channel initiator. If no additional information is given then
+          this property will be empty.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Mapping:Metadata"></a>
+      <span class="permalink">Mapping (<a href="Channel_Interface_File_Transfer_Metadata.html#Mapping:Metadata">Permalink</a>)</span>
+      <h2>
+       Metadata &mdash; a{sas}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A mapping from string key to a list of strings, used in the
+        <a href="Channel_Interface_File_Transfer_Metadata.html#Property:Metadata" title="Property org.freedesktop.Telepathy.Channel.Interface.FileTransfer.Metadata.Metadata">Metadata</a> property. To emulate a
+        simple string → string hash table one should have exactly one
+        member in the value string list.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          This property is an a{sas} primarily because this maps
+          easily to <a href="http://xmpp.org/extensions/xep-0004.html">XEP-0004
+          Data Forms</a>, and allows more structured metadata than
+          a{ss} would. (For instance, a list of RDF triples could be
+          expressed as one long array of strings, or as three-element
+          values for a series of dummy key names, rather than as one
+          big string blob.)
+
+          While it might be convenient for applications to allow keys
+          of arbitrary types, the added convenience would be
+          outweighed by having to define the XMPP representation
+        </div></div>
+      </div>
+      <ul>
+<li>Key &mdash; s</li>
+<li>Values &mdash; as</li>
+</ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

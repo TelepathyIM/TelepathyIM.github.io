@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Protocol &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Protocol'>Protocol</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Protocol.html#Method:IdentifyAccount">IdentifyAccount</a></td>
+       <td>(a{sv}: Parameters)</td>
+       <td>&#8594;</td>
+       <td>s: Account_ID</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol.html#Method:NormalizeContact">NormalizeContact</a></td>
+       <td>(s: Contact_ID)</td>
+       <td>&#8594;</td>
+       <td>s: Normalized_Contact_ID</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Protocol.html#Property:Interfaces">Interfaces</a></td>
+       <td>
+        as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">
+              DBus_Interface_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol.html#Property:Parameters">Parameters</a></td>
+       <td>
+        a(susv)
+        
+          (<a href="Connection_Manager.html#Struct:Param_Spec" title="Array of Struct Param_Spec">
+              Param_Spec_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol.html#Property:ConnectionInterfaces">ConnectionInterfaces</a></td>
+       <td>
+        as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">
+              DBus_Interface_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol.html#Property:RequestableChannelClasses">RequestableChannelClasses</a></td>
+       <td>
+        a(a{sv}as)
+        
+          (<a href="Connection_Interface_Requests.html#Struct:Requestable_Channel_Class" title="Array of Struct Requestable_Channel_Class">
+              Requestable_Channel_Class_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol.html#Property:VCardField">VCardField</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol.html#Property:EnglishName">EnglishName</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol.html#Property:Icon">Icon</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol.html#Property:AuthenticationTypes">AuthenticationTypes</a></td>
+       <td>
+        as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">
+              DBus_Interface_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.19.10. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An object representing a protocol for which this <a href="Connection_Manager.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ConnectionManager">ConnectionManager</a>
+        can create <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>s.</p>
+
+      <p>Each Protocol object has the same well-known bus name as its parent
+        ConnectionManager. Its object path is formed by taking the
+        ConnectionManager's object path and appending '/', followed by the
+        <a href="Connection_Manager.html#Simple-Type:Protocol">Protocol</a> name with any hyphen/minus '-' converted
+        to underscores '_'.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>This is the same as the representation of protocol names
+          in Account object paths, and in Connection object paths and bus
+          names. For instance, telepathy-gabble and telepathy-salut would
+          implement objects at
+          <code>/org/freedesktop/Telepathy/ConnectionManager/gabble/jabber</code>
+          and
+          <code>/org/freedesktop/Telepathy/ConnectionManager/salut/local_xmpp</code>,
+          respectively.</p>
+      </div></div>
+
+      <p>If the ConnectionManager has a <tt>.manager</tt> file, each
+        Protocol's immutable properties must be represented in that file;
+        the representation is described as part of the documentation for
+        each property. For instance, a very simple ConnectionManager with one
+        Protocol might be represented like this:</p>
+
+<pre>
+[ConnectionManager]
+Interfaces=
+
+[Protocol example]
+Interfaces=
+ConnectionInterfaces=org.freedesktop.Telepathy.Connection.Interface.Requests;
+param-account=s required
+param-password=s required secret
+RequestableChannelClasses=text;
+VCardField=x-example
+EnglishName=Example
+Icon=im-example
+AuthenticationTypes=org.freedesktop.Telepathy.Channel.Type.ServerTLSConnection;org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication;
+
+[text]
+org.freedesktop.Telepathy.Channel.ChannelType s=org.freedesktop.Telepathy.Channel.Type.Text
+org.freedesktop.Telepathy.Channel.TargetHandleType u=1
+allowed=org.freedesktop.Telepathy.Channel.TargetHandle;org.freedesktop.Telepathy.Channel.TargetID;
+</pre>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:IdentifyAccount"></a>
+     <span class="permalink">(<a href="Protocol.html#Method:IdentifyAccount">Permalink</a>)</span>
+     <h2>IdentifyAccount (a{sv}: Parameters) &#8594; s: Account_ID</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Parameters &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A set of parameters as would be provided to <a href="Connection_Manager.html#Method:RequestConnection" namespace="org.freedesktop.Telepathy.ConnectionManager" title="Method org.freedesktop.Telepathy.ConnectionManager.RequestConnection">RequestConnection</a>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Account_ID &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          <p>An opaque string suitable for use as the account-specific part of
+            an <a href="Account.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Account">Account</a>'s object path. This is not necessarily
+            globally unique, but should represent a &quot;best-effort&quot;
+            identification of the account.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>For a pathological case, consider a user signing in as
+              'me@example.com' with 'server' set to either jabber1.example.com
+              or jabber2.example.com. Both of these should result in
+              me@example.com being returned from this method, even if the user
+              can actually be signed in to those two servers
+              simultaneously.</p>
+          </div></div>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Return a string which uniquely identifies the account to which the
+          given parameters would connect.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>For many protocols, this would return the well-known 'account'
+            parameter. However, for IRC the returned string would be composed
+            from the 'account' (i.e. nickname) and 'server' parameters.
+            AccountManager implementations can use this to form the
+            account-specific part of an Account's object path.</p>
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The IdentifyAccount method is not supported by this connection
+            manager. The caller SHOULD fall back to deriving identification
+            from the parameters.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:NormalizeContact"></a>
+     <span class="permalink">(<a href="Protocol.html#Method:NormalizeContact">Permalink</a>)</span>
+     <h2>NormalizeContact (s: Contact_ID) &#8594; s: Normalized_Contact_ID</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contact_ID &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The identifier of a contact in this protocol
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Normalized_Contact_ID &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The identifier of a contact in this protocol, normalized as much
+          as possible
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Attempt to normalize the given contact ID. Where possible, this
+          SHOULD return the same thing that would be returned by
+          InspectHandles(RequestHandles(CONTACT, [Contact_ID])) on a connected
+          <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>.</p>
+
+        <p>If full normalization requires network activity or is otherwise
+          impossible to do without a <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>,
+          this method SHOULD perform a best-effort normalization.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>One common example of a best-effort offline normalization
+            differing from the ideal normalization is XMPP.</p>
+
+          <p>On XMPP, contacts' JIDs should normally have the resource removed
+            during normalization, but for contacts in a MUC (chatroom), the
+            resource is an integral part of the JID - so the contact JID
+            alice@example.com/Empathy should normalize to alice@example.com,
+            but the in-MUC JID wonderland@conference.example.com/Alice should
+            normalize to itself.</p>
+
+          <p>While online, the connection manager has enough context to know
+            which chatrooms the user is in, and can infer from that whether
+            to remove resources, but the best-effort normalization performed
+            while offline does not have this context, so the best that can be
+            done is to remove the resource from all JIDs.</p>
+        </div></div>
+
+        <p>This method MAY simply raise NotImplemented on some protocols.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>In link-local XMPP, you can't talk to someone who isn't present
+            on your local network, so normalizing identifiers in advance is
+            meaningless.</p>
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The NormalizeContact method is not supported by this connection
+            manager. The caller MAY recover by using the contact ID as-is.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Interfaces"></a>
+     <span class="permalink">(<a href="Protocol.html#Property:Interfaces">Permalink</a>)</span>
+     <h2>
+      Interfaces &mdash; as
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A list of interfaces supported by this Protocol object.</p>
+
+        <p>This property should not be confused with
+          <a href="Protocol.html#Property:ConnectionInterfaces" title="Property org.freedesktop.Telepathy.Protocol.ConnectionInterfaces">ConnectionInterfaces</a>,
+          which refers to the interfaces of <em>connections</em> to this
+          protocol.</p>
+
+        <p>Connection managers with a <code>.manager</code> file
+          (as described as part of the
+          <a href="Connection_Manager.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ConnectionManager">ConnectionManager</a> interface) MUST cache this
+          property in the protocol's section of the <code>.manager</code>
+          file, using the key <code>Interfaces</code>. The corresponding value
+          is a list of D-Bus interface names, each followed by a semicolon.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Parameters"></a>
+     <span class="permalink">(<a href="Protocol.html#Property:Parameters">Permalink</a>)</span>
+     <h2>
+      Parameters &mdash; a(susv)
+      
+        (<a href="Connection_Manager.html#Struct:Param_Spec" title="Array of Struct Param_Spec">Param_Spec_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The parameters which may be specified in the
+          <a href="Account.html#Property:Parameters" namespace="ofdT.Account" title="Property org.freedesktop.Telepathy.Account.Parameters">Parameters</a> of an
+          <a href="Account.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.Account">Account</a> (or, for
+          specialised applications which do not use the account manager, passed
+          to <a href="Connection_Manager.html#Method:RequestConnection" namespace="ofdT.ConnectionManager" title="Method org.freedesktop.Telepathy.ConnectionManager.RequestConnection">RequestConnection</a>).
+          Some parameters are mandatory, and some parameters only make sense
+          when registering new accounts with the server; see the
+          <a href="Connection_Manager.html#Struct:Param_Spec">Param_Spec</a> documentation for more details.</p>
+
+        <p>Connection managers with a <code>.manager</code> file
+          (as described as part of the
+          <a href="Connection_Manager.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ConnectionManager">ConnectionManager</a> interface) MUST cache this
+          property in the protocol's section of the <code>.manager</code>
+          file via keys of the form <code>param-<em>p</em></code> and
+          <code>default-<em>p</em></code>, as documented in the
+          <a href="Connection_Manager.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ConnectionManager">ConnectionManager</a> interface.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ConnectionInterfaces"></a>
+     <span class="permalink">(<a href="Protocol.html#Property:ConnectionInterfaces">Permalink</a>)</span>
+     <h2>
+      ConnectionInterfaces &mdash; as
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A list of interface names which might be in the
+          <a href="Connection.html#Property:Interfaces" namespace="org.freedesktop.Telepathy.Connection" title="Property org.freedesktop.Telepathy.Connection.Interfaces">Interfaces</a> property of a
+          <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a> to this protocol. Whether a Connection
+          will have all, some or none of these interfaces depends on server
+          capabilities.</p>
+
+        <p>This property should not be confused with
+          <a href="Protocol.html#Property:Interfaces" title="Property org.freedesktop.Telepathy.Protocol.Interfaces">Interfaces</a>.</p>
+
+        <p>Connection managers with a <code>.manager</code> file
+          MUST cache this property in the protocol's section of the
+          <code>.manager</code> file, using the key
+          <code>ConnectionInterfaces</code>. The corresponding value
+          is a list of D-Bus interface names, each followed by a semicolon.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RequestableChannelClasses"></a>
+     <span class="permalink">(<a href="Protocol.html#Property:RequestableChannelClasses">Permalink</a>)</span>
+     <h2>
+      RequestableChannelClasses &mdash; a(a{sv}as)
+      
+        (<a href="Connection_Interface_Requests.html#Struct:Requestable_Channel_Class" title="Array of Struct Requestable_Channel_Class">Requestable_Channel_Class_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A list of channel classes which might be requestable from a
+          <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a> to this protocol (i.e. they will,
+          or might, appear in the Connection's <a href="Connection_Interface_Requests.html#Property:RequestableChannelClasses" namespace="org.freedesktop.Telepathy.Connection.Interface.Requests" title="Property org.freedesktop.Telepathy.Connection.Interface.Requests.RequestableChannelClasses">RequestableChannelClasses</a> property).</p>
+
+        <p>Whether a Connection will have all, some or none of these
+          requestable channel classes depends on server capabilities;
+          similarly, individual contacts are not guaranteed to support
+          all of these channel classes.</p>
+
+        <p>Connection managers with a <code>.manager</code> file
+          MUST cache this property in the protocol's section of the
+          <code>.manager</code> file, using the key
+          <code>RequestableChannelClasses</code>. The corresponding value
+          is a list of opaque strings, each followed by a semicolon; each
+          of those strings is the name of a group in the <code>.manager</code>
+          file which represents a channel class.</p>
+
+        <p>The names of the groups representing channel classes are not
+          significant, and MUST NOT be interpreted. When writing
+          <tt>.manager</tt> files, authors MAY choose mnemonic group names,
+          generate group names mechanically (e.g. with an incrementing
+          integer), or use some combination of these.</p>
+
+        <p>Each group representing a channel class has a key
+          <code>allowed</code> which is a list of D-Bus property names
+          representing allowed parameters. Any other keys that do not contain
+          a space MUST be ignored. Any key containing a space represents
+          a fixed property; the key has the form
+          &quot;<code><em>propertyname</em> <em>type</em></code>&quot;, and the value
+          is encoded in the same way as for the <code>default-<em>p</em></code>
+          keys described in the <a href="Connection_Manager.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ConnectionManager">ConnectionManager</a> documentation.</p>
+
+        <p>Connection managers that have channel classes whose fixed
+          properties are not representable in this form SHOULD NOT have
+          <code>.manager</code> files.</p>
+
+        <p>For instance, this <code>.manager</code> file could represent
+          a connection manager that supports 1-1 Text messages and
+          StreamedMedia audio calls:</p>
+
+<pre>[Protocol jabber]
+param-account=s required
+param-password=s required
+RequestableChannelClasses=rcc0;rcc1;
+
+[rcc0]
+org.freedesktop.Telepathy.Channel.ChannelType s=org.freedesktop.Telepathy.Channel.Type.Text
+org.freedesktop.Telepathy.Channel.TargetHandleType u=1
+allowed=org.freedesktop.Telepathy.Channel.TargetHandle;org.freedesktop.Telepathy.Channel.TargetID;
+
+[rcc1]
+org.freedesktop.Telepathy.Channel.ChannelType s=org.freedesktop.Telepathy.Channel.Type.StreamedMedia
+org.freedesktop.Telepathy.Channel.TargetHandleType u=1
+allowed=org.freedesktop.Telepathy.Channel.TargetHandle;org.freedesktop.Telepathy.Channel.TargetID;org.freedesktop.Telepathy.Channel.Type.StreamedMedia.InitialAudio;
+</pre>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:VCardField"></a>
+     <span class="permalink">(<a href="Protocol.html#Property:VCardField">Permalink</a>)</span>
+     <h2>
+      VCardField &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The name of the most common vCard field used for this protocol's
+          contact identifiers, normalized to lower case, or the empty string
+          if there is no such field.</p>
+
+        <p>For example, this would be <code>x-jabber</code> for
+          Jabber/XMPP (including Google Talk), or <code>tel</code> for
+          the <abbr title="Public Switched Telephone Network">PSTN</abbr>.</p>
+
+        <p>A more exhaustive list of addressable vCard fields can be found in
+          the Protocol's Addressing interface's
+          <a href="Protocol_Interface_Addressing.html#Property:AddressableVCardFields" namespace="org.freedesktop.Telepathy.Protocol.Interface.Addressing" title="Property org.freedesktop.Telepathy.Protocol.Interface.Addressing.AddressableVCardFields">AddressableVCardFields</a>.</p>
+
+        <p>It is not necessarily valid to interpret contacts' identifiers
+          as values of this vCard field. For instance, telepathy-sofiasip
+          supports contacts whose identifiers are of the form
+          sip:jenny@example.com or tel:8675309, which would not normally
+          both be represented by any single vCard field. Arbitrary
+          handles/identifiers as vCard fields are represented
+          through the Connection's
+          <a href="Connection_Interface_Addressing.html" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.Addressing1">Addressing1</a>
+          contact attributes.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This is taken from Mission Control profiles as used on Maemo 5.
+            One valid use of this field is to answer the question: given a
+            contact's vCard containing an X-JABBER field, how can you
+            communicate with the contact? By iterating through protocols
+            looking for an x-jabber VCardField, one can build up a list of
+            protocols that handle x-jabber, then offer the user a list of
+            accounts for those protocols and/or the option to create a new
+            account for one of those protocols.</p>
+        </div></div>
+
+        <p>Connection managers with a <code>.manager</code> file
+          MUST cache this property in the protocol's section of the
+          <code>.manager</code> file if it is non-empty, using the key
+          <code>VCardField</code>. The corresponding value
+          is a string, following the syntax of the &quot;localestring&quot; type from
+          the Desktop Entry Specification.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:EnglishName"></a>
+     <span class="permalink">(<a href="Protocol.html#Property:EnglishName">Permalink</a>)</span>
+     <h2>
+      EnglishName &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The name of the protocol in a form suitable for display to users,
+          such as &quot;AIM&quot; or &quot;Yahoo!&quot;, or the empty string if none is
+          available.</p>
+
+        <p>This is effectively in the C locale (international English);
+          user interfaces requiring a localized protocol name SHOULD look
+          one up in their own message catalog based on either the Telepathy
+          <a href="Connection_Manager.html#Simple-Type:Protocol">Protocol</a> name or this property, but SHOULD use
+          this English version as a fallback if no translated version can be
+          found.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Many protocols are named after a company or product which isn't
+            translated in non-English locales. This also provides a fallback
+            display name, for UIs with no prior knowledge of a particular
+            protocol.</p>
+        </div></div>
+
+        <p>If this property's value is empty, clients MAY fall back to using
+          the Telepathy <a href="Connection_Manager.html#Simple-Type:Protocol">Protocol</a> name, possibly with its
+          capitalization adjusted.</p>
+
+        <p>Connection managers with a <code>.manager</code> file
+          MUST cache this property in the protocol's section of the
+          <code>.manager</code> file if it is non-empty, using the key
+          <code>EnglishName</code>. The corresponding value
+          is a string, following the syntax of the &quot;localestring&quot; type from
+          the Desktop Entry Specification.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Icon"></a>
+     <span class="permalink">(<a href="Protocol.html#Property:Icon">Permalink</a>)</span>
+     <h2>
+      Icon &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The name of an icon in the system's icon theme, such as &quot;im-msn&quot;, or
+          the empty string.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This can be used as a default if the <a href="Account.html#Property:Icon" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.Icon">Icon</a>
+            property is not set on an Account, or used by the <a href="Account_Manager.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.AccountManager">AccountManager</a>
+            to choose a default icon if none is set during account
+            creation.</p>
+        </div></div>
+
+        <p>If this property's value is empty, clients MAY fall back to
+          generating a name based on the <a href="Connection_Manager.html#Simple-Type:Protocol">Protocol</a> name.</p>
+
+        <p>Connection managers with a <code>.manager</code> file
+          MUST cache this property in the protocol's section of the
+          <code>.manager</code> file if it is non-empty, using the key
+          <code>Icon</code>. The corresponding value
+          is a string, following the syntax of the &quot;localestring&quot; type from
+          the Desktop Entry Specification.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:AuthenticationTypes"></a>
+     <span class="permalink">(<a href="Protocol.html#Property:AuthenticationTypes">Permalink</a>)</span>
+     <h2>
+      AuthenticationTypes &mdash; as
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.21.7. </span></div>
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A list of D-Bus interfaces which provide information as to
+          what kind of authentication channels can possibly appear
+          before the connection reaches the CONNECTED state.</p>
+
+        <p>These can either be channel types, or where the channel
+          type isn't enough information to be useful, interfaces
+          indicating a specific use of a channel type. For example,
+          <a href="Channel_Type_Server_TLS_Connection.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ServerTLSConnection">ServerTLSConnection</a>
+          channels are obviously about TLS certificates so the channel
+          type would appear in this list. However, a
+          <a href="Channel_Type_Server_Authentication.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ServerAuthentication">ServerAuthentication</a>
+          channel type alone does not explain enough about the authentication type
+          in use as it is merely a base for the channel interfaces that appear in
+          said channels. In this case, CMs should use the value of the
+          <a href="Channel_Type_Server_Authentication.html#Property:AuthenticationMethod" namespace="ofdT.Channel.Type" title="Property org.freedesktop.Telepathy.Channel.Type.ServerAuthentication.AuthenticationMethod">ServerAuthentication.AuthenticationMethod</a>
+          property in this list.</p>
+
+        <p>For example, if a protocol's
+          <a href="Protocol.html#Property:AuthenticationTypes" title="Property org.freedesktop.Telepathy.Protocol.AuthenticationTypes">AuthenticationTypes</a> contains
+          two values:</p>
+
+        <blockquote>
+          <pre>
+[ ...<a href="Channel_Type_Server_TLS_Connection.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.Channel.Type.ServerTLSConnection">Channel.Type.ServerTLSConnection</a>,
+  ...<a href="Channel_Interface_SASL_Authentication.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication">Channel.Interface.SASLAuthentication</a> ]</pre></blockquote>
+
+        <p>This tells a client that before the connection status
+          reached CONNECTED, a <a href="Channel_Type_Server_TLS_Connection.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ServerTLSConnection">ServerTLSConnection</a>
+          could appear carrying a TLS certificate. It also tells the
+          client that before the connection status reaches CONNECTED, a
+          <a href="Channel_Type_Server_Authentication.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ServerAuthentication">ServerAuthentication</a>
+          channel could also appear, where <a href="Channel_Type_Server_Authentication.html#Property:AuthenticationMethod" namespace="ofdT.Channel.Type" title="Property org.freedesktop.Telepathy.Channel.Type.ServerAuthentication.AuthenticationMethod">ServerAuthentication.AuthenticationMethod</a>=<a href="Channel_Interface_SASL_Authentication.html" namespace="ofdT.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication">SASLAuthentication</a>. A
+          hypothetical future Channel.Interface.Captcha interface would
+          also appear in this list if the CM might require the user
+          solve a captcha before connecting.</p>
+
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

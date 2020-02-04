@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>ChannelBundle.DRAFT &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.ChannelBundle.DRAFT'>ChannelBundle.DRAFT</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Bundle.html#Property:Interfaces">Interfaces</a></td>
+       <td>
+        as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">
+              DBus_Interface_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is experimental and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>A group of related channels, which should all be dispatched to the
+        same handler if possible.</p>
+
+      <p>Bundles currently have no functionality of their own, so clients
+        SHOULD NOT examine this interface, but should instead treat the
+        bundle object-path as an opaque identifier. If more functionality is
+        added to bundles in future, this interface will be used for capability
+        discovery.</p>
+
+      <p>The lifetime of a bundle is defined by its component channels -
+        as long as one or more channels whose Bundle property is <em>B</em>
+        exist, the bundle <em>B</em> will also exist.</p>
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Interfaces"></a>
+     <span class="permalink">(<a href="Channel_Bundle.html#Property:Interfaces">Permalink</a>)</span>
+     <h2>
+      Interfaces &mdash; as
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        A list of the extra interfaces provided by this channel bundle.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

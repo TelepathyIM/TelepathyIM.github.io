@@ -1,0 +1,1511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Telepathy D-Bus Interface Specification &mdash; v0.27.4</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+ </head>
+ <body>
+  <div class="header">
+   <h1>Telepathy D-Bus Interface Specification</h1>
+   <a href="#interfaces">Interfaces</a>
+   (<a href="interfaces.html">Compact</a>)
+
+   | <a href="generic-types.html">Generic Types</a>
+
+
+   | <a href="errors.html">Errors</a>
+
+   | <a href="fullindex.html">Full Index</a>
+  </div>
+
+  <div class="main">
+  <h3 class="version">Version 0.27.4</h3>
+  <div class="legal">
+   <ul class="copyrights">
+    
+    <li>Copyright © 2005-2012 Collabora Limited</li>
+    
+    <li>Copyright © 2005-2011 Nokia Corporation</li>
+    
+    <li>Copyright © 2006 INdT</li>
+    
+   </ul>
+
+   
+   <p>This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.</p>
+   
+   <p>This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.</p>
+   
+   <p>You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.</p>
+   
+  </div>
+
+  <a name="interfaces"></a>
+  <h3>Interfaces</h3>
+  <ul>
+  
+  
+    
+     
+     <li class="chapter">
+      <a name="Connection-Managers"></a>
+      Connection Managers
+      <span class="permalink">(<a href="#Connection-Managers">Permalink</a>)</span>
+     </li>
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+  <p>
+   A Connection Manager is a factory for connections.
+  </p>
+ </div>
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Connection_Manager.html">org.freedesktop.Telepathy.ConnectionManager</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Connection_Manager_Interface_Account_Storage.html">org.freedesktop.Telepathy.ConnectionManager.Interface.AccountStorage.DRAFT</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Protocol.html">org.freedesktop.Telepathy.Protocol</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Protocol_Interface_Addressing.html">org.freedesktop.Telepathy.Protocol.Interface.Addressing</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Protocol_Interface_Avatars.html">org.freedesktop.Telepathy.Protocol.Interface.Avatars</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Protocol_Interface_Presence.html">org.freedesktop.Telepathy.Protocol.Interface.Presence</a>
+      
+     </li>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="Connection-Object"></a>
+      Connection Object
+      <span class="permalink">(<a href="#Connection-Object">Permalink</a>)</span>
+     </li>
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+   <p>
+    Connections represent active protocol sessions. There are a number of core
+    interfaces which all connections should implement, and a number of optional
+    interfaces which provide various functionality related to contacts and to
+    the connection itself.
+   </p>
+  </div>
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Connection.html">org.freedesktop.Telepathy.Connection</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Contacts.html">org.freedesktop.Telepathy.Connection.Interface.Contacts</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Requests.html">org.freedesktop.Telepathy.Connection.Interface.Requests</a>
+      
+     </li>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="Contact-list-interfaces"></a>
+      Contact list interfaces
+      <span class="permalink">(<a href="#Contact-list-interfaces">Permalink</a>)</span>
+     </li>
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+    <p>
+     On protocols that support contact lists, these interface expose the user's
+     contact lists, along with presence subscription information, contact
+     list groups (if supported), and the ability to block and unblock contacts
+     (if supported).
+    </p>
+   </div>
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Contact_List.html">org.freedesktop.Telepathy.Connection.Interface.ContactList</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Contact_Groups.html">org.freedesktop.Telepathy.Connection.Interface.ContactGroups</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Contact_Blocking.html">org.freedesktop.Telepathy.Connection.Interface.ContactBlocking</a>
+      
+     </li>
+    
+   
+     </ul>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="Contact-metadata-interfaces"></a>
+      Contact metadata interfaces
+      <span class="permalink">(<a href="#Contact-metadata-interfaces">Permalink</a>)</span>
+     </li>
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+    <p>
+     These optional Connection interfaces expose metadata about contacts on
+     this connection—from their current presence through to the type of client
+     they're connected with—and allow the local user to publish such metadata
+     back to their contacts.
+    </p>
+   </div>
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Aliasing.html">org.freedesktop.Telepathy.Connection.Interface.Aliasing</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Avatars.html">org.freedesktop.Telepathy.Connection.Interface.Avatars</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="deprecated">
+     
+      <a href="Connection_Interface_Capabilities.html">org.freedesktop.Telepathy.Connection.Interface.Capabilities</a>
+      
+       (deprecated)
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Client_Types.html">org.freedesktop.Telepathy.Connection.Interface.ClientTypes</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Contact_Capabilities.html">org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Contact_Info.html">org.freedesktop.Telepathy.Connection.Interface.ContactInfo</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Location.html">org.freedesktop.Telepathy.Connection.Interface.Location</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="deprecated">
+     
+      <a href="Connection_Interface_Presence.html">org.freedesktop.Telepathy.Connection.Interface.Presence</a>
+      
+       (deprecated)
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Renaming.html">org.freedesktop.Telepathy.Connection.Interface.Renaming</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Connection_Interface_Resources.html">org.freedesktop.Telepathy.Connection.Interface.Resources.DRAFT</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Simple_Presence.html">org.freedesktop.Telepathy.Connection.Interface.SimplePresence</a>
+      
+     </li>
+    
+   
+     </ul>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="Connection-feature-interfaces"></a>
+      Connection feature interfaces
+      <span class="permalink">(<a href="#Connection-feature-interfaces">Permalink</a>)</span>
+     </li>
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+    <p>
+     These optional Connection interfaces expose protocol-specific features,
+     and allow configuring the running connection.
+    </p>
+   </div>
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Addressing.html">org.freedesktop.Telepathy.Connection.Interface.Addressing1</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Anonymity.html">org.freedesktop.Telepathy.Connection.Interface.Anonymity</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Balance.html">org.freedesktop.Telepathy.Connection.Interface.Balance</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Cellular.html">org.freedesktop.Telepathy.Connection.Interface.Cellular</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Connection_Interface_Communication_Policy.html">org.freedesktop.Telepathy.Connection.Interface.CommunicationPolicy.DRAFT</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Connection_Interface_Forwarding.html">org.freedesktop.Telepathy.Connection.Interface.Forwarding.DRAFT</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Connection_Interface_Keepalive.html">org.freedesktop.Telepathy.Connection.Interface.Keepalive.DRAFT</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Mail_Notification.html">org.freedesktop.Telepathy.Connection.Interface.MailNotification</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Connection_Interface_Message_Read.html">org.freedesktop.Telepathy.Connection.Interface.MessageRead.DRAFT</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Power_Saving.html">org.freedesktop.Telepathy.Connection.Interface.PowerSaving</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Service_Point.html">org.freedesktop.Telepathy.Connection.Interface.ServicePoint</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_Sidecars1.html">org.freedesktop.Telepathy.Connection.Interface.Sidecars1</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Connection_Interface_IRC_Command1.html">org.freedesktop.Telepathy.Connection.Interface.IRCCommand1</a>
+      
+     </li>
+    
+   
+     </ul>
+    
+   
+     </ul>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Channel_Bundle.html">org.freedesktop.Telepathy.ChannelBundle.DRAFT</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="Channel-Object"></a>
+      Channel Object
+      <span class="permalink">(<a href="#Channel-Object">Permalink</a>)</span>
+     </li>
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+   <p>
+    A Channel is used by Telepathy to exchange data between local
+    applications and remote servers. A given connection will have many
+    channels, each one represented by a D-Bus object.
+   </p>
+   <p>
+    Each Channel has a type, represented by a D-Bus interface, and may
+    implement one or more additional interfaces from the list of channel
+    interfaces below.
+   </p>
+  </div>
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Channel.html">org.freedesktop.Telepathy.Channel</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Channel_Future.html">org.freedesktop.Telepathy.Channel.FUTURE</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="Channel-Types"></a>
+      Channel Types
+      <span class="permalink">(<a href="#Channel-Types">Permalink</a>)</span>
+     </li>
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+    <p>
+     Each Channel implements one of the following types:
+    </p>
+   </div>
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Channel_Type_Call.html">org.freedesktop.Telepathy.Channel.Type.Call1</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="deprecated">
+     
+      <a href="Channel_Type_Contact_List.html">org.freedesktop.Telepathy.Channel.Type.ContactList</a>
+      
+       (deprecated)
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Type_Contact_Search.html">org.freedesktop.Telepathy.Channel.Type.ContactSearch</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Type_DBus_Tube.html">org.freedesktop.Telepathy.Channel.Type.DBusTube</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Type_File_Transfer.html">org.freedesktop.Telepathy.Channel.Type.FileTransfer</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Type_Room_List.html">org.freedesktop.Telepathy.Channel.Type.RoomList</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Type_Server_Authentication.html">org.freedesktop.Telepathy.Channel.Type.ServerAuthentication</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Type_Server_TLS_Connection.html">org.freedesktop.Telepathy.Channel.Type.ServerTLSConnection</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Type_Stream_Tube.html">org.freedesktop.Telepathy.Channel.Type.StreamTube</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Type_Streamed_Media.html">org.freedesktop.Telepathy.Channel.Type.StreamedMedia</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Type_Text.html">org.freedesktop.Telepathy.Channel.Type.Text</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="deprecated">
+     
+      <a href="Channel_Type_Tubes.html">org.freedesktop.Telepathy.Channel.Type.Tubes</a>
+      
+       (deprecated)
+      
+     </li>
+    
+   
+     </ul>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="Channel-interfaces"></a>
+      Channel interfaces
+      <span class="permalink">(<a href="#Channel-interfaces">Permalink</a>)</span>
+     </li>
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+    <p>
+     A Channel may also implement one or more of the following interfaces,
+     depending on its type. Some interfaces are only applicable to particular
+     channel types, while others may (in principle) appear on any type of
+     channel.
+    </p>
+   </div>
+     <ul>
+      
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Channel_Interface_Addressing.html">org.freedesktop.Telepathy.Channel.Interface.Addressing1</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Anonymity.html">org.freedesktop.Telepathy.Channel.Interface.Anonymity</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Destroyable.html">org.freedesktop.Telepathy.Channel.Interface.Destroyable</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_File_Transfer_Metadata.html">org.freedesktop.Telepathy.Channel.Interface.FileTransfer.Metadata</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Group.html">org.freedesktop.Telepathy.Channel.Interface.Group</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Password.html">org.freedesktop.Telepathy.Channel.Interface.Password</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Room.html">org.freedesktop.Telepathy.Channel.Interface.Room2</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Room_Config.html">org.freedesktop.Telepathy.Channel.Interface.RoomConfig1</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_SASL_Authentication.html">org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Captcha_Authentication.html">org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Channel_Interface_Credentials_Storage.html">org.freedesktop.Telepathy.Channel.Interface.CredentialsStorage.DRAFT</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Securable.html">org.freedesktop.Telepathy.Channel.Interface.Securable</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Service_Point.html">org.freedesktop.Telepathy.Channel.Interface.ServicePoint</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Subject.html">org.freedesktop.Telepathy.Channel.Interface.Subject2</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Channel_Interface_Picture.html">org.freedesktop.Telepathy.Channel.Interface.Picture1</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Tube.html">org.freedesktop.Telepathy.Channel.Interface.Tube</a>
+      
+     </li>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="Text-specific-interfaces"></a>
+      Text-specific interfaces
+      <span class="permalink">(<a href="#Text-specific-interfaces">Permalink</a>)</span>
+     </li>
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>These interfaces may only appear on channels of type <a href="Channel_Type_Text.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Text</a>.</p>
+    </div>
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Chat_State.html">org.freedesktop.Telepathy.Channel.Interface.ChatState</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Channel_Interface_HTML.html">org.freedesktop.Telepathy.Channel.Interface.HTML.DRAFT</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Messages.html">org.freedesktop.Telepathy.Channel.Interface.Messages</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_SMS.html">org.freedesktop.Telepathy.Channel.Interface.SMS</a>
+      
+     </li>
+    
+   
+     </ul>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="Streamed-Media/Call-related-interfaces"></a>
+      Streamed Media/Call-related interfaces
+      <span class="permalink">(<a href="#Streamed-Media/Call-related-interfaces">Permalink</a>)</span>
+     </li>
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+     <p>These interfaces are only applicable to channels of type <a href="Channel_Type_Streamed_Media.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamedMedia">StreamedMedia</a>, with the
+       exception of the <a href="Channel_Interface_Hold.html" namespace="ofdT.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.Hold">Hold</a> and
+       <a href="Channel_Interface_DTMF.html" namespace="ofdT.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.DTMF">DTMF</a>
+       interfaces, which may also appear on <a href="Channel_Type_Call.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Call1">Call1</a> channels.</p>
+    </div>
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Call_State.html">org.freedesktop.Telepathy.Channel.Interface.CallState</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_DTMF.html">org.freedesktop.Telepathy.Channel.Interface.DTMF</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Hold.html">org.freedesktop.Telepathy.Channel.Interface.Hold</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Media_Signalling.html">org.freedesktop.Telepathy.Channel.Interface.MediaSignalling</a>
+      
+     </li>
+    
+   
+     </ul>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="Conference-related-interfaces"></a>
+      Conference-related interfaces
+      <span class="permalink">(<a href="#Conference-related-interfaces">Permalink</a>)</span>
+     </li>
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+     <p>These interfaces provide functionality for ad-hoc conference calls and
+       chat rooms. They are primarily intended for <a href="Channel_Type_Text.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Text</a>, <a href="Channel_Type_Streamed_Media.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamedMedia">StreamedMedia</a> and
+       <a href="Channel_Type_Call.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Call1">Call1</a>
+       channels, but may also appear on other types of channel.</p>
+    </div>
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Channel_Interface_Conference.html">org.freedesktop.Telepathy.Channel.Interface.Conference</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Channel_Interface_Splittable.html">org.freedesktop.Telepathy.Channel.Interface.Splittable.DRAFT</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Channel_Interface_Mergeable_Conference.html">org.freedesktop.Telepathy.Channel.Interface.MergeableConference.DRAFT</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+     </ul>
+    
+   
+     </ul>
+    
+   
+     </ul>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="Authentication-Objects"></a>
+      Authentication Objects
+      <span class="permalink">(<a href="#Authentication-Objects">Permalink</a>)</span>
+     </li>
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+    <p>
+      A set of objects to be used for authentication purposes, such
+      as TLS certificates or handshakes for negotiating end-to-end
+      security.
+    </p>
+  </div>
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Authentication_TLS_Certificate.html">org.freedesktop.Telepathy.Authentication.TLSCertificate</a>
+      
+     </li>
+    
+   
+     </ul>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="Media"></a>
+      Media
+      <span class="permalink">(<a href="#Media">Permalink</a>)</span>
+     </li>
+     
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Media_Session_Handler.html">org.freedesktop.Telepathy.Media.SessionHandler</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Media_Stream_Handler.html">org.freedesktop.Telepathy.Media.StreamHandler</a>
+      
+     </li>
+    
+   
+     </ul>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="Calls"></a>
+      Calls
+      <span class="permalink">(<a href="#Calls">Permalink</a>)</span>
+     </li>
+     
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Call_Content.html">org.freedesktop.Telepathy.Call1.Content</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Call_Content_Interface_DTMF.html">org.freedesktop.Telepathy.Call1.Content.Interface.DTMF</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Call_Stream.html">org.freedesktop.Telepathy.Call1.Stream</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Call_Interface_Mute.html">org.freedesktop.Telepathy.Call1.Interface.Mute</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+     </ul>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="Call-media-interfaces"></a>
+      Call media interfaces
+      <span class="permalink">(<a href="#Call-media-interfaces">Permalink</a>)</span>
+     </li>
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+     <p>
+       These interfaces are used when a <a href="Channel_Type_Call.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Call1">Call1</a> channel
+       doesn't have <a href="Channel_Type_Call.html#Property:HardwareStreaming" namespace="ofdT.Channel.Type.Call1" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.HardwareStreaming">HardwareStreaming</a> to
+       implement the media streaming aspects of a call.
+     </p>
+   </div>
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Call_Content_Interface_Media.html">org.freedesktop.Telepathy.Call1.Content.Interface.Media</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Call_Content_Interface_Video_Control.html">org.freedesktop.Telepathy.Call1.Content.Interface.VideoControl</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Call_Content_Interface_Audio_Control.html">org.freedesktop.Telepathy.Call1.Content.Interface.AudioControl</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Call_Content_Media_Description.html">org.freedesktop.Telepathy.Call1.Content.MediaDescription</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Call_Content_Media_Description_Interface_RTP_Header_Extensions.html">org.freedesktop.Telepathy.Call1.Content.MediaDescription.Interface.RTPHeaderExtensions</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Call_Content_Media_Description_Interface_RTCP_Feedback.html">org.freedesktop.Telepathy.Call1.Content.MediaDescription.Interface.RTCPFeedback</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Call_Content_Media_Description_Interface_RTCP_Extended_Reports.html">org.freedesktop.Telepathy.Call1.Content.MediaDescription.Interface.RTCPExtendedReports</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Call_Stream_Interface_Media.html">org.freedesktop.Telepathy.Call1.Stream.Interface.Media</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Call_Stream_Endpoint.html">org.freedesktop.Telepathy.Call1.Stream.Endpoint</a>
+      
+     </li>
+    
+   
+     </ul>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="Debugging"></a>
+      Debugging
+      <span class="permalink">(<a href="#Debugging">Permalink</a>)</span>
+     </li>
+     
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Debug.html">org.freedesktop.Telepathy.Debug</a>
+      
+     </li>
+    
+   
+     </ul>
+    
+   
+     </ul>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="The-Account-Manager"></a>
+      The Account Manager
+      <span class="permalink">(<a href="#The-Account-Manager">Permalink</a>)</span>
+     </li>
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+  <p>
+   The Account Manager is a desktop service that provides account configuration
+   and can manage the connection managers. In general, clients will use the
+   account manager to find out about instant messaging accounts and their
+   associated connections.
+  </p>
+ </div>
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Account_Manager.html">org.freedesktop.Telepathy.AccountManager</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Account_Manager_Interface_Hidden.html">org.freedesktop.Telepathy.AccountManager.Interface.Hidden.DRAFT1</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Account.html">org.freedesktop.Telepathy.Account</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Account_Interface_Addressing.html">org.freedesktop.Telepathy.Account.Interface.Addressing</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Account_Interface_Avatar.html">org.freedesktop.Telepathy.Account.Interface.Avatar</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Account_Interface_Hidden.html">org.freedesktop.Telepathy.Account.Interface.Hidden.DRAFT1</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Account_Interface_Storage.html">org.freedesktop.Telepathy.Account.Interface.Storage</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Account_Interface_External_Password_Storage.html">org.freedesktop.Telepathy.Account.Interface.ExternalPasswordStorage.DRAFT</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+     </ul>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="The-Channel-Dispatcher"></a>
+      The Channel Dispatcher
+      <span class="permalink">(<a href="#The-Channel-Dispatcher">Permalink</a>)</span>
+     </li>
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+  <p>
+   The Channel Dispatcher is a desktop service whose purpose is to dispatch
+   incoming Telepathy Channels to the appropriate client (e.g. incoming text
+   chat, file transfer, tubes, etc.).
+  </p>
+ </div>
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Channel_Dispatcher.html">org.freedesktop.Telepathy.ChannelDispatcher</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Dispatcher_Interface_Messages1.html">org.freedesktop.Telepathy.ChannelDispatcher.Interface.Messages1</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Dispatcher_Interface_Operation_List.html">org.freedesktop.Telepathy.ChannelDispatcher.Interface.OperationList</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Dispatch_Operation.html">org.freedesktop.Telepathy.ChannelDispatchOperation</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Channel_Request.html">org.freedesktop.Telepathy.ChannelRequest</a>
+      
+     </li>
+    
+   
+     </ul>
+    
+   
+    
+     
+     <li class="chapter">
+      <a name="Clients"></a>
+      Clients
+      <span class="permalink">(<a href="#Clients">Permalink</a>)</span>
+     </li>
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+  <p>
+   Clients should implement one or more of these interfaces to be able to
+   handle channels coming in from the Channel Dispatcher.
+  </p>
+ </div>
+     <ul>
+      
+    
+     
+      <li>
+     
+      <a href="Client.html">org.freedesktop.Telepathy.Client</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Client_Observer.html">org.freedesktop.Telepathy.Client.Observer</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Client_Approver.html">org.freedesktop.Telepathy.Client.Approver</a>
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Client_Handler.html">org.freedesktop.Telepathy.Client.Handler</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="causes-havoc">
+     
+      <a href="Client_Handler_Future.html">org.freedesktop.Telepathy.Client.Handler.FUTURE</a>
+      
+       (unstable)
+      
+     </li>
+    
+   
+    
+     
+      <li>
+     
+      <a href="Client_Interface_Requests.html">org.freedesktop.Telepathy.Client.Interface.Requests</a>
+      
+     </li>
+    
+   
+    
+     
+      <li class="deprecated">
+     
+      <a href="Channel_Handler.html">org.freedesktop.Telepathy.ChannelHandler</a>
+      
+       (deprecated)
+      
+     </li>
+    
+   
+     </ul>
+    
+   
+    
+     
+      <li class="deprecated">
+     
+      <a href="Properties_Interface.html">org.freedesktop.Telepathy.Properties</a>
+      
+       (deprecated)
+      
+     </li>
+    
+   
+  </ul>
+
+
+  <a name="other"></a>
+  <h3>Other</h3>
+  <ul>
+  
+   <li><a href="generic-types.html">Generic Types</a></li>
+  
+  
+   <li><a href="errors.html">Errors</a></li>
+  
+  </ul>
+
+
+  </div>
+ </body>
+</html>

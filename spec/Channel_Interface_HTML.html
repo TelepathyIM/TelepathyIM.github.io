@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.HTML.DRAFT &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.HTML.DRAFT'>Channel.Interface.HTML.DRAFT</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+   
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is unfinished and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   <div class="annotation added"><span class="version">Added in 0.17.5. </span>(draft version, not API-stable)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel_Type_Text.html" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">org.freedesktop.Telepathy.Channel.Type.Text</a></li>
+    
+     <li><a href="Channel_Interface_Messages.html" title="Interface org.freedesktop.Telepathy.Channel.Interface.Messages">org.freedesktop.Telepathy.Channel.Interface.Messages</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface extends the Messages interface to support
+        capability discovery, so clients can decide what subset of HTML
+        is supported.</p>
+
+      <p>(However, the capability discovery mechanism has not been written
+        yet, so this interface MUST NOT be used. It exists only to
+        indicate what direction we intend to go in.)</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>XMPP supports all of XHTML-IM, and SIP (at least theoretically)
+          supports all of XHTML. However, many protocols are more limited -
+          for instance, in MSN you can only set font properties for a
+          whole message at a time. We should not mislead users into thinking
+          they can send MSN messages where individual words are emphasized.</p>
+      </div></div>
+
+      <p>If this interface is present, clients MAY send XHTML formatted text
+        in message parts with type &quot;text/html&quot;, and SHOULD interpret
+        &quot;text/html&quot; message parts received in reply.</p>
+
+      <p>Client authors SHOULD pay careful attention to the security
+        considerations in XEP-0071, &quot;XHTML-IM&quot;, to avoid exposing client users
+        to security risks. Clients MUST NOT assume that connection managers
+        will filter messages to remove unsafe HTML.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>Connection managers are the components in Telepathy that are most
+          likely to be exploitable by a remote attacker to run malicious code
+          (since they are network-facing), so any filtering that the CM does
+          might be subverted.</p>
+      </div></div>
+
+      <p>To avoid misleading users, clients SHOULD only present UI for the
+        subset of HTML that is indicated to be supported by this
+        interface. It follows that clients SHOULD NOT send unsupported
+        markup to the connection manager. However, even if the connection
+        manager cannot send arbitrary XHTML, it MUST cope gracefully
+        with being given arbitrary XHTML by a client.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>Connection managers should be lenient in what they receive.</p>
+      </div></div>
+
+      <p>Clients MUST NOT send HTML that is not well-formed XML, but
+        connection managers MAY signal HTML that is malformed or invalid.
+        Clients SHOULD attempt to parse messages as XHTML, but fall back
+        to using a permissive &quot;tag-soup&quot; HTML parser if that fails.
+        (FIXME: or should the presence of this interface imply that the
+        CM fixes up &quot;text/html&quot; to be XHTML? In practice that would result
+        in all the CMs having to link against libxml2 or something... the
+        rationale above no longer applies here, since dropping a malformed
+        message is &quot;safe&quot;)</p>
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

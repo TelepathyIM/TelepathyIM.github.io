@@ -1,0 +1,1391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>ChannelDispatcher &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.ChannelDispatcher'>ChannelDispatcher</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Dispatcher.html#Method:CreateChannel">CreateChannel</a></td>
+       <td>(o: Account, a{sv}: Requested_Properties, x: User_Action_Time, s: Preferred_Handler)</td>
+       <td>&#8594;</td>
+       <td>o: Request</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Dispatcher.html#Method:EnsureChannel">EnsureChannel</a></td>
+       <td>(o: Account, a{sv}: Requested_Properties, x: User_Action_Time, s: Preferred_Handler)</td>
+       <td>&#8594;</td>
+       <td>o: Request</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Dispatcher.html#Method:CreateChannelWithHints">CreateChannelWithHints</a></td>
+       <td>(o: Account, a{sv}: Requested_Properties, x: User_Action_Time, s: Preferred_Handler, a{sv}: Hints)</td>
+       <td>&#8594;</td>
+       <td>o: Request</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Dispatcher.html#Method:EnsureChannelWithHints">EnsureChannelWithHints</a></td>
+       <td>(o: Account, a{sv}: Requested_Properties, x: User_Action_Time, s: Preferred_Handler, a{sv}: Hints)</td>
+       <td>&#8594;</td>
+       <td>o: Request</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Dispatcher.html#Method:DelegateChannels">DelegateChannels</a></td>
+       <td>(ao: Channels, x: User_Action_Time, s: Preferred_Handler)</td>
+       <td>&#8594;</td>
+       <td>ao: Delegated, a{o(ss)}: Not_Delegated</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Dispatcher.html#Method:PresentChannel">PresentChannel</a></td>
+       <td>(o: Channel, x: User_Action_Time)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Dispatcher.html#Property:Interfaces">Interfaces</a></td>
+       <td>
+        as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">
+              DBus_Interface_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Dispatcher.html#Property:SupportsRequestHints">SupportsRequestHints</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Dispatcher.html#Mapping:Not_Delegated_Map">Not_Delegated_Map</a></td>
+       <td>Mapping</td>
+       <td>a{o(ss)}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Dispatcher.html#Struct:Not_Delegated_Error">Not_Delegated_Error</a></td>
+       <td>Struct</td>
+       <td>(ss)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.26. </span>(as a stable interface)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>The channel dispatcher is responsible for responding to new
+        channels and launching client processes to handle them. It also
+        provides functionality for client processes to request that new
+        channels are created.</p>
+
+      <p>If a channel dispatcher is running, it is responsible for dispatching
+        new channels on all
+        <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>s
+        created by the
+        <a href="Account_Manager.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.AccountManager">AccountManager</a>.
+        Connections not created by the AccountManager are outside the scope
+        of the channel dispatcher.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>Connections created by standalone Telepathy clients
+          that do not intend to interact with the channel dispatcher
+          should be ignored - otherwise, the channel dispatcher would try
+          to launch handlers for channels that the standalone client
+          was already handling internally.</p>
+      </div></div>
+
+      <p>The current channel dispatcher is defined to be the process that
+        owns the well-known bus name
+        <code>org.freedesktop.Telepathy.ChannelDispatcher</code> on
+        the session bus. This process MUST export an object with this
+        interface at the object path
+        <code>/org/freedesktop/Telepathy/ChannelDispatcher</code>.</p>
+
+      <p>Until a mechanism exists for making a reasonable automatic choice
+        of ChannelDispatcher implementation, implementations SHOULD NOT
+        register as an activatable service for the ChannelDispatcher's
+        well-known bus name. Instead, it is RECOMMENDED that some component
+        of the user's session will select and activate a particular
+        implementation, and that other Telepathy-enabled programs
+        can detect whether channel request/dispatch functionality is available
+        by checking whether the ChannelDispatcher's well-known name is in use
+        at runtime.</p>
+
+      <p>There are three categories of client process defined by this
+        specification:</p>
+
+      <dl>
+        <dt><a href="Client_Observer.html" namespace="org.freedesktop.Telepathy.Client" title="Interface org.freedesktop.Telepathy.Client.Observer">Observer</a></dt>
+        <dd><p>Observers monitor the creation of new channels. This
+            functionality can be used for things like message logging.
+            All observers are notified simultaneously.</p></dd>
+
+        <dt><a href="Client_Approver.html" namespace="org.freedesktop.Telepathy.Client" title="Interface org.freedesktop.Telepathy.Client.Approver">Approver</a></dt>
+        <dd>
+          <p>Approvers notify the user that new channels have been created,
+            and also select which channel handler will be used for the channel,
+            either by asking the user or by choosing the most appropriate
+            channel handler.</p>
+        </dd>
+
+        <dt><a href="Client_Handler.html" namespace="org.freedesktop.Telepathy.Client" title="Interface org.freedesktop.Telepathy.Client.Handler">Handler</a></dt>
+        <dd>
+          <p>Each new channel or set of channels is passed to exactly one
+            handler as its final destination. A typical channel handler is a
+            user interface process handling channels of a particular type.</p>
+        </dd>
+      </dl>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:CreateChannel"></a>
+     <span class="permalink">(<a href="Channel_Dispatcher.html#Method:CreateChannel">Permalink</a>)</span>
+     <h2>CreateChannel (o: Account, a{sv}: Requested_Properties, x: User_Action_Time, s: Preferred_Handler) &#8594; o: Request</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Account &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The
+            <a href="Account.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Account">Account</a>
+          for which the new channel is to be created.
+        </div>
+      
+       <li>
+        Requested_Properties &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A dictionary containing desirable properties.</p>
+
+          <p>This parameter is used in the same way as the corresponding
+            parameter to
+            <a href="Channel_Dispatcher.html#Method:CreateChannelWithHints" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannelWithHints">CreateChannelWithHints</a>.</p>
+        </div>
+      
+       <li>
+        User_Action_Time &mdash; x
+        
+          (<a href="generic-types.html#Simple-Type:User_Action_Timestamp" title="Simple Type User_Action_Timestamp">User_Action_Timestamp</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The time at which user action occurred, or 0 if this channel
+            request is for some reason not involving user action.</p>
+
+          <p>This parameter is used in the same way as the corresponding
+            parameter to
+            <a href="Channel_Dispatcher.html#Method:CreateChannelWithHints" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannelWithHints">CreateChannelWithHints</a>.</p>
+        </div>
+      
+       <li>
+        Preferred_Handler &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Well_Known_Name" title="Simple Type DBus_Well_Known_Name">DBus_Well_Known_Name</a>)
+        
+       </li>
+       
+       <div class="annotation changed"><span class="version">Changed in 0.19.0. </span>
+          Previously, the spec didn't say that this should disregard the
+          handler's filter. This has been implemented since
+          telepathy-mission-control 5.3.2.
+        </div>
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Either the well-known bus name (starting with
+            <code>org.freedesktop.Telepathy.Client.</code>)
+            of the preferred handler for this
+            channel, or an empty string to indicate that any handler would be
+            acceptable.</p>
+
+          <p>This parameter is used in the same way as the corresponding
+            parameter to
+            <a href="Channel_Dispatcher.html#Method:CreateChannelWithHints" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannelWithHints">CreateChannelWithHints</a>.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Request &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A
+          <a href="Channel_Request.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ChannelRequest">ChannelRequest</a>
+          object.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Equivalent to calling
+          <a href="Channel_Dispatcher.html#Method:CreateChannelWithHints" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannelWithHints">CreateChannelWithHints</a> with an empty
+          <var>Hints</var> parameter.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The <var>Preferred_Handler</var> is syntactically invalid or does
+            not start with <code>org.freedesktop.Telepathy.Client.</code>,
+            the <var>Account</var> does not exist, or one of the
+            <var>Requested_Properties</var> is invalid
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:EnsureChannel"></a>
+     <span class="permalink">(<a href="Channel_Dispatcher.html#Method:EnsureChannel">Permalink</a>)</span>
+     <h2>EnsureChannel (o: Account, a{sv}: Requested_Properties, x: User_Action_Time, s: Preferred_Handler) &#8594; o: Request</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Account &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The
+            <a href="Account.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Account">Account</a>
+          for which the new channel is to be created.
+        </div>
+      
+       <li>
+        Requested_Properties &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A dictionary containing desirable properties.</p>
+
+          <p>This parameter is used in the same way as the corresponding
+            parameter to
+            <a href="Channel_Dispatcher.html#Method:CreateChannelWithHints" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannelWithHints">CreateChannelWithHints</a>.</p>
+        </div>
+      
+       <li>
+        User_Action_Time &mdash; x
+        
+          (<a href="generic-types.html#Simple-Type:User_Action_Timestamp" title="Simple Type User_Action_Timestamp">User_Action_Timestamp</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The time at which user action occurred, or 0 if this channel
+            request is for some reason not involving user action.</p>
+
+          <p>This parameter is used in the same way as the corresponding
+            parameter to
+            <a href="Channel_Dispatcher.html#Method:CreateChannelWithHints" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannelWithHints">CreateChannelWithHints</a>.</p>
+        </div>
+      
+       <li>
+        Preferred_Handler &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Well_Known_Name" title="Simple Type DBus_Well_Known_Name">DBus_Well_Known_Name</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Either the well-known bus name (starting with
+            <code>org.freedesktop.Telepathy.Client.</code>)
+            of the preferred handler for this
+            channel, or an empty string to indicate that any handler would be
+            acceptable. The behaviour and rationale are the same as for the
+            corresponding parameter to
+            <a href="Channel_Dispatcher.html#Method:EnsureChannelWithHints" title="Method org.freedesktop.Telepathy.ChannelDispatcher.EnsureChannelWithHints">EnsureChannelWithHints</a>.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Request &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A
+          <a href="Channel_Request.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ChannelRequest">ChannelRequest</a>
+          object.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Equivalent to calling
+          <a href="Channel_Dispatcher.html#Method:EnsureChannelWithHints" title="Method org.freedesktop.Telepathy.ChannelDispatcher.EnsureChannelWithHints">EnsureChannelWithHints</a> with an empty
+          <var>Hints</var> parameter.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The <var>Preferred_Handler</var> is syntactically invalid or does
+            not start with <code>org.freedesktop.Telepathy.Client.</code>,
+            the <var>Account</var> does not exist, or one of the
+            <var>Requested_Properties</var> is invalid
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:CreateChannelWithHints"></a>
+     <span class="permalink">(<a href="Channel_Dispatcher.html#Method:CreateChannelWithHints">Permalink</a>)</span>
+     <h2>CreateChannelWithHints (o: Account, a{sv}: Requested_Properties, x: User_Action_Time, s: Preferred_Handler, a{sv}: Hints) &#8594; o: Request</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.21.5. </span>
+        Support for this method is indicated by the
+        <a href="Channel_Dispatcher.html#Property:SupportsRequestHints" title="Property org.freedesktop.Telepathy.ChannelDispatcher.SupportsRequestHints">SupportsRequestHints</a> property.
+        Clients MUST recover from this method being unsupported by falling back
+        to <a href="Channel_Dispatcher.html#Method:CreateChannel" namespace="ofdT.ChannelDispatcher" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannel">CreateChannel</a>.
+      </div>
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Account &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The
+            <a href="Account.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Account">Account</a>
+          for which the new channel is to be created.
+        </div>
+      
+       <li>
+        Requested_Properties &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A dictionary containing desirable properties. This has the same
+            semantics as the corresponding parameter to
+            <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">Connection.Interface.Requests.CreateChannel</a>.
+          </p>
+
+          <p>Certain properties will not necessarily make sense in this
+            dictionary: for instance,
+            <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>
+            can only be given if the requester is able to interact with a
+            <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>
+            to the desired account.</p>
+        </div>
+      
+       <li>
+        User_Action_Time &mdash; x
+        
+          (<a href="generic-types.html#Simple-Type:User_Action_Timestamp" title="Simple Type User_Action_Timestamp">User_Action_Timestamp</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The time at which user action occurred, or 0 if this channel
+            request is for some reason not involving user action.
+            The <a href="Channel_Request.html#Property:UserActionTime" namespace="org.freedesktop.Telepathy.ChannelRequest" title="Property org.freedesktop.Telepathy.ChannelRequest.UserActionTime">UserActionTime</a>
+            property will be set to this value, and it will eventually be
+            passed as the <code>User_Action_Time</code> parameter of <a href="Client_Handler.html#Method:HandleChannels" namespace="org.freedesktop.Telepathy.Client.Handler" title="Method org.freedesktop.Telepathy.Client.Handler.HandleChannels">HandleChannels</a>.</p>
+        </div>
+      
+       <li>
+        Preferred_Handler &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Well_Known_Name" title="Simple Type DBus_Well_Known_Name">DBus_Well_Known_Name</a>)
+        
+       </li>
+       
+       <div class="annotation changed"><span class="version">Changed in 0.19.0. </span>
+          Previously, the spec didn't say that this should disregard the
+          handler's filter. This has been implemented since
+          telepathy-mission-control 5.3.2.
+        </div>
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Either the well-known bus name (starting with
+            <code>org.freedesktop.Telepathy.Client.</code>)
+            of the preferred handler for this
+            channel, or an empty string to indicate that any handler would be
+            acceptable. The channel dispatcher SHOULD dispatch as many as
+            possible of the resulting channels (ideally, all of them)
+            to that handler—irrespective of whether that handler's <a href="Client_Handler.html#Property:HandlerChannelFilter" namespace="org.freedesktop.Telepathy.Client.Handler" title="Property org.freedesktop.Telepathy.Client.Handler.HandlerChannelFilter">HandlerChannelFilter</a>
+            matches the channel—and SHOULD remember the preferred handler
+            so it can try to dispatch subsequent channels in the same bundle
+            to the same handler.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>This must be the well-known bus name, not the unique name,
+              to ensure that all handlers do indeed have the Client API,
+              and the Client object on the handler can be located easily.</p>
+
+            <p>This is partly so the channel dispatcher can call
+              <a href="Client_Handler.html#Method:HandleChannels" namespace="org.freedesktop.Telepathy.Client.Handler" title="Method org.freedesktop.Telepathy.Client.Handler.HandleChannels">HandleChannels</a>
+              on it, and partly so the channel dispatcher
+              can recover state if it crashes and is restarted.</p>
+
+            <p>The filter should be disregarded for ease of use of this
+              interface: clients will usually use this argument to request
+              channels be sent to themself, and this should trump the filter
+              not matching. This also allows a client to become the handler
+              for a channel produced by one of its own requests, while not
+              being a candidate to handle other channels of that type.</p>
+          </div></div>
+
+          <p>If this is a well-known bus name and the handler has the
+            Requests interface, the channel dispatcher SHOULD
+            call <a href="Client_Interface_Requests.html#Method:AddRequest" namespace="org.freedesktop.Telepathy.Client.Interface.Requests" title="Method org.freedesktop.Telepathy.Client.Interface.Requests.AddRequest">AddRequest</a>
+            on that Handler after this method has returned.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>This ordering allows a Handler which calls CreateChannel with
+              itself as the preferred handler to associate the call to
+              AddRequest with that call.</p>
+          </div></div>
+
+          <p>This is copied to the ChannelRequest that is returned,
+            as the <a href="Channel_Request.html#Property:PreferredHandler" namespace="org.freedesktop.Telepathy.ChannelRequest" title="Property org.freedesktop.Telepathy.ChannelRequest.PreferredHandler">PreferredHandler</a>
+            property.</p>
+        </div>
+      
+       <li>
+        Hints &mdash; a{sv}
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          <p>Additional information about the channel request, which will be
+            used as the value for the resulting request's <a href="Channel_Request.html#Property:Hints" namespace="ofdT.ChannelRequest" title="Property org.freedesktop.Telepathy.ChannelRequest.Hints">Hints</a>
+            property.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>See the Hints property's documentation for rationale.</p>
+          </div></div>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Request &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A
+          <a href="Channel_Request.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ChannelRequest">ChannelRequest</a>
+          object.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Start a request to create a channel. This initially just creates a
+          <a href="Channel_Request.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ChannelRequest">ChannelRequest</a>
+          object, which can be used to continue the request and track its
+          success or failure.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The request can take a long time - in the worst case, the
+            channel dispatcher has to ask the account manager to put the
+            account online, the account manager has to ask the operating
+            system to obtain an Internet connection, and the operating
+            system has to ask the user whether to activate an Internet
+            connection using an on-demand mechanism like dialup.</p>
+
+          <p>This means that using a single D-Bus method call and response
+            to represent the whole request will tend to lead to that call
+            timing out, which is not the behaviour we want.</p>
+        </div></div>
+
+        <p>If this method is called for an Account that is disabled, invalid
+          or otherwise unusable, no error is signalled until
+          <a href="Channel_Request.html#Method:Proceed" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.ChannelRequest.Proceed">ChannelRequest.Proceed</a>
+          is called, at which point
+          <a href="Channel_Request.html#Signal:Failed" namespace="org.freedesktop.Telepathy" title="Signal org.freedesktop.Telepathy.ChannelRequest.Failed">ChannelRequest.Failed</a>
+          is emitted with an appropriate error.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This means there's only one code path for errors, apart from
+            InvalidArgument for &quot;that request makes no sense&quot;.</p>
+
+          <p>It also means that the request will proceed if the account is
+            enabled after calling CreateChannel, but before calling
+            Proceed.</p>
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The <var>Preferred_Handler</var> is syntactically invalid or does
+            not start with <code>org.freedesktop.Telepathy.Client.</code>,
+            the <var>Account</var> does not exist, or one of the
+            <var>Requested_Properties</var> is invalid
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:EnsureChannelWithHints"></a>
+     <span class="permalink">(<a href="Channel_Dispatcher.html#Method:EnsureChannelWithHints">Permalink</a>)</span>
+     <h2>EnsureChannelWithHints (o: Account, a{sv}: Requested_Properties, x: User_Action_Time, s: Preferred_Handler, a{sv}: Hints) &#8594; o: Request</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.21.5. </span>
+        Support for this method is indicated by the
+        <a href="Channel_Dispatcher.html#Property:SupportsRequestHints" title="Property org.freedesktop.Telepathy.ChannelDispatcher.SupportsRequestHints">SupportsRequestHints</a> property.
+        Clients MUST recover from this method being unsupported by falling back
+        to <a href="Channel_Dispatcher.html#Method:EnsureChannel" namespace="ofdT.ChannelDispatcher" title="Method org.freedesktop.Telepathy.ChannelDispatcher.EnsureChannel">EnsureChannel</a>.
+      </div>
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Account &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The
+            <a href="Account.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Account">Account</a>
+          for which the new channel is to be created.
+        </div>
+      
+       <li>
+        Requested_Properties &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A dictionary containing desirable properties. This has the same
+            semantics as the corresponding parameter to
+            <a href="Connection_Interface_Requests.html#Method:EnsureChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">Connection.Interface.Requests.EnsureChannel</a>.
+          </p>
+
+          <p>Certain properties will not necessarily make sense in this
+            dictionary: for instance,
+            <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>
+            can only be given if the requester is able to interact with a
+            <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>
+            to the desired account.</p>
+        </div>
+      
+       <li>
+        User_Action_Time &mdash; x
+        
+          (<a href="generic-types.html#Simple-Type:User_Action_Timestamp" title="Simple Type User_Action_Timestamp">User_Action_Timestamp</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The time at which user action occurred, or 0 if this channel
+            request is for some reason not involving user action.</p>
+
+          <p>This parameter is used in the same way as the corresponding
+            parameter to
+            <a href="Channel_Dispatcher.html#Method:CreateChannelWithHints" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannelWithHints">CreateChannelWithHints</a>.</p>
+        </div>
+      
+       <li>
+        Preferred_Handler &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Well_Known_Name" title="Simple Type DBus_Well_Known_Name">DBus_Well_Known_Name</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Either the well-known bus name (starting with
+            <code>org.freedesktop.Telepathy.Client.</code>)
+            of the preferred handler for this
+            channel, or an empty string to indicate that any handler would be
+            acceptable. The behaviour and rationale are the same as for the
+            corresponding parameter to
+            <a href="Channel_Dispatcher.html#Method:CreateChannelWithHints" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannelWithHints">CreateChannelWithHints</a>, except
+            as noted here.</p>
+
+          <p>If any new channels are created in response to this
+            request, the channel dispatcher SHOULD dispatch as many as
+            possible of the resulting channels (ideally, all of them)
+            to that handler, and SHOULD remember the preferred handler
+            so it can try to dispatch subsequent channels in the same bundle
+            to the same handler. If the requested channel already exists (that
+            is, <a href="Connection_Interface_Requests.html#Method:EnsureChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">Connection.Interface.Requests.EnsureChannel</a>
+            returns <code>Yours=False</code>) then the channel dispatcher
+            SHOULD re-dispatch the channel to its existing handler, and MUST
+            NOT dispatch it to this client (unless it is the existing handler);
+            the request is still deemed to have succeeded in this case.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>An address book application, for example, might call <a href="Channel_Dispatcher.html#Method:EnsureChannel" namespace="org.freedesktop.Telepathy.ChannelDispatcher" title="Method org.freedesktop.Telepathy.ChannelDispatcher.EnsureChannel">EnsureChannel</a>
+              to ensure that a text channel with a particular contact is
+              displayed to the user; it does not care whether a new channel was
+              made. An IM client might call <a href="Channel_Dispatcher.html#Method:EnsureChannel" namespace="org.freedesktop.Telepathy.ChannelDispatcher" title="Method org.freedesktop.Telepathy.ChannelDispatcher.EnsureChannel">EnsureChannel</a>
+              in response to the user double-clicking an entry in the contact
+              list, with itself as the <code>Preferred_Handler</code>; if the
+              user already has a conversation with that contact in another
+              application, they would expect the existing window to be
+              presented, rather than their double-click leading to an error
+              message.  So the request should succeed, even if its
+              <code>Preferred_Handler</code> is not used.</p>
+          </div></div>
+
+        </div>
+      
+       <li>
+        Hints &mdash; a{sv}
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Additional information about the channel request, which will be used
+          as the value for the resulting request's <a href="Channel_Request.html#Property:Hints" namespace="ofdT.ChannelRequest" title="Property org.freedesktop.Telepathy.ChannelRequest.Hints">Hints</a>
+          property.</div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Request &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A
+          <a href="Channel_Request.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ChannelRequest">ChannelRequest</a>
+          object.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Start a request to ensure that a channel exists, creating it if
+          necessary.  This initially just creates a <a href="Channel_Request.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ChannelRequest">ChannelRequest</a>
+          object, which can be used to continue the request and track its
+          success or failure.</p>
+
+        <p>If this method is called for an Account that is disabled, invalid
+          or otherwise unusable, no error is signalled until
+          <a href="Channel_Request.html#Method:Proceed" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.ChannelRequest.Proceed">ChannelRequest.Proceed</a>
+          is called, at which point
+          <a href="Channel_Request.html#Signal:Failed" namespace="org.freedesktop.Telepathy" title="Signal org.freedesktop.Telepathy.ChannelRequest.Failed">ChannelRequest.Failed</a>
+          is emitted with an appropriate error.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The rationale is as for <a href="Channel_Dispatcher.html#Method:CreateChannelWithHints" namespace="org.freedesktop.Telepathy.ChannelDispatcher" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannelWithHints">CreateChannelWithHints</a>.</p>
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The <var>Preferred_Handler</var> is syntactically invalid or does
+            not start with <code>org.freedesktop.Telepathy.Client.</code>,
+            the <var>Account</var> does not exist, or one of the
+            <var>Requested_Properties</var> is invalid
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:DelegateChannels"></a>
+     <span class="permalink">(<a href="Channel_Dispatcher.html#Method:DelegateChannels">Permalink</a>)</span>
+     <h2>DelegateChannels (ao: Channels, x: User_Action_Time, s: Preferred_Handler) &#8594; ao: Delegated, a{o(ss)}: Not_Delegated</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.23.1. </span>
+        Implemented since telepathy-mission-control 5.7.12.
+      </div>
+     <div class="annotation changed"><span class="version">Changed in 0.23.2. </span>This method now returns
+        <var>Delegated</var> and <var>Not_Delegated</var> instead of nothing.
+        <a href="Client_Handler.html#Method:HandleChannels" namespace="ofdT.Client.Handler" title="Method org.freedesktop.Telepathy.Client.Handler.HandleChannels">HandleChannels</a>
+        is now called once per <var>Channel</var> in <var>Channels</var>.
+      </div>
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Channels &mdash; ao
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The list of channels to redispatch. The caller has to be the current
+            <a href="Client_Handler.html" namespace="org.freedesktop.Telepathy.Client" title="Interface org.freedesktop.Telepathy.Client.Handler">Handler</a>
+            of all of these channels
+          </p>
+        </div>
+      
+       <li>
+        User_Action_Time &mdash; x
+        
+          (<a href="generic-types.html#Simple-Type:User_Action_Timestamp" title="Simple Type User_Action_Timestamp">User_Action_Timestamp</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The time at which user action occurred, or 0 if this channels
+            delegation is for some reason not involving user action.</p>
+
+          <p>This parameter is used in the same way as the corresponding
+            parameter to
+            <a href="Channel_Dispatcher.html#Method:CreateChannelWithHints" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannelWithHints">CreateChannelWithHints</a>.</p>
+        </div>
+      
+       <li>
+        Preferred_Handler &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Well_Known_Name" title="Simple Type DBus_Well_Known_Name">DBus_Well_Known_Name</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Either the well-known bus name (starting with
+            <code>org.freedesktop.Telepathy.Client.</code>)
+            of the preferred new handler for these
+            channels, or an empty string to indicate that any handler would be
+            acceptable. The behaviour and rationale are the same as for the
+            corresponding parameter to
+            <a href="Channel_Dispatcher.html#Method:CreateChannelWithHints" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannelWithHints">CreateChannelWithHints</a>.</p>
+
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Delegated &mdash; ao
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The list of channels which have been delegated; the caller is no
+          longer handling these channels.</p>
+
+          <p>The client should remove these channels from its
+          <a href="Client_Handler.html#Property:HandledChannels" namespace="ofdT.Client.Handler" title="Property org.freedesktop.Telepathy.Client.Handler.HandledChannels">HandledChannels</a>
+          property.</p>
+        </div>
+      
+       <li>
+        Not_Delegated &mdash; a{o(ss)}
+        
+          (<a href="Channel_Dispatcher.html#Mapping:Not_Delegated_Map" title="Mapping Not_Delegated_Map">Not_Delegated_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The list of channels which have NOT been delegated; the caller is still
+          handling these channels.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Called by a
+        <a href="Client_Handler.html" namespace="org.freedesktop.Telepathy.Client" title="Interface org.freedesktop.Telepathy.Client.Handler">Handler</a>
+          to redispatch a bunch of channels it is currently handling.</p>
+
+        <p>For each <var>Channel</var> in <var>Channels</var>, if another
+          <a href="Client_Handler.html" namespace="ofdT.Client" title="Interface org.freedesktop.Telepathy.Client.Handler">Handler</a>
+          can be found,
+          <a href="Client_Handler.html#Method:HandleChannels" namespace="ofdT.Client.Handler" title="Method org.freedesktop.Telepathy.Client.Handler.HandleChannels">HandleChannels</a>
+          will be called on it until a
+          <a href="Client_Handler.html" namespace="ofdT.Client" title="Interface org.freedesktop.Telepathy.Client.Handler">Handler</a>
+          accepts it.</p>
+
+        <p>This method returns once all the <var>Channels</var> have either
+          been accepted or rejected by Handlers.</p>
+
+        <p>If this method fails, the original
+          <a href="Client_Handler.html" namespace="org.freedesktop.Telepathy.Client" title="Interface org.freedesktop.Telepathy.Client.Handler">Handler</a>
+          is still handling the channels.</p>
+
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The Preferred_Handler is syntactically invalid or does
+            not start with <code>org.freedesktop.Telepathy.Client.</code>.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Yours" title="Error org.freedesktop.Telepathy.Error.NotYours">Not Yours</a></li>
+       
+       
+       
+       <div class="docstring">
+            At least one <var>Channel</var> in <var>Channels</var> is not
+            currently handled by the caller. No <var>Channel</var> has been
+            delegated.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:PresentChannel"></a>
+     <span class="permalink">(<a href="Channel_Dispatcher.html#Method:PresentChannel">Permalink</a>)</span>
+     <h2>PresentChannel (o: Channel, x: User_Action_Time) &#8594; nothing</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.23.1. </span>
+        Implemented since telepathy-mission-control 5.7.12.
+      </div>
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Channel &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The channel to present.</p>
+        </div>
+      
+       <li>
+        User_Action_Time &mdash; x
+        
+          (<a href="generic-types.html#Simple-Type:User_Action_Timestamp" title="Simple Type User_Action_Timestamp">User_Action_Timestamp</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The time at which user action occurred, or 0 if this channel
+            request is for some reason not involving user action.</p>
+
+          <p>This parameter is used in the same way as the corresponding
+            parameter to
+            <a href="Channel_Dispatcher.html#Method:EnsureChannelWithHints" title="Method org.freedesktop.Telepathy.ChannelDispatcher.EnsureChannelWithHints">EnsureChannelWithHints</a>.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Equivalent of calling
+        <a href="Channel_Dispatcher.html#Method:EnsureChannel" namespace="org.freedesktop.Telepathy.ChannelDispatcher" title="Method org.freedesktop.Telepathy.ChannelDispatcher.EnsureChannel">EnsureChannel</a>
+        with a <var>Requested_Properties</var> which would result in ensuring
+        <var>Channel</var>.</p>
+
+         <p>If <var>Channel</var> is handled, its handler will be asked to present it the user
+         (e.g. bring it into the foreground).</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The Account does not exist, the Channel does not exist or it
+            does not belong to the Account.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Interfaces"></a>
+     <span class="permalink">(<a href="Channel_Dispatcher.html#Property:Interfaces">Permalink</a>)</span>
+     <h2>
+      Interfaces &mdash; as
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        A list of the extra interfaces provided by this channel dispatcher.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SupportsRequestHints"></a>
+     <span class="permalink">(<a href="Channel_Dispatcher.html#Property:SupportsRequestHints">Permalink</a>)</span>
+     <h2>
+      SupportsRequestHints &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.21.5. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        If <code>True</code>, the channel dispatcher is new enough to support
+        <a href="Channel_Dispatcher.html#Method:CreateChannelWithHints" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannelWithHints">CreateChannelWithHints</a> and
+        <a href="Channel_Dispatcher.html#Method:EnsureChannelWithHints" title="Method org.freedesktop.Telepathy.ChannelDispatcher.EnsureChannelWithHints">EnsureChannelWithHints</a>, in addition
+        to the older <a href="Channel_Dispatcher.html#Method:CreateChannel" namespace="ofdT.ChannelDispatcher" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannel">CreateChannel</a>
+        and <a href="Channel_Dispatcher.html#Method:EnsureChannel" namespace="ofdT.ChannelDispatcher" title="Method org.freedesktop.Telepathy.ChannelDispatcher.EnsureChannel">EnsureChannel</a>
+        methods, and also new enough to emit <a href="Channel_Request.html#Signal:SucceededWithChannel" namespace="ofdT.ChannelRequest" title="Signal org.freedesktop.Telepathy.ChannelRequest.SucceededWithChannel">SucceededWithChannel</a>
+        before the older <a href="Channel_Request.html#Signal:Succeeded" namespace="ofdT.ChannelRequest" title="Signal org.freedesktop.Telepathy.ChannelRequest.Succeeded">Succeeded</a> signal.
+        If <code>False</code> or missing, only the metadata-less
+        variants are supported.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Mapping:Not_Delegated_Map"></a>
+      <span class="permalink">Mapping (<a href="Channel_Dispatcher.html#Mapping:Not_Delegated_Map">Permalink</a>)</span>
+      <h2>
+       Not_Delegated_Map &mdash; a{o(ss)}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A mapping associating not delegated channel with an error.
+      </div>
+      <ul>
+<li>Channel &mdash; o</li>
+<div class="docstring">
+          The path of the channel
+        </div><li>Error &mdash; (ss) (<a href="Channel_Dispatcher.html#Struct:Not_Delegated_Error" title="Struct Not_Delegated_Error">Not_Delegated_Error</a>)</li>
+<div class="docstring">
+          An error describing why the channel has not be delegated
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Not_Delegated_Error"></a>
+      <span class="permalink">Struct (<a href="Channel_Dispatcher.html#Struct:Not_Delegated_Error">Permalink</a>)</span>
+      <h2>
+       Not_Delegated_Error &mdash; (ss)
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Error_Name &mdash; s (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">DBus_Error_Name</a>)</li>
+<div class="docstring">
+          the name of a D-Bus error describing what went wrong.
+        </div><li>Error_Message &mdash; s</li>
+<div class="docstring">
+          a human-readable informative error message.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

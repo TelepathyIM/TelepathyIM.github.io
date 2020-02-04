@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.ContactCapabilities &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities'>Connection.Interface.ContactCapabilities</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+   
+    | <a href="#contact-attributes">Contact Attributes</a> 
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Capabilities.html#Method:UpdateCapabilities">UpdateCapabilities</a></td>
+       <td>(a(saa{sv}as): Handler_Capabilities)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Capabilities.html#Method:GetContactCapabilities">GetContactCapabilities</a></td>
+       <td>(au: Handles)</td>
+       <td>&#8594;</td>
+       <td>a{ua(a{sv}as)}: Contact_Capabilities</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Capabilities.html#Signal:ContactCapabilitiesChanged">ContactCapabilitiesChanged</a></td>
+       <td>(a{ua(a{sv}as)}: caps)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+
+     
+     <h3>Contact Attributes</h3>
+     <table class="summary">
+      
+       <tr class="contact-attribute">
+       <td><a href="Connection_Interface_Contact_Capabilities.html#Contact-Attribute:capabilities">org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities/capabilities</a></td>
+       <td>
+        a(a{sv}as)
+        
+        (<a href="Connection_Interface_Requests.html#Struct:Requestable_Channel_Class" title="Array of Struct Requestable_Channel_Class">
+            Requestable_Channel_Class_List</a>)
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Capabilities.html#Mapping:Contact_Capabilities_Map">Contact_Capabilities_Map</a></td>
+       <td>Mapping</td>
+       <td>a{ua(a{sv}as)}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Capabilities.html#Struct:Handler_Capabilities">Handler_Capabilities</a></td>
+       <td>Struct</td>
+       <td>(saa{sv}as)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.28. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>Contact capabilities describe the channel classes which may be
+        created with a given contact in advance of attempting to create a
+        channel. Each capability represents a commitment by the
+        connection manager that it will ordinarily be able to create a channel
+        with a contact when given a request with the properties defined by the
+        channel class.</p>
+
+      <p>Capabilities pertain to particular contact handles, and represent
+        activities such as having a text chat, a voice call with the user or a
+        stream tube of a defined type.</p>
+
+      <p>This interface also enables user interfaces to notify the connection
+        manager what capabilities to advertise for the user to other contacts.
+        This is done by using the
+        <a href="Connection_Interface_Contact_Capabilities.html#Method:UpdateCapabilities" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities.UpdateCapabilities">UpdateCapabilities</a> method.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>XMPP is a major user of this interface: XMPP contacts will not,
+          in general, be callable using VoIP unless they advertise suitable
+          Jingle capabilities.</p>
+
+        <p>Many other protocols also have some concept of capability flags,
+          which this interface exposes in a protocol-independent way.</p>
+      </div></div>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:UpdateCapabilities"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Capabilities.html#Method:UpdateCapabilities">Permalink</a>)</span>
+     <h2>UpdateCapabilities (a(saa{sv}as): Handler_Capabilities) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Handler_Capabilities &mdash; a(saa{sv}as)
+        
+          (<a href="Connection_Interface_Contact_Capabilities.html#Struct:Handler_Capabilities" title="Array of Struct Handler_Capabilities">Handler_Capabilities_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          <p>The capabilities of one or more clients.</p>
+
+          <p>For each client in the given list, any capabilities previously
+            advertised for the same client name are discarded, then replaced by
+            the capabilities indicated.</p>
+
+          <p>As a result, if a client becomes unavailable, this method SHOULD
+            be called with a <a href="Connection_Interface_Contact_Capabilities.html#Struct:Handler_Capabilities">Handler_Capabilities</a> structure
+            containing its name, an empty list of channel classes, and an
+            empty list of capabilities. When this is done, the connection
+            manager SHOULD free all memory associated with that client name.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>This method takes a list of clients so that
+              when the channel dispatcher first calls it (with a list of all
+              the Handlers that are initially available), the changes can be
+              made atomically, with only one transmission of updated
+              capabilities to the network. Afterwards, the channel dispatcher
+              will call this method with a single-element list every time
+              a Handler becomes available or unavailable.</p>
+          </div></div>
+
+          <p>The connection manager MUST ignore any channel classes and client
+            capabilities for which there is no representation in the protocol
+            or no support in the connection manager.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Alter the connection's advertised capabilities to include
+          the intersection of the given clients' capabilities with what the
+          connection manager is able to implement.</p>
+
+        <p>On connections managed by the ChannelDispatcher, processes other
+          than the ChannelDispatcher SHOULD NOT call this method, and the
+          ChannelDispatcher SHOULD use this method to advertise the
+          capabilities of all the registered <a href="Client_Handler.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Client.Handler">Client.Handler</a>
+          implementations.On connections not managed by the ChannelDispatcher,
+          clients MAY use this method directly, to indicate the channels they
+          will handle and the extra capabilities they have.</p>
+
+        <p>Upon a successful invocation of this method, the connection manager
+          will only emit the
+          <a href="Connection_Interface_Contact_Capabilities.html#Signal:ContactCapabilitiesChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities.ContactCapabilitiesChanged">ContactCapabilitiesChanged</a> signal
+          for the user's <a href="Connection.html#Property:SelfHandle" namespace="org.freedesktop.Telepathy.Connection" title="Property org.freedesktop.Telepathy.Connection.SelfHandle">SelfHandle</a>
+          if, in the underlying protocol, the new capabilities are distinct
+          from the previous state.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The connection manager will essentially intersect the provided
+            capabilities and the channel classes it implements. Therefore,
+            certain properties which are never fixed for a channel class
+            (such as the target handle, or the Parameters property of a tube
+            channel) will almost certainly not be advertised.</p>
+        </div></div>
+
+        <p>This method MAY be called on a newly-created connection while it
+          is still in the DISCONNECTED state, to request that when the
+          connection connects, it will do so with the appropriate
+          capabilities. Doing so MUST NOT fail.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetContactCapabilities"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Capabilities.html#Method:GetContactCapabilities">Permalink</a>)</span>
+     <h2>GetContactCapabilities (au: Handles) &#8594; a{ua(a{sv}as)}: Contact_Capabilities</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Handles &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>An array of contact handles for this connection.</p>
+
+          <p>The handle zero MUST NOT be included in the request.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Contact_Capabilities &mdash; a{ua(a{sv}as)}
+        
+          (<a href="Connection_Interface_Contact_Capabilities.html#Mapping:Contact_Capabilities_Map" title="Mapping Contact_Capabilities_Map">Contact_Capabilities_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A map from contact handles to lists of requestable channel
+            classes, representing the channel requests that are expected
+            to succeed for that contact.</p>
+
+          <p>Contacts listed among Handles whose capabilities are unknown
+            SHOULD be omitted from this map; contacts known to have an empty
+            set of capabilities SHOULD be included in the keys of this map,
+            with an empty array as the corresponding value.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Returns an array of requestable channel classes for the given
+          contact handles, representing the channel requests that are
+          expected to succeed.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+            The handle does not represent a contact. Zero is always invalid.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:ContactCapabilitiesChanged"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Capabilities.html#Signal:ContactCapabilitiesChanged">Permalink</a>)</span>
+     <h2>ContactCapabilitiesChanged (a{ua(a{sv}as)}: caps)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       caps &mdash; a{ua(a{sv}as)}
+       
+        (<a href="Connection_Interface_Contact_Capabilities.html#Mapping:Contact_Capabilities_Map" title="Mapping Contact_Capabilities_Map">Contact_Capabilities_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          All the capabilities of the contacts
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Announce that there has been a change of capabilities on the
+          given handles. A single signal can be emitted for several
+        contacts.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The underlying protocol can get several contacts' capabilities at
+            the same time.</p>
+        </div></div>
+
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset contact-attributes">
+    <a name="contact-attributes"></a>
+    <h1>Contact Attributes</h1>
+    <div>
+      Attributes that a contact can have, accessed with the
+      org.freedesktop.Telepathy.Connection.Interface.Contacts interface.
+    </div>
+    
+    <div class="inset contact-attribute">
+     <a name="Contact-Attribute:capabilities"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Capabilities.html#Contact-Attribute:capabilities">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities/capabilities &mdash; a(a{sv}as)
+      
+       (<a href="Connection_Interface_Requests.html#Struct:Requestable_Channel_Class" title="Array of Struct Requestable_Channel_Class">Requestable_Channel_Class_List</a>)
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The same structs that would be returned by
+          <a href="Connection_Interface_Contact_Capabilities.html#Method:GetContactCapabilities" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities.GetContactCapabilities">GetContactCapabilities</a>.
+          Omitted from the result if the contact's capabilities
+          are not known; present in the result as an empty array if the
+          contact is known to have no capabilities at all.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Mapping:Contact_Capabilities_Map"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Contact_Capabilities.html#Mapping:Contact_Capabilities_Map">Permalink</a>)</span>
+      <h2>
+       Contact_Capabilities_Map &mdash; a{ua(a{sv}as)}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A mapping from contact handle to their capabilities.
+    </div>
+      <ul>
+<li>Key &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+        A contact handle.
+      </div><li>Value &mdash; a(a{sv}as) (<a href="Connection_Interface_Requests.html#Struct:Requestable_Channel_Class" title="Array of Struct Requestable_Channel_Class">Requestable_Channel_Class_List</a>)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+         <p>The contact's capabilities. These should be represented
+          in the same way as in <a href="Connection_Interface_Requests.html#Property:RequestableChannelClasses" namespace="org.freedesktop.Telepathy.Connection.Interface.Requests" title="Property org.freedesktop.Telepathy.Connection.Interface.Requests.RequestableChannelClasses">RequestableChannelClasses</a>,
+          except that they may have more fixed properties or fewer allowed
+          properties, to represent contacts who do not have all the
+          capabilities of the connection.</p>
+
+        <p>In particular, requestable channel classes for channels with
+          target handle type Contact MUST list <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a> among their fixed properties when
+          they appear here, and clients MAY assume that this will be the
+          case.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This matches the initial implementations - service-side in
+            telepathy-gabble, and client-side in telepathy-qt4 - and means
+            that clients can use exactly the same code to interpret
+            RequestableChannelClasses and contact capabilities.</p>
+        </div></div>
+
+        <p>Channel classes with target handle type Handle_Type_Contact
+          indicate that a request that matches the channel class, and also
+          either has the contact's handle as <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a> or the contact's identifier as
+          <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>, can be expected to succeed. Connection
+          managers SHOULD NOT include the TargetHandle or TargetID as a
+          fixed property in contact capabilities.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This makes one channel class sufficient to describe requests via
+            TargetHandle or TargetID, and is necessary in order to allow
+            clients to interpret RequestableChannelClasses and contact
+            capabilities with the same code.</p>
+        </div></div>
+
+        <p>Channel classes with target handle type Handle_Type_Room or
+          Handle_Type_None indicate that if a channel matching the channel
+          class is created, then inviting the contact to that channel
+          can be expected to succeed.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>To support room-based XMPP protocols like
+            <a href="http://telepathy.freedesktop.org/wiki/Muji">Muji</a>
+            and MUC Tubes, it's necessary to be able to discover who can be
+            invited to a given room channel; most XMPP contacts won't
+            support being invited into a Muji conference call, at least
+            in the short to medium term.</p>
+        </div></div>
+
+        <p>No interpretation is defined for channel classes with any other
+          target handle type, or for channel classes that do not fix a
+          target handle type, in this version of the Telepathy
+          specification.</p>
+      </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Handler_Capabilities"></a>
+      <span class="permalink">Struct (<a href="Connection_Interface_Contact_Capabilities.html#Struct:Handler_Capabilities">Permalink</a>)</span>
+      <h2>
+       Handler_Capabilities &mdash; (saa{sv}as)
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A structure representing the capabilities of a single client.
+      </div>
+      <ul>
+<li>Well_Known_Name &mdash; s (<a href="generic-types.html#Simple-Type:DBus_Well_Known_Name" title="Simple Type DBus_Well_Known_Name">DBus_Well_Known_Name</a>)</li>
+<div class="docstring">
+          For implementations of the <a href="Client.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Client">Client</a>
+          interface, the well-known bus name name of the client; for any other
+          process, any other reversed domain name that uniquely identifies it.
+        </div><li>Channel_Classes &mdash; aa{sv} (<a href="generic-types.html#Mapping:String_Variant_Map" title="Array of Mapping String_Variant_Map">String_Variant_Map_List</a>)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          An array of channel classes that can be handled by this client.
+          This will usually be a copy of the client's <a href="Client_Handler.html#Property:HandlerChannelFilter" namespace="org.freedesktop.Telepathy.Client.Handler" title="Property org.freedesktop.Telepathy.Client.Handler.HandlerChannelFilter">HandlerChannelFilter</a>
+          property.
+        </div><li>Capabilities &mdash; as (<a href="Client_Handler.html#Simple-Type:Handler_Capability_Token" title="Array of Simple Type Handler_Capability_Token">Handler_Capability_Token_List</a>)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          An array of client capabilities supported by this client, to be
+          used by the connection manager to determine what capabilities to
+          advertise. This will usually be a copy of the client's <a href="Client_Handler.html#Property:Capabilities" namespace="org.freedesktop.Telepathy.Client.Handler" title="Property org.freedesktop.Telepathy.Client.Handler.Capabilities">Capabilities</a>
+          property.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

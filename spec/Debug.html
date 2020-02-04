@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Debug &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Debug'>Debug</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Debug.html#Method:GetMessages">GetMessages</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>a(dsus): Messages</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Debug.html#Signal:NewDebugMessage">NewDebugMessage</a></td>
+       <td>(d: time, s: domain, u: level, s: message)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Debug.html#Property:Enabled">Enabled</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Debug.html#Enum:Debug_Level">Debug_Level</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Debug.html#Struct:Debug_Message">Debug_Message</a></td>
+       <td>Struct</td>
+       <td>(dsus)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.27. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for providing debug messages.</p>
+
+      <p>This interface is primarily provided by one object per
+      service, at the path <tt>/org/freedesktop/Telepathy/debug</tt>.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:GetMessages"></a>
+     <span class="permalink">(<a href="Debug.html#Method:GetMessages">Permalink</a>)</span>
+     <h2>GetMessages () &#8594; a(dsus): Messages</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Messages &mdash; a(dsus)
+        
+          (<a href="Debug.html#Struct:Debug_Message" title="Array of Struct Debug_Message">Debug_Message_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A list of debug messages.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Retrieve buffered debug messages. An implementation could have a
+        limit on how many message it keeps and so the array returned from
+        this method should not be assumed to be all of the messages in
+        the lifetime of the service.
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:NewDebugMessage"></a>
+     <span class="permalink">(<a href="Debug.html#Signal:NewDebugMessage">Permalink</a>)</span>
+     <h2>NewDebugMessage (d: time, s: domain, u: level, s: message)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       time &mdash; d
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Timestamp of the debug message.
+        </div>
+      
+       <li>
+       domain &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Domain of the debug message, as described in the Debug_Message struct.
+        </div>
+      
+       <li>
+       level &mdash; u
+       
+        (<a href="Debug.html#Enum:Debug_Level" title="Enum Debug_Level">Debug_Level</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Level of the debug message.
+        </div>
+      
+       <li>
+       message &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The text of the debug message.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when a debug messages is generated if the
+        <a href="Debug.html#Property:Enabled" title="Property org.freedesktop.Telepathy.Debug.Enabled">Enabled</a> property is set to TRUE.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Enabled"></a>
+     <span class="permalink">(<a href="Debug.html#Property:Enabled">Permalink</a>)</span>
+     <h2>
+      Enabled &mdash; b
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        TRUE if the <a href="Debug.html#Signal:NewDebugMessage" title="Signal org.freedesktop.Telepathy.Debug.NewDebugMessage">NewDebugMessage</a> signal
+        should be emitted when a new debug message is generated.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Debug_Level"></a>
+      <span class="permalink">Enum (<a href="Debug.html#Enum:Debug_Level">Permalink</a>)</span>
+      <h2>
+       Debug_Level &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Error (0)</li>
+<div class="docstring">
+          Log level for errors. Error messages are always fatal, resulting
+          in the service terminating after something completely
+          unexpected occurred.
+        </div><li>Critical (1)</li>
+<div class="docstring">
+          Log level for critical messages. Critical messages are messages
+          that the service might predict and it is up to the service itself
+          to decide whether to terminate following a critical message.
+        </div><li>Warning (2)</li>
+<div class="docstring">
+          Log level for warnings.
+        </div><li>Message (3)</li>
+<div class="docstring">
+          Log level for messages.
+        </div><li>Info (4)</li>
+<div class="docstring">
+          Log level for information messages.
+        </div><li>Debug (5)</li>
+<div class="docstring">
+          Log level for debug messages.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Debug_Message"></a>
+      <span class="permalink">Struct (<a href="Debug.html#Struct:Debug_Message">Permalink</a>)</span>
+      <h2>
+       Debug_Message &mdash; (dsus)
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A struct representing a debug message, as returned by
+        <a href="Debug.html#Method:GetMessages" title="Method org.freedesktop.Telepathy.Debug.GetMessages">GetMessages</a>.
+      </div>
+      <ul>
+<li>Timestamp &mdash; d</li>
+<div class="docstring">
+          Timestamp of the debug message. This is a double to allow
+          more accuracy in the time the message was logged.
+        </div><li>Domain &mdash; s</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Domain of the debug message. This is used to identify
+          the source of debug messages. For example, debug messages
+          from a connection manager could have this Domain struct
+          member be the name of the connection manager, and logs
+          from any helper library could have the name of the helper
+          library.</p>
+
+          <p>The domain could also contain a category as to where
+          the log message originated separated by a forward-slash.
+          For example, if a debug message was output in a connection
+          manager called &quot;dummy&quot;, in the file-transfer code, this
+          Domain struct member might be <tt>dummy/file-transfer</tt>.</p>
+        </div><li>Level &mdash; u (<a href="Debug.html#Enum:Debug_Level" title="Enum Debug_Level">Debug_Level</a>)</li>
+<div class="docstring">
+          Level of the debug message. This states the severity of the
+          debug message.
+        </div><li>Message &mdash; s</li>
+<div class="docstring">
+          The text of the debug message.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Client.Approver &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Client.Approver'>Client.Approver</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Client_Approver.html#Method:AddDispatchOperation">AddDispatchOperation</a></td>
+       <td>(a(oa{sv}): Channels, o: DispatchOperation, a{sv}: Properties)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Client_Approver.html#Property:ApproverChannelFilter">ApproverChannelFilter</a></td>
+       <td>
+        aa{sv}
+        
+          (<a href="Connection_Interface_Requests.html#Mapping:Channel_Class" title="Array of Mapping Channel_Class">
+              Channel_Class_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.26. </span>(as a stable interface)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Client.html" title="Interface org.freedesktop.Telepathy.Client">org.freedesktop.Telepathy.Client</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>Approvers are clients that notify the user that new channels have
+        been created by a contact, and allow the user to accept or reject
+        those channels. The new channels are represented by a <a href="Channel_Dispatch_Operation.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ChannelDispatchOperation">ChannelDispatchOperation</a>
+        object, which is passed to the
+        <a href="Client_Approver.html#Method:AddDispatchOperation" title="Method org.freedesktop.Telepathy.Client.Approver.AddDispatchOperation">AddDispatchOperation</a> method.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>For instance, Empathy's tray icon, or the answer/reject window
+          seen when a Maemo device receives a VoIP call, should be
+          Approvers.</p>
+      </div></div>
+
+      <p>Approvers can also select which channel handler will be used for the
+        channel, for instance by offering the user a list of possible
+        handlers rather than just an accept/reject choice.
+        However, the Channel Dispatcher must be able to prioritize
+        possible handlers on its own using some reasonable heuristic,
+        probably based on user configuration.</p>
+
+      <p>It is possible (and useful) to have an approver and
+        a channel handler in the same process; this is particularly useful
+        if a channel handler wants to claim responsibility for particular
+        channels itself.</p>
+
+      <p>All approvers are notified simultaneously. For instance, in a
+        desktop system, there might be one approver that displays a
+        notification-area icon, one that is part of a contact list
+        window and highlights contacts there, and one that is part
+        of a full-screen media player.</p>
+
+      <p>Any approver can approve the handling of a channel dispatch operation
+        with a particular channel handler by calling the <a href="Channel_Dispatch_Operation.html#Method:HandleWith" namespace="org.freedesktop.Telepathy.ChannelDispatchOperation" title="Method org.freedesktop.Telepathy.ChannelDispatchOperation.HandleWith">HandleWith</a>
+        method. Approvers can also attempt to <a href="Channel_Dispatch_Operation.html#Method:Claim" namespace="org.freedesktop.Telepathy.ChannelDispatchOperation" title="Method org.freedesktop.Telepathy.ChannelDispatchOperation.Claim">Claim</a>
+        channels; if this succeeds, the approver may handle the channels
+        itself (if it is also a Handler), or close the channels in order to
+        reject them.</p>
+
+      <p>At the D-Bus level, there is no &quot;reject&quot; operation: approvers wishing
+        to reject channels SHOULD call the Claim method, then (if it succeeds)
+        close the channels in any way they see fit.</p>
+
+      <p>The first approver to reply gets its decision acted on; any other
+        approvers that reply at approximately the same time will get a D-Bus
+        error, indicating that the channel has already been dealt with.</p>
+
+      <p>Approvers should usually prompt the user and ask for
+        confirmation, rather than dispatching the channel to a handler
+        straight away.</p>
+
+      <p>Non-interactive approvers can also be implemented as
+        <a href="Client_Observer.html" namespace="ofdT.Client" title="Interface org.freedesktop.Telepathy.Client.Observer">Observer</a>s as
+        described in the interface description.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:AddDispatchOperation"></a>
+     <span class="permalink">(<a href="Client_Approver.html#Method:AddDispatchOperation">Permalink</a>)</span>
+     <h2>AddDispatchOperation (a(oa{sv}): Channels, o: DispatchOperation, a{sv}: Properties) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Channels &mdash; a(oa{sv})
+        
+          (<a href="Connection_Interface_Requests.html#Struct:Channel_Details" title="Array of Struct Channel_Details">Channel_Details_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The initial value of the <a href="Channel_Dispatch_Operation.html#Property:Channels" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.ChannelDispatchOperation.Channels">ChannelDispatchOperation.Channels</a>
+            property, containing the <a href="Channel.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Channel">Channel</a>s
+            to be dispatched and their properties.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>This can't be signalled to the approver through the Properties
+              parameter of this method, because Channels is not an immutable
+              property.</p>
+          </div></div>
+
+          <p>This argument always contains all of the channels in the channel
+            dispatch operation, even if not all of them actually match
+            the <a href="Client_Approver.html#Property:ApproverChannelFilter" title="Property org.freedesktop.Telepathy.Client.Approver.ApproverChannelFilter">ApproverChannelFilter</a>.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>This seems the least bad way to handle such a situation;
+              see the discussion on
+              <a href="http://bugs.freedesktop.org/show_bug.cgi?id=21090">bug
+                #21090</a>.</p>
+          </div></div>
+
+          <p>The actual channels to be dispatched may reduce as channels are
+            closed: this is signalled by <a href="Channel_Dispatch_Operation.html#Signal:ChannelLost" namespace="org.freedesktop.Telepathy" title="Signal org.freedesktop.Telepathy.ChannelDispatchOperation.ChannelLost">ChannelDispatchOperation.ChannelLost</a>.
+          </p>
+
+          <p>Approvers SHOULD connect to ChannelLost and <a href="Channel_Dispatch_Operation.html#Signal:Finished" namespace="org.freedesktop.Telepathy" title="Signal org.freedesktop.Telepathy.ChannelDispatchOperation.Finished">ChannelDispatchOperation.Finished</a>.
+            (if desired) before returning from AddDispatchOperation, since
+            those signals are guaranteed not to be emitted until after all
+            AddDispatchOperation calls have returned (with success or failure)
+            or timed out.</p>
+        </div>
+      
+       <li>
+        DispatchOperation &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The
+          <a href="Channel_Dispatch_Operation.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ChannelDispatchOperation">ChannelDispatchOperation</a>
+            to be processed.</p>
+        </div>
+      
+       <li>
+        Properties &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          <p>Properties of the channel dispatch operation. The keys MUST be
+            fully qualified D-Bus property names. This MUST NOT include
+            properties that could change, SHOULD include as many properties as
+            possible given that constraint, and MUST include at least the
+            <a href="Channel_Dispatch_Operation.html#Property:Account" namespace="org.freedesktop.Telepathy.ChannelDispatchOperation" title="Property org.freedesktop.Telepathy.ChannelDispatchOperation.Account">Account</a>,
+            <a href="Channel_Dispatch_Operation.html#Property:Connection" namespace="org.freedesktop.Telepathy.ChannelDispatchOperation" title="Property org.freedesktop.Telepathy.ChannelDispatchOperation.Connection">Connection</a>
+            and <a href="Channel_Dispatch_Operation.html#Property:PossibleHandlers" namespace="org.freedesktop.Telepathy.ChannelDispatchOperation" title="Property org.freedesktop.Telepathy.ChannelDispatchOperation.PossibleHandlers">PossibleHandlers</a>
+            properties.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Called by the channel dispatcher when a ChannelDispatchOperation
+          in which the approver has registered an interest is created,
+          or when the approver starts up while such channel dispatch
+          operations already exist.</p>
+
+        <p>The channel dispatcher SHOULD call this method on all approvers
+          at the same time. If an approver returns an error from this method,
+          the approver is assumed to be faulty.</p>
+
+        <p>If no approvers return from this method
+          successfully (including situations where there are no matching
+          approvers at all), the channel dispatcher SHOULD consider this
+          to be an error, and recover by dispatching the channel to the
+          most preferred handler.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          Processes that aren't approvers (or don't at least ensure that there
+          is some approver) probably shouldn't be making connections
+          anyway, so there should always be at least one approver running.
+        </div></div>
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ApproverChannelFilter"></a>
+     <span class="permalink">(<a href="Client_Approver.html#Property:ApproverChannelFilter">Permalink</a>)</span>
+     <h2>
+      ApproverChannelFilter &mdash; aa{sv}
+      
+        (<a href="Connection_Interface_Requests.html#Mapping:Channel_Class" title="Array of Mapping Channel_Class">Channel_Class_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A specification of the channels in which this approver is
+          interested. The <a href="Client_Approver.html#Method:AddDispatchOperation" title="Method org.freedesktop.Telepathy.Client.Approver.AddDispatchOperation">AddDispatchOperation</a>
+          method should be called by the channel dispatcher whenever at least
+          one of the channels in a channel dispatch operation matches this
+          description.</p>
+
+        <p>This property works in exactly the same way as the
+          <a href="Client_Observer.html#Property:ObserverChannelFilter" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Client.Observer.ObserverChannelFilter">Client.Observer.ObserverChannelFilter</a>
+          property. In particular, it cannot change while the approver process
+          continues to own the corresponding Client bus name.</p>
+
+        <p>In the .client file, it is represented in the
+          same way as ObserverChannelFilter, but the group has the same
+          name as this interface and the keys start with
+          ApproverChannelFilter instead of ObserverChannelFilter.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

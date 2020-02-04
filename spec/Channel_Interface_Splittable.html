@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.Splittable.DRAFT &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.Splittable.DRAFT'>Channel.Interface.Splittable.DRAFT</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+   
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Splittable.html#Method:Split">Split</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is experimental and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   <div class="annotation added"><span class="version">Added in 0.19.0. </span>(draft 1)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for channels that can be made conceptually part of a
+        <a href="Channel_Interface_Conference.html" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.Conference">Conference</a>, and can then be detached from that
+        conference.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>This interface addresses part of freedesktop.org <a href="http://bugs.freedesktop.org/show_bug.cgi?id=24906">bug
+            #24906</a> (GSM-compatible conference calls). GSM is currently
+          the only protocol known to implement this; PBXs might implement
+          it too.</p>
+      </div></div>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:Split"></a>
+     <span class="permalink">(<a href="Channel_Interface_Splittable.html#Method:Split">Permalink</a>)</span>
+     <h2>Split () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request that this channel is removed from any
+        <a href="Channel_Interface_Conference.html" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.Conference">Conference</a> of which it is a part.</p>
+
+        <p>This implies that the media streams within the conference are put on
+          hold and the media streams within the member channel leaving the
+          conference are unheld.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            This channel isn't in a conference.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            This channel is in a conference but can't currently be split away
+            from it.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

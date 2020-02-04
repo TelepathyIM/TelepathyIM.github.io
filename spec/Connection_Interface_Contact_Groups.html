@@ -1,0 +1,1471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.ContactGroups &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.ContactGroups'>Connection.Interface.ContactGroups</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+    | <a href="#contact-attributes">Contact Attributes</a> 
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Groups.html#Method:SetContactGroups">SetContactGroups</a></td>
+       <td>(u: Contact, as: Groups)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Groups.html#Method:SetGroupMembers">SetGroupMembers</a></td>
+       <td>(s: Group, au: Members)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Groups.html#Method:AddToGroup">AddToGroup</a></td>
+       <td>(s: Group, au: Members)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Groups.html#Method:RemoveFromGroup">RemoveFromGroup</a></td>
+       <td>(s: Group, au: Members)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Groups.html#Method:RemoveGroup">RemoveGroup</a></td>
+       <td>(s: Group)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Groups.html#Method:RenameGroup">RenameGroup</a></td>
+       <td>(s: Old_Name, s: New_Name)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Groups.html#Signal:GroupsChanged">GroupsChanged</a></td>
+       <td>(au: Contact, as: Added, as: Removed)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Groups.html#Signal:GroupsCreated">GroupsCreated</a></td>
+       <td>(as: Names)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Groups.html#Signal:GroupRenamed">GroupRenamed</a></td>
+       <td>(s: Old_Name, s: New_Name)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Groups.html#Signal:GroupsRemoved">GroupsRemoved</a></td>
+       <td>(as: Names)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Groups.html#Property:DisjointGroups">DisjointGroups</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Groups.html#Property:GroupStorage">GroupStorage</a></td>
+       <td>
+        u
+        
+          (<a href="Connection_Interface_Contact_List.html#Enum:Contact_Metadata_Storage_Type" title="Enum Contact_Metadata_Storage_Type">
+              Contact_Metadata_Storage_Type</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Groups.html#Property:Groups">Groups</a></td>
+       <td>
+        as
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+     <h3>Contact Attributes</h3>
+     <table class="summary">
+      
+       <tr class="contact-attribute">
+       <td><a href="Connection_Interface_Contact_Groups.html#Contact-Attribute:groups">org.freedesktop.Telepathy.Connection.Interface.ContactGroups/groups</a></td>
+       <td>
+        as
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.21.0. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a></li>
+    
+     <li><a href="Connection_Interface_Contact_List.html" title="Interface org.freedesktop.Telepathy.Connection.Interface.ContactList">org.freedesktop.Telepathy.Connection.Interface.ContactList</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for connections in which contacts can be placed in
+        user-defined groups.</p>
+
+      <p>The most basic functionality of this interface is to list and monitor
+        a contact's set of groups. To do this, use the
+        <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsChanged">GroupsChanged</a> signal, and the
+        <a href="Connection_Interface_Contact_Groups.html#Contact-Attribute:groups" title="Contact Attribute org.freedesktop.Telepathy.Connection.Interface.ContactGroups/groups">groups</a> contact attribute (this should
+        usually be done by connecting to the GroupsChanged signal, then
+        calling <a href="Connection_Interface_Contact_List.html#Method:GetContactListAttributes" namespace="ofdT.Connection.Interface.ContactList" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactList.GetContactListAttributes">GetContactListAttributes</a> with this interface
+        included in the Interfaces argument). Simple user interfaces can
+        limit themselves to displaying that information, and ignore the rest
+        of this interface: to ensure that this works,
+        <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsChanged">GroupsChanged</a> is emitted for every
+        change, even if that change could be inferred from another signal
+        such as <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsRemoved" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsRemoved">GroupsRemoved</a>.</p>
+
+      <p>Looking at contacts' lists of groups is sufficient to present a
+        user interface resembling XMPP's data model, in which groups behave
+        like tags applied to contacts, and so an empty group cannot exist
+        or is not interesting. However, some protocols model groups as
+        objects in their own right. User interfaces may either track
+        the set of groups via the <a href="Connection_Interface_Contact_Groups.html#Property:Groups" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactGroups.Groups">Groups</a>
+        property and the <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsCreated" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsCreated">GroupsCreated</a> and
+        <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsRemoved" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsRemoved">GroupsRemoved</a> signals, or ignore
+        this extra information.</p>
+
+      <p>Similarly, in some protocols it is possible to rename a group as
+        a single atomic operation. Simpler user interfaces will
+        see the new name being created, the old name being removed, and the
+        members moving to the new name, via the signals described above.
+        More advanced user interfaces can optionally distinguish between an
+        atomic rename and a create/remove pair, and display renamed groups
+        differently, by monitoring the
+        <a href="Connection_Interface_Contact_Groups.html#Signal:GroupRenamed" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupRenamed">GroupRenamed</a> signal.</p>
+
+      <p>This interface also provides various methods to manipulate
+        user-defined groups, which can be expected to work if
+        <a href="Connection_Interface_Contact_Groups.html#Property:GroupStorage" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupStorage">GroupStorage</a> is not None.</p>
+
+      <p>Depending on the protocol, some methods might be implemented by
+        more than one protocol operation; for instance, in a
+        &quot;contact-centric&quot; protocol like XMPP,
+        <a href="Connection_Interface_Contact_Groups.html#Method:SetContactGroups" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactGroups.SetContactGroups">SetContactGroups</a> is a single
+        protocol operation and <a href="Connection_Interface_Contact_Groups.html#Method:SetGroupMembers" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactGroups.SetGroupMembers">SetGroupMembers</a>
+        requires a protocol operation per contact, whereas in a more
+        &quot;group-centric&quot; protocol it might be the other way around. User
+        interfaces SHOULD call whichever method most closely resembles the
+        way in which the user's action was represented in the UI, and
+        let the connection manager deal with the details.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:SetContactGroups"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Groups.html#Method:SetContactGroups">Permalink</a>)</span>
+     <h2>SetContactGroups (u: Contact, as: Groups) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contact &mdash; u
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The contact to alter.</div>
+      
+       <li>
+        Groups &mdash; as
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The set of groups which the contact should be
+          in.</div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Add the given contact to the given groups (creating new groups
+          if necessary), and remove them from all other groups.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This is the easiest and most correct way to implement user
+            interfaces that display a single contact with a list of groups,
+            resulting in a user expectation that when they apply the changes,
+            the contact's set of groups will become exactly what was
+            displayed.</p>
+        </div></div>
+
+        <p>If the user is removed from a group of which they were the only
+          member, the group MAY be removed automatically.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>In protocols like XMPP where groups behave like tags, a group
+            with no members has no protocol representation.</p>
+        </div></div>
+
+        <p>Any <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsCreated" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsCreated">GroupsCreated</a>,
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsChanged">GroupsChanged</a> and
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsRemoved" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsRemoved">GroupsRemoved</a> signals that result from
+          this method call MUST be emitted before the method returns.</p>
+
+        <p>This method SHOULD NOT be called until the
+          <a href="Connection_Interface_Contact_List.html#Property:ContactListState" namespace="ofdT.Connection.Interface.ContactList" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactList.ContactListState">ContactListState</a> changes to Success.
+          If the ContactListState is Failure, this method SHOULD raise the
+          same error as
+          <a href="Connection_Interface_Contact_List.html#Method:GetContactListAttributes" namespace="ofdT.Connection.Interface.ContactList" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactList.GetContactListAttributes">GetContactListAttributes</a>.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">Raised if <a href="Connection_Interface_Contact_Groups.html#Property:DisjointGroups" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactGroups.DisjointGroups">DisjointGroups</a>
+            is true and the list of groups has more than one
+            member.</div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            Raised if <a href="Connection_Interface_Contact_Groups.html#Property:GroupStorage" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupStorage">GroupStorage</a>
+            is Contact_Metadata_Storage_Type_None, i.e. groups cannot be edited.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Yet" title="Error org.freedesktop.Telepathy.Error.NotYet">Not Yet</a></li>
+       
+       
+       
+       <div class="docstring">
+      Raised when the requested functionality is not yet available, but is
+      likely to become available after some time has passed.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:SetGroupMembers"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Groups.html#Method:SetGroupMembers">Permalink</a>)</span>
+     <h2>SetGroupMembers (s: Group, au: Members) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Group &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The group to alter.</div>
+      
+       <li>
+        Members &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The set of members for the group. If this set is
+          empty, this method MAY remove the group.</div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Add the given members to the given group (creating it if necessary),
+          and remove all other members.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This is the easiest and most correct way to implement user
+            interfaces that display a single group with a list of contacts,
+            resulting in a user expectation that when they apply the changes,
+            the groups's set of members will become exactly what was
+            displayed.</p>
+        </div></div>
+
+        <p>If <a href="Connection_Interface_Contact_Groups.html#Property:DisjointGroups" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactGroups.DisjointGroups">DisjointGroups</a> is true,
+          this will also remove each member from their previous group.</p>
+
+        <p>If the user is removed from a group of which they were the only
+          member, the group MAY be removed automatically.</p>
+
+        <p>Any <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsCreated" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsCreated">GroupsCreated</a>,
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsChanged">GroupsChanged</a> and
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsRemoved" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsRemoved">GroupsRemoved</a> signals that result from
+          this method call MUST be emitted before the method returns.</p>
+
+        <p>This method SHOULD NOT be called until the
+          <a href="Connection_Interface_Contact_List.html#Property:ContactListState" namespace="ofdT.Connection.Interface.ContactList" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactList.ContactListState">ContactListState</a> changes to Success.
+          If the ContactListState is Failure, this method SHOULD raise the
+          same error as
+          <a href="Connection_Interface_Contact_List.html#Method:GetContactListAttributes" namespace="ofdT.Connection.Interface.ContactList" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactList.GetContactListAttributes">GetContactListAttributes</a>.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            Raised if <a href="Connection_Interface_Contact_Groups.html#Property:GroupStorage" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupStorage">GroupStorage</a>
+            is Contact_Metadata_Storage_Type_None, i.e. groups cannot be edited.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Yet" title="Error org.freedesktop.Telepathy.Error.NotYet">Not Yet</a></li>
+       
+       
+       
+       <div class="docstring">
+      Raised when the requested functionality is not yet available, but is
+      likely to become available after some time has passed.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:AddToGroup"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Groups.html#Method:AddToGroup">Permalink</a>)</span>
+     <h2>AddToGroup (s: Group, au: Members) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Group &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The group to alter.</div>
+      
+       <li>
+        Members &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The set of members to include in the group.</div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Add the given members to the given group, creating it if
+          necessary.</p>
+
+        <p>If <a href="Connection_Interface_Contact_Groups.html#Property:DisjointGroups" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactGroups.DisjointGroups">DisjointGroups</a> is true,
+          this will also remove each member from their previous group.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This is good for user interfaces in which you can edit groups
+            via drag-and-drop.</p>
+        </div></div>
+
+        <p>Any <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsCreated" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsCreated">GroupsCreated</a>,
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsChanged">GroupsChanged</a> and
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsRemoved" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsRemoved">GroupsRemoved</a> signals that result from
+          this method call MUST be emitted before the method returns.</p>
+
+        <p>This method SHOULD NOT be called until the
+          <a href="Connection_Interface_Contact_List.html#Property:ContactListState" namespace="ofdT.Connection.Interface.ContactList" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactList.ContactListState">ContactListState</a> changes to Success.
+          If the ContactListState is Failure, this method SHOULD raise the
+          same error as
+          <a href="Connection_Interface_Contact_List.html#Method:GetContactListAttributes" namespace="ofdT.Connection.Interface.ContactList" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactList.GetContactListAttributes">GetContactListAttributes</a>.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            Raised if <a href="Connection_Interface_Contact_Groups.html#Property:GroupStorage" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupStorage">GroupStorage</a>
+            is Contact_Metadata_Storage_Type_None, i.e. groups cannot be edited.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Yet" title="Error org.freedesktop.Telepathy.Error.NotYet">Not Yet</a></li>
+       
+       
+       
+       <div class="docstring">
+      Raised when the requested functionality is not yet available, but is
+      likely to become available after some time has passed.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RemoveFromGroup"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Groups.html#Method:RemoveFromGroup">Permalink</a>)</span>
+     <h2>RemoveFromGroup (s: Group, au: Members) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Group &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The group to alter. If it does not exist, then it has
+          no members by definition, so this method SHOULD return
+          successfully.</div>
+      
+       <li>
+        Members &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The set of members to remove from the group. It is not
+          an error to remove members who are already not in the group.
+          If there are no members left in the group afterwards, the group MAY
+          itself be removed.</div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Remove the given members from the given group.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This is good for user interfaces in which you can edit groups
+            via drag-and-drop.</p>
+        </div></div>
+
+        <p>Any <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsChanged">GroupsChanged</a> or
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsRemoved" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsRemoved">GroupsRemoved</a> signals that result from
+          this method call MUST be emitted before the method returns.</p>
+
+        <p>This method SHOULD NOT be called until the
+          <a href="Connection_Interface_Contact_List.html#Property:ContactListState" namespace="ofdT.Connection.Interface.ContactList" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactList.ContactListState">ContactListState</a> changes to Success.
+          If the ContactListState is Failure, this method SHOULD raise the
+          same error as
+          <a href="Connection_Interface_Contact_List.html#Method:GetContactListAttributes" namespace="ofdT.Connection.Interface.ContactList" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactList.GetContactListAttributes">GetContactListAttributes</a>.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            Raised if <a href="Connection_Interface_Contact_Groups.html#Property:GroupStorage" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupStorage">GroupStorage</a>
+            is Contact_Metadata_Storage_Type_None, i.e. groups cannot be edited.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Yet" title="Error org.freedesktop.Telepathy.Error.NotYet">Not Yet</a></li>
+       
+       
+       
+       <div class="docstring">
+      Raised when the requested functionality is not yet available, but is
+      likely to become available after some time has passed.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RemoveGroup"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Groups.html#Method:RemoveGroup">Permalink</a>)</span>
+     <h2>RemoveGroup (s: Group) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Group &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The group to remove.</div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Remove all members from the given group, then remove the group
+          itself. If the group already does not exist, this method SHOULD
+          return successfully.</p>
+
+        <p>Any <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsChanged">GroupsChanged</a> or
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsRemoved" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsRemoved">GroupsRemoved</a> signals that result from
+          this method call MUST be emitted before the method returns.</p>
+
+        <p>This method SHOULD NOT be called until the
+          <a href="Connection_Interface_Contact_List.html#Property:ContactListState" namespace="ofdT.Connection.Interface.ContactList" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactList.ContactListState">ContactListState</a> changes to Success.
+          If the ContactListState is Failure, this method SHOULD raise the
+          same error as
+          <a href="Connection_Interface_Contact_List.html#Method:GetContactListAttributes" namespace="ofdT.Connection.Interface.ContactList" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactList.GetContactListAttributes">GetContactListAttributes</a>.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            Raised if <a href="Connection_Interface_Contact_Groups.html#Property:GroupStorage" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupStorage">GroupStorage</a>
+            is Contact_Metadata_Storage_Type_None, i.e. groups cannot be edited.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Yet" title="Error org.freedesktop.Telepathy.Error.NotYet">Not Yet</a></li>
+       
+       
+       
+       <div class="docstring">
+      Raised when the requested functionality is not yet available, but is
+      likely to become available after some time has passed.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RenameGroup"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Groups.html#Method:RenameGroup">Permalink</a>)</span>
+     <h2>RenameGroup (s: Old_Name, s: New_Name) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Old_Name &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The group to rename.</div>
+      
+       <li>
+        New_Name &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The new name for the group.</div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Rename the given group.</p>
+
+        <p>On protocols where groups behave like tags, this is an API
+          short-cut for adding all of the group's members to a group with
+          the new name, then removing the old group.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Otherwise, clients can't perform this operation atomically, even
+            if the connection could.</p>
+        </div></div>
+
+        <p>Any <a href="Connection_Interface_Contact_Groups.html#Signal:GroupRenamed" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupRenamed">GroupRenamed</a> or
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsRemoved" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsRemoved">GroupsRemoved</a> signals that result from
+          this method call MUST be emitted before the method returns.</p>
+
+        <p>This method SHOULD NOT be called until the
+          <a href="Connection_Interface_Contact_List.html#Property:ContactListState" namespace="ofdT.Connection.Interface.ContactList" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactList.ContactListState">ContactListState</a> changes to Success.
+          If the ContactListState is Failure, this method SHOULD raise the
+          same error as
+          <a href="Connection_Interface_Contact_List.html#Method:GetContactListAttributes" namespace="ofdT.Connection.Interface.ContactList" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactList.GetContactListAttributes">GetContactListAttributes</a>.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            Raised if <a href="Connection_Interface_Contact_Groups.html#Property:GroupStorage" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupStorage">GroupStorage</a>
+            is Contact_Metadata_Storage_Type_None, i.e. groups cannot be edited.
+          </div>
+      
+       <li><a href="errors.html#Error:Does Not Exist" title="Error org.freedesktop.Telepathy.Error.DoesNotExist">Does Not Exist</a></li>
+       
+       
+       
+       <div class="docstring">Raised if there is no group with that
+            name.</div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">Raised if there is already a group with the new
+            name.</div>
+      
+       <li><a href="errors.html#Error:Not Yet" title="Error org.freedesktop.Telepathy.Error.NotYet">Not Yet</a></li>
+       
+       
+       
+       <div class="docstring">
+      Raised when the requested functionality is not yet available, but is
+      likely to become available after some time has passed.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:GroupsChanged"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Groups.html#Signal:GroupsChanged">Permalink</a>)</span>
+     <h2>GroupsChanged (au: Contact, as: Added, as: Removed)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Contact &mdash; au
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">The relevant contacts.</div>
+      
+       <li>
+       Added &mdash; as
+       
+       </li>
+       
+       
+       
+       <div class="docstring">The names of groups to which the contacts were
+          added.</div>
+      
+       <li>
+       Removed &mdash; as
+       
+       </li>
+       
+       
+       
+       <div class="docstring">The names of groups from which the contacts were
+          removed.</div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when contacts' groups change.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:GroupsCreated"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Groups.html#Signal:GroupsCreated">Permalink</a>)</span>
+     <h2>GroupsCreated (as: Names)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Names &mdash; as
+       
+       </li>
+       
+       
+       
+       <div class="docstring">The names of the new groups.</div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when new, empty groups are created. This will often be
+        followed by <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsChanged">GroupsChanged</a> signals that
+        add some members.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:GroupRenamed"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Groups.html#Signal:GroupRenamed">Permalink</a>)</span>
+     <h2>GroupRenamed (s: Old_Name, s: New_Name)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Old_Name &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">The old name of the group.</div>
+      
+       <li>
+       New_Name &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">The new name of the group.</div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when a group is renamed, in protocols where this can
+          be distinguished from group creation, removal and membership
+          changes.</p>
+
+        <p>Immediately after this signal is emitted,
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsCreated" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsCreated">GroupsCreated</a> MUST signal the
+          creation of a group with the new name, and
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsRemoved" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsRemoved">GroupsRemoved</a> MUST signal the
+          removal of a group with the old name.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Emitting these extra signals, in this order, means that clients
+            that are interested in the set of groups that exist (but treat a
+            rename and a create/remove pair identically) can ignore the
+            GroupRenamed signal entirely.</p>
+        </div></div>
+
+        <p>If the group was not empty, immediately after those signals are
+          emitted, <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsChanged">GroupsChanged</a> MUST signal
+          that the members of that group were removed from the old name
+          and added to the new name.</p>
+
+        <p>On connection managers where groups behave like tags, renaming a
+          group MAY be signalled as a set of
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsCreated" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsCreated">GroupsCreated</a>,
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsRemoved" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsRemoved">GroupsRemoved</a> and
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsChanged">GroupsChanged</a> signals, instead of
+          emitting this signal.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>On protocols like XMPP, another resource &quot;renaming a group&quot; is
+            indistinguishable from changing contacts' groups individually.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:GroupsRemoved"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Groups.html#Signal:GroupsRemoved">Permalink</a>)</span>
+     <h2>GroupsRemoved (as: Names)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Names &mdash; as
+       
+       </li>
+       
+       
+       
+       <div class="docstring">The names of the groups.</div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when one or more groups are removed. If they had members at
+          the time that they were removed, then immediately after this signal
+          is emitted, <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsChanged">GroupsChanged</a> MUST signal
+          that their members were removed.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Emitting the signals in this order allows for two modes of
+            operation. A client interested only in a contact's set of groups
+            can ignore <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsRemoved" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsRemoved">GroupsRemoved</a> and rely
+            on the <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsChanged">GroupsChanged</a> signal that
+            will follow; a more elaborate client wishing to distinguish between
+            all of a group's members being removed, and the group itself
+            being removed, can additionally watch for
+            <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsRemoved" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsRemoved">GroupsRemoved</a> and use it to
+            disambiguate.</p>
+        </div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:DisjointGroups"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Groups.html#Property:DisjointGroups">Permalink</a>)</span>
+     <h2>
+      DisjointGroups &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>True if each contact can be in at most one group; false if each
+          contact can be in many groups.</p>
+
+        <p>This property cannot change after the connection has moved to the
+          Connected state. Until then, its value is undefined, and it may
+          change at any time, without notification.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:GroupStorage"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Groups.html#Property:GroupStorage">Permalink</a>)</span>
+     <h2>
+      GroupStorage &mdash; u
+      
+        (<a href="Connection_Interface_Contact_List.html#Enum:Contact_Metadata_Storage_Type" title="Enum Contact_Metadata_Storage_Type">Contact_Metadata_Storage_Type</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        <p>Indicates the extent to which contacts' groups can be set and
+          stored.</p>
+
+        <p>This property cannot change after the connection has moved to the
+          Connected state. Until then, its value is undefined, and it may
+          change at any time, without notification.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Groups"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Groups.html#Property:Groups">Permalink</a>)</span>
+     <h2>
+      Groups &mdash; as
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The names of all groups that currently exist. This may be a
+          larger set than the union of all contacts' <code>groups</code>
+          contact attributes, if the connection allows groups to be
+          empty.</p>
+
+        <p>Change notification is via
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsCreated" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsCreated">GroupsCreated</a> and
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsRemoved" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsRemoved">GroupsRemoved</a>; clients can also
+          distinguish between a create/remove pair and a renamed group by
+          receiving <a href="Connection_Interface_Contact_Groups.html#Signal:GroupRenamed" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupRenamed">GroupRenamed</a>.</p>
+
+        <p>This property's value is not meaningful until the
+          <a href="Connection_Interface_Contact_List.html#Property:ContactListState" namespace="ofdT.Connection.Interface.ContactList" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactList.ContactListState">ContactListState</a> has become Success.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset contact-attributes">
+    <a name="contact-attributes"></a>
+    <h1>Contact Attributes</h1>
+    <div>
+      Attributes that a contact can have, accessed with the
+      org.freedesktop.Telepathy.Connection.Interface.Contacts interface.
+    </div>
+    
+    <div class="inset contact-attribute">
+     <a name="Contact-Attribute:groups"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Groups.html#Contact-Attribute:groups">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Connection.Interface.ContactGroups/groups &mdash; as
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The names of groups of which a contact is a member.</p>
+
+        <p>Change notification is via
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsChanged">GroupsChanged</a>; clients can also
+          get extra context for group membership changes by receiving
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupRenamed" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupRenamed">GroupRenamed</a> and
+          <a href="Connection_Interface_Contact_Groups.html#Signal:GroupsRemoved" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactGroups.GroupsRemoved">GroupsRemoved</a>.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

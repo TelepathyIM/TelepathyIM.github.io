@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>ConnectionManager.I.AccountStorage.DRAFT &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.ConnectionManager.Interface.AccountStorage.DRAFT'>ConnectionManager.Interface.AccountStorage.DRAFT</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager_Interface_Account_Storage.html#Method:ForgetCredentials">ForgetCredentials</a></td>
+       <td>(s: Account_Id)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager_Interface_Account_Storage.html#Method:RemoveAccount">RemoveAccount</a></td>
+       <td>(s: Account_Id)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager_Interface_Account_Storage.html#Property:Accounts">Accounts</a></td>
+       <td>
+        a{su}
+        
+          (<a href="Connection_Manager_Interface_Account_Storage.html#Mapping:Account_Flags_Map" title="Mapping Account_Flags_Map">
+              Account_Flags_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager_Interface_Account_Storage.html#Flags:Account_Flags">Account_Flags</a></td>
+       <td>Flags</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager_Interface_Account_Storage.html#Mapping:Account_Flags_Map">Account_Flags_Map</a></td>
+       <td>Mapping</td>
+       <td>a{su}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is experimental and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   <div class="annotation added"><span class="version">Added in 0.21.10. </span>(draft 1)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection_Manager.html" title="Interface org.freedesktop.Telepathy.ConnectionManager">org.freedesktop.Telepathy.ConnectionManager</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for connection managers that store account details
+        internally.  At the moment this consists only of storing an account's
+        credentials, but other functionality may be added in the future.</p>
+
+      <p><a href="Account.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.Account">Account</a> objects
+        representing accounts on a connection manager that implements this
+        interface should implement the
+	<a href="Account_Interface_External_Password_Storage.html" namespace="ofdT.Account.Interface" title="Interface org.freedesktop.Telepathy.Account.Interface.ExternalPasswordStorage.DRAFT">ExternalPasswordStorage.DRAFT</a>
+        interface.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:ForgetCredentials"></a>
+     <span class="permalink">(<a href="Connection_Manager_Interface_Account_Storage.html#Method:ForgetCredentials">Permalink</a>)</span>
+     <h2>ForgetCredentials (s: Account_Id) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Account_Id &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An account id as returned from
+	  <a href="Protocol.html#Method:IdentifyAccount" namespace="ofdT" title="Method org.freedesktop.Telepathy.Protocol.IdentifyAccount">Protocol.IdentifyAccount</a>.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Clears any saved credentials associated with the specified Account_Id.
+        Any other saved data related to the account will be unaffected.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The account id is invalid.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RemoveAccount"></a>
+     <span class="permalink">(<a href="Connection_Manager_Interface_Account_Storage.html#Method:RemoveAccount">Permalink</a>)</span>
+     <h2>RemoveAccount (s: Account_Id) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Account_Id &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An account id as returned from
+	  <a href="Protocol.html#Method:IdentifyAccount" namespace="ofdT" title="Method org.freedesktop.Telepathy.Protocol.IdentifyAccount">Protocol.IdentifyAccount</a>.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Completely removes all data associated with an account from the
+        connection manager's internal storage.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The account id is invalid.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Accounts"></a>
+     <span class="permalink">(<a href="Connection_Manager_Interface_Account_Storage.html#Property:Accounts">Permalink</a>)</span>
+     <h2>
+      Accounts &mdash; a{su}
+      
+        (<a href="Connection_Manager_Interface_Account_Storage.html#Mapping:Account_Flags_Map" title="Mapping Account_Flags_Map">Account_Flags_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The set of Accounts stored in this Connection Manager, and flags
+          indicating their status.</p>
+
+        <p>Change notification for this property is provided by the standard
+          D-Bus <code>PropertiesChanged</code> signal.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Flags:Account_Flags"></a>
+      <span class="permalink">Flags (<a href="Connection_Manager_Interface_Account_Storage.html#Flags:Account_Flags">Permalink</a>)</span>
+      <h2>
+       Account_Flags &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A set of flags representing the status of the Account stored in the
+        Connection Manager.
+      </div>
+      <ul>
+<li>Credentials_Stored (1)</li>
+<div class="docstring">
+          The associated account has its authentication credentials (password)
+          stored in the connection manager
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Account_Flags_Map"></a>
+      <span class="permalink">Mapping (<a href="Connection_Manager_Interface_Account_Storage.html#Mapping:Account_Flags_Map">Permalink</a>)</span>
+      <h2>
+       Account_Flags_Map &mdash; a{su}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A mapping from Account_Ids to account flags.
+      </div>
+      <ul>
+<li>Account_Id &mdash; s</li>
+<li>Flags &mdash; u (<a href="Connection_Manager_Interface_Account_Storage.html#Flags:Account_Flags" title="Flags Account_Flags">Account_Flags</a>)</li>
+</ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

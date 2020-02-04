@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.Room2 &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.Room2'>Channel.Interface.Room2</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room.html#Property:RoomName">RoomName</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room.html#Property:Server">Server</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room.html#Property:Creator">Creator</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room.html#Property:CreatorHandle">CreatorHandle</a></td>
+       <td>
+        u
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">
+              Contact_Handle</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room.html#Property:CreationTimestamp">CreationTimestamp</a></td>
+       <td>
+        x
+        
+          (<a href="generic-types.html#Simple-Type:Unix_Timestamp64" title="Simple Type Unix_Timestamp64">
+              Unix_Timestamp64</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.24.0. </span>(version 2)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>Different IM protocols use a variety of ways to name chat rooms. The
+        simplest example is perhaps IRC, where chat rooms have short,
+        persistent, human-readable string names, and are generally global
+        across the network. Skype chat rooms have persistent string names, so
+        you can leave and re-join a room, but these names are opaque unique
+        identifiers. MSN chat rooms are unnamed, and you can only join one by
+        being invited. And XMPP wins the coveted “most complicated chat rooms”
+        prize: chat rooms may be hosted by different servers with different DNS
+        names; normally they have human-readable names, except that all MUCs on
+        Google Talk's conference server have UUIDs as names, and <a href="http://xmpp.org/extensions/xep-0045.html#createroom-unique"><acronym title="XMPP Extension Protocol">XEP</acronym>-0045 §10.1.4
+        <q>Requesting a Unique Room Name</q></a> defines a protocol for
+        requesting a unique, opaque room name on the server. Note that
+        this interface is not restricted to Text channels, and can
+        also be used on Call channels.</p>
+
+      <p>This interface intends to support and differentiate these mechanisms
+        more clearly than the <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+        and <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>
+        properties can alone. It initially contains a pair of properties used
+        to represent the human-readable parts of a
+        <a href="Connection.html#Simple-Type:Room_Handle">Room_Handle</a>'s identifier, if any. The above examples
+        for different protocols are represented as follows:</p>
+
+      <ul>
+        <li>The IRC channel <tt>#telepathy</tt> on Freenode is represented by a
+          channel with properties
+          <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+          = <code>Room</code>,
+          <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>
+          = <code>&quot;#telepathy&quot;</code>,
+          <a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a> = <code>&quot;#telepathy&quot;</code>,
+          <a href="Channel_Interface_Room.html#Property:Server" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.Server">Server</a> = <code>&quot;&quot;</code>, indicating
+          that the room has a human-readable identifier, and is not confined to
+          a particular server on the network.
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            Actually, IRC supports creating “local” channels specific to the
+            server they are created on. These channels have identifiers
+            starting with <tt>&amp;</tt> rather than <tt>#</tt>. These could be
+            represented by setting <a href="Channel_Interface_Room.html#Property:Server" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.Server">Server</a>
+            appropriately.
+          </div></div>
+        </li>
+
+        <li>A Skype group chat with opaque identifier <tt>0xdeadbeef</tt> has
+          <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+          = <code>Room</code>,
+          <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>
+          = <code>&quot;0xdeadbeef&quot;</code>,
+          <a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a> = <code>&quot;&quot;</code>,
+          <a href="Channel_Interface_Room.html#Property:Server" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.Server">Server</a> = <code>&quot;&quot;</code>, indicating
+          that the room has an identifier but no human-readable name.
+        </li>
+
+        <li>An MSN group chat has
+          <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+          = <code>None</code>,
+          <a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a> = <code>&quot;&quot;</code>,
+          <a href="Channel_Interface_Room.html#Property:Server" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.Server">Server</a> = <code>&quot;&quot;</code>, indicating
+          that the room has neither an identifier (so it cannot be re-joined
+          later) nor a human-readable name.
+        </li>
+
+        <li>A standard Jabber multi-user chat
+          <tt>jdev@conference.jabber.org</tt> has
+          <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+          = <code>Room</code>,
+          <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>
+          = <code>&quot;jdev@conference.jabber.org&quot;</code>,
+          <a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a> = <code>&quot;jdev&quot;</code>,
+          <a href="Channel_Interface_Room.html#Property:Server" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.Server">Server</a> = <code>&quot;conference.jabber.org&quot;</code>.
+        </li>
+
+        <li>A Google Talk private MUC <tt>private-chat-11111x1x-11xx-111x-1111-111x1xx11x11@groupchat.google.com</tt> has
+          <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+          = <code>Room</code>,
+          <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>
+          = <code>&quot;private-chat-11111x1x-11xx-111x-1111-111x1xx11x11@groupchat.google.com&quot;</code>,
+          <a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a> = <code>&quot;&quot;</code>,
+          <a href="Channel_Interface_Room.html#Property:Server" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.Server">Server</a> =
+          <code>&quot;groupchat.google.com&quot;</code>, indicating that the room has a
+          persistent identifier, no human-readable name, and is hosted by a
+          particular server.
+        </li>
+
+        <li>Similarly, a XEP-0045 §10.1.4 uniquely-named room
+          <tt>lrcgsnthzvwm@conference.jabber.org</tt> has
+          <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+          = <code>Room</code>,
+          <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>
+          = <code>&quot;lrcgsnthzvwm@conference.jabber.org&quot;</code>,
+          <a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a> = <code>&quot;&quot;</code>,
+          <a href="Channel_Interface_Room.html#Property:Server" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.Server">Server</a> =
+          <code>&quot;conference.jabber.org&quot;</code>, indicating that the room has a
+          persistent identifier, no human-readable name, and is hosted by a
+          particular server.
+        </li>
+      </ul>
+
+      <h4>Requestable channel classes</h4>
+
+      <p>If the connection supports joining text chat rooms by unique
+        identifier, like Skype, it should advertise a
+        <a href="Connection_Interface_Requests.html#Struct:Requestable_Channel_Class">Requestable_Channel_Class</a> matching:</p>
+
+      <blockquote>
+        <pre>
+( Fixed = { ...<a href="Channel.html#Property:ChannelType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a>: ...<a href="Channel_Type_Text.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Text</a>,
+            ...<a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>: Room,
+          },
+  Allowed = [ ...<a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>,
+              ...<a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>,
+            ]
+)</pre></blockquote>
+
+      <p>Channel requests must specify either <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a> or <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>.</p>
+
+      <p>If, like IRC, the room identifiers are also human-readable, the
+        RCCs should also include RoomName in <var>Allowed_Properties</var>:</p>
+
+      <blockquote>
+        <pre>
+( Fixed = { ...<a href="Channel.html#Property:ChannelType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a>: ...<a href="Channel_Type_Text.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Text</a>,
+            ...<a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>: Room,
+          },
+  Allowed = [ ...<a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>,
+              ...<a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>,
+              ...<a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a>
+            ]
+),
+
+( Fixed = { ...<a href="Channel.html#Property:ChannelType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a>: ...<a href="Channel_Type_Text.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Text</a>
+          },
+  Allowed = [ ...<a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a>,
+            ]
+)</pre></blockquote>
+
+      <p>Requests may specify the RoomName in place of
+        <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a> or
+        <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>
+        . Note how <a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a> appears
+        in <var>Allowed_Properties</var> of a different RCC because
+        when <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a> is omitted (or is None), both
+        <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a> and
+        <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a> must also be omitted.
+        <a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a> is allowed in conjuction
+        with
+        <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a> or
+        <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>
+        in some situations, as explained below in the <em>Requesting room
+        channels</em> section.
+      </p>
+
+      <p>If rooms may be on different servers, <a href="Channel_Interface_Room.html#Property:Server" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.Server">Server</a>
+        should also be included in the allowed properties, but
+        CMs MUST use a reasonable default
+        <a href="Channel_Interface_Room.html#Property:Server" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.Server">Server</a> if not explicitly
+        specified in a channel request. The CM's default server MAY
+        be configurable by a connection parameter specified on a
+        <a href="Connection_Manager.html#Method:RequestConnection" namespace="org.freedesktop.Telepathy.ConnectionManager" title="Method org.freedesktop.Telepathy.ConnectionManager.RequestConnection">RequestConnection</a> call, similarly to how the
+        fallback conference server is specified on jabber connections in
+        gabble.</p>
+
+      <p>If the protocol supports unnamed rooms, <a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a>
+        should be fixed to the empty string, and
+        <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+        should be None:</p>
+
+      <blockquote>
+        <pre>
+( Fixed = { ...<a href="Channel.html#Property:ChannelType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a>: ...<a href="Channel_Type_Text.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Text</a>,
+            ...<a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>: None,
+            ...<a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a>: &quot;&quot;,
+          },
+  Allowed = [ ]
+)</pre></blockquote>
+
+      <h4>Requesting room channels</h4>
+
+      <p>When explicitly joining a room, the CM cannot know whether the room
+        ID is unique or not. As a result, if this is the case, adding an
+        empty string <a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a> into the channel
+        request will ensure the CM knows. For example:</p>
+
+      <blockquote>
+        <pre>
+{ ...<a href="Channel.html#Property:ChannelType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a>: ...<a href="Channel_Type_Text.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Text</a>,
+  ...<a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>: Room,
+  ...<a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>: &quot;qwerasdfzxcv@conference.jabber.org&quot;,
+  ...<a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a>: &quot;&quot;
+}</pre></blockquote>
+
+      <p>If <a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a> features in
+        <var>Allowed_Properties</var> then the only value allowed in conjunction
+        with <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>
+        or <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>
+        is the empty string. Requests with conflicting
+        <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>
+        and <a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a> properties
+        will fail with InvalidArgument.</p>
+
+      <p>To create a XEP-0045 §10.1.4 uniquely-named room channel
+        on the conference.jabber.org server, then the following channel
+        request should be made:</p>
+
+      <blockquote>
+        <pre>
+{ ...<a href="Channel.html#Property:ChannelType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a>: ...<a href="Channel_Type_Text.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Text</a>,
+  ...<a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a>: &quot;&quot;
+  ...<a href="Channel_Interface_Room.html#Property:Server" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.Server">Server</a>: &quot;conference.jabber.org&quot;
+}</pre>
+      </blockquote>
+
+      <p>If everything is successful, then when the channel request is
+        satisfied, a new channel will appear with the following properties:</p>
+
+      <blockquote>
+        <pre>
+{ ...<a href="Channel.html#Property:ChannelType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a>: ...<a href="Channel_Type_Text.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Text</a>,
+  ...<a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>: Room,
+  ...<a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>: &quot;kajsdhkajshdfjkshdfjkhs@conference.jabber.org&quot;,
+  ...<a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a>: &quot;&quot;
+  ...<a href="Channel_Interface_Room.html#Property:Server" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.Server">Server</a>: &quot;conference.jabber.org&quot;
+}</pre>
+      </blockquote>
+
+      <p>The CM will have received the unique room name (kajsdhkajshdfjkshdfjkhs)
+        and then created a room with such a name on the said server. The empty
+        <a href="Channel_Interface_Room.html#Property:RoomName" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a> property shows that the room name
+        is not human-readable.</p>
+
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RoomName"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room.html#Property:RoomName">Permalink</a>)</span>
+     <h2>
+      RoomName &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The human-readable identifier of a chat room. Note that if
+          non-empty, this property (and perhaps also
+          <a href="Channel_Interface_Room.html#Property:Server" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.Server">Server</a>) should be sufficient in
+          a channel request to join the room. XMPP MUCs have a room name
+          concept which is more like a topic, except more
+          persistent. This D-Bus property is <strong>not</strong> this
+          XMPP room name, but the bit before the @ in the room jid; see
+          <a href="Channel_Interface_Room_Config.html#Property:Title" namespace="ofdT.Channel.Interface" title="Property org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.Title">RoomConfig1.Title</a>
+          for that concept.</p>
+
+        <p>This property cannot change during the lifetime of the channel. It
+          should appear in the <var>Allowed_Properties</var> of a
+          <a href="Connection_Interface_Requests.html#Struct:Requestable_Channel_Class">Requestable_Channel_Class</a> for the connection if
+          rooms on this connection have human-readable names, and can be joined
+          by name.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Server"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room.html#Property:Server">Permalink</a>)</span>
+     <h2>
+      Server &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>For protocols with a concept of chatrooms on multiple servers with
+          different DNS names (like XMPP), the DNS name of the server hosting
+          this channel (for example, <tt>&quot;conference.jabber.org&quot;</tt> or
+          <tt>&quot;groupchat.google.com&quot;</tt>). For other protocols, the empty
+          string.</p>
+
+        <p>This property cannot change during the lifetime of the channel. It
+          should appear in the <var>Allowed_Properties</var> of a
+          <a href="Connection_Interface_Requests.html#Struct:Requestable_Channel_Class">Requestable_Channel_Class</a> for the connection if
+          and only if non-empty values are supported.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Creator"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room.html#Property:Creator">Permalink</a>)</span>
+     <h2>
+      Creator &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.25.0. </span></div>
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        The normalized contact ID representing who created the room; or
+        the empty string if unknown.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CreatorHandle"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room.html#Property:CreatorHandle">Permalink</a>)</span>
+     <h2>
+      CreatorHandle &mdash; u
+      
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.25.0. </span></div>
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        The handle corresponding to <a href="Channel_Interface_Room.html#Property:Creator" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.Creator">Creator</a>;
+        or 0 if <a href="Channel_Interface_Room.html#Property:Creator" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.Creator">Creator</a> is unknown.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CreationTimestamp"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room.html#Property:CreationTimestamp">Permalink</a>)</span>
+     <h2>
+      CreationTimestamp &mdash; x
+      
+        (<a href="generic-types.html#Simple-Type:Unix_Timestamp64" title="Simple Type Unix_Timestamp64">Unix_Timestamp64</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.25.0. </span></div>
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        A unix timestamp indicating when the room was created; or
+        <code>INT_MAX64</code> if unknown.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

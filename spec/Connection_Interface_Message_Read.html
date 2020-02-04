@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.MessageRead.DRAFT &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.MessageRead.DRAFT'>Connection.Interface.MessageRead.DRAFT</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Message_Read.html#Method:MarkRead">MarkRead</a></td>
+       <td>(a{sv}: ChannelRequest, s: MessageToken)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Message_Read.html#Method:MarkUnread">MarkUnread</a></td>
+       <td>(a{sv}: ChannelRequest)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Message_Read.html#Property:ReadReportingSupport">ReadReportingSupport</a></td>
+       <td>
+        u
+        
+          (<a href="Connection_Interface_Message_Read.html#Flags:Read_Reporting_Support_Flags" title="Flags Read_Reporting_Support_Flags">
+              Read_Reporting_Support_Flags</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Message_Read.html#Flags:Read_Reporting_Support_Flags">Read_Reporting_Support_Flags</a></td>
+       <td>Flags</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is experimental and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   <div class="annotation added"><span class="version">Added in 0.UNRELEASED. </span>(draft 1)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface on connections to mark a Channel messages as read or unread.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:MarkRead"></a>
+     <span class="permalink">(<a href="Connection_Interface_Message_Read.html#Method:MarkRead">Permalink</a>)</span>
+     <h2>MarkRead (a{sv}: ChannelRequest, s: MessageToken) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        ChannelRequest &mdash; a{sv}
+        
+          (<a href="Connection_Interface_Requests.html#Mapping:Channel_Class" title="Mapping Channel_Class">Channel_Class</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A dictionary containing desirable properties, with the same
+            semantics as the corresponding parameter to
+            <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="ofdT.Connection.Interface.Requests" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>.</p>
+        </div>
+      
+       <li>
+        MessageToken &mdash; s
+        
+          (<a href="Channel_Interface_Messages.html#Simple-Type:Protocol_Message_Token" title="Simple Type Protocol_Message_Token">Protocol_Message_Token</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>An identifier of the last read message. All messages up to this one
+          should be marked as read. MUST NOT be an empty string.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Mark the referenced Channel history as read.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when one of the provided arguments is invalid.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:MarkUnread"></a>
+     <span class="permalink">(<a href="Connection_Interface_Message_Read.html#Method:MarkUnread">Permalink</a>)</span>
+     <h2>MarkUnread (a{sv}: ChannelRequest) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        ChannelRequest &mdash; a{sv}
+        
+          (<a href="Connection_Interface_Requests.html#Mapping:Channel_Class" title="Mapping Channel_Class">Channel_Class</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A dictionary containing desirable properties, with the same
+          semantics as the corresponding parameter to
+          <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="ofdT.Connection.Interface.Requests" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>.</p>
+      </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+      Manually mark a Channel as unread.
+    </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when one of the provided arguments is invalid.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ReadReportingSupport"></a>
+     <span class="permalink">(<a href="Connection_Interface_Message_Read.html#Property:ReadReportingSupport">Permalink</a>)</span>
+     <h2>
+      ReadReportingSupport &mdash; u
+      
+        (<a href="Connection_Interface_Message_Read.html#Flags:Read_Reporting_Support_Flags" title="Flags Read_Reporting_Support_Flags">Read_Reporting_Support_Flags</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        A bitfield indicating features supported by this channel.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Flags:Read_Reporting_Support_Flags"></a>
+      <span class="permalink">Flags (<a href="Connection_Interface_Message_Read.html#Flags:Read_Reporting_Support_Flags">Permalink</a>)</span>
+      <h2>
+       Read_Reporting_Support_Flags &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        Flags indicating the level of support for read reporting on this
+        connection, as found on the
+        <a href="Connection_Interface_Message_Read.html#Property:ReadReportingSupport" title="Property org.freedesktop.Telepathy.Connection.Interface.MessageRead.DRAFT.ReadReportingSupport">ReadReportingSupport</a> property.
+      </div>
+      <ul>
+<li>Mark_Unread (1)</li>
+<div class="docstring">
+          Clients MAY mark Channels as unread.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

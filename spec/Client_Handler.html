@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Client.Handler &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Client.Handler'>Client.Handler</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Client_Handler.html#Method:HandleChannels">HandleChannels</a></td>
+       <td>(o: Account, o: Connection, a(oa{sv}): Channels, ao: Requests_Satisfied, t: User_Action_Time, a{sv}: Handler_Info)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Client_Handler.html#Property:HandlerChannelFilter">HandlerChannelFilter</a></td>
+       <td>
+        aa{sv}
+        
+          (<a href="Connection_Interface_Requests.html#Mapping:Channel_Class" title="Array of Mapping Channel_Class">
+              Channel_Class_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Client_Handler.html#Property:BypassApproval">BypassApproval</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Client_Handler.html#Property:Capabilities">Capabilities</a></td>
+       <td>
+        as
+        
+          (<a href="Client_Handler.html#Simple-Type:Handler_Capability_Token" title="Array of Simple Type Handler_Capability_Token">
+              Handler_Capability_Token_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Client_Handler.html#Property:HandledChannels">HandledChannels</a></td>
+       <td>
+        ao
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Client_Handler.html#Simple-Type:Handler_Capability_Token">Handler_Capability_Token</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.26. </span>(as a stable interface)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Client.html" title="Interface org.freedesktop.Telepathy.Client">org.freedesktop.Telepathy.Client</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>Handlers are the user interface for a channel. They turn an abstract
+        Telepathy channel into something the user wants to see, like a text
+        message stream or an audio and/or video call.</p>
+
+      <p>For its entire lifetime, each channel on a connection known to the
+        channel dispatcher is either being processed by the channel dispatcher,
+        or being handled by precisely one Handler.</p>
+
+      <p>Because each channel is only handled by one Handler, handlers may
+        perform actions that only make sense to do once, such as acknowledging
+        <a href="Channel_Type_Text.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Text</a>
+        messages, doing the actual streaming for <a href="Channel_Type_Streamed_Media.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamedMedia">StreamedMedia</a>
+        channels with the <a href="Channel_Interface_Media_Signalling.html" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.MediaSignalling">MediaSignalling</a>
+        interface, or transferring the file in <a href="Channel_Type_File_Transfer.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.FileTransfer">FileTransfer</a>
+        channels.</p>
+
+      <p>When a new incoming channel (one with
+        <a href="Channel.html#Property:Requested" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.Requested">Requested</a>
+        = FALSE) is offered to
+        <a href="Client_Approver.html" namespace="org.freedesktop.Telepathy.Client" title="Interface org.freedesktop.Telepathy.Client.Approver">Approver</a>s
+        by the channel dispatcher, it also offers the Approvers a list of all
+        the running or activatable handlers whose
+        <a href="Client_Handler.html#Property:HandlerChannelFilter" title="Property org.freedesktop.Telepathy.Client.Handler.HandlerChannelFilter">HandlerChannelFilter</a> property
+        (possibly as cached in the .client file) indicates that they
+        are able to handle the channel. The Approvers can choose one of
+        those channel handlers to handle the channel.</p>
+
+      <p>When a new outgoing channel (one with
+        <a href="Channel.html#Property:Requested" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.Requested">Requested</a>
+        = TRUE) appears, the channel dispatcher passes it to an appropriate
+        channel handler automatically.
+      </p>
+
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:HandleChannels"></a>
+     <span class="permalink">(<a href="Client_Handler.html#Method:HandleChannels">Permalink</a>)</span>
+     <h2>HandleChannels (o: Account, o: Connection, a(oa{sv}): Channels, ao: Requests_Satisfied, t: User_Action_Time, a{sv}: Handler_Info) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Account &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The
+          <a href="Account.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Account">Account</a>
+          with which the channels are associated. The
+          well-known bus name to use is that of the
+          <a href="Account_Manager.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.AccountManager">AccountManager</a>.
+        </div>
+      
+       <li>
+        Connection &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The Connection with which the channels are associated. The
+          well-known bus name to use can be derived from this object
+          path by removing the leading '/' and replacing all subsequent
+          '/' by '.'.
+        </div>
+      
+       <li>
+        Channels &mdash; a(oa{sv})
+        
+          (<a href="Connection_Interface_Requests.html#Struct:Channel_Details" title="Array of Struct Channel_Details">Channel_Details_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The channels and their immutable properties. Their well-known
+          bus name is the same as that of the Connection.
+        </div>
+      
+       <li>
+        Requests_Satisfied &mdash; ao
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The requests satisfied by these channels.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>If the handler implements Requests, this tells it
+              that these channels match previous <a href="Client_Interface_Requests.html#Method:AddRequest" namespace="org.freedesktop.Telepathy.Client.Interface.Requests" title="Method org.freedesktop.Telepathy.Client.Interface.Requests.AddRequest">AddRequest</a>
+              calls that it may have received.</p>
+
+            <p>There can be more than one, if they were EnsureChannel
+              requests.</p>
+          </div></div>
+        </div>
+      
+       <li>
+        User_Action_Time &mdash; t
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The time at which user action occurred, or 0 if this channel
+          is to be handled for some reason not involving user action.
+          Handlers SHOULD use this for focus-stealing prevention,
+          if applicable.
+          This property has the same semantic as <a href="generic-types.html#Simple-Type:User_Action_Timestamp">User_Action_Timestamp</a>
+          but is unsigned for historical reasons.
+        </div>
+      
+       <li>
+        Handler_Info &mdash; a{sv}
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Additional information about these channels. Currently defined
+            keys are:</p>
+
+          <dl>
+            <dt><code>request-properties</code> - a{oa{sv}}</dt>
+            <dd>A map from <a href="Channel_Request.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ChannelRequest">ChannelRequest</a>
+              paths listed in <var>Requests_Satisfied</var> to
+              <a href="generic-types.html#Mapping:Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>s containing
+              namespaced immutable properties of each request.</dd>
+          </dl>
+
+          <p>When more keys are defined for this dictionary, all will be
+            optional; handlers MAY safely ignore any entry in this
+            dictionary.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Called by the channel dispatcher when this client should handle these
+          channels, or when this client should present channels that it is already
+          handling to the user (e.g. bring them into the foreground).</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Clients are expected to know what channels they're already handling,
+            and which channel object path corresponds to which window or tab.
+            This can easily be done using a hash table keyed by channels' object
+            paths.</p>
+        </div></div>
+
+        <p>This method can raise any D-Bus error. If it does, the
+          handler is assumed to have failed or crashed, and the channel
+          dispatcher MUST recover in an implementation-specific way; it MAY
+          attempt to dispatch the channels to another handler, or close the
+          channels.</p>
+
+        <p>If closing the channels, it is RECOMMENDED that the channel
+          dispatcher attempts to close the channels using
+          <a href="Channel.html#Method:Close" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Channel.Close">Channel.Close</a>,
+          but resorts to calling
+          <a href="Channel_Interface_Destroyable.html#Method:Destroy" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Channel.Interface.Destroyable.Destroy">Channel.Interface.Destroyable.Destroy</a>
+          (if available) or ignoring the channel (if not) if the same handler
+          repeatedly fails to handle channels.</p>
+
+        <p>After HandleChannels returns successfully, the client process is
+          considered to be responsible for the channel until it its unique
+          name disappears from the bus.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>If a process has multiple Client bus names - some temporary and
+            some long-lived - and drops one of the temporary bus names in order
+            to reduce the set of channels that it will handle, any channels
+            that it is already handling should remain unaffected.</p>
+        </div></div>
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:HandlerChannelFilter"></a>
+     <span class="permalink">(<a href="Client_Handler.html#Property:HandlerChannelFilter">Permalink</a>)</span>
+     <h2>
+      HandlerChannelFilter &mdash; aa{sv}
+      
+        (<a href="Connection_Interface_Requests.html#Mapping:Channel_Class" title="Array of Mapping Channel_Class">Channel_Class_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A specification of the channels that this channel handler can
+          deal with. It will be offered to approvers as a potential
+          channel handler for bundles that contain only suitable channels,
+          or for suitable channels that must be handled separately.</p>
+
+        <p>This property works in exactly the same way as the
+          <a href="Client_Observer.html#Property:ObserverChannelFilter" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Client.Observer.ObserverChannelFilter">Client.Observer.ObserverChannelFilter</a>
+          property. In particular, it cannot change while the handler process
+          continues to own the corresponding Client bus name.</p>
+
+        <p>In the .client file, it is represented in the
+          same way as ObserverChannelFilter, but the group has the same
+          name as this interface and the keys start with
+          HandlerChannelFilter instead of ObserverChannelFilter.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:BypassApproval"></a>
+     <span class="permalink">(<a href="Client_Handler.html#Property:BypassApproval">Permalink</a>)</span>
+     <h2>
+      BypassApproval &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If true, channels destined for this handler are automatically
+          handled, without invoking approvers.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The intended usage is to allow a client handling one channel to
+            pick up closely related channels. Suppose a client capable of
+            handling both Text and StreamedMedia,
+            <code>org.freedesktop.Telepathy.Client.Empathy</code>, is
+            handling a StreamedMedia channel. That client can take a second
+            well-known bus name, say
+            <code>org.freedesktop.Telepathy.Client.Empathy._1._42.Bundle1</code>,
+            and configure an object at
+            <code>/org/freedesktop/Telepathy/Client/Empathy/_1/_42/Bundle1</code>
+            with BypassApproval = TRUE,
+            whose <a href="Client_Handler.html#Property:HandlerChannelFilter" title="Property org.freedesktop.Telepathy.Client.Handler.HandlerChannelFilter">HandlerChannelFilter</a>
+            matches closely related Text channels by their Bundle property.</p>
+        </div></div>
+
+        <p>For service-activatable handlers, this property should be specified
+          in the handler's <tt>.client</tt> file as follows:</p>
+
+<pre>
+[org.freedesktop.Telepathy.Client.Handler]
+BypassApproval=true
+</pre>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Capabilities"></a>
+     <span class="permalink">(<a href="Client_Handler.html#Property:Capabilities">Permalink</a>)</span>
+     <h2>
+      Capabilities &mdash; as
+      
+        (<a href="Client_Handler.html#Simple-Type:Handler_Capability_Token" title="Array of Simple Type Handler_Capability_Token">Handler_Capability_Token_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The set of additional capabilities supported by this handler.
+          This describes things like support for streamed media codecs and
+          NAT traversal mechanisms: see the Contact Capabilities
+          interface for more details.</p>
+
+        <p>For handlers that have a <code>.client</code> file, the
+          channel dispatcher may discover this property from the
+          <code>org.freedesktop.Telepathy.Client.Handler.Capabilities</code>
+          group; for each capability, that group contains a key
+          whose name is the capability, with value <code>true</code>.
+          Keys with other values SHOULD NOT appear in this group.</p>
+
+        <p>For instance, the <code>.client</code> file for a streamed media
+          handler that supports ICE-UDP NAT traversal, Speex audio,
+          and Theora and H264 video might contain this group:</p>
+
+<pre>
+[org.freedesktop.Telepathy.Client.Handler.Capabilities]
+org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/ice-udp=true
+org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/audio/speex=true
+org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/video/theora=true
+org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/video/h264=true
+</pre>
+
+        <p>Like the <a href="Client_Handler.html#Property:HandlerChannelFilter" title="Property org.freedesktop.Telepathy.Client.Handler.HandlerChannelFilter">HandlerChannelFilter</a>
+          property, this property cannot change while the Handler owns its
+          Client bus name. However, the <code>.client</code> file, if any,
+          can change (due to upgrades or installation of pluggable codecs),
+          and the capabilities really supported by the handler might not
+          exactly match what is cached in the <code>.client</code> file.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The client file is installed statically and is intended to list
+            codecs etc. that the handler guarantees it can support (e.g. by
+            having a hard dependency on them), whereas the running handler
+            process might be able to find additional codecs.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:HandledChannels"></a>
+     <span class="permalink">(<a href="Client_Handler.html#Property:HandledChannels">Permalink</a>)</span>
+     <h2>
+      HandledChannels &mdash; ao
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A list of the channels that this process is currently handling.</p>
+
+        <p>There is no change notification.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This property exists for state recovery - it makes it possible
+            for channel handling to survive a ChannelDispatcher crash.</p>
+
+          <p>If the channel dispatcher is automatically replaced, the
+            replacement can discover all Handlers by looking for the Client
+            well-known bus names, and discover which channels they are
+            currently handling. Once this has been done, all unhandled
+            channels can be re-dispatched, and the only issue visible to
+            the user is that unhandled channels that they have already
+            approved might be sent back to Approvers.</p>
+        </div></div>
+
+        <p>The value of this property SHOULD be the same for all Client
+          instances that share a unique bus name, and SHOULD include all
+          channels that are being handled, even if they were conceptually
+          handled by a different Client instance.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Otherwise, when a process released a temporary Client name,
+            channels that it handled because of that Client name would no
+            longer be state-recoverable.</p>
+        </div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Handler_Capability_Token"></a>
+      <span class="permalink">Simple Type (<a href="Client_Handler.html#Simple-Type:Handler_Capability_Token">Permalink</a>)</span>
+      <h2>
+       Handler_Capability_Token &mdash; s
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A <a href="generic-types.html#Simple-Type:DBus_Interface">DBus_Interface</a>, followed by a slash '/' character
+        and an identifier for a capability defined by that interface. The
+        capability identifier SHOULD be in lower case. If an interface
+        references an external specification which is case-insensitive (such
+        as MIME), then names from that specification MUST be normalized to
+        lower-case before providing them to this Telepathy API, so that
+        implementations can safely rely on simple byte-by-byte comparison.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          These aren't D-Bus core Properties, and we want them to look visibly
+          different.
+        </div></div>
+
+        <p>So far, all client capabilities are defined by the <a href="Channel_Interface_Media_Signalling.html" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.MediaSignalling">MediaSignalling</a>
+          interface.</p>
+      </div>
+      
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

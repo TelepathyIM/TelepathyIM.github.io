@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Call1.Content.I.DTMF &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Call1.Content.Interface.DTMF'>Call1.Content.Interface.DTMF</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_DTMF.html#Method:StartTone">StartTone</a></td>
+       <td>(y: Event)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_DTMF.html#Method:StopTone">StopTone</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_DTMF.html#Method:MultipleTones">MultipleTones</a></td>
+       <td>(s: Tones)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_DTMF.html#Signal:TonesDeferred">TonesDeferred</a></td>
+       <td>(s: Tones)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_DTMF.html#Signal:SendingTones">SendingTones</a></td>
+       <td>(s: Tones)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_DTMF.html#Signal:StoppedTones">StoppedTones</a></td>
+       <td>(b: Cancelled)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_DTMF.html#Property:CurrentlySendingTones">CurrentlySendingTones</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Interface_DTMF.html#Property:DeferredTones">DeferredTones</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.25.2. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Call_Content.html" title="Interface org.freedesktop.Telepathy.Call1.Content">org.freedesktop.Telepathy.Call1.Content</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      An interface that gives audio Contents the ability to send DTMF events
+      which have been established using the Call1 channel
+      type. The event codes used are in common with those defined in <a href="http://www.rfc-editor.org/rfc/rfc4733.txt">RFC4733</a>, and are
+      listed in the <a href="Channel_Interface_DTMF.html#Enum:DTMF_Event">DTMF_Event</a> enumeration.
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:StartTone"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_DTMF.html#Method:StartTone">Permalink</a>)</span>
+     <h2>StartTone (y: Event) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Event &mdash; y
+        
+          (<a href="Channel_Interface_DTMF.html#Enum:DTMF_Event" title="Enum DTMF_Event">DTMF_Event</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">A numeric event code from the DTMF_Event enum.</div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        <p>Start sending a DTMF tone to all eligible streams in the channel.
+          Where possible, the tone will continue until
+          <a href="Call_Content_Interface_DTMF.html#Method:StopTone" title="Method org.freedesktop.Telepathy.Call1.Content.Interface.DTMF.StopTone">StopTone</a> is called. On certain protocols,
+          it may only be possible to send events with a predetermined length. In
+          this case, the implementation MAY emit a fixed-length tone, and the
+          StopTone method call SHOULD return NotAvailable.</p>
+          <div class="rationale"><h5>Rationale:</h5><div>
+            The client may wish to control the exact duration and timing of the
+            tones sent as a result of user's interaction with the dialpad, thus
+            starting and stopping the tone sending explicitly.
+          </div></div>
+
+        <p>Tone overlaping or queueing is not supported, so this method can only
+          be called if no DTMF tones are already being played.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+	    The event id was invalid.
+          </div>
+      
+       <li><a href="errors.html#Error:Service Busy" title="Error org.freedesktop.Telepathy.Error.ServiceBusy">Service Busy</a></li>
+       
+       
+       
+       <div class="docstring">
+            DTMF tones are already being played.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:StopTone"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_DTMF.html#Method:StopTone">Permalink</a>)</span>
+     <h2>StopTone () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring">
+        Stop sending any DTMF tones which have been started using the
+        <a href="Call_Content_Interface_DTMF.html#Method:StartTone" title="Method org.freedesktop.Telepathy.Call1.Content.Interface.DTMF.StartTone">StartTone</a> or
+        <a href="Call_Content_Interface_DTMF.html#Method:MultipleTones" title="Method org.freedesktop.Telepathy.Call1.Content.Interface.DTMF.MultipleTones">MultipleTones</a> methods.
+        If there is no current tone, this method will do nothing.
+        If MultipleTones was used, the client should not assume the
+        sending has stopped immediately; instead, the client should wait
+        for the StoppedTones signal.
+        <div class="rationale"><h5>Rationale:</h5><div>
+          On some protocols it might be impossible to cancel queued tones
+          immediately.
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            Continuous tones are not supported by this stream. Deprecated,
+            since stream IDs are ignored.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:MultipleTones"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_DTMF.html#Method:MultipleTones">Permalink</a>)</span>
+     <h2>MultipleTones (s: Tones) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Tones &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A string representation of one or more DTMF
+            events. Implementations of this method MUST support all of the
+            following characters in this string:</p>
+
+          <ul>
+            <li>the digits 0-9, letters A-D and a-d, and symbols '*' and '#'
+              correspond to the members of <a href="Channel_Interface_DTMF.html#Enum:DTMF_Event">DTMF_Event</a></li>
+
+            <li>any of 'p', 'P', 'x', 'X' or ',' (comma) results in an
+              implementation-defined pause, typically for 3 seconds</li>
+
+            <li>'w' or 'W' waits for the user to continue, by stopping
+              interpretation of the string, and if there is more to be played,
+              emitting the <a href="Call_Content_Interface_DTMF.html#Signal:TonesDeferred" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.DTMF.TonesDeferred">TonesDeferred</a> signal
+              with the rest of the string as its argument: see that signal
+              for details</li>
+          </ul>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        <p>Send multiple DTMF events to all eligible streams in the channel.
+        Each tone will be played for an implementation-defined number of
+        milliseconds (typically 250ms), followed by a gap before the next tone
+        is played (typically 100ms). The
+        duration and gap are defined by the protocol or connection manager.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>In cases where the client knows in advance the tone sequence it
+            wants to send, it's easier to use this method than manually start
+            and stop each tone in the sequence.</p>
+
+          <p>The tone and gap lengths may need to vary for interoperability,
+            according to the protocol and other implementations' ability to
+            recognise tones. At the time of writing, GStreamer uses a
+            minimum of 250ms tones and 100ms gaps when playing in-band DTMF
+            in the normal audio stream, or 70ms tones and 50ms gaps when
+            encoding DTMF as <code>audio/telephone-event</code>.</p>
+        </div></div>
+
+        <p>Tone overlaping or queueing is not supported, so this method can only
+          be called if no DTMF tones are already being played.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The supplied Tones string was invalid.
+          </div>
+      
+       <li><a href="errors.html#Error:Service Busy" title="Error org.freedesktop.Telepathy.Error.ServiceBusy">Service Busy</a></li>
+       
+       
+       
+       <div class="docstring">
+            DTMF tones are already being played.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:TonesDeferred"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_DTMF.html#Signal:TonesDeferred">Permalink</a>)</span>
+     <h2>TonesDeferred (s: Tones)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.21.3. </span></div>
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Tones &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">The new non-empty value of
+          <a href="Call_Content_Interface_DTMF.html#Property:DeferredTones" title="Property org.freedesktop.Telepathy.Call1.Content.Interface.DTMF.DeferredTones">DeferredTones</a>.</div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when 'w' or 'W', indicating &quot;wait for the user to continue&quot;,
+          is encountered while playing a DTMF string queued by
+          <a href="Call_Content_Interface_DTMF.html#Method:MultipleTones" title="Method org.freedesktop.Telepathy.Call1.Content.Interface.DTMF.MultipleTones">MultipleTones</a>. Any queued DTMF events
+          after the 'w', which have not yet been played, are placed in the
+          <a href="Call_Content_Interface_DTMF.html#Property:DeferredTones" title="Property org.freedesktop.Telepathy.Call1.Content.Interface.DTMF.DeferredTones">DeferredTones</a> property and copied
+          into this signal's argument.</p>
+
+        <p>When the channel handler is ready to continue, it MAY pass the
+          value of <a href="Call_Content_Interface_DTMF.html#Property:DeferredTones" title="Property org.freedesktop.Telepathy.Call1.Content.Interface.DTMF.DeferredTones">DeferredTones</a> to
+          <a href="Call_Content_Interface_DTMF.html#Method:MultipleTones" title="Method org.freedesktop.Telepathy.Call1.Content.Interface.DTMF.MultipleTones">MultipleTones</a>, to resume sending.
+          Alternatively, it MAY ignore the deferred tones, or even play
+          different tones instead. Any deferred tones are discarded the next
+          time a tone is played.</p>
+
+        <p>This signal SHOULD NOT be emitted if there is nothing left to play,
+          i.e. if the 'w' was the last character in the DTMF string.</p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:SendingTones"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_DTMF.html#Signal:SendingTones">Permalink</a>)</span>
+     <h2>SendingTones (s: Tones)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Tones &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">DTMF string (one or more events) that is to be played.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>DTMF tone(s)are being sent to all eligible streams in the channel.
+        The signal is provided to indicating the fact that the streams are
+        currently being used to send one or more DTMF tones, so any other
+        media input is not getting through to the audio stream. It also
+        serves as a cue for the
+        <a href="Call_Content_Interface_DTMF.html#Method:StopTone" title="Method org.freedesktop.Telepathy.Call1.Content.Interface.DTMF.StopTone">StopTone</a> method.</p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:StoppedTones"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_DTMF.html#Signal:StoppedTones">Permalink</a>)</span>
+     <h2>StoppedTones (b: Cancelled)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Cancelled &mdash; b
+       
+       </li>
+       
+       
+       
+       <div class="docstring">True if the DTMF tones were actively cancelled via
+          <a href="Call_Content_Interface_DTMF.html#Method:StopTone" title="Method org.freedesktop.Telepathy.Call1.Content.Interface.DTMF.StopTone">StopTone</a>.</div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>DTMF tones have finished playing on streams in this channel.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CurrentlySendingTones"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_DTMF.html#Property:CurrentlySendingTones">Permalink</a>)</span>
+     <h2>
+      CurrentlySendingTones &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        Indicates whether there are DTMF tones currently being sent in the
+        channel. If so, the client should wait for
+        <a href="Call_Content_Interface_DTMF.html#Signal:StoppedTones" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.DTMF.StoppedTones">StoppedTones</a> signal before trying to
+        send more tones.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:DeferredTones"></a>
+     <span class="permalink">(<a href="Call_Content_Interface_DTMF.html#Property:DeferredTones">Permalink</a>)</span>
+     <h2>
+      DeferredTones &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The tones waiting for the user to continue, if any.</p>
+
+        <p>When this property is set to a non-empty value,
+          <a href="Call_Content_Interface_DTMF.html#Signal:TonesDeferred" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.DTMF.TonesDeferred">TonesDeferred</a> is emitted.
+          When any tones are played (i.e. whenever
+          <a href="Call_Content_Interface_DTMF.html#Signal:SendingTones" title="Signal org.freedesktop.Telepathy.Call1.Content.Interface.DTMF.SendingTones">SendingTones</a> is emitted),
+          this property is reset to the empty string.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

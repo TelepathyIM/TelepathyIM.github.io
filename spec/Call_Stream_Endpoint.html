@@ -1,0 +1,1311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Call1.Stream.Endpoint &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Call1.Stream.Endpoint'>Call1.Stream.Endpoint</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Method:SetSelectedCandidatePair">SetSelectedCandidatePair</a></td>
+       <td>((usua{sv}): Local_Candidate, (usua{sv}): Remote_Candidate)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Method:SetEndpointState">SetEndpointState</a></td>
+       <td>(u: Component, u: State)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Method:AcceptSelectedCandidatePair">AcceptSelectedCandidatePair</a></td>
+       <td>((usua{sv}): Local_Candidate, (usua{sv}): Remote_Candidate)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Method:RejectSelectedCandidatePair">RejectSelectedCandidatePair</a></td>
+       <td>((usua{sv}): Local_Candidate, (usua{sv}): Remote_Candidate)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Method:SetControlling">SetControlling</a></td>
+       <td>(b: Controlling)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Signal:RemoteCredentialsSet">RemoteCredentialsSet</a></td>
+       <td>(s: Username, s: Password)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Signal:RemoteCandidatesAdded">RemoteCandidatesAdded</a></td>
+       <td>(a(usua{sv}): Candidates)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Signal:CandidatePairSelected">CandidatePairSelected</a></td>
+       <td>((usua{sv}): Local_Candidate, (usua{sv}): Remote_Candidate)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Signal:EndpointStateChanged">EndpointStateChanged</a></td>
+       <td>(u: Component, u: State)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Signal:ControllingChanged">ControllingChanged</a></td>
+       <td>(b: Controlling)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Property:RemoteCredentials">RemoteCredentials</a></td>
+       <td>
+        (ss)
+        
+          (<a href="Call_Stream_Interface_Media.html#Struct:Stream_Credentials" title="Struct Stream_Credentials">
+              Stream_Credentials</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Property:RemoteCandidates">RemoteCandidates</a></td>
+       <td>
+        a(usua{sv})
+        
+          (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Array of Struct Candidate">
+              Candidate_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Property:SelectedCandidatePairs">SelectedCandidatePairs</a></td>
+       <td>
+        a((usua{sv})(usua{sv}))
+        
+          (<a href="Call_Stream_Endpoint.html#Struct:Candidate_Pair" title="Array of Struct Candidate_Pair">
+              Candidate_Pair_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Property:EndpointState">EndpointState</a></td>
+       <td>
+        a{uu}
+        
+          (<a href="Call_Stream_Endpoint.html#Mapping:Component_State_Map" title="Mapping Component_State_Map">
+              Component_State_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Property:Transport">Transport</a></td>
+       <td>
+        u
+        
+          (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Transport_Type" title="Enum Stream_Transport_Type">
+              Stream_Transport_Type</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Property:Controlling">Controlling</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Property:IsICELite">IsICELite</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Enum:Stream_Endpoint_State">Stream_Endpoint_State</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Mapping:Component_State_Map">Component_State_Map</a></td>
+       <td>Mapping</td>
+       <td>a{uu}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Endpoint.html#Struct:Candidate_Pair">Candidate_Pair</a></td>
+       <td>Struct</td>
+       <td>((usua{sv})(usua{sv}))</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.25.2. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This object represents an endpoint for a stream. In a one-to-one
+        call, there will be one (bidirectional) stream per content and
+        one endpoint per stream (as there is only one remote
+        contact). In a multi-user call there is a stream for each remote
+        contact and each stream has one endpoint as it refers to the one
+        physical machine on the other end of the stream.</p>
+
+      <p>The multiple endpoint use case appears when SIP call forking
+        is used. Unlike jingle call forking (which is just making
+        multiple jingle calls to different resources appear as one
+        call), SIP call forking is actually done at the server so you
+        have one stream to the remote contact and then and endpoint for
+        each SIP client to be called.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:SetSelectedCandidatePair"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Method:SetSelectedCandidatePair">Permalink</a>)</span>
+     <h2>SetSelectedCandidatePair ((usua{sv}): Local_Candidate, (usua{sv}): Remote_Candidate) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Local_Candidate &mdash; (usua{sv})
+        
+          (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Struct Candidate">Candidate</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The local candidate that has been selected.
+        </div>
+      
+       <li>
+        Remote_Candidate &mdash; (usua{sv})
+        
+          (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Struct Candidate">Candidate</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The remote candidate that has been selected.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Update the entry in
+        <a href="Call_Stream_Endpoint.html#Property:SelectedCandidatePairs" title="Property org.freedesktop.Telepathy.Call1.Stream.Endpoint.SelectedCandidatePairs">SelectedCandidatePairs</a>
+        for a particular component, and signal it to the remote side.</p>
+
+        <p>This method should only be called by the controlling side of an
+        ICE session. See <a href="Call_Stream_Endpoint.html#Signal:CandidatePairSelected" title="Signal org.freedesktop.Telepathy.Call1.Stream.Endpoint.CandidatePairSelected">CandidatePairSelected</a>
+        for details.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>In the SDP offer/answer model, this signalling will take place as
+          generating an updated offer.
+          Note that updates may be queued up until information about all
+          components of all streams is gathered.</p>
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when one of the provided arguments is invalid.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:SetEndpointState"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Method:SetEndpointState">Permalink</a>)</span>
+     <h2>SetEndpointState (u: Component, u: State) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Component &mdash; u
+        
+          (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Component" title="Enum Stream_Component">Stream_Component</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The component whose state needs updating.
+        </div>
+      
+       <li>
+        State &mdash; u
+        
+          (<a href="Call_Stream_Endpoint.html#Enum:Stream_Endpoint_State" title="Enum Stream_Endpoint_State">Stream_Endpoint_State</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new state of this component.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Change the <a href="Call_Stream_Endpoint.html#Property:EndpointState" title="Property org.freedesktop.Telepathy.Call1.Stream.Endpoint.EndpointState">EndpointState</a> of the
+        endpoint.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when one of the provided arguments is invalid.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when the requested functionality is temporarily unavailable.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:AcceptSelectedCandidatePair"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Method:AcceptSelectedCandidatePair">Permalink</a>)</span>
+     <h2>AcceptSelectedCandidatePair ((usua{sv}): Local_Candidate, (usua{sv}): Remote_Candidate) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Local_Candidate &mdash; (usua{sv})
+        
+          (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Struct Candidate">Candidate</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The local candidate that has been selected.
+        </div>
+      
+       <li>
+        Remote_Candidate &mdash; (usua{sv})
+        
+          (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Struct Candidate">Candidate</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The remote candidate that has been selected.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Called in response to
+        <a href="Call_Stream_Endpoint.html#Signal:CandidatePairSelected" title="Signal org.freedesktop.Telepathy.Call1.Stream.Endpoint.CandidatePairSelected">CandidatePairSelected</a> if/when this
+        candidate pair is known to have passed its connectivity checks.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when one of the provided arguments is invalid.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RejectSelectedCandidatePair"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Method:RejectSelectedCandidatePair">Permalink</a>)</span>
+     <h2>RejectSelectedCandidatePair ((usua{sv}): Local_Candidate, (usua{sv}): Remote_Candidate) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Local_Candidate &mdash; (usua{sv})
+        
+          (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Struct Candidate">Candidate</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The local candidate that has been selected.
+        </div>
+      
+       <li>
+        Remote_Candidate &mdash; (usua{sv})
+        
+          (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Struct Candidate">Candidate</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The remote candidate that has been selected.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Called in response to
+        <a href="Call_Stream_Endpoint.html#Signal:CandidatePairSelected" title="Signal org.freedesktop.Telepathy.Call1.Stream.Endpoint.CandidatePairSelected">CandidatePairSelected</a> if/when this
+        candidate pair is known to have failed its connectivity checks.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when one of the provided arguments is invalid.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:SetControlling"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Method:SetControlling">Permalink</a>)</span>
+     <h2>SetControlling (b: Controlling) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Controlling &mdash; b
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of <a href="Call_Stream_Endpoint.html#Property:Controlling" title="Property org.freedesktop.Telepathy.Call1.Stream.Endpoint.Controlling">Controlling</a>.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Set whether the local side is taking the Controlling role. Note that
+        if there are multiple endpoints (e.g. SIP call forking) it may be the
+        case that all endpoints need to have the same controlling/controlled
+        orientation.
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:RemoteCredentialsSet"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Signal:RemoteCredentialsSet">Permalink</a>)</span>
+     <h2>RemoteCredentialsSet (s: Username, s: Password)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Username &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The username set.
+        </div>
+      
+       <li>
+       Password &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The password set.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the remote ICE credentials for the endpoint are
+        set. If each candidate has different credentials, then this
+        signal will never be fired.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:RemoteCandidatesAdded"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Signal:RemoteCandidatesAdded">Permalink</a>)</span>
+     <h2>RemoteCandidatesAdded (a(usua{sv}): Candidates)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Candidates &mdash; a(usua{sv})
+       
+        (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Array of Struct Candidate">Candidate_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The candidates that were added.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when remote candidates are added to the
+        <a href="Call_Stream_Endpoint.html#Property:RemoteCandidates" title="Property org.freedesktop.Telepathy.Call1.Stream.Endpoint.RemoteCandidates">RemoteCandidates</a> property.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:CandidatePairSelected"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Signal:CandidatePairSelected">Permalink</a>)</span>
+     <h2>CandidatePairSelected ((usua{sv}): Local_Candidate, (usua{sv}): Remote_Candidate)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Local_Candidate &mdash; (usua{sv})
+       
+        (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Struct Candidate">Candidate</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The local candidate that has been selected.
+        </div>
+      
+       <li>
+       Remote_Candidate &mdash; (usua{sv})
+       
+        (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Struct Candidate">Candidate</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The remote candidate that has been selected.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when a candidate is selected for use in the stream by the
+        controlling side of an ICE session.
+        The controlled side should call
+        <a href="Call_Stream_Endpoint.html#Method:AcceptSelectedCandidatePair" title="Method org.freedesktop.Telepathy.Call1.Stream.Endpoint.AcceptSelectedCandidatePair">AcceptSelectedCandidatePair</a> or
+        <a href="Call_Stream_Endpoint.html#Method:RejectSelectedCandidatePair" title="Method org.freedesktop.Telepathy.Call1.Stream.Endpoint.RejectSelectedCandidatePair">RejectSelectedCandidatePair</a> when
+        connectivity checks have either succeeded or failed for this candidate
+        pair. See also: <a href="Call_Stream_Endpoint.html#Property:SelectedCandidatePairs" title="Property org.freedesktop.Telepathy.Call1.Stream.Endpoint.SelectedCandidatePairs">SelectedCandidatePairs</a>.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:EndpointStateChanged"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Signal:EndpointStateChanged">Permalink</a>)</span>
+     <h2>EndpointStateChanged (u: Component, u: State)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Component &mdash; u
+       
+        (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Component" title="Enum Stream_Component">Stream_Component</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The component whose state has changed.
+        </div>
+      
+       <li>
+       State &mdash; u
+       
+        (<a href="Call_Stream_Endpoint.html#Enum:Stream_Endpoint_State" title="Enum Stream_Endpoint_State">Stream_Endpoint_State</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new state of this component.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the <a href="Call_Stream_Endpoint.html#Property:EndpointState" title="Property org.freedesktop.Telepathy.Call1.Stream.Endpoint.EndpointState">EndpointState</a>
+        property changes.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:ControllingChanged"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Signal:ControllingChanged">Permalink</a>)</span>
+     <h2>ControllingChanged (b: Controlling)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Controlling &mdash; b
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of <a href="Call_Stream_Endpoint.html#Property:Controlling" title="Property org.freedesktop.Telepathy.Call1.Stream.Endpoint.Controlling">Controlling</a>.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        The value of <a href="Call_Stream_Endpoint.html#Property:Controlling" title="Property org.freedesktop.Telepathy.Call1.Stream.Endpoint.Controlling">Controlling</a> has changed.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RemoteCredentials"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Property:RemoteCredentials">Permalink</a>)</span>
+     <h2>
+      RemoteCredentials &mdash; (ss)
+      
+        (<a href="Call_Stream_Interface_Media.html#Struct:Stream_Credentials" title="Struct Stream_Credentials">Stream_Credentials</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The ICE credentials used for all candidates. If each candidate
+        has different credentials, then this property SHOULD be (&quot;&quot;,
+        &quot;&quot;). Per-candidate credentials are set in the
+        <a href="Call_Stream_Interface_Media.html#Struct:Candidate">Candidate</a>'s
+        <a href="Call_Stream_Interface_Media.html#Mapping:Candidate_Info">Candidate_Info</a> a{sv}.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RemoteCandidates"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Property:RemoteCandidates">Permalink</a>)</span>
+     <h2>
+      RemoteCandidates &mdash; a(usua{sv})
+      
+        (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Array of Struct Candidate">Candidate_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        A list of candidates for this endpoint.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SelectedCandidatePairs"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Property:SelectedCandidatePairs">Permalink</a>)</span>
+     <h2>
+      SelectedCandidatePairs &mdash; a((usua{sv})(usua{sv}))
+      
+        (<a href="Call_Stream_Endpoint.html#Struct:Candidate_Pair" title="Array of Struct Candidate_Pair">Candidate_Pair_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The candidates that have been selected for use to stream packets
+        to the remote contact for each component of the stream.
+        Change notification is given via the
+        the <a href="Call_Stream_Endpoint.html#Signal:CandidatePairSelected" title="Signal org.freedesktop.Telepathy.Call1.Stream.Endpoint.CandidatePairSelected">CandidatePairSelected</a> signal.</p>
+
+        <p>Note to client implementors (from <a href="http://tools.ietf.org/html/rfc5245#section-9.2.2.3">RFC 5245
+        section 9.2.2.3</a>):</p>
+
+        <blockquote>
+          <p>If at least one of the pairs is In-Progress, the agent SHOULD wait
+          for those checks to complete, and as each completes, redo the
+          processing in this section until there are no losing pairs.</p>
+        </blockquote>
+
+        <p>Also note that some or all of the local candidates in this list may
+        represent a peer-reflexive candidate that do not appear in
+        <a href="Call_Stream_Interface_Media.html#Property:LocalCandidates" namespace="ofdT.Call1.Stream.Interface.Media" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.LocalCandidates">LocalCandidates</a>.</p>
+
+        <p>See <a href="http://tools.ietf.org/html/rfc5245#appendix-B.6">RFC
+        5245 Appendix B.6.</a> for more details about why this is.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:EndpointState"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Property:EndpointState">Permalink</a>)</span>
+     <h2>
+      EndpointState &mdash; a{uu}
+      
+        (<a href="Call_Stream_Endpoint.html#Mapping:Component_State_Map" title="Mapping Component_State_Map">Component_State_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The state of ICE negotiation with this Endpoint for each component of
+        the stream.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Transport"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Property:Transport">Permalink</a>)</span>
+     <h2>
+      Transport &mdash; u
+      
+        (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Transport_Type" title="Enum Stream_Transport_Type">Stream_Transport_Type</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The transport type for the stream endpoint. This can be
+        different from the transport of the Stream in the case where
+        of falling back from <a href="Call_Stream_Interface_Media.html#Enum:Stream_Transport_Type" type="Stream_Transport_Type">ICE</a> to
+        <a href="Call_Stream_Interface_Media.html#Enum:Stream_Transport_Type" type="Stream_Transport_Type">Raw_UDP</a>.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Controlling"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Property:Controlling">Permalink</a>)</span>
+     <h2>
+      Controlling &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+        The local side is taking the controlling role (as defined by ICE RFC
+        5245). Change notification is given via the
+        <a href="Call_Stream_Endpoint.html#Signal:ControllingChanged" title="Signal org.freedesktop.Telepathy.Call1.Stream.Endpoint.ControllingChanged">ControllingChanged</a> signal.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>In ICE, the Caller is normally in controlling mode (and
+        the Callee in controlled-mode), except if the Caller is doing ICE-Lite,
+        in which case it's reversed. The Controlling side is responsible for
+        selecting nominated pairs, and generating updated offers upon
+        conclusion of ICE.</div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:IsICELite"></a>
+     <span class="permalink">(<a href="Call_Stream_Endpoint.html#Property:IsICELite">Permalink</a>)</span>
+     <h2>
+      IsICELite &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The Remote side is an ICE Lite endpoint. (The local side is assumed to
+        always be an ICE Full implementation.)
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Stream_Endpoint_State"></a>
+      <span class="permalink">Enum (<a href="Call_Stream_Endpoint.html#Enum:Stream_Endpoint_State">Permalink</a>)</span>
+      <h2>
+       Stream_Endpoint_State &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        Represents the state of ICE negotiation for a single component of a
+        stream to an endpoint.
+      </div>
+      <ul>
+<li>Connecting (0)</li>
+<div class="docstring">
+          Candidate gathering and connectivity checks are in progress.
+        </div><li>Provisionally_Connected (1)</li>
+<div class="docstring">
+          The streaming implementation has found at least one working
+          candidate pair. It is possible to send media at this point, but the
+          controlling side has yet to negotiate the final candidates for use
+          in this call.
+        </div><li>Fully_Connected (2)</li>
+<div class="docstring">
+          This component of the stream is connected, and an updated offer has
+          been sent and accepted (finalising the candidates to be used for the
+          call). This should be set by the CM in response to
+          <a href="Call_Stream_Endpoint.html#Method:AcceptSelectedCandidatePair" title="Method org.freedesktop.Telepathy.Call1.Stream.Endpoint.AcceptSelectedCandidatePair">AcceptSelectedCandidatePair</a>.
+        </div><li>Exhausted_Candidates (3)</li>
+<div class="docstring">
+          The streaming implementation has tried connecting to all of the
+          available candidates and none of them have connected. This is
+          distinct from Failed, because the CM might be able to provide more
+          candidates later (more likely in XMPP than SIP).
+        </div><li>Failed (4)</li>
+<div class="docstring">
+          The CM and streaming implementation are in agreement that it is
+          impossible to connect to this endpoint. This value should only be
+          set by the CM.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Component_State_Map"></a>
+      <span class="permalink">Mapping (<a href="Call_Stream_Endpoint.html#Mapping:Component_State_Map">Permalink</a>)</span>
+      <h2>
+       Component_State_Map &mdash; a{uu}
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Component &mdash; u (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Component" title="Enum Stream_Component">Stream_Component</a>)</li>
+<li>State &mdash; u (<a href="Call_Stream_Endpoint.html#Enum:Stream_Endpoint_State" title="Enum Stream_Endpoint_State">Stream_Endpoint_State</a>)</li>
+</ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Candidate_Pair"></a>
+      <span class="permalink">Struct (<a href="Call_Stream_Endpoint.html#Struct:Candidate_Pair">Permalink</a>)</span>
+      <h2>
+       Candidate_Pair &mdash; ((usua{sv})(usua{sv}))
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A Pair of candidates.</div>
+      <ul>
+<li>Local &mdash; (usua{sv}) (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Struct Candidate">Candidate</a>)</li>
+<div class="docstring">The local candidate.</div><li>Remote &mdash; (usua{sv}) (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Struct Candidate">Candidate</a>)</li>
+<div class="docstring">The remote candidate.</div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

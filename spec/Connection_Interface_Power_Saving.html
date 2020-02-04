@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.PowerSaving &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.PowerSaving'>Connection.Interface.PowerSaving</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Power_Saving.html#Method:SetPowerSaving">SetPowerSaving</a></td>
+       <td>(b: Activate)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Power_Saving.html#Signal:PowerSavingChanged">PowerSavingChanged</a></td>
+       <td>(b: Active)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Power_Saving.html#Property:PowerSavingActive">PowerSavingActive</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.21.5. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>Some protocols support mechanisms for reducing bandwidth usage—and
+        hence power usage, on mobile devices—when the user is not directly
+        interacting with their IM client. For instance, Google Talk's XMPP
+        server supports queueing incoming presence updates at the client's
+        instruction; the client can instruct the server to deliver all
+        outstanding presence updates at a later time. This interface may be
+        used to instruct the connection manager to enable and disable such
+        protocol-level features when a screensaver is activated, the device
+        screen is locked, and so on, by calling the
+        <a href="Connection_Interface_Power_Saving.html#Method:SetPowerSaving" title="Method org.freedesktop.Telepathy.Connection.Interface.PowerSaving.SetPowerSaving">SetPowerSaving</a> method.</p>
+
+      <p>Enabling power saving SHOULD NOT change behaviour in any way
+        that is noticable to a user not actively interacting with their client.
+        For example, delaying presence updates somewhat is unlikely to be
+        noticed by a user not staring at their device waiting for a contact to
+        come online; on the other hand, requesting that the server queue
+        incoming messages would be noticable by the user, so is not an
+        acceptable effect of calling
+        <a href="Connection_Interface_Power_Saving.html#Method:SetPowerSaving" title="Method org.freedesktop.Telepathy.Connection.Interface.PowerSaving.SetPowerSaving">SetPowerSaving</a>.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:SetPowerSaving"></a>
+     <span class="permalink">(<a href="Connection_Interface_Power_Saving.html#Method:SetPowerSaving">Permalink</a>)</span>
+     <h2>SetPowerSaving (b: Activate) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Activate &mdash; b
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          <code>True</code> if protocol-level power saving features should be
+          activated; <code>False</code> if they should be de-activated.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Turn power saving mode on or off.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Depending on the device's activity level, the
+            connection can have its power saving mode turned on or off.</p>
+        </div></div>
+
+        <p>Errors raised by this method indicate that power saving could not be
+          enabled, which SHOULD NOT generally be treated as fatal.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          If the CM cannot switch modes, either because of the
+          protocol (<code>NotImplemented</code>), or because of the service
+          (<code>NotAvailable</code>), Mission Control (or whoever manages this)
+          should be made aware. The error could be ignored or, in the extreme,
+          be fascist and disconnect the account.
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The current connection has no power saving features.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when the requested method, channel, etc is not available on this connection.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:PowerSavingChanged"></a>
+     <span class="permalink">(<a href="Connection_Interface_Power_Saving.html#Signal:PowerSavingChanged">Permalink</a>)</span>
+     <h2>PowerSavingChanged (b: Active)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Active &mdash; b
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new state of the power saving feature.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        The <a href="Connection_Interface_Power_Saving.html#Property:PowerSavingActive" title="Property org.freedesktop.Telepathy.Connection.Interface.PowerSaving.PowerSavingActive">PowerSavingActive</a>
+        property changed.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:PowerSavingActive"></a>
+     <span class="permalink">(<a href="Connection_Interface_Power_Saving.html#Property:PowerSavingActive">Permalink</a>)</span>
+     <h2>
+      PowerSavingActive &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p><code>True</code> if protocol-level power saving features are
+          currently activated. This property can be changed using the
+          <a href="Connection_Interface_Power_Saving.html#Method:SetPowerSaving" title="Method org.freedesktop.Telepathy.Connection.Interface.PowerSaving.SetPowerSaving">SetPowerSaving</a> method; change
+          notifications is via the
+          <a href="Connection_Interface_Power_Saving.html#Signal:PowerSavingChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.PowerSaving.PowerSavingChanged">PowerSavingChanged</a> signal.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

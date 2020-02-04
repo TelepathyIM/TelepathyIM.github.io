@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.MergeableConference.DRAFT &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.MergeableConference.DRAFT'>Channel.Interface.MergeableConference.DRAFT</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+   
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Mergeable_Conference.html#Method:Merge">Merge</a></td>
+       <td>(o: Channel)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is experimental and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   <div class="annotation added"><span class="version">Added in 0.19.0. </span>(draft 1)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel_Interface_Conference.html" title="Interface org.freedesktop.Telepathy.Channel.Interface.Conference">org.freedesktop.Telepathy.Channel.Interface.Conference</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for multi-user conference channels that can have
+        additional individual channels merged into them after they are
+        created.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>This interface addresses part of freedesktop.org <a href="http://bugs.freedesktop.org/show_bug.cgi?id=24906">bug
+            #24906</a> (GSM-compatible conference calls). GSM is currently
+          the only protocol known to implement this; PBXs might implement
+          it too.</p>
+
+        <p>It might be made into a mandatory-to-implement part of Conference,
+          or kept as a separate interface, when stabilized.</p>
+      </div></div>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:Merge"></a>
+     <span class="permalink">(<a href="Channel_Interface_Mergeable_Conference.html#Method:Merge">Permalink</a>)</span>
+     <h2>Merge (o: Channel) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Channel &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A channel with the same <a href="Channel.html#Property:ChannelType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a>
+            as this one, but with <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a> = CONTACT.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request that the given channel be incorporated into this
+          channel.</p>
+
+        <p>The given channel SHOULD be added to <a href="Channel_Interface_Conference.html#Property:Channels" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Property org.freedesktop.Telepathy.Channel.Interface.Conference.Channels">Conference.Channels</a> if and only if the
+          underlying protocol signals the merge in some way. It MUST NOT be
+          added to <a href="Channel_Interface_Conference.html#Property:InitialChannels" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Property org.freedesktop.Telepathy.Channel.Interface.Conference.InitialChannels">Conference.InitialChannels</a> (to preserve
+          immutability).</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>In GSM it is possible to merge additional calls into an ongoing
+            conference.</p>
+
+          <p>In XMPP this method could be implemented to merge a 1-1 Text
+            channel into a MUC Text channel by inviting the peer from the Text
+            channel into the MUC, or to merge a 1-1 Jingle call into a Muji
+            call by inviting the peer from the Jingle call into the Muji call.
+            (MUC and Muji channels are both implemented by XMPP MUCs, with
+            Handle_Type_Room.)</p>
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The given channel isn't suitable for merging into this one: for
+            instance, it might have the wrong channel type or handle type.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            It will never be possible to merge channels into this particular
+            conference.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+            The given channel is theoretically suitable for merging into this
+            one, but that's not currently possible for some reason (for
+            instance, this SHOULD be raised if a limit on the number of
+            channels in a conference is exceeded).
+            <strong>[FIXME: PermissionDenied?]</strong>
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

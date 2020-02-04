@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.Balance &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.Balance'>Connection.Interface.Balance</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Balance.html#Signal:BalanceChanged">BalanceChanged</a></td>
+       <td>((ius): Balance)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Balance.html#Property:AccountBalance">AccountBalance</a></td>
+       <td>
+        (ius)
+        
+          (<a href="Connection_Interface_Balance.html#Struct:Currency_Amount" title="Struct Currency_Amount">
+              Currency_Amount</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Balance.html#Property:ManageCreditURI">ManageCreditURI</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Balance.html#Struct:Currency_Amount">Currency_Amount</a></td>
+       <td>Struct</td>
+       <td>(ius)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.19.0. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>In many real-time communication services the user can pay for certain
+        services, typically calls to the
+        <abbr title="Public Switched Telephone Network">PSTN</abbr>,
+        in advance. In (at least) Skype, it's possible to query the current
+        balance in a machine-readable way.</p>
+    </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:BalanceChanged"></a>
+     <span class="permalink">(<a href="Connection_Interface_Balance.html#Signal:BalanceChanged">Permalink</a>)</span>
+     <h2>BalanceChanged ((ius): Balance)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Balance &mdash; (ius)
+       
+        (<a href="Connection_Interface_Balance.html#Struct:Currency_Amount" title="Struct Currency_Amount">Currency_Amount</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The new value of the <a href="Connection_Interface_Balance.html#Property:AccountBalance" title="Property org.freedesktop.Telepathy.Connection.Interface.Balance.AccountBalance">AccountBalance</a>
+            property.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when the user's balance has changed.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:AccountBalance"></a>
+     <span class="permalink">(<a href="Connection_Interface_Balance.html#Property:AccountBalance">Permalink</a>)</span>
+     <h2>
+      AccountBalance &mdash; (ius)
+      
+        (<a href="Connection_Interface_Balance.html#Struct:Currency_Amount" title="Struct Currency_Amount">Currency_Amount</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The user's balance on the account corresponding to this <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>.
+          A negative amount may be possible on some services, and indicates
+          that the user owes money to the service provider.</p>
+
+        <p>On initial connection, this property may have an unknown
+          value, represented by <var>Amount</var> = <tt>0</tt>,
+          <var>Scale</var> = <tt>2**32 - 1</tt> (the largest possible 32-bit
+          unsigned integer) and <var>Currency</var> = <tt>&quot;&quot;</tt>.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ManageCreditURI"></a>
+     <span class="permalink">(<a href="Connection_Interface_Balance.html#Property:ManageCreditURI">Permalink</a>)</span>
+     <h2>
+      ManageCreditURI &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.22.2. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        A URI the user may visit via the web browser to manage and top-up their
+        account balance. This property is not guaranteed to be well-defined
+        until the connection becomes Connected; there is no change
+        notification.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          Different protocols and even servers or gateways (e.g. SIP and XMPP
+          PSTN gateways) will have a different website used to manage a user's
+          account balance. This property enables the client to provide that
+          to the user. A Connection Manager MAY set this itself (because it is
+          static or discoverable), or expose it as a connection parameter.
+        </div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Struct:Currency_Amount"></a>
+      <span class="permalink">Struct (<a href="Connection_Interface_Balance.html#Struct:Currency_Amount">Permalink</a>)</span>
+      <h2>
+       Currency_Amount &mdash; (ius)
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>An amount of money in a specified currency. For example,
+          3.21 British pounds would conventionally be represented by
+          (<var>Amount</var> = <tt>321</tt>, <var>Scale</var> = <tt>2</tt>,
+          <var>Currency</var> = <tt>&quot;GBP&quot;</tt>), but could be represented by
+          (<var>Amount</var> = <tt>3210</tt>, <var>Scale</var> = <tt>3</tt>,
+          <var>Currency</var> = <tt>&quot;GBP&quot;</tt>) in a service that records
+          balance in units of 0.001 pounds.</p>
+
+        <p>As a special case, if <var>Amount</var> = <tt>0</tt>,
+          <var>Scale</var> = <tt>2**32 - 1</tt> (i.e.  the largest possible
+          32-bit unsigned integer) and <var>Currency</var> = <tt>&quot;&quot;</tt>, this
+          indicates an unknown amount.</p>
+      </div>
+      <ul>
+<li>Amount &mdash; i</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The amount, expressed as a fixed-point number with decimal scale
+            defined by the <var>Scale</var> field; for instance, an
+            <var>Amount</var> value of <tt>1234</tt> with <var>Scale</var> of
+            <tt>2</tt> represents 12.34 in the currency unit given by the
+            <var>Currency</var> field.</p>
+        </div><li>Scale &mdash; u</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The decimal scale for the fixed point value of the
+            <var>Amount</var> field, defining the number of rightmost decimal
+            digits from the integer value which form the fractional part of the
+            resulting currency value.</p>
+
+          <p>As well as defining the interpretation of <var>Amount</var>, user
+            interfaces may use this value to determine the precision with which
+            to display the amount.</p>
+        </div><li>Currency &mdash; s</li>
+<div class="docstring">
+          The currency code represented by this amount, which SHOULD be an
+          international currency code such as <tt>&quot;EUR&quot;</tt>, <tt>&quot;USD&quot;</tt>,
+          or <tt>&quot;JPY&quot;</tt> if possible. An empty string can be used to
+          indicate that the currency is not known.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

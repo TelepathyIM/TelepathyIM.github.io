@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.ServicePoint &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.ServicePoint'>Channel.Interface.ServicePoint</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Service_Point.html#Signal:ServicePointChanged">ServicePointChanged</a></td>
+       <td>((us): Service_Point)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Service_Point.html#Property:InitialServicePoint">InitialServicePoint</a></td>
+       <td>
+        (us)
+        
+          (<a href="Connection_Interface_Service_Point.html#Struct:Service_Point" title="Struct Service_Point">
+              Service_Point</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Service_Point.html#Property:CurrentServicePoint">CurrentServicePoint</a></td>
+       <td>
+        (us)
+        
+          (<a href="Connection_Interface_Service_Point.html#Struct:Service_Point" title="Struct Service_Point">
+              Service_Point</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.19.7. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for channels
+        that can indicate when/if they are connected to some form
+        of service point.  For example, when
+        dialing 9-1-1 in the US, a GSM modem/network will recognize that as
+        an emergency call, and inform higher levels of the stack that the
+        call is being handled by an emergency service.  In this example,
+        the call is handled by a Public Safety Answering Point (PSAP) which is labeled
+        as &quot;urn:service:sos&quot;.  Other networks and protocols may handle this
+        differently while still using this interface.</p>
+
+      <p>Note that while the majority of examples given in this
+        documentation are for GSM calls, they could just as easily be
+        SIP calls, GSM SMS's, etc.</p>
+    </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:ServicePointChanged"></a>
+     <span class="permalink">(<a href="Channel_Interface_Service_Point.html#Signal:ServicePointChanged">Permalink</a>)</span>
+     <h2>ServicePointChanged ((us): Service_Point)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Service_Point &mdash; (us)
+       
+        (<a href="Connection_Interface_Service_Point.html#Struct:Service_Point" title="Struct Service_Point">Service_Point</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new service point that is being used.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        <p>Emitted when a channel changes the service point that it's connected to.  This
+        might be a new call being connected to a service, a call connected to
+        a service being routed to a different service
+        (ie, an emergency call being routed from a generic emergency PSAP to
+        a poison control PSAP), or any number of other things.</p>
+
+        <p>Note that this should be emitted as soon as the CM has been notified
+        of the switch, and has updated its internal state.  The CM MAY still
+        be in the process of connecting to the new service point.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:InitialServicePoint"></a>
+     <span class="permalink">(<a href="Channel_Interface_Service_Point.html#Property:InitialServicePoint">Permalink</a>)</span>
+     <h2>
+      InitialServicePoint &mdash; (us)
+      
+        (<a href="Connection_Interface_Service_Point.html#Struct:Service_Point" title="Struct Service_Point">Service_Point</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>This property is used to indicate that the channel target is a
+        well-known service point.  Please note that the CM (or lower layers
+        of the stack or network) may forward the connection to other other
+        service points, which the CM SHOULD indicate via
+        <a href="Channel_Interface_Service_Point.html#Signal:ServicePointChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.ServicePoint.ServicePointChanged">ServicePointChanged</a>
+        signal.</p>
+
+        <p>This property SHOULD be set for channel requests that are
+        specifically targeting service points.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CurrentServicePoint"></a>
+     <span class="permalink">(<a href="Channel_Interface_Service_Point.html#Property:CurrentServicePoint">Permalink</a>)</span>
+     <h2>
+      CurrentServicePoint &mdash; (us)
+      
+        (<a href="Connection_Interface_Service_Point.html#Struct:Service_Point" title="Struct Service_Point">Service_Point</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The service point that the channel is connected to. If the channel is
+        not connected to a service point, the CM MUST set the
+        <a href="Connection_Interface_Service_Point.html#Enum:Service_Point_Type">Service_Point_Type</a> field to None; for instance,
+        this will be the case for ordinary calls.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

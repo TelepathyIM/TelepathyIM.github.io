@@ -1,0 +1,1002 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.RoomConfig1 &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.RoomConfig1'>Channel.Interface.RoomConfig1</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room_Config.html#Method:UpdateConfiguration">UpdateConfiguration</a></td>
+       <td>(a{sv}: Properties)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room_Config.html#Property:Anonymous">Anonymous</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room_Config.html#Property:InviteOnly">InviteOnly</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room_Config.html#Property:Limit">Limit</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room_Config.html#Property:Moderated">Moderated</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room_Config.html#Property:Title">Title</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room_Config.html#Property:Description">Description</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room_Config.html#Property:Persistent">Persistent</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room_Config.html#Property:Private">Private</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room_Config.html#Property:PasswordProtected">PasswordProtected</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room_Config.html#Property:Password">Password</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room_Config.html#Property:PasswordHint">PasswordHint</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room_Config.html#Property:CanUpdateConfiguration">CanUpdateConfiguration</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room_Config.html#Property:MutableProperties">MutableProperties</a></td>
+       <td>
+        as
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Room_Config.html#Property:ConfigurationRetrieved">ConfigurationRetrieved</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.24.0. </span>version 1. This replaces the old-school
+      Telepathy properties on <a href="Channel_Type_Text.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Text</a>.</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel_Interface_Room.html" title="Interface org.freedesktop.Telepathy.Channel.Interface.Room2">org.freedesktop.Telepathy.Channel.Interface.Room2</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>Represents the configuration of a chatroom, some aspects of which may
+        be modifiable by the user, depending on their privileges. This
+        corresponds to the room configuration on XMPP, and various channel mode
+        flags on IRC.</p>
+
+      <p>The “topic” (on IRC) or “subject” (on XMPP) is not part of this
+        interface; it can be found on the <a href="Channel_Interface_Subject.html" namespace="ofdT.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.Subject2">Subject2</a>
+        interface.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:UpdateConfiguration"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room_Config.html#Method:UpdateConfiguration">Permalink</a>)</span>
+     <h2>UpdateConfiguration (a{sv}: Properties) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Properties &mdash; a{sv}
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>
+            The new values of one or more properties on this interface, which
+            must be listed in
+            <a href="Channel_Interface_Room_Config.html#Property:MutableProperties" title="Property org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.MutableProperties">MutableProperties</a>. For
+            instance, to set up a channel for discussing top-secret corporate
+            merge plans, this parameter might be:
+          </p>
+
+          <blockquote>
+            <pre>{
+  'Private': True,
+  'InviteOnly': True,
+  'Description': &quot;The first rule of #inteltakeover is: do not talk about #inteltakeover&quot;,
+}</pre></blockquote>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If <a href="Channel_Interface_Room_Config.html#Property:CanUpdateConfiguration" title="Property org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.CanUpdateConfiguration">CanUpdateConfiguration</a> is
+          <code>True</code>, modifies the current values of one or more
+          room properties. This method SHOULD NOT return until the change has
+          been accepted or declined by the server.</p>
+
+        <p>Note that the server may ostensibly accept the changes (thus
+          allowing this method to return success) but signal different values;
+          for example, the server might truncate
+          <a href="Channel_Interface_Room_Config.html#Property:Title" title="Property org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.Title">Title</a> to some maximum length. Callers
+          SHOULD continue to listen for the <code>PropertiesChanged</code>
+          signal, and trust the values it signals over those provided to this
+          method.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          The user is not allowed to reconfigure this room.
+        </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          One or more of the specified properties is unknown, or ill-typed.
+        </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          One or more of the specified properties cannot be modified on this
+          protocol.
+        </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          The room's current configuration has not yet been retrieved, so we
+          cannot update it just yet. The application might like to try again
+          once the <a href="Channel_Interface_Room_Config.html#Property:ConfigurationRetrieved" title="Property org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.ConfigurationRetrieved">ConfigurationRetrieved</a>
+          property becomes <code>True</code>.
+        </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Anonymous"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room_Config.html#Property:Anonymous">Permalink</a>)</span>
+     <h2>
+      Anonymous &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring">
+      <code>True</code> if people may join the channel without other members being made
+      aware of their identity.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:InviteOnly"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room_Config.html#Property:InviteOnly">Permalink</a>)</span>
+     <h2>
+      InviteOnly &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring">
+      <code>True</code> if people may not join the channel until they have been invited.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Limit"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room_Config.html#Property:Limit">Permalink</a>)</span>
+     <h2>
+      Limit &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring">
+      The limit to the number of members; or <tt>0</tt> if there is no limit.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Moderated"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room_Config.html#Property:Moderated">Permalink</a>)</span>
+     <h2>
+      Moderated &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring">
+      <code>True</code> if channel membership is not sufficient to allow participation.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Title"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room_Config.html#Property:Title">Permalink</a>)</span>
+     <h2>
+      Title &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      A human-visible name for the channel, if it differs from <a href="Channel_Interface_Room.html#Property:RoomName" namespace="ofdT.Channel.Interface" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">Room2.RoomName</a>; the
+      empty string, otherwise.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>On XMPP, this represents the <code>muc#roomconfig_roomname</code>
+        field of the <a href="http://xmpp.org/extensions/xep-0045.html#registrar-formtype-owner"><code>muc#roomconfig</code></a>
+        form. So for <code>jdev@conference.jabber.org</code>, for example:</p>
+
+        <ul>
+          <li><a href="Channel_Interface_Room.html#Property:RoomName" namespace="ofdT.Channel.Interface" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">Room2.RoomName</a>
+            = <code>&quot;jdev&quot;</code>;</li>
+          <li><a href="Channel_Interface_Room.html#Property:Server" namespace="ofdT.Channel.Interface" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.Server">Room2.Server</a>
+            = <code>&quot;conference.jabber.org&quot;</code>;</li>
+          <li><a href="Channel_Interface_Room_Config.html#Property:Title" title="Property org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.Title">Title</a> = <code>&quot;General Jabber
+            development discussion&quot;</code>.</li>
+        </ul>
+
+        <p>XEP-0045 is awful.</p>
+      </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Description"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room_Config.html#Property:Description">Permalink</a>)</span>
+     <h2>
+      Description &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring">
+      A human-readable description of the channel's overall purpose; if any.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Persistent"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room_Config.html#Property:Persistent">Permalink</a>)</span>
+     <h2>
+      Persistent &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <code>True</code> if the channel will remain in existence on the server after all
+      members have left it.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Private"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room_Config.html#Property:Private">Permalink</a>)</span>
+     <h2>
+      Private &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <code>True</code> if the channel is not visible to non-members.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:PasswordProtected"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room_Config.html#Property:PasswordProtected">Permalink</a>)</span>
+     <h2>
+      PasswordProtected &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <code>True</code> if contacts joining this channel must provide a
+        password to be granted entry.  Note that this property does not
+        indicate that a password is required <em>right now</em>; see the
+        <a href="Channel_Interface_Password.html" namespace="ofdT.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.Password">Password</a>
+        interface for the API used to provide a password while joining a room.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Password"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room_Config.html#Property:Password">Permalink</a>)</span>
+     <h2>
+      Password &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        If <a href="Channel_Interface_Room_Config.html#Property:PasswordProtected" title="Property org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.PasswordProtected">PasswordProtected</a> is
+        <code>True</code>, the password required to enter the channel, if
+        known. If the password is unknown, or
+        <a href="Channel_Interface_Room_Config.html#Property:PasswordProtected" title="Property org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.PasswordProtected">PasswordProtected</a> is
+        <code>False</code>, the empty string.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          On XMPP—bless its cotton socks!—non-owners of a MUC cannot see its
+          current password, even if they just provided the password in order to
+          join the room…
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:PasswordHint"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room_Config.html#Property:PasswordHint">Permalink</a>)</span>
+     <h2>
+      PasswordHint &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.25.0. </span></div>
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If <a href="Channel_Interface_Room_Config.html#Property:PasswordProtected" title="Property org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.PasswordProtected">PasswordProtected</a> is
+          <code>True</code>, an optional hint for the password.</p>
+
+        <p>On protocols supporting PasswordHint (indicated by its presence
+          in <a href="Channel_Interface_Room_Config.html#Property:MutableProperties" title="Property org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.MutableProperties">MutableProperties</a>),
+          <a href="Channel_Interface_Room_Config.html#Property:Password" title="Property org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.Password">Password</a> and PasswordHint MUST be
+          set in a single call to
+          <a href="Channel_Interface_Room_Config.html#Method:UpdateConfiguration" title="Method org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.UpdateConfiguration">UpdateConfiguration</a>.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          Skype requires that the password and its hint be supplied together.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CanUpdateConfiguration"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room_Config.html#Property:CanUpdateConfiguration">Permalink</a>)</span>
+     <h2>
+      CanUpdateConfiguration &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        If <code>True</code>, the user may call
+        <a href="Channel_Interface_Room_Config.html#Method:UpdateConfiguration" title="Method org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.UpdateConfiguration">UpdateConfiguration</a> to change the values
+        of the properties listed in
+        <a href="Channel_Interface_Room_Config.html#Property:MutableProperties" title="Property org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.MutableProperties">MutableProperties</a>.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MutableProperties"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room_Config.html#Property:MutableProperties">Permalink</a>)</span>
+     <h2>
+      MutableProperties &mdash; as
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A list of (unqualified) property names on this interface which may
+          be modified using <a href="Channel_Interface_Room_Config.html#Method:UpdateConfiguration" title="Method org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.UpdateConfiguration">UpdateConfiguration</a>
+          (if <a href="Channel_Interface_Room_Config.html#Property:CanUpdateConfiguration" title="Property org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.CanUpdateConfiguration">CanUpdateConfiguration</a> is
+          <code>True</code>). Properties not listed here cannot be
+          modified.</p>
+
+        <p>For example, IRC does not have the concept of joining a room without
+          other participants knowing your true identity; so on IRC the
+          <a href="Channel_Interface_Room_Config.html#Property:Anonymous" title="Property org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.Anonymous">Anonymous</a> property will always be
+          <code>False</code>, and
+          <a href="Channel_Interface_Room_Config.html#Property:MutableProperties" title="Property org.freedesktop.Telepathy.Channel.Interface.RoomConfig1.MutableProperties">MutableProperties</a> will not include
+          <code>&quot;Anonymous&quot;</code>.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ConfigurationRetrieved"></a>
+     <span class="permalink">(<a href="Channel_Interface_Room_Config.html#Property:ConfigurationRetrieved">Permalink</a>)</span>
+     <h2>
+      ConfigurationRetrieved &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p><code>True</code> once the initial room configuration has been
+          retrieved, or <code>False</code> otherwise. On some services, this
+          may take some time after you've joined a room to fetch the
+          configuration. Once this property changes to <code>True</code>, the
+          other properties on this interface can be assumed to be accurate;
+          this property MUST not change to <code>False</code> after it becomes
+          <code>True</code>.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>An application's “configure this room” dialog might choose to
+            display a spinner while this property is <code>False</code>, rather
+            than allowing the user to edit probably-inaccurate
+            configuration.</p>
+        </div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

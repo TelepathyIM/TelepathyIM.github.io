@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.Anonymity &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.Anonymity'>Channel.Interface.Anonymity</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Anonymity.html#Property:AnonymityModes">AnonymityModes</a></td>
+       <td>
+        u
+        
+          (<a href="Connection_Interface_Anonymity.html#Flags:Anonymity_Mode_Flags" title="Flags Anonymity_Mode_Flags">
+              Anonymity_Mode_Flags</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Anonymity.html#Property:AnonymityMandatory">AnonymityMandatory</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Anonymity.html#Property:AnonymousID">AnonymousID</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.19.7. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>Interface for requesting the anonymity modes of a channel
+        (as defined in <a href="Connection_Interface_Anonymity.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection.Interface.Anonymity">Connection.Interface.Anonymity</a>).</p>
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:AnonymityModes"></a>
+     <span class="permalink">(<a href="Channel_Interface_Anonymity.html#Property:AnonymityModes">Permalink</a>)</span>
+     <h2>
+      AnonymityModes &mdash; u
+      
+        (<a href="Connection_Interface_Anonymity.html#Flags:Anonymity_Mode_Flags" title="Flags Anonymity_Mode_Flags">Anonymity_Mode_Flags</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        The list of initially requested anonymity modes on the channel.  This
+        MUST NOT change, and is Requestable.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:AnonymityMandatory"></a>
+     <span class="permalink">(<a href="Channel_Interface_Anonymity.html#Property:AnonymityMandatory">Permalink</a>)</span>
+     <h2>
+      AnonymityMandatory &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        Whether or not the anonymity settings are required for this channel.
+        This MUST NOT change, and is Requestable.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:AnonymousID"></a>
+     <span class="permalink">(<a href="Channel_Interface_Anonymity.html#Property:AnonymousID">Permalink</a>)</span>
+     <h2>
+      AnonymousID &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>This is the ID that the remote user of the channel MAY see
+        (assuming there's a single ID).  For example, for SIP connections
+        where the From address has been scrambled by the CM, the scrambled
+        address would be available here for the client to see.  This is
+        completely optional, and MAY be an empty string (&quot;&quot;) in
+        cases where anonymity modes are not set, or the CM doesn't know
+        what the remote contact will see, or any other case where this
+        doesn't make sense.</p>
+
+        <p>This MAY change over the lifetime of the channel, and SHOULD NOT
+        be used with the Request interface.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

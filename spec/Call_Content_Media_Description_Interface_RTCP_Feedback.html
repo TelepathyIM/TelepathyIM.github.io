@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Call1.Content.MediaDescription.I.RTCPFeedback &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Call1.Content.MediaDescription.Interface.RTCPFeedback'>Call1.Content.MediaDescription.Interface.RTCPFeedback</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description_Interface_RTCP_Feedback.html#Property:FeedbackMessages">FeedbackMessages</a></td>
+       <td>
+        a{u(ua(sss))}
+        
+          (<a href="Media_Stream_Handler.html#Mapping:RTCP_Feedback_Message_Map" title="Mapping RTCP_Feedback_Message_Map">
+              RTCP_Feedback_Message_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description_Interface_RTCP_Feedback.html#Property:DoesAVPF">DoesAVPF</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.25.2. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Call_Content_Media_Description.html" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription">org.freedesktop.Telepathy.Call1.Content.MediaDescription</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This codec offer interface provides a method of signalling
+        support for RTCP feedback, documented by <em>Extended RTP
+        Profile for Real-time Transport Control Protocol (RTCP)-Based
+        Feedback (RTP/AVPF)</em> (RFC 4585).</p>
+
+      <p>The codec identifiers used in the description of the Feedback Messages
+      sent in the <a href="Call_Content_Media_Description.html#Method:Accept" namespace="ofdT.Call1.Content.MediaDescription" title="Method org.freedesktop.Telepathy.Call1.Content.MediaDescription.Accept">Accept</a>'s
+      should match those used for the RemoteCodecs in the same Accept call.
+      </p>
+
+      <p>For more details on what RTCP Feedback can do and how to use
+        it, one should refer to
+        <a href="http://www.faqs.org/rfcs/rfc4585.html">RFC 4585</a>.</p>
+
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:FeedbackMessages"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description_Interface_RTCP_Feedback.html#Property:FeedbackMessages">Permalink</a>)</span>
+     <h2>
+      FeedbackMessages &mdash; a{u(ua(sss))}
+      
+        (<a href="Media_Stream_Handler.html#Mapping:RTCP_Feedback_Message_Map" title="Mapping RTCP_Feedback_Message_Map">RTCP_Feedback_Message_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        A map of remote feedback codec properties that are supported.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:DoesAVPF"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description_Interface_RTCP_Feedback.html#Property:DoesAVPF">Permalink</a>)</span>
+     <h2>
+      DoesAVPF &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        True if the remote contact supports Audio-Visual Profile
+        Feedback (AVPF), otherwise False.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

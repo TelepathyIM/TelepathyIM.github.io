@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.Sidecars1 &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.Sidecars1'>Connection.Interface.Sidecars1</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+   
+    | <a href="#methods">Methods</a> 
+   
+   
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Sidecars1.html#Method:EnsureSidecar">EnsureSidecar</a></td>
+       <td>(s: Main_Interface)</td>
+       <td>&#8594;</td>
+       <td>o: Path, a{sv}: Properties</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.27.3. </span></div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:EnsureSidecar"></a>
+     <span class="permalink">(<a href="Connection_Interface_Sidecars1.html#Method:EnsureSidecar">Permalink</a>)</span>
+     <h2>EnsureSidecar (s: Main_Interface) &#8594; o: Path, a{sv}: Properties</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.27.3. </span>(as stable API)</div>
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Main_Interface &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Simple Type DBus_Interface">DBus_Interface</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The &quot;primary&quot; interface implemented by an object attached
+          to a connection. For example, a Gabble plugin implementing
+          fine-grained control of XEP-0016 privacy lists might expose an object
+          implementing <tt>com.example.PrivacyLists</tt>.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Path &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The object path of the sidecar, exported by the same bus
+          name as the Connection to which it is attached.</div>
+      
+       <li>
+        Properties &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">Immutable properties of the sidecar.</div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request an object with a particular interface providing additional
+          connection-specific functionality, together with its immutable
+          properties. These will often be implemented by plug-ins to the
+          connection managers; for example, support for an XMPP XEP for which
+          no generic Telepathy interface exists might be implemented by a
+          Gabble plugin exposing a sidecar with a particular interface.</p>
+
+        <p>This method may be called at any point during the lifetime of a
+          connection, even before its <a href="Connection.html#Enum:Connection_Status">Connection_Status</a>
+          changes to Connected. It MAY take a long time to
+          return—perhaps it needs to wait for a connection to be established
+          and for all the services supported by the server to be discovered
+          before determining whether necessary server-side support is
+          available—so callers SHOULD override the default method timeout (25
+          seconds) with a much higher value (perhaps even MAX_INT32, meaning
+          “no timeout” in recent versions of libdbus).</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>There is an implicit assumption that any connection
+            manager plugin will only want to export one “primary” object per
+            feature it implements, since there is a one-to-one mapping between
+            interface and object. This is reasonable since Sidecars are
+            (intended to be) analogous to extra interfaces on the connection,
+            providing once-per-connection shared functionality; it also makes
+            client code straightforward (look up the interface you care about
+            in a dictionary, build a proxy object from the value). More
+            “plural” plugins are likely to want to implement new types of
+            <a href="Channel.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Channel">Channel</a>
+            instead.</p>
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+          The requested sidecar is not implemented by this connection manager,
+          or a necessary server-side component does not exist. (FIXME: split
+          these two errors out? Then again, once we list the guaranteed and
+          possible sidecars on a Protocol object, clients can tell the
+          difference themselves, because they shouldn't be calling this in the
+          first case.)
+        </div>
+      
+       <li><a href="errors.html#Error:Service Busy" title="Error org.freedesktop.Telepathy.Error.ServiceBusy">Service Busy</a></li>
+       
+       
+       
+       <div class="docstring">
+          A server-side component needed by the requested sidecar reported it
+          is currently too busy, or did not respond for some
+          implementation-defined time. The caller may wish to try again later.
+        </div>
+      
+       <li><a href="errors.html#Error:Cancelled" title="Error org.freedesktop.Telepathy.Error.Cancelled">Cancelled</a></li>
+       
+       
+       
+       <div class="docstring">
+          The connection was disconnected while the sidecar was being set up.
+        </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Client.Handler.FUTURE &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Client.Handler.FUTURE'>Client.Handler.FUTURE</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Client_Handler_Future.html#Property:BypassObservers">BypassObservers</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Client_Handler_Future.html#Property:RelatedConferencesBypassApproval">RelatedConferencesBypassApproval</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is a staging area for future Handler functionality and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Client_Handler.html" title="Interface org.freedesktop.Telepathy.Client.Handler">org.freedesktop.Telepathy.Client.Handler</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface contains functionality which we intend to incorporate
+        into the <a href="Client_Handler.html" namespace="org.freedesktop.Telepathy.Client" title="Interface org.freedesktop.Telepathy.Client.Handler">Handler</a>
+        interface in future. It should be considered to
+        be conceptually part of the core Handler interface, but without
+        API or ABI guarantees.</p>
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:BypassObservers"></a>
+     <span class="permalink">(<a href="Client_Handler_Future.html#Property:BypassObservers">Permalink</a>)</span>
+     <h2>
+      BypassObservers &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.21.2. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If true, channels destined for this handler are not passed to
+          observers for observing.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This is useful in use-cases where the handler doesn't want anyone
+            observing the channel - for example, because channels it handles
+            shouldn't be logged.</p>
+        </div></div>
+
+        <p>For service-activatable handlers, this property should be specified
+          in the handler's <tt>.client</tt> file as follows:</p>
+
+<pre>
+[org.freedesktop.Telepathy.Client.Handler]
+BypassObservers=true
+</pre>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RelatedConferencesBypassApproval"></a>
+     <span class="permalink">(<a href="Client_Handler_Future.html#Property:RelatedConferencesBypassApproval">Permalink</a>)</span>
+     <h2>
+      RelatedConferencesBypassApproval &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If true, channels destined for this handler that have the
+          <a href="Channel_Interface_Conference.html" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.Conference">Conference</a> interface, with a channel that
+          was previously handled by the same client process in their
+          <a href="Channel_Interface_Conference.html#Property:InitialChannels" namespace="org.freedesktop.Telepathy.Channel.Interface.Conference" title="Property org.freedesktop.Telepathy.Channel.Interface.Conference.InitialChannels">InitialChannels</a> property, should bypass the
+          approval stage. In effect, this is a weaker form of
+          <a href="Client_Handler.html#Property:BypassApproval" namespace="org.freedesktop.Telepathy.Client.Handler" title="Property org.freedesktop.Telepathy.Client.Handler.BypassApproval">BypassApproval</a>.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>It would be reasonable for a user interface to accept
+            invitations to continuations of an existing channel automatically,
+            or not; this is a matter of UI policy.</p>
+
+          <p>It's somewhat complex for an Approver to keep track of which
+            channels are being handled by a particular Handler, but
+            the Channel Dispatcher already has to track this, so it's
+            useful for the channel dispatcher to assist here.</p>
+        </div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

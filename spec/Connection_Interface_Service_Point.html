@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.ServicePoint &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.ServicePoint'>Connection.Interface.ServicePoint</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Service_Point.html#Signal:ServicePointsChanged">ServicePointsChanged</a></td>
+       <td>(a((us)as): Service_Points)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Service_Point.html#Property:KnownServicePoints">KnownServicePoints</a></td>
+       <td>
+        a((us)as)
+        
+          (<a href="Connection_Interface_Service_Point.html#Struct:Service_Point_Info" title="Array of Struct Service_Point_Info">
+              Service_Point_Info_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Service_Point.html#Enum:Service_Point_Type">Service_Point_Type</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Service_Point.html#Struct:Service_Point_Info">Service_Point_Info</a></td>
+       <td>Struct</td>
+       <td>((us)as)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Service_Point.html#Struct:Service_Point">Service_Point</a></td>
+       <td>Struct</td>
+       <td>(us)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.19.7. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for connections whose channels may be able to indicate
+        specific they are connected to some form
+        of service station.  For example, when
+        dialing 9-1-1 in the US, a GSM modem/network will recognize that as
+        an emergency call, and inform higher levels of the stack that the
+        call is being handled by an emergency service.  In this example,
+        the call is handled by a Public Safety Answering Point (PSAP) which is labeled
+        as &quot;urn:service:sos&quot;.  Other networks and protocols may handle this
+        differently while still using this interface.</p>
+    </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:ServicePointsChanged"></a>
+     <span class="permalink">(<a href="Connection_Interface_Service_Point.html#Signal:ServicePointsChanged">Permalink</a>)</span>
+     <h2>ServicePointsChanged (a((us)as): Service_Points)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Service_Points &mdash; a((us)as)
+       
+        (<a href="Connection_Interface_Service_Point.html#Struct:Service_Point_Info" title="Array of Struct Service_Point_Info">Service_Point_Info_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The new value of
+            <a href="Connection_Interface_Service_Point.html#Property:KnownServicePoints" title="Property org.freedesktop.Telepathy.Connection.Interface.ServicePoint.KnownServicePoints">KnownServicePoints</a>.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the list of known service points (or their IDs) has
+        changed.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:KnownServicePoints"></a>
+     <span class="permalink">(<a href="Connection_Interface_Service_Point.html#Property:KnownServicePoints">Permalink</a>)</span>
+     <h2>
+      KnownServicePoints &mdash; a((us)as)
+      
+        (<a href="Connection_Interface_Service_Point.html#Struct:Service_Point_Info" title="Array of Struct Service_Point_Info">Service_Point_Info_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+         The list of all (known) service points.
+        </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Service_Point_Type"></a>
+      <span class="permalink">Enum (<a href="Connection_Interface_Service_Point.html#Enum:Service_Point_Type">Permalink</a>)</span>
+      <h2>
+       Service_Point_Type &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        The various types of service points a channel might connect to.
+      </div>
+      <ul>
+<li>None (0)</li>
+<div class="docstring">
+          The channel is not communicating with a service point, or it is not
+          known whether it is communicating with a service point (e.g. an
+          ordinary call).
+        </div><li>Emergency (1)</li>
+<div class="docstring">
+          The service point is a generic emergency point.
+        </div><li>Counseling (2)</li>
+<div class="docstring">
+          The service point is some kind of counseling service (ie, mental health
+          or child-services counseling).
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Service_Point_Info"></a>
+      <span class="permalink">Struct (<a href="Connection_Interface_Service_Point.html#Struct:Service_Point_Info">Permalink</a>)</span>
+      <h2>
+       Service_Point_Info &mdash; ((us)as)
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        <p>Description of a service point and IDs which are mapped to it.</p>
+
+        <p>An example Service Point info for GSM emergency calls (callable
+          through &quot;911&quot; and &quot;112&quot;) could look like:</p>
+
+<pre>
+  ServicePointInfo = (
+    Service_Point: (
+      Service_Point_Type: 1 (Emergency),
+      Service_Point: &quot;urn:service:sos&quot;
+    ),
+    Service_IDs: [ &quot;911&quot;, &quot;112&quot; ]
+  )
+</pre>
+      </div>
+      <ul>
+<li>Service_Point &mdash; (us) (<a href="Connection_Interface_Service_Point.html#Struct:Service_Point" title="Struct Service_Point">Service_Point</a>)</li>
+<div class="docstring">
+          The service point.
+        </div><li>Service_IDs &mdash; as</li>
+<div class="docstring">
+          A list of IDs that are mapped to this service. This is provided as
+          a convenience for the UIs, but the preferred method for
+          requesting channel to a service is by setting the <a href="Channel_Interface_Service_Point.html#Property:InitialServicePoint" namespace="org.freedesktop.Telepathy.Channel.Interface.ServicePoint" title="Property org.freedesktop.Telepathy.Channel.Interface.ServicePoint.InitialServicePoint">InitialServicePoint</a>
+            property in a channel request.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Service_Point"></a>
+      <span class="permalink">Struct (<a href="Connection_Interface_Service_Point.html#Struct:Service_Point">Permalink</a>)</span>
+      <h2>
+       Service_Point &mdash; (us)
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A service point.</div>
+      <ul>
+<li>Service_Point_Type &mdash; u (<a href="Connection_Interface_Service_Point.html#Enum:Service_Point_Type" title="Enum Service_Point_Type">Service_Point_Type</a>)</li>
+<div class="docstring">
+          The service type.
+        </div><li>Service &mdash; s</li>
+<div class="docstring">
+          String representation of the service point. The representation is
+          service specific; it may be a 'service' Uniform Resource Name as
+          specified by <a href="http://www.rfc-editor.org/rfc/rfc5031.txt">RFC 5031</a>,
+          or may be in some other form. Empty, unused or unknown value is
+          represented by &quot;&quot;.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

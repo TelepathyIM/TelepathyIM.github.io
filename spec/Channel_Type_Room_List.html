@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.T.RoomList &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Type.RoomList'>Channel.Type.RoomList</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Room_List.html#Method:GetListingRooms">GetListingRooms</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>b: In_Progress</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Room_List.html#Method:ListRooms">ListRooms</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Room_List.html#Method:StopListing">StopListing</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Room_List.html#Signal:GotRooms">GotRooms</a></td>
+       <td>(a(usa{sv}): Rooms)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Room_List.html#Signal:ListingRooms">ListingRooms</a></td>
+       <td>(b: Listing)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Room_List.html#Property:Server">Server</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Room_List.html#Struct:Room_Info">Room_Info</a></td>
+       <td>Struct</td>
+       <td>(usa{sv})</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>A channel type for listing named channels available on the server. Once the
+    <a href="Channel_Type_Room_List.html#Method:ListRooms" title="Method org.freedesktop.Telepathy.Channel.Type.RoomList.ListRooms">ListRooms</a> method is called, it emits signals for rooms present on the
+    server, until you <a href="Channel.html#Method:Close" namespace="org.freedesktop.Telepathy.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a> this
+    channel. In some cases, it may not be possible
+    to stop the deluge of information from the server. This channel should be
+    closed when the room information is no longer being displayed, so that the
+    room handles can be freed.</p>
+
+    <p>This channel type may be implemented as a singleton on some protocols, so
+    clients should be prepared for the eventuality that they are given a
+    channel that is already in the middle of listing channels. The
+    <a href="Channel_Type_Room_List.html#Signal:ListingRooms" title="Signal org.freedesktop.Telepathy.Channel.Type.RoomList.ListingRooms">ListingRooms</a> signal, or
+    <a href="Channel_Type_Room_List.html#Method:GetListingRooms" title="Method org.freedesktop.Telepathy.Channel.Type.RoomList.GetListingRooms">GetListingRooms</a> method, can be used to check
+    this.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:GetListingRooms"></a>
+     <span class="permalink">(<a href="Channel_Type_Room_List.html#Method:GetListingRooms">Permalink</a>)</span>
+     <h2>GetListingRooms () &#8594; b: In_Progress</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        In_Progress &mdash; b
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A boolean indicating if room listing is in progress
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Check to see if there is already a room list request in progress
+        on this channel.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:ListRooms"></a>
+     <span class="permalink">(<a href="Channel_Type_Room_List.html#Method:ListRooms">Permalink</a>)</span>
+     <h2>ListRooms () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring">
+        Request the list of rooms from the server. The
+        <a href="Channel_Type_Room_List.html#Signal:ListingRooms" title="Signal org.freedesktop.Telepathy.Channel.Type.RoomList.ListingRooms">ListingRooms</a> (True) signal should be
+        emitted when this request is being processed,
+        <a href="Channel_Type_Room_List.html#Signal:GotRooms" title="Signal org.freedesktop.Telepathy.Channel.Type.RoomList.GotRooms">GotRooms</a> when any room information is
+        received, and <a href="Channel_Type_Room_List.html#Signal:ListingRooms" title="Signal org.freedesktop.Telepathy.Channel.Type.RoomList.ListingRooms">ListingRooms</a> (False) when
+        the request is complete.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when the requested functionality is temporarily unavailable.
+    </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:StopListing"></a>
+     <span class="permalink">(<a href="Channel_Type_Room_List.html#Method:StopListing">Permalink</a>)</span>
+     <h2>StopListing () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring">
+        Stop the room listing if it's in progress, but don't close the channel.
+        The <a href="Channel_Type_Room_List.html#Signal:ListingRooms" title="Signal org.freedesktop.Telepathy.Channel.Type.RoomList.ListingRooms">ListingRooms</a> (False) signal should
+        be emitted when the listing stops.
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:GotRooms"></a>
+     <span class="permalink">(<a href="Channel_Type_Room_List.html#Signal:GotRooms">Permalink</a>)</span>
+     <h2>GotRooms (a(usa{sv}): Rooms)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Rooms &mdash; a(usa{sv})
+       
+        (<a href="Channel_Type_Room_List.html#Struct:Room_Info" title="Array of Struct Room_Info">Room_Info_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          An array of structs containing:
+          <ul>
+            <li>an integer room handle</li>
+            <li>a string representing the D-Bus interface name of the channel type</li>
+            <li>a dictionary mapping string keys to variant boxed information</li>
+          </ul>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when information about rooms on the server becomes available.
+        The array contains the room handle (as can be passed to the
+        <a href="Connection.html#Method:RequestChannel" namespace="org.freedesktop.Telepathy.Connection" title="Method org.freedesktop.Telepathy.Connection.RequestChannel">RequestChannel</a>
+        method with HANDLE_TYPE_ROOM), the channel
+        type, and a dictionary containing further information about the
+        room as available. The following well-known keys and types are
+        recommended for use where appropriate:</p>
+
+        <dl>
+          <dt>handle-name (s)</dt>
+          <dd>The identifier of the room (as would be returned by
+            <a href="Connection.html#Method:InspectHandles" namespace="org.freedesktop.Telepathy.Connection" title="Method org.freedesktop.Telepathy.Connection.InspectHandles">InspectHandles</a>).
+            This property is mandatory.</dd>
+
+          <dt>name (s)</dt>
+          <dd>The human-readable name of the room if different from the handle</dd>
+
+          <dt>description (s)</dt>
+          <dd>A description of the room's overall purpose</dd>
+
+          <dt>subject (s)</dt>
+          <dd>The current subject of conversation in the room (as would
+            be returned by getting the string part of the <a href="Channel_Interface_Subject.html#Property:Subject" namespace="org.freedesktop.Telepathy.Channel.Interface.Subject2" title="Property org.freedesktop.Telepathy.Channel.Interface.Subject2.Subject">Subject</a> property)</dd>
+
+          <dt>members (u)</dt>
+          <dd>The number of members in the room</dd>
+
+          <dt>password (b)</dt>
+          <dd>True if the room requires a password to enter</dd>
+
+          <dt>invite-only (b)</dt>
+          <dd>True if you cannot join the room, but must be invited</dd>
+
+          <dt>room-id (s)</dt>
+          <dd>The human-readable identifier of a chat room (as would be
+            returned by getting the <a href="Channel_Interface_Room.html#Property:RoomName" namespace="org.freedesktop.Telepathy.Channel.Interface.Room2" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.RoomName">RoomName</a> property)</dd>
+
+          <dt>server (s)</dt>
+          <dd>The DNS name of the server hosting these channels (as would be
+            returned by getting the <a href="Channel_Interface_Room.html#Property:Server" namespace="org.freedesktop.Telepathy.Channel.Interface.Room2" title="Property org.freedesktop.Telepathy.Channel.Interface.Room2.Server">Server</a> property)</dd>
+        </dl>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:ListingRooms"></a>
+     <span class="permalink">(<a href="Channel_Type_Room_List.html#Signal:ListingRooms">Permalink</a>)</span>
+     <h2>ListingRooms (b: Listing)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Listing &mdash; b
+       
+       </li>
+       
+       
+       
+       <div class="docstring">A boolean indicating if room listing is in progress</div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted to indicate whether or not room listing request is currently
+        in progress.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Server"></a>
+     <span class="permalink">(<a href="Channel_Type_Room_List.html#Property:Server">Permalink</a>)</span>
+     <h2>
+      Server &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        <p>For protocols with a concept of chatrooms on multiple servers
+          with different DNS names (like XMPP), the DNS name of the server
+          whose rooms are listed by this channel, e.g. &quot;conference.jabber.org&quot;.
+          Otherwise, the empty string.</p>
+
+        <p>This property cannot change during the lifetime of the channel.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Struct:Room_Info"></a>
+      <span class="permalink">Struct (<a href="Channel_Type_Room_List.html#Struct:Room_Info">Permalink</a>)</span>
+      <h2>
+       Room_Info &mdash; (usa{sv})
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Handle &mdash; u (<a href="Connection.html#Simple-Type:Room_Handle" title="Simple Type Room_Handle">Room_Handle</a>)</li>
+<li>Channel_Type &mdash; s (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Simple Type DBus_Interface">DBus_Interface</a>)</li>
+<li>Info &mdash; a{sv} (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)</li>
+</ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

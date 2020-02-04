@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Protocol.I.Avatars &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Protocol.Interface.Avatars'>Protocol.Interface.Avatars</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Protocol_Interface_Avatars.html#Property:SupportedAvatarMIMETypes">SupportedAvatarMIMETypes</a></td>
+       <td>
+        as
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol_Interface_Avatars.html#Property:MinimumAvatarHeight">MinimumAvatarHeight</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol_Interface_Avatars.html#Property:MinimumAvatarWidth">MinimumAvatarWidth</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol_Interface_Avatars.html#Property:RecommendedAvatarHeight">RecommendedAvatarHeight</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol_Interface_Avatars.html#Property:RecommendedAvatarWidth">RecommendedAvatarWidth</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol_Interface_Avatars.html#Property:MaximumAvatarHeight">MaximumAvatarHeight</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol_Interface_Avatars.html#Property:MaximumAvatarWidth">MaximumAvatarWidth</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol_Interface_Avatars.html#Property:MaximumAvatarBytes">MaximumAvatarBytes</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.21.5. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Protocol.html" title="Interface org.freedesktop.Telepathy.Protocol">org.freedesktop.Telepathy.Protocol</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for protocols where it might be possible to set the
+        user's avatar, and the expected size limits and supported MIME types
+        are known before connecting.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>If the avatar requirements cannot be discovered while offline,
+          it's impossible to avoid setting the <a href="Account.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Account">Account</a>'s <a href="Account_Interface_Avatar.html#Property:Avatar" namespace="org.freedesktop.Telepathy.Account.Interface.Avatar" title="Property org.freedesktop.Telepathy.Account.Interface.Avatar.Avatar">Avatar</a> property to an unsupported avatar.</p>
+      </div></div>
+
+      <p>Each property on this interface SHOULD be cached in the
+        <code>.manager</code> file, using a key of the same name as the
+        property in the <code>[Protocol <em>proto</em>]</code>
+        group. All properties are encoded in ASCII decimal in the obvious
+        way, except for
+        <a href="Protocol_Interface_Avatars.html#Property:SupportedAvatarMIMETypes" title="Property org.freedesktop.Telepathy.Protocol.Interface.Avatars.SupportedAvatarMIMETypes">SupportedAvatarMIMETypes</a> which is
+        encoded as a sequence of strings each followed by a semicolon
+        (as for the &quot;localestrings&quot; type in the Desktop Entry
+        Specification).</p>
+
+      <p>For instance, an XMPP connection manager might have this
+        <code>.manager</code> file:</p>
+
+<pre>[Protocol jabber]
+Interfaces=org.freedesktop.Telepathy.Protocol.Interface.Avatars;
+param-account=s required
+param-password=s required
+SupportedAvatarMIMETypes=image/png;image/jpeg;image/gif;
+MinimumAvatarHeight=32
+RecommendedAvatarHeight=64
+MaximumAvatarHeight=96
+MinimumAvatarWidth=32
+RecommendedAvatarWidth=64
+MaximumAvatarWidth=96
+MaximumAvatarBytes=8192
+</pre>
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SupportedAvatarMIMETypes"></a>
+     <span class="permalink">(<a href="Protocol_Interface_Avatars.html#Property:SupportedAvatarMIMETypes">Permalink</a>)</span>
+     <h2>
+      SupportedAvatarMIMETypes &mdash; as
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The expected value of the <a href="Connection_Interface_Avatars.html#Property:SupportedAvatarMIMETypes" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Connection.Interface.Avatars.SupportedAvatarMIMETypes">Connection.Interface.Avatars.SupportedAvatarMIMETypes</a>
+        property on connections to this protocol.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MinimumAvatarHeight"></a>
+     <span class="permalink">(<a href="Protocol_Interface_Avatars.html#Property:MinimumAvatarHeight">Permalink</a>)</span>
+     <h2>
+      MinimumAvatarHeight &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The expected value of the <a href="Connection_Interface_Avatars.html#Property:MinimumAvatarHeight" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Connection.Interface.Avatars.MinimumAvatarHeight">Connection.Interface.Avatars.MinimumAvatarHeight</a>
+        property on connections to this protocol.
+</div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MinimumAvatarWidth"></a>
+     <span class="permalink">(<a href="Protocol_Interface_Avatars.html#Property:MinimumAvatarWidth">Permalink</a>)</span>
+     <h2>
+      MinimumAvatarWidth &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The expected value of the <a href="Connection_Interface_Avatars.html#Property:MinimumAvatarWidth" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Connection.Interface.Avatars.MinimumAvatarWidth">Connection.Interface.Avatars.MinimumAvatarWidth</a>
+        property on connections to this protocol.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RecommendedAvatarHeight"></a>
+     <span class="permalink">(<a href="Protocol_Interface_Avatars.html#Property:RecommendedAvatarHeight">Permalink</a>)</span>
+     <h2>
+      RecommendedAvatarHeight &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The expected value of the <a href="Connection_Interface_Avatars.html#Property:RecommendedAvatarHeight" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Connection.Interface.Avatars.RecommendedAvatarHeight">Connection.Interface.Avatars.RecommendedAvatarHeight</a>
+        property on connections to this protocol.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RecommendedAvatarWidth"></a>
+     <span class="permalink">(<a href="Protocol_Interface_Avatars.html#Property:RecommendedAvatarWidth">Permalink</a>)</span>
+     <h2>
+      RecommendedAvatarWidth &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The expected value of the <a href="Connection_Interface_Avatars.html#Property:RecommendedAvatarWidth" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Connection.Interface.Avatars.RecommendedAvatarWidth">Connection.Interface.Avatars.RecommendedAvatarWidth</a>
+        property on connections to this protocol.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MaximumAvatarHeight"></a>
+     <span class="permalink">(<a href="Protocol_Interface_Avatars.html#Property:MaximumAvatarHeight">Permalink</a>)</span>
+     <h2>
+      MaximumAvatarHeight &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The expected value of the <a href="Connection_Interface_Avatars.html#Property:MaximumAvatarHeight" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Connection.Interface.Avatars.MaximumAvatarHeight">Connection.Interface.Avatars.MaximumAvatarHeight</a>
+        property on connections to this protocol.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MaximumAvatarWidth"></a>
+     <span class="permalink">(<a href="Protocol_Interface_Avatars.html#Property:MaximumAvatarWidth">Permalink</a>)</span>
+     <h2>
+      MaximumAvatarWidth &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The expected value of the <a href="Connection_Interface_Avatars.html#Property:MaximumAvatarWidth" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Connection.Interface.Avatars.MaximumAvatarWidth">Connection.Interface.Avatars.MaximumAvatarWidth</a>
+        property on connections to this protocol.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MaximumAvatarBytes"></a>
+     <span class="permalink">(<a href="Protocol_Interface_Avatars.html#Property:MaximumAvatarBytes">Permalink</a>)</span>
+     <h2>
+      MaximumAvatarBytes &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The expected value of the <a href="Connection_Interface_Avatars.html#Property:MaximumAvatarBytes" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Connection.Interface.Avatars.MaximumAvatarBytes">Connection.Interface.Avatars.MaximumAvatarBytes</a>
+        property on connections to this protocol.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

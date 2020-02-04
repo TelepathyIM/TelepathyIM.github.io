@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.ContactBlocking &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.ContactBlocking'>Connection.Interface.ContactBlocking</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+    | <a href="#contact-attributes">Contact Attributes</a> 
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Blocking.html#Method:BlockContacts">BlockContacts</a></td>
+       <td>(au: Contacts, b: Report_Abusive)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Blocking.html#Method:UnblockContacts">UnblockContacts</a></td>
+       <td>(au: Contacts)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Blocking.html#Method:RequestBlockedContacts">RequestBlockedContacts</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>a{us}: Contacts</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Blocking.html#Signal:BlockedContactsChanged">BlockedContactsChanged</a></td>
+       <td>(a{us}: Blocked_Contacts, a{us}: Unblocked_Contacts)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Blocking.html#Property:ContactBlockingCapabilities">ContactBlockingCapabilities</a></td>
+       <td>
+        u
+        
+          (<a href="Connection_Interface_Contact_Blocking.html#Flags:Contact_Blocking_Capabilities" title="Flags Contact_Blocking_Capabilities">
+              Contact_Blocking_Capabilities</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+     <h3>Contact Attributes</h3>
+     <table class="summary">
+      
+       <tr class="contact-attribute">
+       <td><a href="Connection_Interface_Contact_Blocking.html#Contact-Attribute:blocked">org.freedesktop.Telepathy.Connection.Interface.ContactBlocking/blocked</a></td>
+       <td>
+        b
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contact_Blocking.html#Flags:Contact_Blocking_Capabilities">Contact_Blocking_Capabilities</a></td>
+       <td>Flags</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.21.13. </span>Changes from the draft:
+      methods and signals now return <a href="Channel_Interface_Group.html#Mapping:Handle_Identifier_Map">Handle_Identifier_Map</a>
+      (<code>a{us}</code>) rather than bare lists of contact handles
+      (<code>au</code>)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a></li>
+    
+     <li><a href="Connection_Interface_Contact_List.html" title="Interface org.freedesktop.Telepathy.Connection.Interface.ContactList">org.freedesktop.Telepathy.Connection.Interface.ContactList</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for connections where contacts can be blocked from
+        communicating with this user and receiving this user's presence.
+        Clients may retrieve a list of currently-blocked contacts using
+        <a href="Connection_Interface_Contact_Blocking.html#Method:RequestBlockedContacts" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactBlocking.RequestBlockedContacts">RequestBlockedContacts</a>, and listen for
+        <a href="Connection_Interface_Contact_Blocking.html#Signal:BlockedContactsChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.ContactBlocking.BlockedContactsChanged">BlockedContactsChanged</a> to be notified
+        when contacts are blocked and unblocked. The
+        <a href="Connection_Interface_Contact_Blocking.html#Method:BlockContacts" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactBlocking.BlockContacts">BlockContacts</a> and
+        <a href="Connection_Interface_Contact_Blocking.html#Method:UnblockContacts" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactBlocking.UnblockContacts">UnblockContacts</a> methods do what they say
+        on the tin; depending on the value of the
+        <a href="Connection_Interface_Contact_Blocking.html#Property:ContactBlockingCapabilities" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactBlocking.ContactBlockingCapabilities">ContactBlockingCapabilities</a> property,
+        contacts may be reported for spam or other abuse when calling
+        <a href="Connection_Interface_Contact_Blocking.html#Method:BlockContacts" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactBlocking.BlockContacts">BlockContacts</a>.</p>
+
+      <p>This interface is intended for protocols where blocking contacts
+        persists on the server between connections; connection managers for
+        protocols with no server-side support for blocking contacts MAY choose
+        to implement this interface using an on-disk file of blocked
+        contacts or some other means to store blocked contacts between
+        connections.</p>
+
+      <p>This interface is intended to replace the
+        <a href="Channel_Type_Contact_List.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ContactList">ContactList</a>
+        channel with <a href="Channel.html#Property:TargetHandleType" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+        <code>List</code> and <a href="Channel.html#Property:TargetID" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a> <code>&quot;deny&quot;</code>
+        (along with the <a href="Connection_Interface_Contact_List.html" namespace="ofdT.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.ContactList">ContactList</a> and
+        <a href="Connection_Interface_Contact_Groups.html" namespace="ofdT.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.ContactGroups">ContactGroups</a>
+        interfaces replacing other channels with <a href="Channel.html#Property:TargetHandleType" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+        <code>List</code> and <a href="Channel.html#Property:TargetHandleType" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+        <code>Group</code>, respectively).</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:BlockContacts"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Blocking.html#Method:BlockContacts">Permalink</a>)</span>
+     <h2>BlockContacts (au: Contacts, b: Report_Abusive) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contacts &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">Some contacts to block. If some of the contacts in this
+          list are already blocked, the connection manager MUST act as if they
+          were not specified in this list.</div>
+      
+       <li>
+        Report_Abusive &mdash; b
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>In addition to blocking, report these contacts as abusive to the
+            server administrators.</p>
+
+          <p>Clients can determine whether this capability is available by
+            checking the
+            <a href="Connection_Interface_Contact_Blocking.html#Property:ContactBlockingCapabilities" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactBlocking.ContactBlockingCapabilities">ContactBlockingCapabilities</a>
+            property. If this argument is set to <code>True</code> by a client
+            despite <a href="Connection_Interface_Contact_Blocking.html#Property:ContactBlockingCapabilities" title="Property org.freedesktop.Telepathy.Connection.Interface.ContactBlocking.ContactBlockingCapabilities">ContactBlockingCapabilities</a>
+            not containing the <code>Can_Report_Abusive</code> flag, the
+            connection manager SHOULD act as if it were <code>False</code> and
+            simply block the supplied contacts.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>A correct user interface shouldn't get this far without knowing
+              that reporting abusive contacts is not supported. If it does,
+              then the user has expressed their intention to block these
+              contacts. Returning an error would leave the UI with three
+              options:</p>
+
+            <ul>
+              <li>Ignore the error, leaving the contacts not actually blocked;</li>
+              <li>Display an error to the user;</li>
+              <li>Call this method again, passing <code>False</code> for this
+              argument.</li>
+            </ul>
+
+            <p>None of these seem preferable to the CM just ignoring this flag
+              if it doesn't support it: that way, the contacts will be blocked,
+              as the user requested, and UIs have fewer ways to mess up
+              entirely.</p>
+          </div></div>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Direct the server to block some contacts. The precise effect is
+          protocol-dependent, but SHOULD include ignoring all current and
+          subsequent communications from the given contacts, avoiding sending
+          presence to them in future, and if they were already receiving the
+          local user's presence, behaving as if the local user went
+          offline.</p>
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:UnblockContacts"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Blocking.html#Method:UnblockContacts">Permalink</a>)</span>
+     <h2>UnblockContacts (au: Contacts) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contacts &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">Some contacts to unblock. If some of the contacts in this
+          list are not currently blocked, the connection manager MUST act as if
+          they were not specified in this list.</div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Direct the server to unblock some contacts.</p>
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RequestBlockedContacts"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Blocking.html#Method:RequestBlockedContacts">Permalink</a>)</span>
+     <h2>RequestBlockedContacts () &#8594; a{us}: Contacts</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Contacts &mdash; a{us}
+        
+          (<a href="Channel_Interface_Group.html#Mapping:Handle_Identifier_Map" title="Mapping Handle_Identifier_Map">Handle_Identifier_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The blocked contacts’ handles, together with their
+          identifiers.</div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>List the contacts that are blocked.</p>
+
+        <p>Clients SHOULD allow a relatively long timeout for calls to this
+          method, since on some protocols contact blocking is part of the
+          contact list, which can take a significant time to retrieve.</p>
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:BlockedContactsChanged"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Blocking.html#Signal:BlockedContactsChanged">Permalink</a>)</span>
+     <h2>BlockedContactsChanged (a{us}: Blocked_Contacts, a{us}: Unblocked_Contacts)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Blocked_Contacts &mdash; a{us}
+       
+        (<a href="Channel_Interface_Group.html#Mapping:Handle_Identifier_Map" title="Mapping Handle_Identifier_Map">Handle_Identifier_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">Contacts added to the result of
+          <a href="Connection_Interface_Contact_Blocking.html#Method:RequestBlockedContacts" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactBlocking.RequestBlockedContacts">RequestBlockedContacts</a>.</div>
+      
+       <li>
+       Unblocked_Contacts &mdash; a{us}
+       
+        (<a href="Channel_Interface_Group.html#Mapping:Handle_Identifier_Map" title="Mapping Handle_Identifier_Map">Handle_Identifier_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">Contacts removed from the result of
+          <a href="Connection_Interface_Contact_Blocking.html#Method:RequestBlockedContacts" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactBlocking.RequestBlockedContacts">RequestBlockedContacts</a>.</div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when the list of blocked contacts is first retrieved
+          (before returning from any pending calls to
+          <a href="Connection_Interface_Contact_Blocking.html#Method:RequestBlockedContacts" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactBlocking.RequestBlockedContacts">RequestBlockedContacts</a>), and
+          whenever the list of blocked contacts subsequently changes.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ContactBlockingCapabilities"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Blocking.html#Property:ContactBlockingCapabilities">Permalink</a>)</span>
+     <h2>
+      ContactBlockingCapabilities &mdash; u
+      
+        (<a href="Connection_Interface_Contact_Blocking.html#Flags:Contact_Blocking_Capabilities" title="Flags Contact_Blocking_Capabilities">Contact_Blocking_Capabilities</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Additional capabilities for contact blocking; currently, this is
+          limited to whether contacts may be reported as abusive.</p>
+
+        <p>Note that there is no capability for supporting blocking itself:
+          the presence of this interface on a <a href="Connection.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.Connection">Connection</a> indicates that blocking
+          contacts is supported.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset contact-attributes">
+    <a name="contact-attributes"></a>
+    <h1>Contact Attributes</h1>
+    <div>
+      Attributes that a contact can have, accessed with the
+      org.freedesktop.Telepathy.Connection.Interface.Contacts interface.
+    </div>
+    
+    <div class="inset contact-attribute">
+     <a name="Contact-Attribute:blocked"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contact_Blocking.html#Contact-Attribute:blocked">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Connection.Interface.ContactBlocking/blocked &mdash; b
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p><code>True</code> if the contact would be in the result of
+          <a href="Connection_Interface_Contact_Blocking.html#Method:RequestBlockedContacts" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactBlocking.RequestBlockedContacts">RequestBlockedContacts</a>;
+          <code>False</code> or omitted if the contact is not blocked, or if it
+          is unknown whether the contact is blocked.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Flags:Contact_Blocking_Capabilities"></a>
+      <span class="permalink">Flags (<a href="Connection_Interface_Contact_Blocking.html#Flags:Contact_Blocking_Capabilities">Permalink</a>)</span>
+      <h2>
+       Contact_Blocking_Capabilities &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Can_Report_Abusive (1)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          When calling <a href="Connection_Interface_Contact_Blocking.html#Method:BlockContacts" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactBlocking.BlockContacts">BlockContacts</a>, the
+          contacts may be reporting as abusive to the server administrators by
+          setting <var>Report_Abusive</var> to <code>True</code>.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

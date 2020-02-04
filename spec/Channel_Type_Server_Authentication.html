@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.T.ServerAuthentication &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Type.ServerAuthentication'>Channel.Type.ServerAuthentication</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Server_Authentication.html#Property:AuthenticationMethod">AuthenticationMethod</a></td>
+       <td>
+        s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Simple Type DBus_Interface">
+              DBus_Interface</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.21.5. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>The type for a channel representing an authentication step with the
+        server. The actual authentication functionality is implemented by
+        the additional interface named in
+        <a href="Channel_Type_Server_Authentication.html#Property:AuthenticationMethod" title="Property org.freedesktop.Telepathy.Channel.Type.ServerAuthentication.AuthenticationMethod">AuthenticationMethod</a>,
+        such as <a href="Channel_Interface_SASL_Authentication.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication">Channel.Interface.SASLAuthentication</a>.</p>
+
+      <p>Future authentication steps also supported by this channel type might
+        include solving a captcha and/or agreeing to an EULA or terms-of-use
+        document; each of these would be represented by a channel with this
+        type, but a different
+        <a href="Channel_Type_Server_Authentication.html#Property:AuthenticationMethod" title="Property org.freedesktop.Telepathy.Channel.Type.ServerAuthentication.AuthenticationMethod">AuthenticationMethod</a>.</p>
+
+      <p>Channels of this type will normally be be signalled and dispatched
+        while the <a href="Connection.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>
+        owning them is in the CONNECTING state. They MAY also appear on a
+        Connection in the CONNECTED state, for instance if periodic
+        re-authentication is required.</p>
+
+      <p>Normally, only one channel of this type will
+        exist on a given Connection; if there is more than one, the handler
+        must complete authentication with each of them in turn.</p>
+
+      <p>Channels of this type cannot be requested with methods such as
+        <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="ofdT.Connection.Interface.Requests" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>.
+        They always have <a href="Channel.html#Property:Requested" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.Requested">Requested</a> = False,
+        <a href="Channel.html#Property:TargetHandleType" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a> = None
+        and <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>
+        = 0.</p>
+
+      <p>While it is CONNECTING, the Connection MUST NOT proceed with
+        connection, or signal
+        <a href="Connection.html#Signal:StatusChanged" namespace="ofdT.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+        to the CONNECTED state, until each channel of this type has either
+        been accepted as having a positive result (for instance, on SASL
+        channels this is done with the <a href="Channel_Interface_SASL_Authentication.html#Method:AcceptSASL" namespace="ofdT.Channel.Interface.SASLAuthentication" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AcceptSASL">AcceptSASL</a> method), or closed with the <a href="Channel.html#Method:Close" namespace="ofdT.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a> method.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>ServerAuthentication channels normally represent the client
+          authenticating itself to the server, but can also be used for the
+          server to authenticate itself to the client (i.e. prove that it is
+          in fact the desired server and not an imposter). Until the
+          authentication handler has confirmed this, connection should not
+          continue.</p>
+      </div></div>
+
+      <p>If a channel of this type is closed with the <a href="Channel.html#Method:Close" namespace="ofdT.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a> method before
+        authentication has succeeded, this indicates that the Handler has
+        given up its attempts to authenticate or that no Handler is
+        available.</p>
+
+      <p>If this occurs, the connection manager MAY attempt to continue
+        connection (for instance, performing SASL authentication by using any
+        credentials passed to <a href="Connection_Manager.html#Method:RequestConnection" namespace="ofdT.ConnectionManager" title="Method org.freedesktop.Telepathy.ConnectionManager.RequestConnection">RequestConnection</a>,
+        for instance from the <a href="Account.html#Property:Parameters" namespace="ofdT" title="Property org.freedesktop.Telepathy.Account.Parameters">Account.Parameters</a>). If this fails
+        or has already been tried, the <a href="Connection.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.Connection">Connection</a> will
+        disconnect.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>In particular, the <a href="Channel_Dispatcher.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.ChannelDispatcher">ChannelDispatcher</a> will close the
+          channel if it cannot find a handler.</p>
+      </div></div>
+
+      <p>When the connection is done with the channel and it is no
+        longer needed, it is left open until either the connection state
+        turns to DISCONNECTED or the handler closes the channel. The
+        channel SHOULD NOT close itself once finished with.</p>
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:AuthenticationMethod"></a>
+     <span class="permalink">(<a href="Channel_Type_Server_Authentication.html#Property:AuthenticationMethod">Permalink</a>)</span>
+     <h2>
+      AuthenticationMethod &mdash; s
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Simple Type DBus_Interface">DBus_Interface</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>This property defines the method used for the authentication step
+          represented by this channel, which MUST be one of this channel's
+          <a href="Channel.html#Property:Interfaces" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.Interfaces">Interfaces</a>.</p>
+
+        <p>The initially-defined interface that can be used here is
+          <a href="Channel_Interface_SASL_Authentication.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication">Channel.Interface.SASLAuthentication</a>.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

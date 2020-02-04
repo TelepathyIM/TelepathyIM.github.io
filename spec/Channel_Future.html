@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.FUTURE &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.FUTURE'>Channel.FUTURE</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Future.html#Property:Bundle">Bundle</a></td>
+       <td>
+        o
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is a staging area for future Channel functionality and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface contains functionality which we intend to incorporate
+        into the <a href="Channel.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Channel">Channel</a> interface
+        in future. It should be considered to
+        be conceptually part of the core Channel interface, but without
+        API or ABI guarantees.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>If we add new functionality to the Channel interface, libraries
+          that use generated code (notably telepathy-glib) will have it as
+          part of their ABI forever, meaning we can't make incompatible
+          changes. By using this interface as a staging area for future
+          Channel functionality, we can try out new properties, signals
+          and methods as application-specific extensions, then merge them
+          into the core Channel interface when we have enough implementation
+          experience to declare them to be stable.</p>
+
+        <p>The name is by analogy to Python's <code>__future__</code>
+          pseudo-module.</p>
+      </div></div>
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Bundle"></a>
+     <span class="permalink">(<a href="Channel_Future.html#Property:Bundle">Permalink</a>)</span>
+     <h2>
+      Bundle &mdash; o
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.9. </span>(in Channel.FUTURE
+        pseudo-interface)</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The
+          <a href="Channel_Bundle.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ChannelBundle.DRAFT">ChannelBundle.DRAFT</a>
+          to which this channel belongs.</p>
+
+        <p>A channel's Bundle property can never change.</p>
+
+        <p>Older connection managers might not have this property. Clients
+          (particularly the channel dispatcher) SHOULD recover by considering
+          each channel to be in a bundle containing only that channel,
+          distinct from all other bundles, which has no additional
+          interfaces.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

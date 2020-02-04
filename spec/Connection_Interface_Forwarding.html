@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.Forwarding.DRAFT &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.Forwarding.DRAFT'>Connection.Interface.Forwarding.DRAFT</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Forwarding.html#Method:SetForwardingRule">SetForwardingRule</a></td>
+       <td>(u: Condition, a(uu): Forwards)</td>
+       <td>&#8594;</td>
+       <td>a(uu): Old_Forwards</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Forwarding.html#Signal:ForwardingRuleChanged">ForwardingRuleChanged</a></td>
+       <td>(u: Condition, u: Timeout, a(uu): Forwards)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Forwarding.html#Property:SupportedForwardingConditions">SupportedForwardingConditions</a></td>
+       <td>
+        a{uu}
+        
+          (<a href="Connection_Interface_Forwarding.html#Mapping:Supported_Forwarding_Conditions_Map" title="Mapping Supported_Forwarding_Conditions_Map">
+              Supported_Forwarding_Conditions_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Forwarding.html#Property:ForwardingRules">ForwardingRules</a></td>
+       <td>
+        a{u(ua(uu))}
+        
+          (<a href="Connection_Interface_Forwarding.html#Mapping:Forwarding_Rule_Map" title="Mapping Forwarding_Rule_Map">
+              Forwarding_Rule_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Forwarding.html#Enum:Forwarding_Condition">Forwarding_Condition</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Forwarding.html#Mapping:Forwarding_Rule_Map">Forwarding_Rule_Map</a></td>
+       <td>Mapping</td>
+       <td>a{u(ua(uu))}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Forwarding.html#Mapping:Supported_Forwarding_Conditions_Map">Supported_Forwarding_Conditions_Map</a></td>
+       <td>Mapping</td>
+       <td>a{uu}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Entry">Forwarding_Rule_Entry</a></td>
+       <td>Struct</td>
+       <td>(uu)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Chain">Forwarding_Rule_Chain</a></td>
+       <td>Struct</td>
+       <td>(ua(uu))</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is experimental and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   <div class="annotation added"><span class="version">Added in 0.19.6. </span>(draft version, not API-stable)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This connection interface is for protocols that are capable of
+        signaling to remote contacts that incoming communication channels
+        should be instead sent to a separate contact.  This might apply to
+        things such as call forwarding, for example.</p>
+
+      <p>In some cases, a CM may register forwarding rules with an external
+        service; in those cases, it will never see the incoming channel, and
+        the forwarding will happen automatically.</p>
+
+      <p>In other cases, the CM will handle the forwarding itself.  When an
+        incoming channel is detected, the status of the local user will
+        determine whether or not a forwarding rule is matched.  For some
+        rules, this MAY happen immediately (ie, if the user is Busy); for
+        others, there MAY be a timeout (in seconds) that must expire
+        before the forwarding rule is matched (the timeout is specified
+        by the first element in the <a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Entry">Forwarding_Rule_Entry</a> list).</p>
+
+      <p>Once a forwarding rule is matched and any necessary timeouts have
+        expired, the CM can forward the incoming channel to the specified
+        handle.  If for whatever reason the remote handle does not accept
+        the channel AND the CM supports multiple forwarding entries AND
+        any necessary timeouts have expired (specified by the next entry
+        in the list), the CM can forward the incoming channel to the next
+        handle in the entry list.  This continues until the list is
+        exhausted, or the incoming channel is accepted.</p>
+
+      <p>Note that the rule matches are only for the first entry in the
+        in the forwarding rule list.  Once the incoming channel has been
+        forwarded, the next entry in the list (assuming one exists and
+        the contact that the channel has been forwarded to does not respond
+        after any necessary timeouts) is used regardless of the status of
+        the forwarded channel.  The initial match rule might have been
+        Busy, whereas the contact that the channel has been forwarded to
+        might be offline.  Even in this case, the Busy list is still
+        traversed until the channel is handled (or there are no more
+        forwarding entries in the list).</p>
+
+      <p>For example, assuming the following dict for Forwarding_Rules:</p>
+      <pre>
+        ForwardingRules = {
+          Busy: ( initial-timeout: 30, [
+            (handle: 3, timeout: 15),
+            (handle: 5, timeout: 20)
+          ]),
+          NoReply: ( initial-timeout: 15, [
+            (handle: 5, timeout: 30),
+            (handle: 3, timeout: 20)
+          ])
+        }</pre>
+
+      <p>We can imagine a scenario where an incoming channel is detected,
+        the media stream is available (ie, not Busy),
+        and the local user is online.  While the CM is waiting for the local user to
+        accept the channel, it looks at NoReply's first timeout value.  After 15s if
+        the local user hasn't accepted, the CM forwards the channel to Handle #5.  The
+        CM then waits 30s for Handle #5 to accept the channel.  If after 30s it does
+        not, the CM forwards the incoming channel to Handle #3, which will have
+        20s to accept the channel.</p>
+
+      <p>When an unanswered <a href="Channel_Type_Streamed_Media.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamedMedia">StreamedMedia</a> call is
+        forwarded, both the contact and the self handle should be removed from
+        the group with the self handle as the actor, and
+        <a href="Channel_Interface_Group.html#Enum:Channel_Group_Change_Reason">Channel_Group_Change_Reason</a> <code>No_Answer</code> or
+        <code>Busy</code>, as appropriate. For <a href="Channel_Type_Call.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Call1">Call1</a> channels, the
+        <a href="Channel_Type_Call.html#Enum:Call_State_Change_Reason">Call_State_Change_Reason</a> <code>Forwarded</code>
+        should be used.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:SetForwardingRule"></a>
+     <span class="permalink">(<a href="Connection_Interface_Forwarding.html#Method:SetForwardingRule">Permalink</a>)</span>
+     <h2>SetForwardingRule (u: Condition, a(uu): Forwards) &#8594; a(uu): Old_Forwards</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Condition &mdash; u
+        
+          (<a href="Connection_Interface_Forwarding.html#Enum:Forwarding_Condition" title="Enum Forwarding_Condition">Forwarding_Condition</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The forwarding rule to override.  Note that this SHOULD not affect
+            other rules; setting a rule that overrides others (such as
+            Forwarding_Rule_Unconditional) will not modify other rules.  This
+            means that when a client sets Forwarding_Rule_Busy and then
+            temporarily sets Forwarding_Rule_Unconditional, the
+            Forwarding_Rule_Busy rule will retain settings after
+            Forwarding_Rule_Unconditional, has been unset.</p>
+
+          <p>If the CM has no choice but to adjust multiple rules after a call
+            to this function (ie, due to the network or protocol forcing such
+            behavior), the CM MUST emit multiple <a href="Connection_Interface_Forwarding.html#Signal:ForwardingRuleChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.Forwarding.DRAFT.ForwardingRuleChanged">ForwardingRuleChanged</a>
+            signals for each changed rule.  The order of the signals is
+            implementation-dependent, with the only requirement that the
+            last signal is for the rule that was originally requested to have
+            been changed (e.g. if Unconditional automatically modifies
+            Busy and NoReply, three
+            separate <a href="Connection_Interface_Forwarding.html#Signal:ForwardingRuleChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.Forwarding.DRAFT.ForwardingRuleChanged">ForwardingRuleChanged</a> signals should be raised with the
+            last signal being for Forwarding_Rule_Unconditional).</p>
+
+          <p>Each forwarding condition will occur no more than once in
+            the rule array.  Setting a rule will overwrite the old rule
+            with the same <a href="Connection_Interface_Forwarding.html#Enum:Forwarding_Condition">Forwarding_Condition</a> in its entirety.</p>
+        </div>
+      
+       <li>
+        Forwards &mdash; a(uu)
+        
+          (<a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Entry" title="Array of Struct Forwarding_Rule_Entry">Forwarding_Rule_Entry_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The forwarding targets (an array of type <a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Entry">Forwarding_Rule_Entry</a>) to
+          activate for the rule.  An empty array will effectively disable the
+          rule.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Old_Forwards &mdash; a(uu)
+        
+          (<a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Entry" title="Array of Struct Forwarding_Rule_Entry">Forwarding_Rule_Entry_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The old forwarding targets (an array of type <a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Entry">Forwarding_Rule_Entry</a>).
+          This is the list of entries that is being replaced with the call to
+          <a href="Connection_Interface_Forwarding.html#Method:SetForwardingRule" title="Method org.freedesktop.Telepathy.Connection.Interface.Forwarding.DRAFT.SetForwardingRule">SetForwardingRule</a>.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Update the forwarding rules.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The specified Condition is not supported by this connection,
+            or the number of chained
+            <a href="Connection_Interface_Forwarding.html#Property:SupportedForwardingConditions" title="Property org.freedesktop.Telepathy.Connection.Interface.Forwarding.DRAFT.SupportedForwardingConditions">SupportedForwardingConditions</a> should
+            be checked prior to calling
+            <a href="Connection_Interface_Forwarding.html#Method:SetForwardingRule" title="Method org.freedesktop.Telepathy.Connection.Interface.Forwarding.DRAFT.SetForwardingRule">SetForwardingRule</a>.
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+            A Handle that has been supplied is invalid.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:ForwardingRuleChanged"></a>
+     <span class="permalink">(<a href="Connection_Interface_Forwarding.html#Signal:ForwardingRuleChanged">Permalink</a>)</span>
+     <h2>ForwardingRuleChanged (u: Condition, u: Timeout, a(uu): Forwards)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Condition &mdash; u
+       
+        (<a href="Connection_Interface_Forwarding.html#Enum:Forwarding_Condition" title="Enum Forwarding_Condition">Forwarding_Condition</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The condition of the forwarding rule that's been changed.
+        </div>
+      
+       <li>
+       Timeout &mdash; u
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new initial timeout for the rule.
+        </div>
+      
+       <li>
+       Forwards &mdash; a(uu)
+       
+        (<a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Entry" title="Array of Struct Forwarding_Rule_Entry">Forwarding_Rule_Entry_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new (and as of the emission of the signal, currently active)
+          forwards.  The order is relevant; those at the lowest array index
+          are used first.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when the <a href="Connection_Interface_Forwarding.html#Property:ForwardingRules" title="Property org.freedesktop.Telepathy.Connection.Interface.Forwarding.DRAFT.ForwardingRules">ForwardingRules</a> property changes.</p>
+
+        <p>By the time this is emitted, the property MUST have been updated
+          with the new rules being active.  If any protocol/network
+          requests must be made, they should be completed before the signal
+          is emitted.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SupportedForwardingConditions"></a>
+     <span class="permalink">(<a href="Connection_Interface_Forwarding.html#Property:SupportedForwardingConditions">Permalink</a>)</span>
+     <h2>
+      SupportedForwardingConditions &mdash; a{uu}
+      
+        (<a href="Connection_Interface_Forwarding.html#Mapping:Supported_Forwarding_Conditions_Map" title="Mapping Supported_Forwarding_Conditions_Map">Supported_Forwarding_Conditions_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A map of forwarding conditions supported on this connection to
+          maximum number of <a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Entry">Forwarding_Rule_Entry</a>
+          supported for the specific condition.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>When forwarding is done by the provider, different providers
+            might support different chain sizes, or provider and local
+            implementation chain sizes might differ.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ForwardingRules"></a>
+     <span class="permalink">(<a href="Connection_Interface_Forwarding.html#Property:ForwardingRules">Permalink</a>)</span>
+     <h2>
+      ForwardingRules &mdash; a{u(ua(uu))}
+      
+        (<a href="Connection_Interface_Forwarding.html#Mapping:Forwarding_Rule_Map" title="Mapping Forwarding_Rule_Map">Forwarding_Rule_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The current forwarding rules that are enabled for this connection.
+          Forwarding rules each contain an array of type
+          <a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Entry">Forwarding_Rule_Entry</a>.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Forwarding_Condition"></a>
+      <span class="permalink">Enum (<a href="Connection_Interface_Forwarding.html#Enum:Forwarding_Condition">Permalink</a>)</span>
+      <h2>
+       Forwarding_Condition &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        The various forwarding conditions that are supported by this interface.
+        In general, the conditions should not overlap; it should be very clear
+        which rule would be chosen given a CM's behavior with an incoming
+        channel.  The exception to this is Unconditional,
+        which will override all other rules.
+      </div>
+      <ul>
+<li>Unconditional (0)</li>
+<div class="docstring">
+          Incoming channels should always be forwarded.  Note that setting this
+          will override any other rules.  If not set, other rules will
+          be checked when an incoming communication channel is detected.
+        </div><li>Busy (1)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The incoming channel should be forwarded if a busy signal is
+            detected.  What defines &quot;Busy&quot; is CM-specific (perhaps a single
+            resource is already in use, or a user's status is set to Busy
+            <a href="Connection_Interface_Simple_Presence.html#Enum:Connection_Presence_Type">Connection_Presence_Type</a>).</p>
+
+          <p>If initial timeout is specified for Busy condition and call
+            waiting is not supported by the service, the timeout will be
+            ignored.</p>
+       </div><li>No_Reply (2)</li>
+<div class="docstring">
+          The incoming channel should be forwarded if the local user doesn't
+          accept it within the specified amount of time.
+        </div><li>Not_Reachable (3)</li>
+<div class="docstring">
+          The incoming channel should be forwarded if the user is offline.
+          This could be a manual setting (the user has chosen to set their
+          presence to offline or invisible) or something specified by the
+          underlying network (the user is not within range of a cell tower).
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Forwarding_Rule_Map"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Forwarding.html#Mapping:Forwarding_Rule_Map">Permalink</a>)</span>
+      <h2>
+       Forwarding_Rule_Map &mdash; a{u(ua(uu))}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A dictionary whose keys are forwarding conditions and
+        whose values are <a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Chain">Forwarding_Rule_Chain</a> structs.
+      </div>
+      <ul>
+<li>Condition &mdash; u (<a href="Connection_Interface_Forwarding.html#Enum:Forwarding_Condition" title="Enum Forwarding_Condition">Forwarding_Condition</a>)</li>
+<li>Rule_Chain &mdash; (ua(uu)) (<a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Chain" title="Struct Forwarding_Rule_Chain">Forwarding_Rule_Chain</a>)</li>
+</ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Supported_Forwarding_Conditions_Map"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Forwarding.html#Mapping:Supported_Forwarding_Conditions_Map">Permalink</a>)</span>
+      <h2>
+       Supported_Forwarding_Conditions_Map &mdash; a{uu}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A dictionary whose keys are forwarding conditions and
+        whose values are maximum number of <a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Entry">Forwarding_Rule_Entry</a>
+        for the condition.
+      </div>
+      <ul>
+<li>Condition &mdash; u (<a href="Connection_Interface_Forwarding.html#Enum:Forwarding_Condition" title="Enum Forwarding_Condition">Forwarding_Condition</a>)</li>
+<li>Chain_Length &mdash; u</li>
+</ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Forwarding_Rule_Entry"></a>
+      <span class="permalink">Struct (<a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Entry">Permalink</a>)</span>
+      <h2>
+       Forwarding_Rule_Entry &mdash; (uu)
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A forwarding rule entry.  These MAY be chained together
+          for CMs that support chaining of forwards (in other words,
+          a forwarding rule may have multiple entries; if the contact
+          in the first entry doesn't respond, the incoming channel
+          might be forwarded to the contact in the second entry).</p>
+
+        <p>For CMs and protocols that don't support chaining of
+          entries, only the first entry would be used.</p>
+      </div>
+      <ul>
+<li>Timeout &mdash; u</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The length of time (in seconds) to wait the contact to respond
+            to the forwarded channel.  This MAY be ignored by the CM if it
+            isn't supported by the underlying network/protocol for the
+            specific status of the remote contact (for example, a GSM call
+            that is forwarded may return Not_Reachable immediately without
+            waiting for the timeout value to expire).</p>
+
+          <p>A value of 0 means the condition can match immediately. A
+            value of MAX_UINT32 means that the CM's default should be
+            used.</p>
+        </div><li>Handle &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+          The contact to forward an incoming channel to. If the handle
+          doesn't point to anything (e.g. points to a phone number that
+          doesn't exist), the entry SHOULD be skipped.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Forwarding_Rule_Chain"></a>
+      <span class="permalink">Struct (<a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Chain">Permalink</a>)</span>
+      <h2>
+       Forwarding_Rule_Chain &mdash; (ua(uu))
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A chain of forwarding rules and an initial timeout after which
+        the rules are applied.
+      </div>
+      <ul>
+<li>InitialTimeout &mdash; u</li>
+<div class="docstring">Initial timeout for the rule.</div><li>Rules &mdash; a(uu) (<a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Entry" title="Array of Struct Forwarding_Rule_Entry">Forwarding_Rule_Entry_List</a>)</li>
+<div class="docstring">The forwarding targets (an array of type
+          <a href="Connection_Interface_Forwarding.html#Struct:Forwarding_Rule_Entry">Forwarding_Rule_Entry</a>).
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

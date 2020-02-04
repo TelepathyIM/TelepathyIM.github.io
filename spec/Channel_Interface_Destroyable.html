@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.Destroyable &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.Destroyable'>Channel.Interface.Destroyable</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+   
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Destroyable.html#Method:Destroy">Destroy</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.14. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface exists to support channels where
+        <a href="Channel.html#Method:Close" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Channel.Close">Channel.Close</a>
+        is insufficiently destructive. At the moment this means
+        <a href="Channel_Type_Text.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Channel.Type.Text</a>,
+        but the existence of this interface means that unsupported channels
+        can be terminated in a non-channel-type-specific way.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:Destroy"></a>
+     <span class="permalink">(<a href="Channel_Interface_Destroyable.html#Method:Destroy">Permalink</a>)</span>
+     <h2>Destroy () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Close the channel abruptly, possibly with loss of data. The
+          connection manager MUST NOT re-create the channel unless/until
+          more events occur.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The main motivating situation for this method is that when a Text
+            channel with pending messages is closed with Close, it comes back
+            as an incoming channel (to avoid a race between Close and an
+            incoming message). If Destroy is called on a Text channel, the CM
+            should delete all pending messages and close the channel, and
+            the channel shouldn't be re-created until/unless another message
+            arrives.</p>
+        </div></div>
+
+        <p>Most clients SHOULD call
+          <a href="Channel.html#Method:Close" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Channel.Close">Channel.Close</a>
+          instead. However, if a client explicitly intends to destroy the
+          channel with possible loss of data, it SHOULD call this method
+          if this interface is supported (according to the
+          <a href="Channel.html#Property:Interfaces" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Channel.Interfaces">Channel.Interfaces</a>
+          property), falling back to Close if not.</p>
+
+        <p>In particular, channel dispatchers SHOULD use this method if
+          available when terminating channels that cannot be handled
+          correctly (for instance, if no handler has been installed for
+          a channel type, or if the handler crashes repeatedly).</p>
+
+        <p>Connection managers do not need to implement this interface on
+          channels where Close and Destroy would be equivalent.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Callers need to be able to fall back to Close in any case.</p>
+        </div></div>
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

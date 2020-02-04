@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Call1.Stream &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Call1.Stream'>Call1.Stream</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream.html#Method:SetSending">SetSending</a></td>
+       <td>(b: Send)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream.html#Method:RequestReceiving">RequestReceiving</a></td>
+       <td>(u: Contact, b: Receive)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream.html#Signal:RemoteMembersChanged">RemoteMembersChanged</a></td>
+       <td>(a{uu}: Updates, a{us}: Identifiers, au: Removed, (uuss): Reason)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream.html#Signal:LocalSendingStateChanged">LocalSendingStateChanged</a></td>
+       <td>(u: State, (uuss): Reason)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream.html#Property:Interfaces">Interfaces</a></td>
+       <td>
+        as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">
+              DBus_Interface_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream.html#Property:RemoteMembers">RemoteMembers</a></td>
+       <td>
+        a{uu}
+        
+          (<a href="Call_Stream.html#Mapping:Contact_Sending_State_Map" title="Mapping Contact_Sending_State_Map">
+              Contact_Sending_State_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream.html#Property:RemoteMemberIdentifiers">RemoteMemberIdentifiers</a></td>
+       <td>
+        a{us}
+        
+          (<a href="Channel_Interface_Group.html#Mapping:Handle_Identifier_Map" title="Mapping Handle_Identifier_Map">
+              Handle_Identifier_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream.html#Property:LocalSendingState">LocalSendingState</a></td>
+       <td>
+        u
+        
+          (<a href="Call_Stream.html#Enum:Sending_State" title="Enum Sending_State">
+              Sending_State</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream.html#Property:CanRequestReceiving">CanRequestReceiving</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream.html#Enum:Sending_State">Sending_State</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream.html#Mapping:Contact_Sending_State_Map">Contact_Sending_State_Map</a></td>
+       <td>Mapping</td>
+       <td>a{uu}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.25.2. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>One stream inside a <a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a>.  A stream is
+      a single flow of packets to and from a single remote endpoint.
+      If your call connects to multiple people, you could have
+      multiple streams.</p>
+      <p>For protocols that support muting streams separately, this object MAY
+      also implement the <a href="Call_Interface_Mute.html" namespace="ofdT.Call1.Interface" title="Interface org.freedesktop.Telepathy.Call1.Interface.Mute">Mute</a> interface</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:SetSending"></a>
+     <span class="permalink">(<a href="Call_Stream.html#Method:SetSending">Permalink</a>)</span>
+     <h2>SetSending (b: Send) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Send &mdash; b
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>If True, the
+            <a href="Call_Stream.html#Property:LocalSendingState" title="Property org.freedesktop.Telepathy.Call1.Stream.LocalSendingState">LocalSendingState</a> should
+            change to <a href="Call_Stream.html#Enum:Sending_State" type="Sending_State">Sending</a>, if it isn't
+            already.</p>
+
+          <p>If False, the
+            <a href="Call_Stream.html#Property:LocalSendingState" title="Property org.freedesktop.Telepathy.Call1.Stream.LocalSendingState">LocalSendingState</a> should
+            change to <a href="Call_Stream.html#Enum:Sending_State" type="Sending_State">None</a>, if it isn't
+            already.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Set the stream to start or stop sending media from the local
+        user to other contacts.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when the requested method, channel, etc is not available on this connection.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Yet" title="Error org.freedesktop.Telepathy.Error.NotYet">Not Yet</a></li>
+       
+       
+       
+       <div class="docstring">If the call has not been accepted yet, calling
+            SetSending(True) is an error. See
+            <a href="Call_Stream.html#Property:LocalSendingState" title="Property org.freedesktop.Telepathy.Call1.Stream.LocalSendingState">LocalSendingState</a> for details.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RequestReceiving"></a>
+     <span class="permalink">(<a href="Call_Stream.html#Method:RequestReceiving">Permalink</a>)</span>
+     <h2>RequestReceiving (u: Contact, b: Receive) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contact &mdash; u
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Contact from which sending is requested</p>
+        </div>
+      
+       <li>
+        Receive &mdash; b
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>If true, request that the given contact starts to send media.
+            If false, request that the given contact stops sending media.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        <p>Request that a remote contact stops or starts sending on
+          this stream.</p>
+
+        <p>The <a href="Call_Stream.html#Property:CanRequestReceiving" title="Property org.freedesktop.Telepathy.Call1.Stream.CanRequestReceiving">CanRequestReceiving</a>
+          property defines whether the protocol allows the local user to
+          request the other side start sending on this stream.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The request contact is valid but is not involved in this
+            stream.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The protocol does not allow the local user to request the
+            other side starts sending on this stream.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:RemoteMembersChanged"></a>
+     <span class="permalink">(<a href="Call_Stream.html#Signal:RemoteMembersChanged">Permalink</a>)</span>
+     <h2>RemoteMembersChanged (a{uu}: Updates, a{us}: Identifiers, au: Removed, (uuss): Reason)</h2>
+
+     
+     <div class="annotation changed"><span class="version">Changed in 0.21.2. </span>renamed from SendersChanged to MembersChanged</div>
+<div class="annotation changed"><span class="version">Changed in 0.21.3. </span>renamed from MembersChanged to RemoteMembersChanged</div>
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Updates &mdash; a{uu}
+       
+        (<a href="Call_Stream.html#Mapping:Contact_Sending_State_Map" title="Mapping Contact_Sending_State_Map">Contact_Sending_State_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A mapping from channel-specific handles to their updated sending
+          state, whose keys include at least the members who were added,
+          and the members whose states changed.
+        </div>
+      
+       <li>
+       Identifiers &mdash; a{us}
+       
+        (<a href="Channel_Interface_Group.html#Mapping:Handle_Identifier_Map" title="Mapping Handle_Identifier_Map">Handle_Identifier_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          The identifiers of the contacts in the <var>Updates</var> map.
+        </div>
+      
+       <li>
+       Removed &mdash; au
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The channel-specific handles that were removed from the keys
+          of the <a href="Call_Stream.html#Property:RemoteMembers" title="Property org.freedesktop.Telepathy.Call1.Stream.RemoteMembers">RemoteMembers</a>
+          property, as a result of the contact leaving this stream
+        </div>
+      
+       <li>
+       Reason &mdash; (uuss)
+       
+        (<a href="Channel_Type_Call.html#Struct:Call_State_Reason" title="Struct Call_State_Reason">Call_State_Reason</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A structured reason for the change.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        Emitted when <a href="Call_Stream.html#Property:RemoteMembers" title="Property org.freedesktop.Telepathy.Call1.Stream.RemoteMembers">RemoteMembers</a> changes.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:LocalSendingStateChanged"></a>
+     <span class="permalink">(<a href="Call_Stream.html#Signal:LocalSendingStateChanged">Permalink</a>)</span>
+     <h2>LocalSendingStateChanged (u: State, (uuss): Reason)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       State &mdash; u
+       
+        (<a href="Call_Stream.html#Enum:Sending_State" title="Enum Sending_State">Sending_State</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of
+          <a href="Call_Stream.html#Property:LocalSendingState" title="Property org.freedesktop.Telepathy.Call1.Stream.LocalSendingState">LocalSendingState</a>.
+        </div>
+      
+       <li>
+       Reason &mdash; (uuss)
+       
+        (<a href="Channel_Type_Call.html#Struct:Call_State_Reason" title="Struct Call_State_Reason">Call_State_Reason</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A structured reason for the change.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        Emitted when <a href="Call_Stream.html#Property:LocalSendingState" title="Property org.freedesktop.Telepathy.Call1.Stream.LocalSendingState">LocalSendingState</a> changes.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Interfaces"></a>
+     <span class="permalink">(<a href="Call_Stream.html#Property:Interfaces">Permalink</a>)</span>
+     <h2>
+      Interfaces &mdash; as
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.19.11. </span></div>
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Extra interfaces provided by this stream, such as <a href="Call_Stream_Interface_Media.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Stream.Interface.Media">Stream.Interface.Media</a>.
+          This SHOULD NOT include the Stream interface itself, and cannot
+          change once the stream has been created.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RemoteMembers"></a>
+     <span class="permalink">(<a href="Call_Stream.html#Property:RemoteMembers">Permalink</a>)</span>
+     <h2>
+      RemoteMembers &mdash; a{uu}
+      
+        (<a href="Call_Stream.html#Mapping:Contact_Sending_State_Map" title="Mapping Contact_Sending_State_Map">Contact_Sending_State_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     <div class="annotation changed"><span class="version">Changed in 0.21.2. </span>renamed from Senders</div>
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A map from remote contacts to their sending state.</p>
+
+        <p>Media sent to this stream will be sent to all members listed here.
+          All members listed here will also appear in <a href="Channel_Type_Call.html#Property:CallMembers" namespace="ofdT.Channel.Type.Call1" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallMembers">CallMembers</a>,
+          and each CallMembers member will be listed in at most one Stream per
+          Content. Therefore, to hide things from a member of the
+          call, UIs only need to mute one Stream per Content.</p>
+
+        <p>Contacts' handles in this map indicate whether they are
+          sending media to this stream. Sending_State_Pending_Send indicates
+          contacts who are not sending but have been asked to do so. The
+          local user's sending state is shown in <a href="Call_Stream.html#Property:LocalSendingState" title="Property org.freedesktop.Telepathy.Call1.Stream.LocalSendingState">LocalSendingState</a>.</p>
+
+        <p>This mapping is also used by the streaming implementation to map
+          from <a href="Call_Content_Media_Description.html" namespace="ofdT.Call1.Content" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription">MediaDescription</a>s to Streams. In this use-case,
+          all of the senders in this stream will be represented in
+          <a href="Call_Content_Interface_Media.html#Property:RemoteMediaDescriptions" namespace="ofdT.Call1.Content.Interface.Media" title="Property org.freedesktop.Telepathy.Call1.Content.Interface.Media.RemoteMediaDescriptions">RemoteMediaDescriptions</a>. This use-case should not
+          affect anything that does not handle media streaming.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RemoteMemberIdentifiers"></a>
+     <span class="permalink">(<a href="Call_Stream.html#Property:RemoteMemberIdentifiers">Permalink</a>)</span>
+     <h2>
+      RemoteMemberIdentifiers &mdash; a{us}
+      
+        (<a href="Channel_Interface_Group.html#Mapping:Handle_Identifier_Map" title="Mapping Handle_Identifier_Map">Handle_Identifier_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The string identifiers for handles mentioned in
+        <a href="Call_Stream.html#Property:RemoteMembers" title="Property org.freedesktop.Telepathy.Call1.Stream.RemoteMembers">RemoteMembers</a>, to
+        give clients the minimal information necessary to create contacts
+        without waiting for round-trips.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:LocalSendingState"></a>
+     <span class="permalink">(<a href="Call_Stream.html#Property:LocalSendingState">Permalink</a>)</span>
+     <h2>
+      LocalSendingState &mdash; u
+      
+        (<a href="Call_Stream.html#Enum:Sending_State" title="Enum Sending_State">Sending_State</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The local user's sending state. Media sent on this stream
+          should be assumed to be received, directly or indirectly, by
+          every other contact in the
+          <a href="Call_Stream.html#Property:RemoteMembers" title="Property org.freedesktop.Telepathy.Call1.Stream.RemoteMembers">RemoteMembers</a> mapping. Change
+          notification is given via the
+          <a href="Call_Stream.html#Signal:LocalSendingStateChanged" title="Signal org.freedesktop.Telepathy.Call1.Stream.LocalSendingStateChanged">LocalSendingStateChanged</a>
+          signal.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          Implementations of the first Call draft had the self handle
+          in the <a href="Call_Stream.html#Property:RemoteMembers" title="Property org.freedesktop.Telepathy.Call1.Stream.RemoteMembers">RemoteMembers</a> (then
+          called Members) map and this showed that it's annoying
+          having to keep track of the self handle so that it can be
+          special-cased.
+        </div></div>
+
+        <p>A value of <a href="Call_Stream.html#Enum:Sending_State" type="Sending_State">Pending_Send</a> for
+          this property indicates that the other side requested the
+          local user start sending media (which can be done by calling either
+          <a href="Call_Stream.html#Method:SetSending" title="Method org.freedesktop.Telepathy.Call1.Stream.SetSending">SetSending</a> or <a href="Channel_Type_Call.html#Method:Accept" namespace="ofdT.Channel.Type.Call1" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.Accept">Accept</a>).</p>
+
+        <p>When <a href="Channel_Type_Call.html#Method:Accept" namespace="ofdT.Channel.Type.Call1" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.Accept">Accept</a> is
+          called, all streams with a local sending state of
+          <a href="Call_Stream.html#Enum:Sending_State" type="Sending_State">Pending_Send</a> and the associated
+          <a href="Call_Content.html#Property:Disposition" namespace="ofdT.Call1.Content" title="Property org.freedesktop.Telepathy.Call1.Content.Disposition">Disposition</a> set to
+          <a href="Call_Content.html#Enum:Call_Content_Disposition" type="Call_Content_Disposition">Initial</a> are
+          automatically set to sending.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CanRequestReceiving"></a>
+     <span class="permalink">(<a href="Call_Stream.html#Property:CanRequestReceiving">Permalink</a>)</span>
+     <h2>
+      CanRequestReceiving &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.21.2. </span></div>
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If true, the user can request that a remote contact starts
+          sending on this stream.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>Not all protocols allow the user to ask the
+          other side to start sending media.</div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Sending_State"></a>
+      <span class="permalink">Enum (<a href="Call_Stream.html#Enum:Sending_State">Permalink</a>)</span>
+      <h2>
+       Sending_State &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        Enum indicating whether a contact is sending media.
+      </div>
+      <ul>
+<li>None (0)</li>
+<div class="docstring">
+          The contact is not sending media and has not been asked to
+          do so.
+        </div><li>Pending_Send (1)</li>
+<div class="docstring">
+          The contact has been asked to start sending media.
+        </div><li>Sending (2)</li>
+<div class="docstring">
+          The contact is sending media.
+        </div><li>Pending_Stop_Sending (3)</li>
+<div class="docstring">
+          The contact has been asked to stop sending media.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Contact_Sending_State_Map"></a>
+      <span class="permalink">Mapping (<a href="Call_Stream.html#Mapping:Contact_Sending_State_Map">Permalink</a>)</span>
+      <h2>
+       Contact_Sending_State_Map &mdash; a{uu}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A map from a contact to his or her sending state.
+      </div>
+      <ul>
+<li>Contact &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+          The contact handle.
+        </div><li>Sending &mdash; u (<a href="Call_Stream.html#Enum:Sending_State" title="Enum Sending_State">Sending_State</a>)</li>
+<div class="docstring">
+           The sending state of the contact.
+         </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

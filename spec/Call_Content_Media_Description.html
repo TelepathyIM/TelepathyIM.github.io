@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Call1.Content.MediaDescription &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Call1.Content.MediaDescription'>Call1.Content.MediaDescription</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description.html#Method:Accept">Accept</a></td>
+       <td>(a{sv}: Local_Media_Description)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description.html#Method:Reject">Reject</a></td>
+       <td>((uuss): Reason)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description.html#Property:Interfaces">Interfaces</a></td>
+       <td>
+        as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">
+              DBus_Interface_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description.html#Property:FurtherNegotiationRequired">FurtherNegotiationRequired</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description.html#Property:HasRemoteInformation">HasRemoteInformation</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description.html#Property:Codecs">Codecs</a></td>
+       <td>
+        a(usuuba{ss})
+        
+          (<a href="Call_Content_Interface_Media.html#Struct:Codec" title="Array of Struct Codec">
+              Codec_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description.html#Property:RemoteContact">RemoteContact</a></td>
+       <td>
+        u
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">
+              Contact_Handle</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description.html#Property:SSRCs">SSRCs</a></td>
+       <td>
+        a{uau}
+        
+          (<a href="Call_Content_Media_Description.html#Mapping:Contact_SSRCs_Map" title="Mapping Contact_SSRCs_Map">
+              Contact_SSRCs_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description.html#Mapping:Contact_SSRCs_Map">Contact_SSRCs_Map</a></td>
+       <td>Mapping</td>
+       <td>a{uau}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description.html#Mapping:Media_Description_Properties">Media_Description_Properties</a></td>
+       <td>Mapping</td>
+       <td>a{sv}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.25.2. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      This object represents a remote Description Offer to which the local
+      streaming implementation should reply with its local Description.
+
+      This is intended as a temporary transactional object for use with <a href="Call_Content_Interface_Media.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content.Interface.Media">Content.Interface.Media</a>.
+      There will always be 0 or 1 MediaDescription object per Content.
+      In most cases, this object will stay alive until you call either
+      <a href="Call_Content_Media_Description.html#Method:Accept" title="Method org.freedesktop.Telepathy.Call1.Content.MediaDescription.Accept">Accept</a> or
+      <a href="Call_Content_Media_Description.html#Method:Reject" title="Method org.freedesktop.Telepathy.Call1.Content.MediaDescription.Reject">Reject</a>, and then disappear.
+      There are some cases (e.g. an endpoint being removed from the call)
+      where a MediaDescription object will disappear before you have had a
+      chance to either Accept or Reject it.
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:Accept"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description.html#Method:Accept">Permalink</a>)</span>
+     <h2>Accept (a{sv}: Local_Media_Description) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Local_Media_Description &mdash; a{sv}
+        
+          (<a href="Call_Content_Media_Description.html#Mapping:Media_Description_Properties" title="Mapping Media_Description_Properties">Media_Description_Properties</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The local description to send to the remote contacts and
+          to use in the <a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a>.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Accepts the updated Description and update the corresponding
+        local description. If FurtherNegotiationRequired is True,
+        calling this method will generally cause a network round-trip
+        and a new MediaDescription to be offered (hopefully with
+        FurtherNegotiationRequired set to False).
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The description given is invalid in some way.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:Reject"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description.html#Method:Reject">Permalink</a>)</span>
+     <h2>Reject ((uuss): Reason) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Reason &mdash; (uuss)
+        
+          (<a href="Channel_Type_Call.html#Struct:Call_State_Reason" title="Struct Call_State_Reason">Call_State_Reason</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A structured reason for the rejection.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Reject the proposed update to the remote description.
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Interfaces"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description.html#Property:Interfaces">Permalink</a>)</span>
+     <h2>
+      Interfaces &mdash; as
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Extra interfaces provided by this media description. This SHOULD
+          NOT include the Description interface itself.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:FurtherNegotiationRequired"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description.html#Property:FurtherNegotiationRequired">Permalink</a>)</span>
+     <h2>
+      FurtherNegotiationRequired &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p> If this is set to True by the CM in a MediaDescriptionOffer, it
+          means &quot;This is an offer under the SDP Offer/Answer model. Whatever
+          you accept this offer with is what I will send to the other side in
+          my answer.&quot;
+
+          If this is set to False by the CM then it means &quot;This is an Answer
+          under the SDP Offer/Answer model, and if it remains False in the
+          Accept(), no further codec negotiation needs to happen.&quot;
+
+          If this is set to True by the streaming implementation (e.g. in an
+          Accept or UpdateLocalMediaDescription call) then a new SDP
+          Offer/Answer round-trip will be initiated.
+        </p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:HasRemoteInformation"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description.html#Property:HasRemoteInformation">Permalink</a>)</span>
+     <h2>
+      HasRemoteInformation &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p> True if this offer contains information from the remote side:
+            If False then the Accept response solely depends on the
+            capabilities and preferences of the local side.
+
+            In most protocols this property will be False for the initial
+            DescriptionOffer on an outgoing call.
+        </p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Codecs"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description.html#Property:Codecs">Permalink</a>)</span>
+     <h2>
+      Codecs &mdash; a(usuuba{ss})
+      
+        (<a href="Call_Content_Interface_Media.html#Struct:Codec" title="Array of Struct Codec">Codec_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        A list of codecs the remote contact supports. When used with
+        <a href="Call_Content_Media_Description.html#Method:Accept" title="Method org.freedesktop.Telepathy.Call1.Content.MediaDescription.Accept">Accept</a>, it means the locally supported
+        codecs.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RemoteContact"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description.html#Property:RemoteContact">Permalink</a>)</span>
+     <h2>
+      RemoteContact &mdash; u
+      
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The contact handle that this description applies to.
+
+        This property can be used as an opaque identifier, and searched for in
+        <a href="Call_Stream.html#Property:RemoteMembers" namespace="ofdT.Call1.Stream" title="Property org.freedesktop.Telepathy.Call1.Stream.RemoteMembers">RemoteMembers</a> for each Stream in this Content, to
+        determine which Stream this MediaDescription applies to. If multiple
+        MediaDescriptions apply to the same Stream, the
+        <a href="Call_Content_Media_Description.html#Property:SSRCs" title="Property org.freedesktop.Telepathy.Call1.Content.MediaDescription.SSRCs">SSRCs</a> property should be used to
+        separate media before decoding.
+
+        If this property is 0, this MediaDescription applies to all streams,
+        so the above matching method is unneccesary (e.g. in conference calls
+        with a mixer, media from all participants is mixed into one stream).
+
+        When calling Accept or UpdateLocalMediaDescription, this should always
+        be set to 0, or omitted, because it is assumed that you send the same
+        MediaDescription to everyone (Encoding a stream separately for each
+        contact in a call is inefficient, and should be avoided).
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SSRCs"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description.html#Property:SSRCs">Permalink</a>)</span>
+     <h2>
+      SSRCs &mdash; a{uau}
+      
+        (<a href="Call_Content_Media_Description.html#Mapping:Contact_SSRCs_Map" title="Mapping Contact_SSRCs_Map">Contact_SSRCs_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A map from Handle to list of Synchronisation Sources, as defined by
+        RFC 3550.</p>
+
+        <p>Some protocols require the negotiation of SSRC identifiers for RTP
+        streams. If this is the case, then MediaDescription offers will appear
+        with this property set. The streaming implementation should then call
+        <a href="Call_Content_Media_Description.html#Method:Accept" title="Method org.freedesktop.Telepathy.Call1.Content.MediaDescription.Accept">Accept</a> with a map from 0 to a
+        list containing a single SSRC (which does not collide with these,
+        or any previously seen SSRCs). If a new MediaDescription offer
+        appears with an SSRC the same as one in <a href="Call_Content_Interface_Media.html#Property:LocalMediaDescriptions" namespace="ofdT.Call1.Content.Interface.Media" title="Property org.freedesktop.Telepathy.Call1.Content.Interface.Media.LocalMediaDescriptions">LocalMediaDescriptions</a>, then the streaming
+        implementation should pick a new SSRC to resolve the collision.</p>
+
+        <p>It is expected that this list will normally be at most one element long,
+        but it is kept as a list for extensibility. The concatenation of all
+        SSRCs associated with a Stream should contain no duplicate entries. If
+        there are collisions, then it is the responsibility of the protocol
+        implementation to resolve them and generate new offers.</p>
+
+        <p>If this property is omitted, then the streaming implementation can
+        assume that there is only one MediaDescription per Stream.</p>
+
+        <p>If there is a single multicast Call Stream with multiple
+        Remote Members, and all members are forced to use the same
+        MediaDescription, this map can be used by the streaming implementation
+        to determine which video sources belong to which contacts (e.g. in
+        order to put a name under each face in the call)</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Mapping:Contact_SSRCs_Map"></a>
+      <span class="permalink">Mapping (<a href="Call_Content_Media_Description.html#Mapping:Contact_SSRCs_Map">Permalink</a>)</span>
+      <h2>
+       Contact_SSRCs_Map &mdash; a{uau}
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Contact &mdash; u (<a href="Connection.html#Simple-Type:Handle" title="Simple Type Handle">Handle</a>)</li>
+<div class="docstring">
+          The remote contact these SSRCs belong to or 0.
+        </div><li>SSRCs &mdash; au</li>
+<div class="docstring">
+          The list of Synchronisation Sources.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Media_Description_Properties"></a>
+      <span class="permalink">Mapping (<a href="Call_Content_Media_Description.html#Mapping:Media_Description_Properties">Permalink</a>)</span>
+      <h2>
+       Media_Description_Properties &mdash; a{sv}
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+          A mapping containing all properties that define the information from a
+          <a href="Call_Content_Media_Description.html" namespace="ofdT.Call1.Content" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription">MediaDescription</a> and its interfaces.
+        </p>
+
+        <p>
+          If <a href="Call_Content_Media_Description.html#Property:HasRemoteInformation" namespace="ofdT.Call1.Content.MediaDescription" title="Property org.freedesktop.Telepathy.Call1.Content.MediaDescription.HasRemoteInformation">HasRemoteInformation</a> is True, then this mapping
+          will always contains at least
+          <a href="Call_Content_Media_Description.html#Property:Codecs" namespace="ofdT.Call1.Content.MediaDescription" title="Property org.freedesktop.Telepathy.Call1.Content.MediaDescription.Codecs">Codecs</a>
+        </p>
+      </div>
+      <ul>
+<li>Media_Description_Property &mdash; s (<a href="generic-types.html#Simple-Type:DBus_Qualified_Member" title="Simple Type DBus_Qualified_Member">DBus_Qualified_Member</a>)</li>
+<div class="docstring">
+          A D-Bus interface name, followed by a dot and a D-Bus property name.
+        </div><li>Media_Description_Property_Value &mdash; v</li>
+<div class="docstring">
+          The value of the property
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

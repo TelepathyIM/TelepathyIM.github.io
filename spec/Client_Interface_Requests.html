@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Client.I.Requests &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Client.Interface.Requests'>Client.Interface.Requests</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+   
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Client_Interface_Requests.html#Method:AddRequest">AddRequest</a></td>
+       <td>(o: Request, a{sv}: Properties)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Client_Interface_Requests.html#Method:RemoveRequest">RemoveRequest</a></td>
+       <td>(o: Request, s: Error, s: Message)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.26. </span>(as a stable interface)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Client.html" title="Interface org.freedesktop.Telepathy.Client">org.freedesktop.Telepathy.Client</a></li>
+    
+     <li><a href="Client_Handler.html" title="Interface org.freedesktop.Telepathy.Client.Handler">org.freedesktop.Telepathy.Client.Handler</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface can be implemented by a Handler to be notified about
+        requests for channels that it is likely to be asked to handle.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:AddRequest"></a>
+     <span class="permalink">(<a href="Client_Interface_Requests.html#Method:AddRequest">Permalink</a>)</span>
+     <h2>AddRequest (o: Request, a{sv}: Properties) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Request &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The <a href="Channel_Request.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ChannelRequest">ChannelRequest</a>
+          object, which MUST have been returned by <a href="Channel_Dispatcher.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy.ChannelDispatcher" title="Method org.freedesktop.Telepathy.ChannelDispatcher.CreateChannel">CreateChannel</a>
+          or <a href="Channel_Dispatcher.html#Method:EnsureChannel" namespace="org.freedesktop.Telepathy.ChannelDispatcher" title="Method org.freedesktop.Telepathy.ChannelDispatcher.EnsureChannel">EnsureChannel</a>
+          before this method is called.
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            See those methods for the rationale of this ordering.
+          </div></div>
+        </div>
+      
+       <li>
+        Properties &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          <p>Some of the properties of the ChannelRequest. To avoid race
+            conditions, this dictionary MUST NOT include properties whose
+            values could subsequently change. It SHOULD include as many
+            properties as possible, given that constraint.</p>
+
+          <p>In particular, the properties <a href="Channel_Request.html#Property:Requests" namespace="org.freedesktop.Telepathy.ChannelRequest" title="Property org.freedesktop.Telepathy.ChannelRequest.Requests">Requests</a>,
+            <a href="Channel_Request.html#Property:UserActionTime" namespace="org.freedesktop.Telepathy.ChannelRequest" title="Property org.freedesktop.Telepathy.ChannelRequest.UserActionTime">UserActionTime</a>
+            and <a href="Channel_Request.html#Property:Account" namespace="org.freedesktop.Telepathy.ChannelRequest" title="Property org.freedesktop.Telepathy.ChannelRequest.Account">Account</a>
+            MUST be included, and <a href="Channel_Request.html#Property:Hints" namespace="ofdT.ChannelRequest" title="Property org.freedesktop.Telepathy.ChannelRequest.Hints">Hints</a>
+            MUST be included if implemented.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Called by the ChannelDispatcher to indicate that channels have been
+          requested, and that if the request is successful, they will probably
+          be handled by this Handler. The ChannelDispatcher SHOULD only
+          call this method on one handler per request.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This allows the UI to start preparing to handle the channels
+            in advance (e.g. render a window with an &quot;in progress&quot; message),
+            improving perceived responsiveness.</p>
+
+          <p>The use of &quot;probably&quot; is because you can't necessarily tell from
+            a channel request which handler will handle particular channels.
+            A reasonable heuristic would be to match the request against the
+            <a href="Client_Handler.html#Property:HandlerChannelFilter" namespace="org.freedesktop.Telepathy.Client.Handler" title="Property org.freedesktop.Telepathy.Client.Handler.HandlerChannelFilter">HandlerChannelFilter</a>,
+            and respect the preferred handler (if any).</p>
+        </div></div>
+
+        <p>If the request succeeds and is given to the expected Handler,
+          the Requests_Satisfied parameter to
+          <a href="Client_Handler.html#Method:HandleChannels" namespace="org.freedesktop.Telepathy.Client.Handler" title="Method org.freedesktop.Telepathy.Client.Handler.HandleChannels">HandleChannels</a>
+          can be used to match the channel to a previous AddRequest call.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This lets the UI direct the channels to the window that it
+            already opened.</p>
+        </div></div>
+
+        <p>If the request fails, the expected handler is notified by the
+          channel dispatcher calling its
+          <a href="Client_Interface_Requests.html#Method:RemoveRequest" title="Method org.freedesktop.Telepathy.Client.Interface.Requests.RemoveRequest">RemoveRequest</a> method.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This lets the UI close the window or display the error.</p>
+        </div></div>
+
+        <p>The channel dispatcher SHOULD remember which handler was notified,
+          and if the channel request succeeds, it SHOULD dispatch the channels
+          to the expected handler, unless the channels do not match that
+          handler's <a href="Client_Handler.html#Property:HandlerChannelFilter" namespace="org.freedesktop.Telepathy.Client.Handler" title="Property org.freedesktop.Telepathy.Client.Handler.HandlerChannelFilter">HandlerChannelFilter</a>.
+          If the channels are not dispatched to the expected handler, the
+          handler that was expected is notified by the channel dispatcher
+          calling its <a href="Client_Interface_Requests.html#Method:RemoveRequest" title="Method org.freedesktop.Telepathy.Client.Interface.Requests.RemoveRequest">RemoveRequest</a> method
+          with the NotYours error.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Expected handling is for the UI to close the window it
+            previously opened.</p>
+        </div></div>
+
+        <p>Handlers SHOULD NOT return an error from this method; errors
+          returned from this method SHOULD NOT alter the channel dispatcher's
+          behaviour.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Calls to this method are merely a notification.</p>
+        </div></div>
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RemoveRequest"></a>
+     <span class="permalink">(<a href="Client_Interface_Requests.html#Method:RemoveRequest">Permalink</a>)</span>
+     <h2>RemoveRequest (o: Request, s: Error, s: Message) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Request &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The request that failed.
+        </div>
+      
+       <li>
+        Error &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">DBus_Error_Name</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The name of the D-Bus error with which the request failed.</p>
+
+          <p>If this is <code>org.freedesktop.Telepathy.Error.NotYours</code>,
+            this indicates that the request succeeded, but all the resulting
+            channels were given to some other handler.</p>
+        </div>
+      
+       <li>
+        Message &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Any message supplied with the D-Bus error.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Called by the ChannelDispatcher to indicate that a request
+          previously passed to <a href="Client_Interface_Requests.html#Method:AddRequest" title="Method org.freedesktop.Telepathy.Client.Interface.Requests.AddRequest">AddRequest</a>
+          has failed and should be disregarded.</p>
+
+        <p>Handlers SHOULD NOT return an error from this method; errors
+          returned from this method SHOULD NOT alter the channel dispatcher's
+          behaviour.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Calls to this method are merely a notification.</p>
+        </div></div>
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.Anonymity &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.Anonymity'>Connection.Interface.Anonymity</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Anonymity.html#Signal:AnonymityModesChanged">AnonymityModesChanged</a></td>
+       <td>(u: Modes)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Anonymity.html#Property:SupportedAnonymityModes">SupportedAnonymityModes</a></td>
+       <td>
+        u
+        
+          (<a href="Connection_Interface_Anonymity.html#Flags:Anonymity_Mode_Flags" title="Flags Anonymity_Mode_Flags">
+              Anonymity_Mode_Flags</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Anonymity.html#Property:AnonymityMandatory">AnonymityMandatory</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Anonymity.html#Property:AnonymityModes">AnonymityModes</a></td>
+       <td>
+        u
+        
+          (<a href="Connection_Interface_Anonymity.html#Flags:Anonymity_Mode_Flags" title="Flags Anonymity_Mode_Flags">
+              Anonymity_Mode_Flags</a>)
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Anonymity.html#Flags:Anonymity_Mode_Flags">Anonymity_Mode_Flags</a></td>
+       <td>Flags</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.19.7. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface to support anonymity settings on a per-connection basis.
+        This defines what personal identifying information a remote contact
+        may or may not see.  For example, GSM might use this for CLIR, while
+        SIP might use this for privacy service requests.</p>
+    </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:AnonymityModesChanged"></a>
+     <span class="permalink">(<a href="Connection_Interface_Anonymity.html#Signal:AnonymityModesChanged">Permalink</a>)</span>
+     <h2>AnonymityModesChanged (u: Modes)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Modes &mdash; u
+       
+        (<a href="Connection_Interface_Anonymity.html#Flags:Anonymity_Mode_Flags" title="Flags Anonymity_Mode_Flags">Anonymity_Mode_Flags</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new anonymity modes for this connection.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the anonymity mode has changed.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SupportedAnonymityModes"></a>
+     <span class="permalink">(<a href="Connection_Interface_Anonymity.html#Property:SupportedAnonymityModes">Permalink</a>)</span>
+     <h2>
+      SupportedAnonymityModes &mdash; u
+      
+        (<a href="Connection_Interface_Anonymity.html#Flags:Anonymity_Mode_Flags" title="Flags Anonymity_Mode_Flags">Anonymity_Mode_Flags</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The anonymity modes supported by the CM for this connection.  Once
+        Connection.Status has moved to Connected, this property MUST NOT change.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:AnonymityMandatory"></a>
+     <span class="permalink">(<a href="Connection_Interface_Anonymity.html#Property:AnonymityMandatory">Permalink</a>)</span>
+     <h2>
+      AnonymityMandatory &mdash; b
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+      <div class="annotation connection-parameter">
+        <p><span class='note'>Note:</span> Connections implementing this
+          property SHOULD provide a corresponding parameter named
+          <tt>org.freedesktop.Telepathy.Connection.Interface.Anonymity.AnonymityMandatory</tt> with the <a
+          href="Connection_Manager.html#Conn_Mgr_Param_Flags">DBus_Property</a>
+          flag. Clients SHOULD update this property by
+          calling <a
+            href="Account.html#org.freedesktop.Telepathy.Account.UpdateParameters">UpdateParameters</a>
+          on the relevant <a href="Account.html">Account</a> rather than
+          setting the property directly; change notification is via <a
+            href="Account.html#org.freedesktop.Telepathy.Account.AccountPropertyChanged">AccountPropertyChanged</a>.
+          </p>
+      </div>
+      
+
+     <div class="docstring">
+        <p>This specifies whether or not the anonymity settings MUST be respected
+          by the CM and any intermediaries between the local and remote contacts.
+          If this is set to true but anonymity settings cannot be followed, then
+          the session MUST be denied with a
+          <code>org.freedesktop.Telepathy.Error.<a href="errors.html#Error:Would Break Anonymity" title="org.freedesktop.Telepathy.Error.WouldBreakAnonymity">WouldBreakAnonymity</a></code>
+          error.
+          Any client that sets <a href="Connection_Interface_Anonymity.html#Property:AnonymityModes" title="Property org.freedesktop.Telepathy.Connection.Interface.Anonymity.AnonymityModes">AnonymityModes</a>
+          SHOULD also set this property first (rather than accepting the CM's
+          default value).</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:AnonymityModes"></a>
+     <span class="permalink">(<a href="Connection_Interface_Anonymity.html#Property:AnonymityModes">Permalink</a>)</span>
+     <h2>
+      AnonymityModes &mdash; u
+      
+        (<a href="Connection_Interface_Anonymity.html#Flags:Anonymity_Mode_Flags" title="Flags Anonymity_Mode_Flags">Anonymity_Mode_Flags</a>)
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+      <div class="annotation connection-parameter">
+        <p><span class='note'>Note:</span> Connections implementing this
+          property SHOULD provide a corresponding parameter named
+          <tt>org.freedesktop.Telepathy.Connection.Interface.Anonymity.AnonymityModes</tt> with the <a
+          href="Connection_Manager.html#Conn_Mgr_Param_Flags">DBus_Property</a>
+          flag. Clients SHOULD update this property by
+          calling <a
+            href="Account.html#org.freedesktop.Telepathy.Account.UpdateParameters">UpdateParameters</a>
+          on the relevant <a href="Account.html">Account</a> rather than
+          setting the property directly; change notification is via <a
+            href="Account.html#org.freedesktop.Telepathy.Account.AccountPropertyChanged">AccountPropertyChanged</a>.
+          </p>
+      </div>
+      
+
+     <div class="docstring">
+        <p>The currently enabled anonymity modes for the connection. Setting
+          has the effect of requesting new modes for the connection, and may
+          raise an error if the unsupported modes are set. Successfully changing
+          the modes will result in emission of
+          <a href="Connection_Interface_Anonymity.html#Signal:AnonymityModesChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.Anonymity.AnonymityModesChanged">AnonymityModesChanged</a> signal.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Flags:Anonymity_Mode_Flags"></a>
+      <span class="permalink">Flags (<a href="Connection_Interface_Anonymity.html#Flags:Anonymity_Mode_Flags">Permalink</a>)</span>
+      <h2>
+       Anonymity_Mode_Flags &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        <p>Flags for the various types of anonymity modes.  These modes are solely to
+        inform the CM of the desired anonymous settings.  It is up to the
+        CM to determine whether the anonymity modes should be handled within
+        the CM itself, or whether the network that a CM might be talking to
+        should be enforcing anonymity.</p>
+
+        <p>CMs MAY support only a subset of these modes, and specific
+        connections MAY support none at all.</p>
+      </div>
+      <ul>
+<li>Client_Info (1)</li>
+<div class="docstring">
+          <p>Obscure any information that provides user identification,
+          user-agent identification or personal details. Examples of this
+          information might be GSM CallerID, SIP from address, various
+          informational email headers, etc.</p>
+
+          <p>The CM should scrub/replace any of this information before
+          passing messages or data onto the network. Note that a CM which
+          has the option of obscuring the information at the CM or privacy
+          service level would choose both (anonymity services are opaque
+          to clients of this interface).</p>
+
+          <p>Clients SHOULD NOT set both Client_Info and Show_Client_Info modes.
+          If they are set, the CM MUST respect Client_Info and ignore
+          Show_Client_Info.</p>
+        </div><li>Show_Client_Info (2)</li>
+<div class="docstring">
+          <p>Explicitly request showing of client information. In connection
+          context, this can be used to override service default. In channel
+          context, this overrides connection anonymity modes.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>In GSM, it's possible to have CLIR enabled by default, and
+              explicitly suppress CLIR for a single phone call.</p>
+          </div></div>
+
+          <p>Clients SHOULD NOT set both Client_Info and Show_Client_Info modes.
+          If they are set, the CM MUST respect Client_Info and ignore
+          Show_Client_Info. The CM MAY set both Client_Info and Show_Client_Info
+          in <a href="Connection_Interface_Anonymity.html#Property:SupportedAnonymityModes" title="Property org.freedesktop.Telepathy.Connection.Interface.Anonymity.SupportedAnonymityModes">SupportedAnonymityModes</a> to indicate
+          its support for explicitly hiding and publicising client information.
+          </p>
+        </div><li>Network_Info (4)</li>
+<div class="docstring">
+          <p>Obscure any originating IP address information, contact URIs,
+          and anonymize all traffic involved with sending/receiving any
+          media streams or call content.
+          Examples of this include the &quot;headers&quot; portions of
+          <a href="http://www.rfc-editor.org/rfc/rfc3323.txt">RFC 3323</a> as
+          well as the History-Info (described in
+          <a href="http://www.rfc-editor.org/rfc/rfc4244.txt">RFC 4244</a>)
+          for a SIP CM.</p>
+
+          <p>This SHOULD have the effect of hiding address information from
+          the remote contact (ie, the contact cannot know what IP address
+          the session is originated from). Obviously the network still needs
+          to be able to route information between contacts, so this provides
+          no guarantees of what can be seen by intermediaries.</p>
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

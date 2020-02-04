@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Account.I.Hidden.DRAFT1 &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Account.Interface.Hidden.DRAFT1'>Account.Interface.Hidden.DRAFT1</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Account_Interface_Hidden.html#Property:Hidden">Hidden</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is outrageous and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   <div class="annotation added"><span class="version">Added in 0.21.10. </span>(draft 1)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for flagging certain accounts as hidden, so that they do
+        not appear in the account manager's standard lists of accounts.
+        Accounts whose <a href="Account_Interface_Hidden.html#Property:Hidden" title="Property org.freedesktop.Telepathy.Account.Interface.Hidden.DRAFT1.Hidden">Hidden</a> property is
+        <code>True</code> are intended for non-interactive use (by
+        non-user-visible services), and appear on the <a href="Account_Manager_Interface_Hidden.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.AccountManager.Interface.Hidden.DRAFT1">AccountManager.Interface.Hidden.DRAFT1</a>
+        interface; in all other respects, they behave like any other
+        account.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>XMPP, in particular, is increasingly used for purposes other than
+          instant messaging and VoIP. For instance, extensions exist for
+          inter-device bookmark synchronization.</p>
+
+        <p>While obviously these services could re-use connections intended for
+          instant messaging, in some cases you might want to use a different
+          account. (Perhaps your bookmark sync provider is not your IM
+          provider.) This API allows such auxiliary accounts to exist in
+          Telepathy, while not being displayed in standard user interfaces for
+          IM, VoIP, and friends.</p>
+      </div></div>
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Hidden"></a>
+     <span class="permalink">(<a href="Account_Interface_Hidden.html#Property:Hidden">Permalink</a>)</span>
+     <h2>
+      Hidden &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If <code>True</code>, this account is intended for non-interactive
+          use, and thus should not be presented to the user. It will not appear
+          in properties and signals on the main <a href="Account_Manager.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.AccountManager">AccountManager</a> interface; instead, it
+          will show up on <a href="Account_Manager_Interface_Hidden.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.AccountManager.Interface.Hidden.DRAFT1">AccountManager.Interface.Hidden.DRAFT1</a>.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

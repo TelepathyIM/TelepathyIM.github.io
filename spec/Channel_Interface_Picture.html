@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.Picture1 &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.Picture1'>Channel.Interface.Picture1</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Picture.html#Method:SetPicture">SetPicture</a></td>
+       <td>(ay: Picture, s: MIME_Type)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Picture.html#Property:Picture">Picture</a></td>
+       <td>
+        (ays)
+        
+          (<a href="Account_Interface_Avatar.html#Struct:Avatar" title="Struct Avatar">
+              Avatar</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Picture.html#Property:Actor">Actor</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Picture.html#Property:ActorHandle">ActorHandle</a></td>
+       <td>
+        u
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">
+              Contact_Handle</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Picture.html#Property:Timestamp">Timestamp</a></td>
+       <td>
+        x
+        
+          (<a href="generic-types.html#Simple-Type:Unix_Timestamp64" title="Simple Type Unix_Timestamp64">
+              Unix_Timestamp64</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Picture.html#Property:CanSet">CanSet</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Picture.html#Property:SupportedMIMETypes">SupportedMIMETypes</a></td>
+       <td>
+        as
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Picture.html#Property:MinimumHeight">MinimumHeight</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Picture.html#Property:MinimumWidth">MinimumWidth</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Picture.html#Property:RecommendedHeight">RecommendedHeight</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Picture.html#Property:RecommendedWidth">RecommendedWidth</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Picture.html#Property:MaximumHeight">MaximumHeight</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Picture.html#Property:MaximumWidth">MaximumWidth</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Picture.html#Property:MaximumBytes">MaximumBytes</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is draft and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   <div class="annotation added"><span class="version">Added in 0.25.0. </span></div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface channels can implement to support a picture. Most
+        of the time this will be implemented by channels implementing
+        the <a href="Channel_Interface_Room.html" namespace="ofdT.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.Room2">Room2</a>
+        interface. Note that this interface is not restricted to
+        Text channels, and can also be used on Call channels.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        This is a separate interface from
+        <a href="Channel_Interface_Room_Config.html" namespace="ofdT.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.RoomConfig1">RoomConfig1</a>
+        because (a) it's possible some protocol might support pictures for
+        1:1 chats; and (b) it avoids downloading an unwanted picture in a
+        GetAll request.
+      </div></div>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:SetPicture"></a>
+     <span class="permalink">(<a href="Channel_Interface_Picture.html#Method:SetPicture">Permalink</a>)</span>
+     <h2>SetPicture (ay: Picture, s: MIME_Type) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Picture &mdash; ay
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The new picture.</div>
+      
+       <li>
+        MIME_Type &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The MIME type.</div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Set the room's picture. Clients SHOULD look at the picture
+          flags before calling this method as the user might not have
+          permission to set the picture.</p>
+
+        <p>A successful return of this method indicates a successful
+          change in picture, but clients should still listen for changes
+          to the <a href="Channel_Interface_Picture.html#Property:Picture" title="Property org.freedesktop.Telepathy.Channel.Interface.Picture1.Picture">Picture</a> property for
+          further changes by other users or the server.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when the requested method, channel, etc is not available on this connection.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            Picture is somehow invalid: e.g. unsupported MIME type,
+            too big, etc.
+          </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Picture"></a>
+     <span class="permalink">(<a href="Channel_Interface_Picture.html#Property:Picture">Permalink</a>)</span>
+     <h2>
+      Picture &mdash; (ays)
+      
+        (<a href="Account_Interface_Avatar.html#Struct:Avatar" title="Struct Avatar">Avatar</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The picture representing this channel.</p>
+
+        <p>This property may change during the lifetime of the channel and
+          MUST not be included in a channel request.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Actor"></a>
+     <span class="permalink">(<a href="Channel_Interface_Picture.html#Property:Actor">Permalink</a>)</span>
+     <h2>
+      Actor &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The normalized contact ID representing who last modified
+          the picture, or the empty string if it is not known.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ActorHandle"></a>
+     <span class="permalink">(<a href="Channel_Interface_Picture.html#Property:ActorHandle">Permalink</a>)</span>
+     <h2>
+      ActorHandle &mdash; u
+      
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The handle corresponding to <a href="Channel_Interface_Picture.html#Property:Actor" title="Property org.freedesktop.Telepathy.Channel.Interface.Picture1.Actor">Actor</a>,
+        or 0 if the <a href="Channel_Interface_Picture.html#Property:Actor" title="Property org.freedesktop.Telepathy.Channel.Interface.Picture1.Actor">Actor</a> is unknown.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Timestamp"></a>
+     <span class="permalink">(<a href="Channel_Interface_Picture.html#Property:Timestamp">Permalink</a>)</span>
+     <h2>
+      Timestamp &mdash; x
+      
+        (<a href="generic-types.html#Simple-Type:Unix_Timestamp64" title="Simple Type Unix_Timestamp64">Unix_Timestamp64</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A unix timestamp indicating when the picture was last
+         modified, or <code>INT_MAX64</code> if unknown.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CanSet"></a>
+     <span class="permalink">(<a href="Channel_Interface_Picture.html#Property:CanSet">Permalink</a>)</span>
+     <h2>
+      CanSet &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>TRUE if the <a href="Channel_Interface_Picture.html#Property:Picture" title="Property org.freedesktop.Telepathy.Channel.Interface.Picture1.Picture">Picture</a> property
+          can be set by the user by calling
+          <a href="Channel_Interface_Picture.html#Method:SetPicture" title="Method org.freedesktop.Telepathy.Channel.Interface.Picture1.SetPicture">SetPicture</a>, otherwise
+          FALSE.</p>
+
+        <p>If implementations are unsure of what this value should be
+          it SHOULD still be set to what it believes the value
+          is. As a result, clients should be aware that
+          <a href="Channel_Interface_Picture.html#Method:SetPicture" title="Method org.freedesktop.Telepathy.Channel.Interface.Picture1.SetPicture">SetPicture</a> can still fail
+          even with this property set to TRUE.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SupportedMIMETypes"></a>
+     <span class="permalink">(<a href="Channel_Interface_Picture.html#Property:SupportedMIMETypes">Permalink</a>)</span>
+     <h2>
+      SupportedMIMETypes &mdash; as
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        An array of supported MIME types (e.g. &quot;image/jpeg&quot;).
+        Clients MAY assume that the first type in this array is preferred.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MinimumHeight"></a>
+     <span class="permalink">(<a href="Channel_Interface_Picture.html#Property:MinimumHeight">Permalink</a>)</span>
+     <h2>
+      MinimumHeight &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The minimum height in pixels of the picture, which MAY be 0.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MinimumWidth"></a>
+     <span class="permalink">(<a href="Channel_Interface_Picture.html#Property:MinimumWidth">Permalink</a>)</span>
+     <h2>
+      MinimumWidth &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The minimum width in pixels of the picture, which MAY be 0.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RecommendedHeight"></a>
+     <span class="permalink">(<a href="Channel_Interface_Picture.html#Property:RecommendedHeight">Permalink</a>)</span>
+     <h2>
+      RecommendedHeight &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The recommended height in pixels of the picture, or 0 if
+        there is no preferred height.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RecommendedWidth"></a>
+     <span class="permalink">(<a href="Channel_Interface_Picture.html#Property:RecommendedWidth">Permalink</a>)</span>
+     <h2>
+      RecommendedWidth &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The recommended width in pixels of the picture, or 0 if
+        there is no preferred width.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MaximumHeight"></a>
+     <span class="permalink">(<a href="Channel_Interface_Picture.html#Property:MaximumHeight">Permalink</a>)</span>
+     <h2>
+      MaximumHeight &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The maximum height in pixels of the picture, or 0 if
+        there is no limit.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MaximumWidth"></a>
+     <span class="permalink">(<a href="Channel_Interface_Picture.html#Property:MaximumWidth">Permalink</a>)</span>
+     <h2>
+      MaximumWidth &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The maximum width in pixels of the picture, or 0 if
+        there is no limit.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MaximumBytes"></a>
+     <span class="permalink">(<a href="Channel_Interface_Picture.html#Property:MaximumBytes">Permalink</a>)</span>
+     <h2>
+      MaximumBytes &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The maximum size in bytes of the picture, or 0 if
+        there is no limit.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

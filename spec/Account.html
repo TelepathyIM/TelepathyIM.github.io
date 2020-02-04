@@ -1,0 +1,1773 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Account &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Account'>Account</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Method:Remove">Remove</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Method:UpdateParameters">UpdateParameters</a></td>
+       <td>(a{sv}: Set, as: Unset)</td>
+       <td>&#8594;</td>
+       <td>as: Reconnect_Required</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Method:Reconnect">Reconnect</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Signal:Removed">Removed</a></td>
+       <td>()</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Signal:AccountPropertyChanged">AccountPropertyChanged</a></td>
+       <td>(a{sv}: Properties)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:Interfaces">Interfaces</a></td>
+       <td>
+        as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">
+              DBus_Interface_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:DisplayName">DisplayName</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:Icon">Icon</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:Valid">Valid</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:Enabled">Enabled</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:Nickname">Nickname</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:Service">Service</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:Parameters">Parameters</a></td>
+       <td>
+        a{sv}
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:AutomaticPresence">AutomaticPresence</a></td>
+       <td>
+        (uss)
+        
+          (<a href="Connection_Interface_Simple_Presence.html#Struct:Simple_Presence" title="Struct Simple_Presence">
+              Simple_Presence</a>)
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:ConnectAutomatically">ConnectAutomatically</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:Connection">Connection</a></td>
+       <td>
+        o
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:ConnectionStatus">ConnectionStatus</a></td>
+       <td>
+        u
+        
+          (<a href="Connection.html#Enum:Connection_Status" title="Enum Connection_Status">
+              Connection_Status</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:ConnectionStatusReason">ConnectionStatusReason</a></td>
+       <td>
+        u
+        
+          (<a href="Connection.html#Enum:Connection_Status_Reason" title="Enum Connection_Status_Reason">
+              Connection_Status_Reason</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:ConnectionError">ConnectionError</a></td>
+       <td>
+        s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">
+              DBus_Error_Name</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:ConnectionErrorDetails">ConnectionErrorDetails</a></td>
+       <td>
+        a{sv}
+        
+          (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">
+              String_Variant_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:CurrentPresence">CurrentPresence</a></td>
+       <td>
+        (uss)
+        
+          (<a href="Connection_Interface_Simple_Presence.html#Struct:Simple_Presence" title="Struct Simple_Presence">
+              Simple_Presence</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:RequestedPresence">RequestedPresence</a></td>
+       <td>
+        (uss)
+        
+          (<a href="Connection_Interface_Simple_Presence.html#Struct:Simple_Presence" title="Struct Simple_Presence">
+              Simple_Presence</a>)
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:ChangingPresence">ChangingPresence</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:NormalizedName">NormalizedName</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:HasBeenOnline">HasBeenOnline</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account.html#Property:Supersedes">Supersedes</a></td>
+       <td>
+        ao
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.2. </span></div>
+   <div class="annotation changed"><span class="version">Changed in 0.17.6. </span>moved the Avatar property to a separate
+      interface</div>
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An Account object encapsulates the necessary details to make a
+        Telepathy connection.</p>
+
+      <p>Accounts are uniquely identified by object path. The object path
+        of an Account MUST take the form
+        <code>/org/freedesktop/Telepathy/Account/<em>cm</em>/<em>proto</em>/<em>acct</em></code>, where:</p>
+
+      <ul>
+        <li><em>cm</em> is the same <a href="Connection_Manager.html#Simple-Type:Connection_Manager_Name">Connection_Manager_Name</a>
+          that appears in the connection manager's well-known bus name and
+          object path</li>
+        <li><em>proto</em> is the <a href="Connection_Manager.html#Simple-Type:Protocol">Protocol</a> name as seen in
+          <a href="Connection_Manager.html#Method:ListProtocols" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.ConnectionManager.ListProtocols">ConnectionManager.ListProtocols</a>,
+          but with &quot;-&quot; replaced with &quot;_&quot;
+          (i.e. the same as in the object-path of a <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>)</li>
+        <li><em>acct</em> is an arbitrary string of ASCII letters, digits
+          and underscores, starting with a letter or underscore, which
+          uniquely identifies this account</li>
+        <li>Clients SHOULD parse the object path to discover the
+          connection manager and protocol</li>
+        <li>Clients MUST NOT attempt to parse <em>acct</em></li>
+        <li>Clients MUST NOT assume that <em>acct</em> matches
+          the connection-specific part of a Connection's object-path and
+          bus name</li>
+        <li>The account manager SHOULD choose <em>acct</em> such that if
+          an account is deleted, its object path will be re-used if and only
+          if the new account is in some sense &quot;the same&quot;
+          (incorporating the 'account' parameter in some way is
+          recommended)</li>
+      </ul>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>This API avoids specifying the &quot;profiles&quot; used in Mission Control
+          4.x or the &quot;presets&quot; that have been proposed to replace them. An
+          optional interface will be provided for AM implementations
+          that want to provide presets.</p>
+
+        <p>There is deliberately no functionality here for opening channels;
+          we intend to provide that in the channel dispatcher.</p>
+
+        <p>Other missing features which would be better in their own
+          interfaces:</p>
+
+        <ul>
+          <li>dynamic parameter-providing (aka provisioning)</li>
+          <li>saved server capabilities</li>
+          <li>account conditions</li>
+          <li>account grouping</li>
+        </ul>
+      </div></div>
+
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:Remove"></a>
+     <span class="permalink">(<a href="Account.html#Method:Remove">Permalink</a>)</span>
+     <h2>Remove () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring">Delete the account.</div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:UpdateParameters"></a>
+     <span class="permalink">(<a href="Account.html#Method:UpdateParameters">Permalink</a>)</span>
+     <h2>UpdateParameters (a{sv}: Set, as: Unset) &#8594; as: Reconnect_Required</h2>
+
+     
+     <div class="annotation changed"><span class="version">Changed in 0.17.16. </span>
+        parameters which are also D-Bus properties can and should be updated on
+        existing Connections
+      </div>
+<div class="annotation changed"><span class="version">Changed in 0.17.24. </span>
+        return an array of the parameters that won't change until the account
+        is reconnected
+      </div>
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Set &mdash; a{sv}
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A mapping from parameter names to their values. These parameters
+          should be stored for future use.
+        </div>
+      
+       <li>
+        Unset &mdash; as
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A list of the names of parameters to be removed from the set of
+          stored values, allowing the default values to be used.
+          If the given parameters were not, in fact, stored, or even if they
+          do not exist at all, the account manager MUST accept this without
+          error.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Reconnect_Required &mdash; as
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>If all of the updates could be applied to the active
+            <a href="Account.html#Property:Connection" title="Property org.freedesktop.Telepathy.Account.Connection">Connection</a> (if any),
+            the empty list, signifying that no reconnection is required for the
+            new parameters to take effect. For example, if the only parameter
+            updated is <tt>...Cellular.<a href="Connection_Interface_Cellular.html#Property:MessageValidityPeriod" namespace="org.freedesktop.Telepathy.Connection.Interface.Cellular" title="Property org.freedesktop.Telepathy.Connection.Interface.Cellular.MessageValidityPeriod">MessageValidityPeriod</a></tt>,
+            the new value can be applied immediately to the connection.</p>
+
+          <p>Otherwise, a list of the names of parameters with changes that
+            will not take effect until the account is reconnected. User
+            interfaces that require &quot;instant apply&quot; semantics MAY call
+            <a href="Account.html#Method:Reconnect" title="Method org.freedesktop.Telepathy.Account.Reconnect">Reconnect</a> in response to receiving a
+            non-empty list. For example, if the caller updates both
+            <tt>...Anonymity.<a href="Connection_Interface_Anonymity.html#Property:AnonymityMandatory" namespace="org.freedesktop.Telepathy.Connection.Interface.Anonymity" title="Property org.freedesktop.Telepathy.Connection.Interface.Anonymity.AnonymityMandatory">AnonymityMandatory</a></tt>
+            and <tt>require-encryption</tt>, the former can be applied to the
+            current connection, but the latter needs a reconnect to take
+            effect, so this method should return
+            <code>[&quot;require-encryption&quot;]</code>.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Change the value of the <a href="Account.html#Property:Parameters" title="Property org.freedesktop.Telepathy.Account.Parameters">Parameters</a>
+          property.</p>
+
+        <p>If any of the <var>Set</var> parameters’
+          <a href="Connection_Manager.html#Flags:Conn_Mgr_Param_Flags">Conn_Mgr_Param_Flags</a> include
+          <code>DBus_Property</code>, the change will be applied immediately to
+          the corresponding D-Bus Property on the active
+          <a href="Account.html#Property:Connection" title="Property org.freedesktop.Telepathy.Account.Connection">Connection</a>, if there is one. If any of
+          the <var>Unset</var> parameters’
+          <a href="Connection_Manager.html#Flags:Conn_Mgr_Param_Flags">Conn_Mgr_Param_Flags</a> include both
+          <code>DBus_Property</code> and <code>Has_Default</code>, the
+          corresponding D-Bus Property on the connection will be set to the
+          default value.  Changes to other parameters will not take effect
+          until the next time the account is disconnected and reconnected. (If
+          parameters are explicitly set to their default value, or are unset
+          when previously set to their default value, the account manager MAY
+          decide that no reconnection is necessary to make the change take
+          effect.)</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>In general, reconnecting is a destructive operation that shouldn't
+            happen as a side-effect. In particular, migration tools that
+            twiddle the settings of all accounts shouldn't cause an automatic
+            disconnect and reconnect.</p>
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when one of the provided arguments is invalid.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:Reconnect"></a>
+     <span class="permalink">(<a href="Account.html#Method:Reconnect">Permalink</a>)</span>
+     <h2>Reconnect () &#8594; nothing</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.17.24. </span></div>
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Re-connect this account. If the account is currently disconnected
+          and the requested presence is offline, or if the account
+          is not <a href="Account.html#Property:Enabled" title="Property org.freedesktop.Telepathy.Account.Enabled">Enabled</a> or not
+          <a href="Account.html#Property:Valid" title="Property org.freedesktop.Telepathy.Account.Valid">Valid</a>, this does nothing.</p>
+
+        <p>If the account is disconnected and the requested presence is not
+          offline, this forces an attempt to connect with the requested
+          presence immediately.</p>
+
+        <p>If the account is connecting or connected, this is equivalent to
+          remembering the current value of
+          <a href="Account.html#Property:RequestedPresence" title="Property org.freedesktop.Telepathy.Account.RequestedPresence">RequestedPresence</a>, setting its value
+          to (OFFLINE, &quot;offline&quot;, &quot;&quot;), waiting for the change to take effect,
+          then setting its value to the value that was previously
+          remembered.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Clients desiring &quot;instant apply&quot; semantics for CM parameters MAY
+            call this method to achieve that.</p>
+        </div></div>
+
+        <p>In particular, if the account's
+          <a href="Account.html#Property:Connection" title="Property org.freedesktop.Telepathy.Account.Connection">Connection</a> is in the Connecting
+          state, calling this method causes the attempt to connect to be
+          aborted and re-tried.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This is necessary to ensure that the new parameters are
+            picked up.</p>
+        </div></div>
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:Removed"></a>
+     <span class="permalink">(<a href="Account.html#Signal:Removed">Permalink</a>)</span>
+     <h2>Removed ()</h2>
+
+     
+     
+     
+
+     
+
+     <div class="docstring">
+        This account has been removed.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          This is redundant with <a href="Account_Manager.html#Signal:AccountRemoved" namespace="org.freedesktop.Telepathy.AccountManager" title="Signal org.freedesktop.Telepathy.AccountManager.AccountRemoved">AccountRemoved</a>,
+          but it's still worth having,
+          to avoid having to bind to AccountManager.AccountRemoved to tell
+          you whether your Account is valid — ideally, an account-editing UI
+          should only care about a single Account.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:AccountPropertyChanged"></a>
+     <span class="permalink">(<a href="Account.html#Signal:AccountPropertyChanged">Permalink</a>)</span>
+     <h2>AccountPropertyChanged (a{sv}: Properties)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Properties &mdash; a{sv}
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A map from property names in this namespace (e.g.
+          <a href="Account.html#Property:Nickname" title="Property org.freedesktop.Telepathy.Account.Nickname">Nickname</a>) to
+          values. Properties whose values have not changed SHOULD be
+          omitted, but this need not be done.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        The values of one or more properties on this interface (that do not
+        specify that this signal does not apply to them) may have changed.
+        This does not cover properties of other interfaces, which must
+        provide their own change notification if appropriate.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Interfaces"></a>
+     <span class="permalink">(<a href="Account.html#Property:Interfaces">Permalink</a>)</span>
+     <h2>
+      Interfaces &mdash; as
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        A list of the extra interfaces provided by this account.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:DisplayName"></a>
+     <span class="permalink">(<a href="Account.html#Property:DisplayName">Permalink</a>)</span>
+     <h2>
+      DisplayName &mdash; s
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The user-visible name of this account. This SHOULD be chosen by the
+        user at account creation time. The account creation user interface
+        is responsible for setting a reasonable default value in the user's
+        locale; something like &quot;Jabber (bob@example.com)&quot; would be sensible.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Icon"></a>
+     <span class="permalink">(<a href="Account.html#Property:Icon">Permalink</a>)</span>
+     <h2>
+      Icon &mdash; s
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The name of an icon in the system's icon theme, such as &quot;im-msn&quot;,
+        or the empty string to not specify an icon. If the icon is set to
+        an empty string, the account manager or any client MAY derive a
+        default icon, for instance from the protocol.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Valid"></a>
+     <span class="permalink">(<a href="Account.html#Property:Valid">Permalink</a>)</span>
+     <h2>
+      Valid &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        If true, this account is considered by the account manager to be
+        complete and usable. If false, user action is required to make it
+        usable, and it will never attempt to connect (for instance, this
+        might be caused by the absence of a required parameter).
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          For connection managers with a plugin architecture, like
+          telepathy-haze, we have little or no control over the parameters
+          offered; for platforms with package management, we have little or
+          no control over the CMs offered. NMC 4.x would just pretend the
+          account didn't exist in these circumstances, but silent data loss
+          is bad, and UIs with CM-specific knowledge (or a user filling in
+          newly-required parameters) might be able to rescue a broken account.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Enabled"></a>
+     <span class="permalink">(<a href="Account.html#Property:Enabled">Permalink</a>)</span>
+     <h2>
+      Enabled &mdash; b
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>This property gives the users the possibility to prevent an account
+          from being used. This flag does not change the validity of the
+          account.</p>
+
+        <p>A disabled account can never be put online.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Use cases:</p>
+
+          <ul>
+            <li>user has two or more accounts capable of calling contact X, but
+              he doesn't want the UI to prompt him everytime about which one he
+              wants to use for the call. He can then disable all the equivalent
+              accounts but one.</li>
+
+            <li>There is some temporary server error and the user doesn't want
+              to be be bother by error messages, or change the account
+              configuration: temporarily disabling the account is quicker.</li>
+          </ul>
+        </div></div>
+
+        <p>The AccountManager SHOULD allow this property to be set on invalid
+          accounts, but MUST NOT attempt to put invalid accounts online
+          even if they become Enabled.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>There doesn't seem to be any good reason not to allow this.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Nickname"></a>
+     <span class="permalink">(<a href="Account.html#Property:Nickname">Permalink</a>)</span>
+     <h2>
+      Nickname &mdash; s
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The nickname to set on this account for display to other contacts,
+        as set by the user. When the account becomes connected, the
+        account manager SHOULD set this as the user's alias using <a href="Connection_Interface_Aliasing.html#Method:SetAliases" namespace="org.freedesktop.Telepathy.Connection.Interface.Aliasing" title="Method org.freedesktop.Telepathy.Connection.Interface.Aliasing.SetAliases">SetAliases</a>
+        if appropriate.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          In a later specification revision, we plan to separate the concepts
+          of a contact's nickname as set by themselves, and the local
+          name for them in our contact list (a &quot;handle&quot; or &quot;pet name&quot; as
+          described in XEP-0165 and its references). The terminology change
+          from alias to nickname here is a step in that direction.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Service"></a>
+     <span class="permalink">(<a href="Account.html#Property:Service">Permalink</a>)</span>
+     <h2>
+      Service &mdash; s
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.19.8. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Some protocols, like XMPP and SIP, are used by various different
+          user-recognised brands, such as <i>Google Talk</i> and <i>Ovi by
+          Nokia</i>. On accounts for such services, this property SHOULD be
+          set to a string describing the service, which MUST consist only of
+          ASCII letters, numbers and hyphen/minus signs, and start with a
+          letter (matching the requirements for <a href="Connection_Manager.html#Simple-Type:Protocol">Protocol</a>).
+          For the <tt>jabber</tt> protocol, one of the following service names
+          should be used if possible:</p>
+
+        <ul>
+          <li><tt>google-talk</tt> (for <a href="http://www.google.com/talk/">Google's IM service</a>)</li>
+          <li><tt>ovi-chat</tt> (for <a href="http://www.ovi.com/">Ovi</a>'s IM
+            service)</li>
+          <li><tt>facebook</tt> (for <a href="http://www.facebook.com/sitetour/chat.php">Facebook's IM
+            service</a>)</li>
+          <li><tt>lj-talk</tt> (for <a href="http://www.livejournal.com/chat/">LiveJournal's IM
+            service</a>)</li>
+          <li><tt>windows-live</tt> (for <a href="http://live.com">Windows Live Messenger IM service</a>)</li>
+
+        </ul>
+
+        <p>For the <tt>IRC</tt> protocol, the network name (<tt>freenode</tt>,
+          <tt>gimpnet</tt>, etc.) can be used if relevant.</p>
+
+        <p>The <a href="Account.html#Property:Icon" title="Property org.freedesktop.Telepathy.Account.Icon">Icon</a> property SHOULD be set to a
+          corresponding brand-specific icon name, if possible. In the future,
+          this property may be used as an index into additional
+          service-specific customizations. If this property is the empty string
+          (or missing), the service is determined by the protocol name (either
+          because this is a single-service protocol like <tt>msn</tt>, or
+          because this is just a generic <tt>jabber</tt> or <tt>sip</tt>
+          account without specific branding).</p>
+
+        <p>This property MAY be set, if appropriate, when calling
+          <a href="Account_Manager.html#Method:CreateAccount" namespace="org.freedesktop.Telepathy.AccountManager" title="Method org.freedesktop.Telepathy.AccountManager.CreateAccount">CreateAccount</a>. Updating this property will fail on
+          externally-stored accounts whose <a href="Account_Interface_Storage.html#Property:StorageRestrictions" namespace="org.freedesktop.Telepathy.Account.Interface.Storage" title="Property org.freedesktop.Telepathy.Account.Interface.Storage.StorageRestrictions">StorageRestrictions</a> include
+          <code>Cannot_Set_Service</code>.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Parameters"></a>
+     <span class="permalink">(<a href="Account.html#Property:Parameters">Permalink</a>)</span>
+     <h2>
+      Parameters &mdash; a{sv}
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A map from connection manager parameter names (as in the
+          <a href="Connection_Manager.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ConnectionManager">ConnectionManager</a>
+          interface) to their values. This property includes
+          only those parameters that are stored for this account, and SHOULD
+          only include those parameters that the user has explicitly set.
+        </p>
+        <p>This property cannot be altered using
+          <code>org.freedesktop.DBus.Properties.Set()</code>; use
+          <a href="Account.html#Method:UpdateParameters" title="Method org.freedesktop.Telepathy.Account.UpdateParameters">UpdateParameters</a> instead.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:AutomaticPresence"></a>
+     <span class="permalink">(<a href="Account.html#Property:AutomaticPresence">Permalink</a>)</span>
+     <h2>
+      AutomaticPresence &mdash; (uss)
+      
+        (<a href="Connection_Interface_Simple_Presence.html#Struct:Simple_Presence" title="Struct Simple_Presence">Simple_Presence</a>)
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The presence status that this account should have if it is brought
+          online.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          In ITOS2007 and ITOS2008 this is a global preference, not visible
+          on D-Bus (the &quot;default presence&quot;). &quot;Automatic presence&quot; better
+          describes when it is used.
+        </div></div>
+
+        <p>Setting this property MUST NOT actually change the account's
+          status until the next time it is (re)connected for some reason.</p>
+
+        <p>The value of this property MUST be one that would be acceptable
+          for <a href="Account.html#Property:RequestedPresence" title="Property org.freedesktop.Telepathy.Account.RequestedPresence">RequestedPresence</a>,
+          with the additional restriction that the
+          <a href="Connection_Interface_Simple_Presence.html#Enum:Connection_Presence_Type">Connection_Presence_Type</a> MUST NOT be Offline.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Otherwise, it would not be possible to use this presence to bring
+            the account online for a channel request.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ConnectAutomatically"></a>
+     <span class="permalink">(<a href="Account.html#Property:ConnectAutomatically">Permalink</a>)</span>
+     <h2>
+      ConnectAutomatically &mdash; b
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        If true, the account manager SHOULD attempt to put this account
+        online with the <a href="Account.html#Property:AutomaticPresence" title="Property org.freedesktop.Telepathy.Account.AutomaticPresence">AutomaticPresence</a>
+        whenever possible (in the base
+        Account interface this is deliberately left vague). If false,
+        it MUST NOT put the account online automatically in response to,
+        for instance, connectivity changes, but SHOULD still put the account
+        online with the <a href="Account.html#Property:AutomaticPresence" title="Property org.freedesktop.Telepathy.Account.AutomaticPresence">AutomaticPresence</a> if
+        requested by the user (for
+        instance, if the user tries to start a conversation using this
+        account).
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Connection"></a>
+     <span class="permalink">(<a href="Account.html#Property:Connection">Permalink</a>)</span>
+     <h2>
+      Connection &mdash; o
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Either the object path of the <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a> to
+        this account, or the special value <code>'/'</code> if there is no
+        connection.</p>
+
+        <p>If this object path is not '/', the Connection's well-known bus
+          name can be derived from this object path by removing the first '/'
+          and replacing subsequent '/' characters with '.'.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          Object paths aren't nullable, so we can't use an empty string.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ConnectionStatus"></a>
+     <span class="permalink">(<a href="Account.html#Property:ConnectionStatus">Permalink</a>)</span>
+     <h2>
+      ConnectionStatus &mdash; u
+      
+        (<a href="Connection.html#Enum:Connection_Status" title="Enum Connection_Status">Connection_Status</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        If the <a href="Account.html#Property:Connection" title="Property org.freedesktop.Telepathy.Account.Connection">Connection</a> property is non-empty,
+        the status of that connection.
+        If the Connection property is the empty string, this property may
+        either be Disconnected (indicating that the account manager is not
+        attempting to bring it online), or Connecting (indicating that the
+        account manager is attempting to connect).
+        The account manager is expected to set this by observing signals
+        from the Connection.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          If the AM is doing some sort of backoff/delay on reconnection
+          attempts, the account's status is conceptually &quot;Connecting&quot; even
+          though there is no Connection.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ConnectionStatusReason"></a>
+     <span class="permalink">(<a href="Account.html#Property:ConnectionStatusReason">Permalink</a>)</span>
+     <h2>
+      ConnectionStatusReason &mdash; u
+      
+        (<a href="Connection.html#Enum:Connection_Status_Reason" title="Enum Connection_Status_Reason">Connection_Status_Reason</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The reason for the last change to
+        <a href="Account.html#Property:ConnectionStatus" title="Property org.freedesktop.Telepathy.Account.ConnectionStatus">ConnectionStatus</a>.
+        The account manager is expected to set this by observing signals
+        from the Connection.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          If you weren't watching the Connection at the time it failed,
+          you can't tell why - unless the AM can tell you.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ConnectionError"></a>
+     <span class="permalink">(<a href="Account.html#Property:ConnectionError">Permalink</a>)</span>
+     <h2>
+      ConnectionError &mdash; s
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">DBus_Error_Name</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.19.7. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If the last connection to this account failed with an error,
+          the D-Bus error name of that error; otherwise, the empty string.
+          The account manager is expected to set this by observing the
+          <a href="Connection.html#Signal:ConnectionError" namespace="org.freedesktop.Telepathy" title="Signal org.freedesktop.Telepathy.Connection.ConnectionError">Connection.ConnectionError</a> and
+          <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">Connection.StatusChanged</a>
+          signals.</p>
+
+        <p>If ConnectionError is received before the connection disconnects,
+          its first argument should be used to set this property;
+          otherwise, the Reason argument of StatusChanged should be converted
+          to a suitable D-Bus error name.</p>
+
+        <p>Whenever the Connection connects successfully, this property should
+          be reset to the empty string.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This combines the state-recoverability of
+            <a href="Account.html#Property:ConnectionStatusReason" title="Property org.freedesktop.Telepathy.Account.ConnectionStatusReason">ConnectionStatusReason</a> with the
+            extensibility of Connection.ConnectionError.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ConnectionErrorDetails"></a>
+     <span class="permalink">(<a href="Account.html#Property:ConnectionErrorDetails">Permalink</a>)</span>
+     <h2>
+      ConnectionErrorDetails &mdash; a{sv}
+      
+        (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.19.7. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If the last connection to this account failed with an error,
+          a mapping representing any additional information about the last
+          disconnection; otherwise, the empty map. The keys and values are
+          the same as for the second argument of
+          <a href="Connection.html#Signal:ConnectionError" namespace="org.freedesktop.Telepathy" title="Signal org.freedesktop.Telepathy.Connection.ConnectionError">Connection.ConnectionError</a>.</p>
+
+        <p>Whenever the Connection connects successfully, this property should
+          be reset to the empty map.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This combines the state-recoverability of
+            <a href="Account.html#Property:ConnectionStatusReason" title="Property org.freedesktop.Telepathy.Account.ConnectionStatusReason">ConnectionStatusReason</a> with the
+            extensibility of Connection.ConnectionError.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CurrentPresence"></a>
+     <span class="permalink">(<a href="Account.html#Property:CurrentPresence">Permalink</a>)</span>
+     <h2>
+      CurrentPresence &mdash; (uss)
+      
+        (<a href="Connection_Interface_Simple_Presence.html#Struct:Simple_Presence" title="Struct Simple_Presence">Simple_Presence</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The actual presence. If the connection is not online, the
+        <a href="Connection_Interface_Simple_Presence.html#Enum:Connection_Presence_Type">Connection_Presence_Type</a> SHOULD be
+        Connection_Presence_Type_Offline.
+        If the connection is online but does not support the <a href="Connection_Interface_Simple_Presence.html" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.SimplePresence">SimplePresence</a>
+        interface, the type SHOULD be Connection_Presence_Type_Unset.
+        The account manager is expected to set this by observing signals
+        from the Connection.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RequestedPresence"></a>
+     <span class="permalink">(<a href="Account.html#Property:RequestedPresence">Permalink</a>)</span>
+     <h2>
+      RequestedPresence &mdash; (uss)
+      
+        (<a href="Connection_Interface_Simple_Presence.html#Struct:Simple_Presence" title="Struct Simple_Presence">Simple_Presence</a>)
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The requested presence for this account. When this is changed, the
+        account manager should attempt to manipulate the connection manager to
+        make <a href="Account.html#Property:CurrentPresence" title="Property org.freedesktop.Telepathy.Account.CurrentPresence">CurrentPresence</a> match
+        <a href="Account.html#Property:RequestedPresence" title="Property org.freedesktop.Telepathy.Account.RequestedPresence">RequestedPresence</a> as closely as
+          possible. It should not be saved to any sort of persistent
+          storage.</p>
+
+        <p>When the account manager automatically connects an account,
+          it must signal this by setting the RequestedPresence to the same
+          thing as the <a href="Account.html#Property:AutomaticPresence" title="Property org.freedesktop.Telepathy.Account.AutomaticPresence">AutomaticPresence</a>.</p>
+
+        <p>The <a href="Connection_Interface_Simple_Presence.html#Enum:Connection_Presence_Type">Connection_Presence_Type</a> in this property
+          MUST NOT be Unset, Unknown or Error.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Requesting those presence types doesn't make sense.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ChangingPresence"></a>
+     <span class="permalink">(<a href="Account.html#Property:ChangingPresence">Permalink</a>)</span>
+     <h2>
+      ChangingPresence &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If true, a change to the presence of this account is
+        in progress.</p>
+
+        <p>Whenever <a href="Account.html#Property:RequestedPresence" title="Property org.freedesktop.Telepathy.Account.RequestedPresence">RequestedPresence</a> is set on
+        an account that could go online, or whenever an account with a
+        non-offline <a href="Account.html#Property:RequestedPresence" title="Property org.freedesktop.Telepathy.Account.RequestedPresence">RequestedPresence</a> becomes
+        able to go online (for instance because
+        <a href="Account.html#Property:Enabled" title="Property org.freedesktop.Telepathy.Account.Enabled">Enabled</a> or
+        <a href="Account.html#Property:Valid" title="Property org.freedesktop.Telepathy.Account.Valid">Valid</a> changes to True),
+        ChangingPresence MUST change to True, and the two property changes MUST
+        be emitted in the same
+        <a href="Account.html#Signal:AccountPropertyChanged" title="Signal org.freedesktop.Telepathy.Account.AccountPropertyChanged">AccountPropertyChanged</a> signal, before the
+        Set method returns.</p>
+
+        <p>When the account manager succeeds or fails in changing the presence,
+        or the connection disconnects due to an error, ChangingPresence MUST
+        change to False as part of the same
+        <a href="Account.html#Signal:AccountPropertyChanged" title="Signal org.freedesktop.Telepathy.Account.AccountPropertyChanged">AccountPropertyChanged</a> signal.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This allows UIs to indicate that a presence change is in progress
+          or has finished, even if the change was initiated by a different
+          UI.</p>
+
+          <p>For instance, Maemo 5 and Empathy indicate a presence change by
+          having the presence indicator alternate between the
+          <a href="Account.html#Property:RequestedPresence" title="Property org.freedesktop.Telepathy.Account.RequestedPresence">RequestedPresence</a>
+          and the <a href="Account.html#Property:CurrentPresence" title="Property org.freedesktop.Telepathy.Account.CurrentPresence">CurrentPresence</a>; they should
+          start blinking when ChangingPresence becomes true, and stop when it
+          becomes false.</p>
+        </div></div>
+
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:NormalizedName"></a>
+     <span class="permalink">(<a href="Account.html#Property:NormalizedName">Permalink</a>)</span>
+     <h2>
+      NormalizedName &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The normalized user ID of the local user on this account (i.e. the
+          string returned when the <a href="Connection.html#Method:InspectHandles" namespace="org.freedesktop.Telepathy.Connection" title="Method org.freedesktop.Telepathy.Connection.InspectHandles">InspectHandles</a>
+          method is called on the
+          result of <a href="Connection.html#Method:GetSelfHandle" namespace="org.freedesktop.Telepathy.Connection" title="Method org.freedesktop.Telepathy.Connection.GetSelfHandle">GetSelfHandle</a>
+          for an active connection).</p>
+
+        <p>It is unspecified whether this user ID is globally unique.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>As currently implemented, IRC user IDs are only unique within
+            the same IRCnet. On some saner protocols, the user ID includes a
+            DNS name which provides global uniqueness.</p>
+        </div></div>
+
+        <p>If this value is not known yet (which will always be the case for
+          accounts that have never been online), it will be an empty
+          string.</p>
+
+        <p>It is possible that this value will change if the connection
+          manager's normalization algorithm changes, although this SHOULD
+          be avoided.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>It's not always completely clear what normalization algorithm
+            should be used; for instance, in Gabble, we currently use JIDs,
+            but it would also have been reasonable to use xmpp URIs.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:HasBeenOnline"></a>
+     <span class="permalink">(<a href="Account.html#Property:HasBeenOnline">Permalink</a>)</span>
+     <h2>
+      HasBeenOnline &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        If true, this account has successfully been put online at some point
+        in the past.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          UIs could apply a policy that the 'account' parameter can only be
+          edited in accounts that have never been online, or that
+          ConnectAutomatically cannot be set on such accounts. The account
+          manager should not enforce such policies, but it can expose enough
+          information to UIs that the UI can decide what to do.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Supersedes"></a>
+     <span class="permalink">(<a href="Account.html#Property:Supersedes">Permalink</a>)</span>
+     <h2>
+      Supersedes &mdash; ao
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A list of the object paths of formerly-used accounts which are
+          superseded by this one.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>For instance, if an account is migrated from one connection
+            manager implementation to another, or even from one protocol
+            to another (for instance formerly-proprietary services which
+            can now be accessed via XMPP), log storage services could
+            look for logs under all of the superseded object paths as well
+            as the new object path.</p>
+
+          <p>This is a list because a single user-visible account could be
+            migrated more than once.</p>
+        </div></div>
+
+        <p>If the Account Manager implementation performs an account migration
+          automatically, it SHOULD set this property. If a client performs
+          an account migration, it SHOULD set this property via
+          via the Properties argument of <a href="Account_Manager.html#Method:CreateAccount" namespace="ofdT.AccountManager" title="Method org.freedesktop.Telepathy.AccountManager.CreateAccount">CreateAccount</a>
+          when creating the migrated account. In either case, the value
+          SHOULD include the old account's path, and every path from
+          the old account's Supersedes property.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.ClientTypes &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.ClientTypes'>Connection.Interface.ClientTypes</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+   
+    | <a href="#contact-attributes">Contact Attributes</a> 
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Client_Types.html#Method:GetClientTypes">GetClientTypes</a></td>
+       <td>(au: Contacts)</td>
+       <td>&#8594;</td>
+       <td>a{uas}: Client_Types</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Client_Types.html#Method:RequestClientTypes">RequestClientTypes</a></td>
+       <td>(u: Contact)</td>
+       <td>&#8594;</td>
+       <td>as: Client_Types</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Client_Types.html#Signal:ClientTypesUpdated">ClientTypesUpdated</a></td>
+       <td>(u: Contact, as: Client_Types)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+
+     
+     <h3>Contact Attributes</h3>
+     <table class="summary">
+      
+       <tr class="contact-attribute">
+       <td><a href="Connection_Interface_Client_Types.html#Contact-Attribute:client-types">org.freedesktop.Telepathy.Connection.Interface.ClientTypes/client-types</a></td>
+       <td>
+        as
+        
+        (<a href="Connection_Interface_Client_Types.html#Simple-Type:Contact_Client_Type" title="Array of Simple Type Contact_Client_Type">
+            Contact_Client_Type_List</a>)
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Client_Types.html#Simple-Type:Contact_Client_Type">Contact_Client_Type</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Client_Types.html#Mapping:Contact_Client_Types">Contact_Client_Types</a></td>
+       <td>Mapping</td>
+       <td>a{uas}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.21.1. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface on connections to support protocols which allows users to
+        subscribe to the client types of their contacts.</p>
+
+      <p>One can connect to instant messaging networks on a huge variety of
+        devices, from PCs, to phones to consoles. It can be useful for users
+        to know what kind of device a contact is using so that he or she
+        can decide not to send that big file or start a video chat. This
+        interface exposes exactly this information for clients to display.</p>
+
+      <p>The client types are represented in strings, using the values
+        <a href="http://xmpp.org/registrar/disco-categories.html#client">
+        documented by the XMPP registrar</a> with some additional types
+        added for other protocols. A contact can set one or more client types
+        so this interface returns a list of strings to denote client types
+        for a contact. The well-known client types to be used are:</p>
+
+      <ul>
+        <li>bot</li>
+        <li>console (minimal non-GUI client used on dumb terminals or
+          text-only screens, <strong>not</strong> a games console)</li>
+        <li>handheld</li>
+        <li>pc</li>
+        <li>phone</li>
+        <li>web</li>
+<!-- Excluding these two because there's been no conclusion regarding my mail
+     to standards@xmpp.org about adding these two to their list:
+
+        <li>sms (the client is not actually an instant messaging client
+          but all messages sent to this contact will be delivered as SMSs)</li>
+        <li>game (a gaming device)</li>
+-->
+      </ul>
+
+      <p>If the empty list is given as the client types, this means that
+        details about the contact's client types are unknown. If there are
+        multiple resources of a contact online at one point in time, the
+        client types of the most available resource will be returned. In
+        other words, the returned client types are those for the resource whose
+        presence will be retreived using the
+        <a href="Connection_Interface_Simple_Presence.html" namespace="ofdT.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.SimplePresence">SimplePresence</a>
+        interface.</p>
+
+      <p>For example, if a contact has two resources:</p>
+
+      <ul>
+        <li>their phone, with presence &quot;available&quot;; and</li>
+        <li>their pc, with presence &quot;busy&quot;;</li>
+      </ul>
+
+      <p>then the methods in this interface will return an array (with
+      one element: &quot;phone&quot;) as the client types because that is the more
+      available resource. If at some later time the contact's phone's presence
+      changes to &quot;away&quot;, the
+      <a href="Connection_Interface_Client_Types.html#Signal:ClientTypesUpdated" title="Signal org.freedesktop.Telepathy.Connection.Interface.ClientTypes.ClientTypesUpdated">ClientTypesUpdated</a> signal will
+      notify that the contact's client types attribute has changed from
+      [&quot;phone&quot;] to [&quot;pc&quot;],
+      because &quot;busy&quot; is a more available presence than &quot;away&quot;.</p>
+
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:GetClientTypes"></a>
+     <span class="permalink">(<a href="Connection_Interface_Client_Types.html#Method:GetClientTypes">Permalink</a>)</span>
+     <h2>GetClientTypes (au: Contacts) &#8594; a{uas}: Client_Types</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contacts &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contacts whose client types should be returned or signalled.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Client_Types &mdash; a{uas}
+        
+          (<a href="Connection_Interface_Client_Types.html#Mapping:Contact_Client_Types" title="Mapping Contact_Client_Types">Contact_Client_Types</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contacts' client types, if already known. Contacts whose client
+          types are not already known are omitted from the mapping; contacts known
+          to have no client type information appear in the mapping with an empty
+          list.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Return the client types of the given contacts, if they are
+        already known. If any of the given contacts' client types are
+        not known, request their current client types, but return
+        immediately without waiting for a reply; if a reply with a
+        non-empty client type array is later received for those
+        contacts, the
+        <a href="Connection_Interface_Client_Types.html#Signal:ClientTypesUpdated" title="Signal org.freedesktop.Telepathy.Connection.Interface.ClientTypes.ClientTypesUpdated">ClientTypesUpdated</a> signal will
+        be emitted for them.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          This method is appropriate for &quot;lazy&quot; client type finding, for instance
+          displaying the client types (if available) of everyone in your contact
+          list.
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RequestClientTypes"></a>
+     <span class="permalink">(<a href="Connection_Interface_Client_Types.html#Method:RequestClientTypes">Permalink</a>)</span>
+     <h2>RequestClientTypes (u: Contact) &#8594; as: Client_Types</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contact &mdash; u
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contact whose client types should be returned.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Client_Types &mdash; as
+        
+          (<a href="Connection_Interface_Client_Types.html#Simple-Type:Contact_Client_Type" title="Array of Simple Type Contact_Client_Type">Contact_Client_Type_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contact's client types. It MAY be empty, indicating that no client
+          type information was found.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Return the current client types of the given contact. If necessary, make
+        a request to the server for up-to-date information, and wait for a
+        reply.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          This method is appropriate for use in a &quot;Contact Information...&quot;
+          dialog; it can be used to show progress information (while waiting
+          for the method to return), and can distinguish between various error
+          conditions.
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested contact does not allow the local user to see their
+            client type information.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:ClientTypesUpdated"></a>
+     <span class="permalink">(<a href="Connection_Interface_Client_Types.html#Signal:ClientTypesUpdated">Permalink</a>)</span>
+     <h2>ClientTypesUpdated (u: Contact, as: Client_Types)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Contact &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contact.
+        </div>
+      
+       <li>
+       Client_Types &mdash; as
+       
+        (<a href="Connection_Interface_Client_Types.html#Simple-Type:Contact_Client_Type" title="Array of Simple Type Contact_Client_Type">Contact_Client_Type_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contact's client types, or an empty list to indicate that nothing
+          is known about the contact's client types.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when a contact's client types change or become known.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset contact-attributes">
+    <a name="contact-attributes"></a>
+    <h1>Contact Attributes</h1>
+    <div>
+      Attributes that a contact can have, accessed with the
+      org.freedesktop.Telepathy.Connection.Interface.Contacts interface.
+    </div>
+    
+    <div class="inset contact-attribute">
+     <a name="Contact-Attribute:client-types"></a>
+     <span class="permalink">(<a href="Connection_Interface_Client_Types.html#Contact-Attribute:client-types">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Connection.Interface.ClientTypes/client-types &mdash; as
+      
+       (<a href="Connection_Interface_Client_Types.html#Simple-Type:Contact_Client_Type" title="Array of Simple Type Contact_Client_Type">Contact_Client_Type_List</a>)
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The same mapping that would be returned by
+          <a href="Connection_Interface_Client_Types.html#Method:GetClientTypes" title="Method org.freedesktop.Telepathy.Connection.Interface.ClientTypes.GetClientTypes">GetClientTypes</a> for this contact.
+          Omitted from the result if the contact's client types are not
+          known.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Contact_Client_Type"></a>
+      <span class="permalink">Simple Type (<a href="Connection_Interface_Client_Types.html#Simple-Type:Contact_Client_Type">Permalink</a>)</span>
+      <h2>
+       Contact_Client_Type &mdash; s
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A string representing a single client type of a
+        contact.</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Contact_Client_Types"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Client_Types.html#Mapping:Contact_Client_Types">Permalink</a>)</span>
+      <h2>
+       Contact_Client_Types &mdash; a{uas}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A mapping from contact handle to client types.
+      </div>
+      <ul>
+<li>Contact &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+          A contact.
+        </div><li>Client_Types &mdash; as (<a href="Connection_Interface_Client_Types.html#Simple-Type:Contact_Client_Type" title="Array of Simple Type Contact_Client_Type">Contact_Client_Type_List</a>)</li>
+<div class="docstring">
+          The contact's client types as documented earlier in this interface.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

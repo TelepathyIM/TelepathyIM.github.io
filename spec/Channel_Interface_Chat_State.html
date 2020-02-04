@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.ChatState &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.ChatState'>Channel.Interface.ChatState</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Chat_State.html#Method:SetChatState">SetChatState</a></td>
+       <td>(u: State)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Chat_State.html#Signal:ChatStateChanged">ChatStateChanged</a></td>
+       <td>(u: Contact, u: State)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Chat_State.html#Property:ChatStates">ChatStates</a></td>
+       <td>
+        a{uu}
+        
+          (<a href="Channel_Interface_Chat_State.html#Mapping:Chat_State_Map" title="Mapping Chat_State_Map">
+              Chat_State_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Chat_State.html#Enum:Channel_Chat_State">Channel_Chat_State</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Chat_State.html#Mapping:Chat_State_Map">Chat_State_Map</a></td>
+       <td>Mapping</td>
+       <td>a{uu}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel_Type_Text.html" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">org.freedesktop.Telepathy.Channel.Type.Text</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for channels for receiving notifications of remote contacts'
+      state, and for notifying remote contacts of the local state.</p>
+
+      <p>Clients should assume that a contact's state is Channel_Chat_State_Inactive
+      unless they receive a notification otherwise.</p>
+
+      <p>The Channel_Chat_State_Gone state is treated differently to other states:</p>
+      <ul>
+        <li>It may not be used for multi-user chats</li>
+        <li>It may not be explicitly sent</li>
+        <li>It should be automatically sent when the channel is closed</li>
+        <li>It must not be sent to the peer if a channel is closed without being used</li>
+        <li>Receiving it must not cause a new channel to be opened</li>
+      </ul>
+
+      <p>The different states are defined by XEP-0085, but may be applied to any suitable protocol.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:SetChatState"></a>
+     <span class="permalink">(<a href="Channel_Interface_Chat_State.html#Method:SetChatState">Permalink</a>)</span>
+     <h2>SetChatState (u: State) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        State &mdash; u
+        
+          (<a href="Channel_Interface_Chat_State.html#Enum:Channel_Chat_State" title="Enum Channel_Chat_State">Channel_Chat_State</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new state.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Set the local state and notify other members of the channel that it
+        has changed.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when the requested functionality is temporarily unavailable.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when one of the provided arguments is invalid.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:ChatStateChanged"></a>
+     <span class="permalink">(<a href="Channel_Interface_Chat_State.html#Signal:ChatStateChanged">Permalink</a>)</span>
+     <h2>ChatStateChanged (u: Contact, u: State)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Contact &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An integer handle for the contact.
+        </div>
+      
+       <li>
+       State &mdash; u
+       
+        (<a href="Channel_Interface_Chat_State.html#Enum:Channel_Chat_State" title="Enum Channel_Chat_State">Channel_Chat_State</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new state of this contact.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the state of a member of the channel has changed.
+        This includes local state.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ChatStates"></a>
+     <span class="permalink">(<a href="Channel_Interface_Chat_State.html#Property:ChatStates">Permalink</a>)</span>
+     <h2>
+      ChatStates &mdash; a{uu}
+      
+        (<a href="Channel_Interface_Chat_State.html#Mapping:Chat_State_Map" title="Mapping Chat_State_Map">Chat_State_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.19.7. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A map containing the chat states of all contacts in this
+          channel whose chat state is not Inactive.</p>
+
+        <p>Contacts in this channel, but who are not listed in this map,
+          may be assumed to be in the Inactive state.</p>
+
+        <p>In implementations that do not have this property, its value may be
+          assumed to be empty until a
+          <a href="Channel_Interface_Chat_State.html#Signal:ChatStateChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.ChatState.ChatStateChanged">ChatStateChanged</a> signal indicates
+          otherwise.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This property was not present in older versions of telepathy-spec,
+            because chat states in XMPP are not state-recoverable (if you
+            miss the change notification signal, there's no way to know the
+            state). However, this property still allows clients to recover
+            state changes that were seen by the CM before the client started
+            to deal with the channel.</p>
+
+          <p>In CMs that follow older spec versions, assuming Inactive will
+            mean that initial chat states will always be assumed to be
+            Inactive, which is the best we can do. XEP 0085 specifies
+            Inactive as the &quot;neutral&quot; state to be assumed unless told
+            otherwise.</p>
+        </div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Channel_Chat_State"></a>
+      <span class="permalink">Enum (<a href="Channel_Interface_Chat_State.html#Enum:Channel_Chat_State">Permalink</a>)</span>
+      <h2>
+       Channel_Chat_State &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Gone (0)</li>
+<div class="docstring">
+        The contact has effectively ceased participating in the chat.
+        </div><li>Inactive (1)</li>
+<div class="docstring">
+        The contact has not been active for some time.
+        </div><li>Active (2)</li>
+<div class="docstring">
+        The contact is actively participating in the chat.
+        </div><li>Paused (3)</li>
+<div class="docstring">
+        The contact has paused composing a message.
+        </div><li>Composing (4)</li>
+<div class="docstring">
+        The contact is composing a message to be sent to the chat.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Chat_State_Map"></a>
+      <span class="permalink">Mapping (<a href="Channel_Interface_Chat_State.html#Mapping:Chat_State_Map">Permalink</a>)</span>
+      <h2>
+       Chat_State_Map &mdash; a{uu}
+      </h2>
+
+      <div class="annotation added"><span class="version">Added in 0.19.7. </span></div>
+      
+      
+      <div class="docstring">A map from contacts to their chat states.</div>
+      <ul>
+<li>Contact &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">A contact</div><li>State &mdash; u (<a href="Channel_Interface_Chat_State.html#Enum:Channel_Chat_State" title="Enum Channel_Chat_State">Channel_Chat_State</a>)</li>
+<div class="docstring">The contact's chat state</div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

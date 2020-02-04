@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Account.I.Storage &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Account.Interface.Storage'>Account.Interface.Storage</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Account_Interface_Storage.html#Property:StorageProvider">StorageProvider</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account_Interface_Storage.html#Property:StorageIdentifier">StorageIdentifier</a></td>
+       <td>
+        v
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account_Interface_Storage.html#Property:StorageSpecificInformation">StorageSpecificInformation</a></td>
+       <td>
+        a{sv}
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account_Interface_Storage.html#Property:StorageRestrictions">StorageRestrictions</a></td>
+       <td>
+        u
+        
+          (<a href="Account_Interface_Storage.html#Flags:Storage_Restriction_Flags" title="Flags Storage_Restriction_Flags">
+              Storage_Restriction_Flags</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Account_Interface_Storage.html#Flags:Storage_Restriction_Flags">Storage_Restriction_Flags</a></td>
+       <td>Flags</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.19.8. </span></div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Account.html" title="Interface org.freedesktop.Telepathy.Account">org.freedesktop.Telepathy.Account</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        This interface extends the core Account interface to specify details
+        regarding the storage of this account.
+      </p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>
+          Single-sign-on systems do not generally have directly user-editable
+          properties for Accounts, and require the user to visit a specific UI
+          to alter their account properties. User interfaces should know not to
+          expose these account properties as user-editable, and instead
+          redirect the user to the appropriate interface.
+        </p>
+      </div></div>
+
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:StorageProvider"></a>
+     <span class="permalink">(<a href="Account_Interface_Storage.html#Property:StorageProvider">Permalink</a>)</span>
+     <h2>
+      StorageProvider &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+          The name of the account storage implementation, which SHOULD start
+          with a reversed domain name in the same way as D-Bus interface names.
+          When this is the empty string the account is internally stored.
+        </p>
+        <p>
+          This property cannot change once an Account has been created.
+        </p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:StorageIdentifier"></a>
+     <span class="permalink">(<a href="Account_Interface_Storage.html#Property:StorageIdentifier">Permalink</a>)</span>
+     <h2>
+      StorageIdentifier &mdash; v
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+          Unique identification of the account within the storage backend.
+          The contents of the variant are defined by the
+          <a href="Account_Interface_Storage.html#Property:StorageProvider" title="Property org.freedesktop.Telepathy.Account.Interface.Storage.StorageProvider">StorageProvider</a>.
+        </p>
+        <p>
+          This property cannot change once an Account has been created.
+        </p>
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>
+            Different storage systems will have their own way of uniquely
+            identifying an account, typically an integer or a string.
+            Given that all users of this property should have direct knowledge
+            of the backend they should know what types to expect and how to
+            handle it.
+          </p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:StorageSpecificInformation"></a>
+     <span class="permalink">(<a href="Account_Interface_Storage.html#Property:StorageSpecificInformation">Permalink</a>)</span>
+     <h2>
+      StorageSpecificInformation &mdash; a{sv}
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+          Map containing information specific to the storage backend. The keys
+          and the types of their values are defined by the
+          <a href="Account_Interface_Storage.html#Property:StorageProvider" title="Property org.freedesktop.Telepathy.Account.Interface.Storage.StorageProvider">StorageProvider</a>, and are not
+          interpreted by the AccountManager implementation.
+        </p>
+        <p>
+          As the values in this map may change at any time (due to an external
+          application manipulating the storage provider directly), this
+          property should not be cached; it should instead be retrieved each
+          time it is needed.
+        </p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>
+            This can be used to provide additional hints to user interfaces
+            aware of a specific storage provider, without requiring those user
+            interfaces to use the
+            <a href="Account_Interface_Storage.html#Property:StorageIdentifier" title="Property org.freedesktop.Telepathy.Account.Interface.Storage.StorageIdentifier">StorageIdentifier</a> to query the
+            storage provider directly.
+          </p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:StorageRestrictions"></a>
+     <span class="permalink">(<a href="Account_Interface_Storage.html#Property:StorageRestrictions">Permalink</a>)</span>
+     <h2>
+      StorageRestrictions &mdash; u
+      
+        (<a href="Account_Interface_Storage.html#Flags:Storage_Restriction_Flags" title="Flags Storage_Restriction_Flags">Storage_Restriction_Flags</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>
+          Bitfield which defines what restrictions this Storage method has.
+        </p>
+        <p>
+          This property cannot change once an Account has been created.
+        </p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Flags:Storage_Restriction_Flags"></a>
+      <span class="permalink">Flags (<a href="Account_Interface_Storage.html#Flags:Storage_Restriction_Flags">Permalink</a>)</span>
+      <h2>
+       Storage_Restriction_Flags &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        Flags indicating restrictions imposed on an Account by its storage
+        method.
+      </div>
+      <ul>
+<li>Cannot_Set_Parameters (1)</li>
+<div class="docstring">
+          The account's <a href="Account.html#Property:Parameters" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.Parameters">Parameters</a> property can't be changed by calling
+          <a href="Account.html#Method:UpdateParameters" namespace="org.freedesktop.Telepathy.Account" title="Method org.freedesktop.Telepathy.Account.UpdateParameters">UpdateParameters</a>.
+        </div><li>Cannot_Set_Enabled (2)</li>
+<div class="docstring">
+          The account can't be enabled/disabled by setting the <a href="Account.html#Property:Enabled" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.Enabled">Enabled</a> property.
+        </div><li>Cannot_Set_Presence (4)</li>
+<div class="docstring">
+          The account's presence can't be changed by setting the <a href="Account.html#Property:RequestedPresence" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.RequestedPresence">RequestedPresence</a> and <a href="Account.html#Property:AutomaticPresence" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.AutomaticPresence">AutomaticPresence</a> properties.
+        </div><li>Cannot_Set_Service (8)</li>
+<div class="docstring">
+          The account's <a href="Account.html#Property:Service" namespace="org.freedesktop.Telepathy.Account" title="Property org.freedesktop.Telepathy.Account.Service">Service</a>
+          property cannot be changed.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

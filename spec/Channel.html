@@ -1,0 +1,1153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Channel &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel'>Channel</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel.html#Method:Close">Close</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Channel.html#Method:GetChannelType">GetChannelType</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>s: Channel_Type</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Channel.html#Method:GetHandle">GetHandle</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>u: Target_Handle_Type, u: Target_Handle</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Channel.html#Method:GetInterfaces">GetInterfaces</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>as: Interfaces</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel.html#Signal:Closed">Closed</a></td>
+       <td>()</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel.html#Property:ChannelType">ChannelType</a></td>
+       <td>
+        s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Simple Type DBus_Interface">
+              DBus_Interface</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel.html#Property:Interfaces">Interfaces</a></td>
+       <td>
+        as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">
+              DBus_Interface_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel.html#Property:TargetHandle">TargetHandle</a></td>
+       <td>
+        u
+        
+          (<a href="Connection.html#Simple-Type:Handle" title="Simple Type Handle">
+              Handle</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel.html#Property:TargetID">TargetID</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel.html#Property:TargetHandleType">TargetHandleType</a></td>
+       <td>
+        u
+        
+          (<a href="Connection.html#Enum:Handle_Type" title="Enum Handle_Type">
+              Handle_Type</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel.html#Property:Requested">Requested</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel.html#Property:InitiatorHandle">InitiatorHandle</a></td>
+       <td>
+        u
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">
+              Contact_Handle</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel.html#Property:InitiatorID">InitiatorID</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   
+   <div class="annotation changed"><span class="version">Changed in 0.17.7. </span>Previously we guaranteed that, for
+      any handle type other than Handle_Type_None, and for any channel type
+      and any handle, there would be no more than one channel with that
+      combination of channel type, handle type and handle. This guarantee
+      has now been removed in order to accommodate features like message
+      threads.
+    </div>
+<div class="annotation changed"><span class="version">Changed in 0.17.10. </span>Previously we did not explicitly
+      guarantee that Channels' object paths had the Connection's object path
+      as a prefix.
+    </div>
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+    <p>All communication in the Telepathy framework is carried out via channel
+    objects which are created and managed by connections. This interface must
+    be implemented by all channel objects, along with one single channel type,
+    such as <a href="Channel_Type_Contact_List.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Channel.Type.ContactList">Channel.Type.ContactList</a>
+    which represents a list of people (such as a buddy list) or <a href="Channel_Type_Text.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Channel.Type.Text</a> which
+    represents a channel over which textual messages are sent and received.</p>
+
+    <p>Each Channel's object path MUST start with the object path of
+      its associated <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>, followed
+      by '/'. There MAY be any number of additional object-path components,
+      which clients MUST NOT attempt to parse.</p>
+
+    <div class="rationale"><h5>Rationale:</h5><div>
+      <p>This ensures that Channel object paths are unique, even between
+        Connections and CMs, because Connection object paths are
+        guaranteed-unique via their link to the well-known bus name.</p>
+
+      <p>If all connection managers in use are known to comply with at least
+        spec version 0.17.10, then the Connection's object path can
+        even be determined from the Channel's without any additional
+        information, by taking the first 7 components.</p>
+    </div></div>
+
+    <p>Each channel has a number of immutable properties (which cannot vary
+      after the channel has been announced with <a href="Connection_Interface_Requests.html#Signal:NewChannels" namespace="ofdT.Connection.Interface.Requests" title="Signal org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannels">NewChannels</a>),
+      provided to clients in the
+      <a href="Client_Observer.html#Method:ObserveChannels" namespace="ofdT.Client.Observer" title="Method org.freedesktop.Telepathy.Client.Observer.ObserveChannels">ObserveChannels</a>,
+      <a href="Client_Approver.html#Method:AddDispatchOperation" namespace="ofdT.Client.Approver" title="Method org.freedesktop.Telepathy.Client.Approver.AddDispatchOperation">AddDispatchOperation</a> and
+      <a href="Client_Handler.html#Method:HandleChannels" namespace="ofdT.Client.Handler" title="Method org.freedesktop.Telepathy.Client.Handler.HandleChannels">HandleChannels</a>
+      methods to permit immediate identification of the channel. This interface
+      contains immutable properties common to all channels. In brief:</p>
+
+    <ul>
+      <li><a href="Channel.html#Property:ChannelType" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a> specifies the kind of
+        communication carried out on this channel;</li>
+      <li><a href="Channel.html#Property:TargetHandleType" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>,
+        <a href="Channel.html#Property:TargetHandle" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a> and
+        <a href="Channel.html#Property:TargetID" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a> specify the entity with which
+        this channel communicates, such as the other party in a 1-1 call, or
+        the name of a multi-user chat room;</li>
+      <li><a href="Channel.html#Property:InitiatorHandle" title="Property org.freedesktop.Telepathy.Channel.InitiatorHandle">InitiatorHandle</a> and
+        <a href="Channel.html#Property:InitiatorID" title="Property org.freedesktop.Telepathy.Channel.InitiatorID">InitiatorID</a> specify who created this
+        channel;</li>
+      <li><a href="Channel.html#Property:Requested" title="Property org.freedesktop.Telepathy.Channel.Requested">Requested</a> indicates whether the local
+        user requested this channel, or whether it is an incoming call, a text
+        conversation started by a remote contact, a chatroom invitation,
+        etc.</li>
+    </ul>
+
+    <p>Other optional <a href="Channel.html#Property:Interfaces" title="Property org.freedesktop.Telepathy.Channel.Interfaces">Interfaces</a> can be
+      implemented to indicate other available
+      functionality, such as <a href="Channel_Interface_Group.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Channel.Interface.Group">Channel.Interface.Group</a>
+      if the channel contains a number of contacts, <a href="Channel_Interface_Password.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Channel.Interface.Password">Channel.Interface.Password</a>
+      to indicate that a channel may have a password set to require entry, and
+      <a href="Channel_Interface_Chat_State.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Channel.Interface.ChatState">Channel.Interface.ChatState</a>
+      for typing notifications. The interfaces implemented may not vary after
+      the channel has been created. These other interfaces (along with the
+      interface named by <a href="Channel.html#Property:ChannelType" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a>) may
+      themselves specify immutable properties to be announced up-front along
+      with the properties on this interface.</p>
+
+    <p>Some channels are “anonymous”, with
+      <a href="Channel.html#Property:TargetHandleType" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a> set to <code>None</code>,
+      which indicates that the channel is defined by some other properties. For
+      instance, transient ad-hoc chat rooms may be defined only by their members (as visible
+      through the <a href="Channel_Interface_Group.html" namespace="ofdT.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.Group">Group</a>
+      interface), and <a href="Channel_Type_Contact_Search.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ContactSearch">ContactSearch</a>
+      channels represent a single search attempt for a particular <a href="Channel_Type_Contact_Search.html#Property:Server" namespace="ofdT.Channel.Type.ContactSearch" title="Property org.freedesktop.Telepathy.Channel.Type.ContactSearch.Server">Server</a>.</p>
+
+    <p>Specific connection manager implementations may implement channel types and
+    interfaces which are not contained within this specification in order to
+    support further functionality. To aid interoperability between client and
+    connection manager implementations, the interfaces specified here should be
+    used wherever applicable, and new interfaces made protocol-independent
+    wherever possible. Because of the potential for 3rd party interfaces adding
+    methods or signals with conflicting names, the D-Bus interface names should
+    always be used to invoke methods and bind signals.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:Close"></a>
+     <span class="permalink">(<a href="Channel.html#Method:Close">Permalink</a>)</span>
+     <h2>Close () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring">
+        Request that the channel be closed. This is not the case until
+        the <a href="Channel.html#Signal:Closed" title="Signal org.freedesktop.Telepathy.Channel.Closed">Closed</a> signal has been emitted, and
+        depending on the connection
+        manager this may simply remove you from the channel on the server,
+        rather than causing it to stop existing entirely. Some channels
+        such as contact list channels may not be closed.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            This channel may never be closed, e.g. a contact list
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            This channel is not currently in a state where it can be closed,
+            e.g. a non-empty user-defined contact group
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetChannelType"></a>
+     <span class="permalink">(<a href="Channel.html#Method:GetChannelType">Permalink</a>)</span>
+     <h2>GetChannelType () &#8594; s: Channel_Type</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.7. </span>Use the ChannelType
+        property if possible.</div>
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Channel_Type &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Simple Type DBus_Interface">DBus_Interface</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">The interface name</div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Returns the interface name for the type of this channel.  Clients
+        SHOULD use the <a href="Channel.html#Property:ChannelType" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a> property
+        instead, falling back to this method only if necessary.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          The GetAll method lets clients retrieve all properties in one
+          round-trip.
+        </div></div>
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetHandle"></a>
+     <span class="permalink">(<a href="Channel.html#Method:GetHandle">Permalink</a>)</span>
+     <h2>GetHandle () &#8594; u: Target_Handle_Type, u: Target_Handle</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.7. </span>Use the TargetHandleType
+        and TargetHandle properties if possible.</div>
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Target_Handle_Type &mdash; u
+        
+          (<a href="Connection.html#Enum:Handle_Type" title="Enum Handle_Type">Handle_Type</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The same as TargetHandleType.
+        </div>
+      
+       <li>
+        Target_Handle &mdash; u
+        
+          (<a href="Connection.html#Simple-Type:Handle" title="Simple Type Handle">Handle</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The same as TargetHandle.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Returns the handle type and number if this channel represents a
+        communication with a particular contact, room or server-stored list, or
+        zero if it is transient and defined only by its contents. Clients
+        SHOULD use the <a href="Channel.html#Property:TargetHandle" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a> and
+        <a href="Channel.html#Property:TargetHandleType" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a> properties instead,
+        falling back to this method only if necessary.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          The GetAll method lets clients retrieve all properties in one
+          round-trip.
+        </div></div>
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetInterfaces"></a>
+     <span class="permalink">(<a href="Channel.html#Method:GetInterfaces">Permalink</a>)</span>
+     <h2>GetInterfaces () &#8594; as: Interfaces</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.7. </span>Use the Interfaces
+        property if possible.</div>
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Interfaces &mdash; as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of the D-Bus interface names
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Get the optional interfaces implemented by the channel.
+        Clients SHOULD use the <a href="Channel.html#Property:Interfaces" title="Property org.freedesktop.Telepathy.Channel.Interfaces">Interfaces</a>
+        property instead, falling back to this method only if necessary.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          The GetAll method lets clients retrieve all properties in one
+          round-trip.
+        </div></div>
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:Closed"></a>
+     <span class="permalink">(<a href="Channel.html#Signal:Closed">Permalink</a>)</span>
+     <h2>Closed ()</h2>
+
+     
+     
+     
+
+     
+
+     <div class="docstring">
+        Emitted when the channel has been closed. Method calls on the
+        channel are no longer valid after this signal has been emitted,
+        and the connection manager may then remove the object from the bus
+        at any point.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ChannelType"></a>
+     <span class="permalink">(<a href="Channel.html#Property:ChannelType">Permalink</a>)</span>
+     <h2>
+      ChannelType &mdash; s
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Simple Type DBus_Interface">DBus_Interface</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.7. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The channel's type. This cannot change once the channel has
+          been created.</p>
+
+        <p>For compatibility between older connection managers and newer
+          clients, if this is unavailable or is an empty string,
+          clients MUST use the result of calling
+          <a href="Channel.html#Method:GetChannelType" title="Method org.freedesktop.Telepathy.Channel.GetChannelType">GetChannelType</a>.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          The GetAll method lets clients retrieve all properties in one
+          round-trip, which is desirable.
+        </div></div>
+
+        <p>When requesting a channel, the request MUST specify a channel
+          type, and the request MUST fail if the specified channel type
+          cannot be supplied.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          Common sense.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Interfaces"></a>
+     <span class="permalink">(<a href="Channel.html#Property:Interfaces">Permalink</a>)</span>
+     <h2>
+      Interfaces &mdash; as
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.7. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Extra interfaces provided by this channel. This SHOULD NOT include
+          the channel type and the Channel interface itself, and cannot
+          change once the channel has been created.</p>
+
+        <p>For compatibility between older connection managers and newer
+          clients, if this is unavailable, or if this is an empty list and
+          <a href="Channel.html#Property:ChannelType" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a> is an empty string,
+          clients MUST use the result of calling
+          <a href="Channel.html#Method:GetInterfaces" title="Method org.freedesktop.Telepathy.Channel.GetInterfaces">GetInterfaces</a> instead. If this is an
+          empty list but ChannelType is non-empty, clients SHOULD NOT call
+          GetInterfaces; this implies that connection managers that implement
+          the ChannelType property MUST also implement the Interfaces property
+          correctly.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          The GetAll method lets clients retrieve all properties in one
+          round-trip, which is desirable.
+        </div></div>
+
+        <p>When requesting a channel with a particular value for this
+          property, the request must fail without side-effects unless the
+          connection manager expects to be able to provide a channel whose
+          interfaces include at least the interfaces requested.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:TargetHandle"></a>
+     <span class="permalink">(<a href="Channel.html#Property:TargetHandle">Permalink</a>)</span>
+     <h2>
+      TargetHandle &mdash; u
+      
+        (<a href="Connection.html#Simple-Type:Handle" title="Simple Type Handle">Handle</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.7. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The handle (a representation for the identifier) of the contact,
+          chatroom, etc. with which this handle communicates. Its type
+          is given by the <a href="Channel.html#Property:TargetHandleType" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+          property.</p>
+
+        <p>This is fixed for the lifetime of the channel, so channels which
+          could potentially be used to communicate with multiple contacts,
+          and do not have an identity of their own (such as a Handle_Type_Room
+          handle), must have TargetHandleType set to Handle_Type_None and
+          TargetHandle set to 0.</p>
+
+        <p>Unlike in the telepathy-spec 0.16 API, there is no particular
+          uniqueness guarantee - there can be many channels with the same
+          (channel type, handle type, handle) tuple. This is necessary
+          to support conversation threads in XMPP and SIP, for example.</p>
+
+        <p>If this is present in a channel request, it must be nonzero,
+          <a href="Channel.html#Property:TargetHandleType" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+          MUST be present and not Handle_Type_None, and
+          <a href="Channel.html#Property:TargetID" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a> MUST NOT be
+          present. Properties from
+          <a href="Channel_Interface_Addressing.html" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.Addressing1">Addressing1</a>
+          MUST NOT be present.</p>
+
+        <p>The channel that satisfies the request MUST either:</p>
+
+        <ul>
+          <li>have the specified TargetHandle property; or</li>
+          <li>have <a href="Channel.html#Property:TargetHandleType" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a> =
+            Handle_Type_None, TargetHandle = 0, and be configured such that
+            it could communicate with the specified handle in some other way
+            (e.g. have the requested contact handle in its Group
+            interface)</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:TargetID"></a>
+     <span class="permalink">(<a href="Channel.html#Property:TargetID">Permalink</a>)</span>
+     <h2>
+      TargetID &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.9. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The string that would result from inspecting the
+          <a href="Channel.html#Property:TargetHandle" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>
+          property (i.e. the identifier in the IM protocol of the contact,
+          room, etc. with which this channel communicates), or the empty
+          string if the TargetHandle is 0.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The presence of this property avoids the following race
+            condition:</p>
+
+          <ul>
+            <li>New channel C is signalled with target handle T</li>
+            <li>Client calls <a href="Connection.html#Method:InspectHandles" namespace="org.freedesktop.Telepathy.Connection" title="Method org.freedesktop.Telepathy.Connection.InspectHandles">InspectHandles</a>(CONTACT,
+              [T])</li>
+            <li>Channel C closes, removing the last reference to handle T</li>
+            <li><a href="Connection.html#Method:InspectHandles" namespace="org.freedesktop.Telepathy.Connection" title="Method org.freedesktop.Telepathy.Connection.InspectHandles">InspectHandles</a>(CONTACT,
+              [T]) returns an error</li>
+          </ul>
+        </div></div>
+
+        <p>If this is present in a channel request,
+          <a href="Channel.html#Property:TargetHandleType" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+          MUST be present and not Handle_Type_None, and
+          <a href="Channel.html#Property:TargetHandle" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a> MUST NOT be
+          present. Properties from
+          <a href="Channel_Interface_Addressing.html" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.Addressing1">Addressing1</a>
+          MUST NOT be present.The request MUST fail with error InvalidHandle,
+          without side-effects, if the requested TargetID would not be
+          accepted by
+          <a href="Connection.html#Method:RequestHandles" namespace="org.freedesktop.Telepathy.Connection" title="Method org.freedesktop.Telepathy.Connection.RequestHandles">RequestHandles</a>.</p>
+
+        <p>The returned channel must be related to the handle corresponding
+          to the given identifier, in the same way as if TargetHandle
+          had been part of the request instead.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Requesting channels with a string identifier saves a round-trip
+            (the call to RequestHandles). It also allows the channel
+            dispatcher to accept a channel request for an account that is not
+            yet connected (and thus has no valid handles), bring the account
+            online, and pass on the same parameters to the new connection's
+            CreateChannel method.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:TargetHandleType"></a>
+     <span class="permalink">(<a href="Channel.html#Property:TargetHandleType">Permalink</a>)</span>
+     <h2>
+      TargetHandleType &mdash; u
+      
+        (<a href="Connection.html#Enum:Handle_Type" title="Enum Handle_Type">Handle_Type</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.7. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The type of <a href="Channel.html#Property:TargetHandle" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>.</p>
+
+        <p>If this is omitted from a channel request, connection managers
+          SHOULD treat this as equivalent to Handle_Type_None.</p>
+
+        <p>If this is omitted or is Handle_Type_None,
+          <a href="Channel.html#Property:TargetHandle" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a> and
+          <a href="Channel.html#Property:TargetID" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a> MUST be omitted from the
+          request.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Requested"></a>
+     <span class="permalink">(<a href="Channel.html#Property:Requested">Permalink</a>)</span>
+     <h2>
+      Requested &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.13. </span>(as stable API)</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>True if this channel was created in response to a local request,
+          such as a call to
+          <a href="Connection.html#Method:RequestChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.RequestChannel">Connection.RequestChannel</a>
+          or
+          <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">Connection.Interface.Requests.CreateChannel</a>.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The idea of this property is to distinguish between &quot;incoming&quot;
+            and &quot;outgoing&quot; channels, in a way that doesn't break down when
+            considering special cases like contact lists that are automatically
+            created on connection to the server, or chatrooms that an
+            IRC proxy/bouncer like irssi-proxy or bip was already in.</p>
+
+          <p>The reason we want to make that distinction is that UIs for
+            things that the user explicitly requested should start up
+            automatically, whereas for incoming messages and VoIP calls we
+            should first ask the user whether they want to open the messaging
+            UI or accept the call.</p>
+        </div></div>
+
+        <p>If the channel was not explicitly requested (even if it was
+          created as a side-effect of a call to one of those functions,
+          e.g. because joining a Tube in a MUC context on XMPP implies
+          joining that MUC), then this property is false.</p>
+
+        <p>For compatibility with older connection managers, clients SHOULD
+          assume that this property is true if they see a channel announced
+          by the
+          <a href="Connection.html#Signal:NewChannel" namespace="org.freedesktop.Telepathy" title="Signal org.freedesktop.Telepathy.Connection.NewChannel">Connection.NewChannel</a>
+          signal with the suppress_handler parameter set to true.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>In a correct connection manager, the only way to get such a
+            channel is to request it.</p>
+        </div></div>
+
+        <p>Clients MAY additionally assume that this property is false
+          if they see a channel announced by the NewChannel signal with the
+          suppress_handler parameter set to false.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This is more controversial, since it's possible to get that
+            parameter set to false by requesting a channel. However, there's
+            no good reason to do so, and we've deprecated this practice.</p>
+
+          <p>In the particular case of the channel dispatcher, the only
+            side-effect of wrongly thinking a channel is unrequested
+            is likely to be that the user has to confirm that they want to
+            use it, so it seems fairly harmless to assume in the channel
+            dispatcher that channels with suppress_handler false are
+            indeed unrequested.</p>
+        </div></div>
+
+        <p>It does not make sense for this property to be in channel
+          requests—it will always be true for channels returned by
+          CreateChannel, and callers of EnsureChannel cannot control whether an
+          existing channel was originally requested locally—so it MUST NOT
+          be accepted.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:InitiatorHandle"></a>
+     <span class="permalink">(<a href="Channel.html#Property:InitiatorHandle">Permalink</a>)</span>
+     <h2>
+      InitiatorHandle &mdash; u
+      
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.13. </span>(as stable API)</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The contact who initiated the channel; for instance, the contact
+          who invited the local user to a chatroom, or the contact who
+          initiated a call.</p>
+
+        <p>This does <em>not</em> necessarily represent the contact who
+          created the underlying protocol-level construct. For instance, if
+          Rob creates a chatroom, Will joins that chatroom, and Will invites Simon
+          to join it, then Simon will see Will as the InitiatorHandle of the
+          channel representing the chatroom.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The room creator is generally a less useful piece of information
+            than the inviter, is less likely to be available at invitation
+            time (i.e. can't necessarily be an immutable property), and is
+            less likely to be available at all. The creator of a chatroom
+            is not currently available via Telepathy; if added in future, it
+            is likely to be made available as a property on the Chatroom
+            interface (<a href="http://bugs.freedesktop.org/show_bug.cgi?id=23151">bug 23151</a>).</p>
+        </div></div>
+
+        <p>For channels requested by the
+          local user, this MUST be the value of
+          <a href="Connection.html#Property:SelfHandle" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Connection.SelfHandle">Connection.SelfHandle</a>
+          at the time the channel was created (i.e. not a channel-specific
+          handle).</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>On some protocols, the SelfHandle may change (as signalled by
+            <a href="Connection.html#Signal:SelfContactChanged" namespace="org.freedesktop.Telepathy" title="Signal org.freedesktop.Telepathy.Connection.SelfContactChanged">Connection.SelfContactChanged</a>),
+            but this property is immutable. Hence, locally-requested channels'
+            InitiatorHandle and InitiatorID may not match the current
+            SelfHandle; <a href="Channel.html#Property:Requested" title="Property org.freedesktop.Telepathy.Channel.Requested">Requested</a> can be used to
+            determine whether the channel was created locally.</p>
+        </div></div>
+
+        <p>For channels requested by a remote user, this MUST be their handle.
+          If unavailable or not applicable, this MUST be 0 (for instance,
+          contact lists are not really initiated by anyone in particular, and
+          it's easy to imagine a protocol where chatroom invitations can be
+          anonymous).</p>
+
+        <p>For channels with the <a href="Channel_Interface_Group.html" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.Group">Group</a>
+          interface, this SHOULD be the same
+          contact who is signalled as the &quot;Actor&quot; causing the self-handle
+          to be placed in the local-pending set.</p>
+
+        <p>This SHOULD NOT be a channel-specific handle, if possible.</p>
+
+        <p>It does not make sense for this property to be in channel
+          requests - the initiator will always be the local user - so it
+          MUST NOT be accepted.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:InitiatorID"></a>
+     <span class="permalink">(<a href="Channel.html#Property:InitiatorID">Permalink</a>)</span>
+     <h2>
+      InitiatorID &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.13. </span>(as stable API)</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The string that would result from inspecting the
+          <a href="Channel.html#Property:InitiatorHandle" title="Property org.freedesktop.Telepathy.Channel.InitiatorHandle">InitiatorHandle</a>
+          property (i.e. the initiator's identifier in the IM protocol).</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The presence of this property avoids the following race
+            condition:</p>
+
+          <ul>
+            <li>New StreamedMedia channel C is signalled with initiator
+              handle I</li>
+            <li>Client calls <a href="Connection.html#Method:InspectHandles" namespace="org.freedesktop.Telepathy.Connection" title="Method org.freedesktop.Telepathy.Connection.InspectHandles">InspectHandles</a>(CONTACT,
+              [I])</li>
+            <li>Channel C closes, removing the last reference to handle I</li>
+            <li><a href="Connection.html#Method:InspectHandles" namespace="org.freedesktop.Telepathy.Connection" title="Method org.freedesktop.Telepathy.Connection.InspectHandles">InspectHandles</a>(CONTACT,
+              [I]) returns an error</li>
+            <li>Client can indicate that a call was missed, but not who
+              called!</li>
+          </ul>
+        </div></div>
+
+        <p>It does not make sense for this property to be in channel
+          requests - the initiator will always be the local user - so it
+          MUST NOT be accepted.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

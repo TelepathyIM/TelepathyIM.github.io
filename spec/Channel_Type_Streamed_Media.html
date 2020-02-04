@@ -1,0 +1,1606 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.T.StreamedMedia &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Type.StreamedMedia'>Channel.Type.StreamedMedia</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Method:ListStreams">ListStreams</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>a(uuuuuu): Streams</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Method:RemoveStreams">RemoveStreams</a></td>
+       <td>(au: Streams)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Method:RequestStreamDirection">RequestStreamDirection</a></td>
+       <td>(u: Stream_ID, u: Stream_Direction)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Method:RequestStreams">RequestStreams</a></td>
+       <td>(u: Contact_Handle, au: Types)</td>
+       <td>&#8594;</td>
+       <td>a(uuuuuu): Streams</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Signal:StreamAdded">StreamAdded</a></td>
+       <td>(u: Stream_ID, u: Contact_Handle, u: Stream_Type)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Signal:StreamDirectionChanged">StreamDirectionChanged</a></td>
+       <td>(u: Stream_ID, u: Stream_Direction, u: Pending_Flags)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Signal:StreamError">StreamError</a></td>
+       <td>(u: Stream_ID, u: Error_Code, s: Message)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Signal:StreamRemoved">StreamRemoved</a></td>
+       <td>(u: Stream_ID)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Signal:StreamStateChanged">StreamStateChanged</a></td>
+       <td>(u: Stream_ID, u: Stream_State)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Property:InitialAudio">InitialAudio</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Property:InitialVideo">InitialVideo</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Property:ImmutableStreams">ImmutableStreams</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Simple-Type:Stream_ID">Stream_ID</a></td>
+       <td>Simple Type</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Type">Media_Stream_Type</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_State">Media_Stream_State</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Direction">Media_Stream_Direction</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Flags:Media_Stream_Pending_Send">Media_Stream_Pending_Send</a></td>
+       <td>Flags</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Flags:Channel_Media_Capabilities">Channel_Media_Capabilities</a></td>
+       <td>Flags</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Streamed_Media.html#Struct:Media_Stream_Info">Media_Stream_Info</a></td>
+       <td>Struct</td>
+       <td>(uuuuuu)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+     <li><a href="Channel_Interface_Group.html" title="Interface org.freedesktop.Telepathy.Channel.Interface.Group">org.freedesktop.Telepathy.Channel.Interface.Group</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>A channel that can send and receive streamed media such as audio or
+        video.  Provides a number of methods for listing and requesting new
+        streams, and signals to indicate when streams have been added, removed
+        and changed status. The state of the call (ringing remotely, ringing
+        locally, answered, missed, etc.) are represented using the properties
+        and signals of the Group interface.</p>
+
+      <p>In general this should be used in conjunction with the <a href="Channel_Interface_Media_Signalling.html" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.MediaSignalling">MediaSignalling</a>
+        interface to exchange connection candidates and codec choices with
+        whichever component is responsible for the streams. However, in certain
+        applications where no candidate exchange is necessary (eg the streams
+        are handled by specialised hardware which is controlled directly by the
+        connection manager), the signalling interface can be omitted and this
+        channel type used simply to control the streams.</p>
+
+      <h4>Outgoing calls</h4>
+
+      <p>To make an audio-only call to a contact <tt>foo@example.com</tt>,
+        clients should call:</p>
+
+      <blockquote>
+        <pre>
+<a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy.Connection.Interface.Requests" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>({
+  <a href="Channel.html#Property:ChannelType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a>: <a href="Channel_Type_Streamed_Media.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamedMedia">StreamedMedia</a>,
+  <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>: Contact,
+  <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>: 'foo@example.com',
+  <a href="Channel_Type_Streamed_Media.html#Property:InitialAudio" title="Property org.freedesktop.Telepathy.Channel.Type.StreamedMedia.InitialAudio">InitialAudio</a>: True,
+)</pre></blockquote>
+
+      <p>As always, <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>
+        may be used in place of TargetID if the contact's handle is already
+        known. To make an audio-and-video call, the client should also specify
+        <a href="Channel_Type_Streamed_Media.html#Property:InitialVideo" title="Property org.freedesktop.Telepathy.Channel.Type.StreamedMedia.InitialVideo">InitialVideo</a>.  The connection manager
+        SHOULD return a channel whose immutable properties contain the local
+        user as the <a href="Channel.html#Property:InitiatorHandle" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.InitiatorHandle">InitiatorHandle</a>,
+        the remote contact as the <a href="Channel.html#Property:TargetHandle" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>,
+        <a href="Channel.html#Property:Requested" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.Requested">Requested</a> = <code>True</code>
+        (indicating that the call is outgoing); the <a href="Channel_Interface_Group.html" namespace="ofdT.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.Group">Group</a> interface should
+        initially have the local user in <a href="Channel_Interface_Group.html#Property:Members" namespace="ofdT.Channel.Interface.Group" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.Members">Members</a> and the remote
+        contact in <a href="Channel_Interface_Group.html#Property:RemotePendingMembers" namespace="ofdT.Channel.Interface.Group" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.RemotePendingMembers">RemotePendingMembers</a>, to
+        indicate that we are awaiting their response.</p>
+
+      <p>The contact answering the call is represented by the CM signalling
+        <a href="Channel_Interface_Group.html#Signal:MembersChanged" namespace="org.freedesktop.Telepathy.Channel.Interface.Group" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.MembersChanged">MembersChanged</a>,
+        moving the remote contact to Members, with the remote contact as the
+        <var>Actor</var> and <var>Reason</var> <code>None</code>. The contact
+        rejecting the call is represented by both contacts being removed from
+        the group, with the remote contact as the <var>Actor</var> and
+        <var>Reason</var> set appropriately. The local user may hang up at any
+        time by calling
+        <a href="Channel_Interface_Group.html#Method:RemoveMembersWithReason" namespace="org.freedesktop.Telepathy.Channel.Interface.Group" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.RemoveMembersWithReason">RemoveMembersWithReason</a>
+        to remove themself, with an appropriate reason; the CM SHOULD relay the
+        reason to the remote contact, and emit MembersChanged removing both
+        contacts from the group with the self handle as the <var>Actor</var>.</p>
+
+      <p>(In the past, several other patterns have been used to place outgoing
+        calls; see
+        <a href="http://telepathy.freedesktop.org/wiki/Requesting%20StreamedMedia%20channels">'Requesting StreamedMedia Channels' on the Telepathy wiki</a>
+        for the details.)</p>
+
+      <h4>Incoming calls</h4>
+
+      <p>Incoming calls' immutable properties should contain <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+        = Contact, both <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a> and
+        <a href="Channel.html#Property:InitiatorHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.InitiatorHandle">InitiatorHandle</a>
+        set to the remote contact, <a href="Channel.html#Property:Requested" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.Requested">Requested</a> = <code>False</code>
+        (indicating that this is an incoming call), and appropriate values of
+        <a href="Channel_Type_Streamed_Media.html#Property:InitialAudio" title="Property org.freedesktop.Telepathy.Channel.Type.StreamedMedia.InitialAudio">InitialAudio</a> and
+        <a href="Channel_Type_Streamed_Media.html#Property:InitialVideo" title="Property org.freedesktop.Telepathy.Channel.Type.StreamedMedia.InitialVideo">InitialVideo</a>; the Group interface should
+        initially have the local user in <a href="Channel_Interface_Group.html#Property:LocalPendingMembers" namespace="ofdT.Channel.Interface.Group" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.LocalPendingMembers">LocalPendingMembers</a>
+        and the remote contact in <a href="Channel_Interface_Group.html#Property:Members" namespace="ofdT.Channel.Interface.Group" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.Members">Members</a>,
+        indicating that the contact is awaiting our response.</p>
+
+      <p>To accept the call, use <a href="Channel_Interface_Group.html#Method:AddMembers" namespace="org.freedesktop.Telepathy.Channel.Interface.Group" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.AddMembers">AddMembers</a>
+        to move the local user to the group's members. To reject the call, use
+        <a href="Channel_Interface_Group.html#Method:RemoveMembersWithReason" namespace="org.freedesktop.Telepathy.Channel.Interface.Group" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.RemoveMembersWithReason">RemoveMembersWithReason</a>
+        to remove the local member from the group, with an appropriate reason.
+        If the remote user ends the call before it is answered, this is
+        represented by <a href="Channel_Interface_Group.html#Signal:MembersChanged" namespace="org.freedesktop.Telepathy.Channel.Interface.Group" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.MembersChanged">MembersChanged</a>
+        removing both parties from the group with the remote contact as the
+        <var>Actor</var>, and <var>Reason</var> set appropriately.</p>
+
+      <p>Note that the call may end with the self handle as the
+        <var>Actor</var> without the user having chosen to reject the call, as
+        indicated by the nature of the <var>Reason</var>. Specifically, some
+        local component may time out the call (indicating this with reason
+        <code>No_Answer</code>; for example, the CM may have forwarded the call
+        to another number, as configured using <a href="Connection_Interface_Forwarding.html" namespace="ofdT.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.Forwarding.DRAFT">Forwarding.DRAFT</a>),
+        or something may have gone wrong with the call
+        (indicated by reason <code>Error</code>). Such calls SHOULD be
+        considered missed, just as if the remote contact had hung up before the
+        local user answered the call.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>This is a bit awkward, but these are the best ways we can represent
+          these situations. It's important to document which calls should be
+          considered missed, to ensure that the user can be notified.</p>
+      </div></div>
+
+      <p>When the local user accepts an incoming call, the connection manager
+        SHOULD change the direction of any streams with pending local send
+        to be sending, without altering whether those streams are
+        receiving.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>This matches existing practice, and means that a client
+          can answer incoming calls and get an unmuted microphone/activated
+          webcam without having to take additional action to accept the
+          stream directions.</p>
+
+        <p>It does, however, introduce a race condition: a client believing
+          that it is accepting an audio-only call by calling AddMembers
+          can inadvertantly accept an audio + video call (and hence activate
+          sending from a webcam without the user's permission) if a video
+          stream is added just before AddMembers is processed. This race
+          should be removed when this specification is revised.</p>
+      </div></div>
+
+    <h4>During a call</h4>
+
+    <p>If <a href="Channel_Type_Streamed_Media.html#Property:ImmutableStreams" title="Property org.freedesktop.Telepathy.Channel.Type.StreamedMedia.ImmutableStreams">ImmutableStreams</a> is
+      <code>False</code>, new streams may be requested using
+      <a href="Channel_Type_Streamed_Media.html#Method:RequestStreams" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.RequestStreams">RequestStreams</a> (to add video to an
+      audio-only call, for instance), and existing streams may be removed using
+      <a href="Channel_Type_Streamed_Media.html#Method:RemoveStreams" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.RemoveStreams">RemoveStreams</a> (for example, to downgrade
+      an audio-video call to audio-only). The call may be ended by calling
+      <a href="Channel_Interface_Group.html#Method:RemoveMembers" namespace="org.freedesktop.Telepathy.Channel.Interface.Group" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.RemoveMembers">RemoveMembers</a>
+      or <a href="Channel_Interface_Group.html#Method:RemoveMembersWithReason" namespace="org.freedesktop.Telepathy.Channel.Interface.Group" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.RemoveMembersWithReason">RemoveMembersWithReason</a>; the call ending is signalled by the CM emitting <a href="Channel_Interface_Group.html#Signal:MembersChanged" namespace="org.freedesktop.Telepathy.Channel.Interface.Group" title="Signal org.freedesktop.Telepathy.Channel.Interface.Group.MembersChanged">MembersChanged</a>,
+      removing both parties from the group.</p>
+
+    <h4>Handler filters</h4>
+
+    <p>For historical reasons, handlers must specify more than one filter if
+      they want to correctly advertise support for audio and/or video calls. If
+      they can handle channels using the <a href="Channel_Interface_Media_Signalling.html" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.MediaSignalling">MediaSignalling</a>
+      interface, they should also advertise various
+      <a href="Client_Handler.html#Simple-Type:Handler_Capability_Token">Handler_Capability_Token</a>s to indicate which codecs and
+      transports they support. See <a href="Channel_Type_Streamed_Media.html#Property:InitialAudio" title="Property org.freedesktop.Telepathy.Channel.Type.StreamedMedia.InitialAudio">InitialAudio</a>
+      and <a href="Channel_Interface_Media_Signalling.html#Handler-Capability-Token:video/h264" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Handler Capability Token org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/video/h264">MediaSignalling/video/h264</a>
+      for the gory details. In summary:</p>
+
+    <dl>
+      <dt>To advertise support for streamed media in general, include the
+        following filter in <a href="Client_Handler.html#Property:HandlerChannelFilter" namespace="org.freedesktop.Telepathy.Client.Handler" title="Property org.freedesktop.Telepathy.Client.Handler.HandlerChannelFilter">HandlerChannelFilter</a>:</dt>
+      <dd><pre>
+{ '...Channel.ChannelType': '...Channel.Type.StreamedMedia' ,
+  '...Channel.TargetHandleType': Contact,
+}</pre></dd>
+
+      <dt>To advertise support for audio calls, also include the following
+        filter:</dt>
+      <dd><pre>
+{ '...Channel.ChannelType': '...Channel.Type.StreamedMedia' ,
+  '...Channel.TargetHandleType': Contact,
+  '...Channel.Type.StreamedMedia.InitialAudio': True,
+}</pre></dd>
+
+      <dt>To advertise support for video calls, also include the following
+        filter:</dt>
+      <dd><pre>
+{ '...Channel.ChannelType': '...Channel.Type.StreamedMedia' ,
+  '...Channel.TargetHandleType': Contact,
+  '...Channel.Type.StreamedMedia.InitialVideo': True,
+}</pre></dd>
+
+      <dt>If you use telepathy-farsight, and have H.264 support, you probably
+        want these <a href="Client_Handler.html#Property:Capabilities" namespace="org.freedesktop.Telepathy.Client.Handler" title="Property org.freedesktop.Telepathy.Client.Handler.Capabilities">Capabilities</a>:</dt>
+      <dd><pre>
+[ &quot;org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/ice-udp&quot;,
+  &quot;org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/gtalk-p2p&quot;,
+  &quot;org.freedesktop.Telepathy.Channel.Interface.MediaSignalling/video/h264&quot;,
+]</pre></dd>
+    </dl>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:ListStreams"></a>
+     <span class="permalink">(<a href="Channel_Type_Streamed_Media.html#Method:ListStreams">Permalink</a>)</span>
+     <h2>ListStreams () &#8594; a(uuuuuu): Streams</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Streams &mdash; a(uuuuuu)
+        
+          (<a href="Channel_Type_Streamed_Media.html#Struct:Media_Stream_Info" title="Array of Struct Media_Stream_Info">Media_Stream_Info_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          An array of structs containing:
+          <ul>
+          <li>the stream identifier</li>
+          <li>the contact handle who the stream is with (or 0 if the stream
+            represents more than a single member)</li>
+          <li>the type of the stream</li>
+          <li>the current stream state</li>
+          <li>the current direction of the stream</li>
+          <li>the current pending send flags</li>
+          </ul>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Returns an array of structs representing the streams currently active
+        within this channel. Each stream is identified by an unsigned integer
+        which is unique for each stream within the channel.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RemoveStreams"></a>
+     <span class="permalink">(<a href="Channel_Type_Streamed_Media.html#Method:RemoveStreams">Permalink</a>)</span>
+     <h2>RemoveStreams (au: Streams) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Streams &mdash; au
+        
+          (<a href="Channel_Type_Streamed_Media.html#Simple-Type:Stream_ID" title="Array of Simple Type Stream_ID">Stream_ID_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of stream identifiers (as defined in
+          <a href="Channel_Type_Streamed_Media.html#Method:ListStreams" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.ListStreams">ListStreams</a>)
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request that the given streams are removed. If all streams are
+          removed, the channel MAY close.</p>
+
+        <p>Clients SHOULD NOT attempt to terminate calls by removing all the
+          streams; instead, clients SHOULD terminate calls by removing the
+          <a href="Channel_Interface_Group.html#Property:SelfHandle" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Property org.freedesktop.Telepathy.Channel.Interface.Group.SelfHandle">Group.SelfHandle</a>
+          from the channel, using either
+          <a href="Channel_Interface_Group.html#Method:RemoveMembers" namespace="org.freedesktop.Telepathy.Channel.Interface.Group" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.RemoveMembers">RemoveMembers</a>
+          or
+          <a href="Channel_Interface_Group.html#Method:RemoveMembersWithReason" namespace="org.freedesktop.Telepathy.Channel.Interface.Group" title="Method org.freedesktop.Telepathy.Channel.Interface.Group.RemoveMembersWithReason">RemoveMembersWithReason</a>.
+          </p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            A stream identifier is unknown
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RequestStreamDirection"></a>
+     <span class="permalink">(<a href="Channel_Type_Streamed_Media.html#Method:RequestStreamDirection">Permalink</a>)</span>
+     <h2>RequestStreamDirection (u: Stream_ID, u: Stream_Direction) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Stream_ID &mdash; u
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The stream identifier (as defined in
+          <a href="Channel_Type_Streamed_Media.html#Method:ListStreams" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.ListStreams">ListStreams</a>)
+        </div>
+      
+       <li>
+        Stream_Direction &mdash; u
+        
+          (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Direction" title="Enum Media_Stream_Direction">Media_Stream_Direction</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The desired stream direction (a value of MediaStreamDirection)
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request a change in the direction of an existing stream. In particular,
+        this might be useful to stop sending media of a particular type,
+        or inform the peer that you are no longer using media that is being
+        sent to you.</p>
+
+        <p>Depending on the protocol, streams which are no longer sending in
+        either direction should be removed and a
+        <a href="Channel_Type_Streamed_Media.html#Signal:StreamRemoved" title="Signal org.freedesktop.Telepathy.Channel.Type.StreamedMedia.StreamRemoved">StreamRemoved</a> signal emitted.
+        Some direction changes can be enforced locally (for example,
+        BIDIRECTIONAL -&gt; RECEIVE can be achieved by merely stopping sending),
+        others may not be possible on some protocols, and some need agreement
+        from the remote end. In this case, the MEDIA_STREAM_PENDING_REMOTE_SEND
+        flag will be set in the
+        <a href="Channel_Type_Streamed_Media.html#Signal:StreamDirectionChanged" title="Signal org.freedesktop.Telepathy.Channel.Type.StreamedMedia.StreamDirectionChanged">StreamDirectionChanged</a> signal, and the
+        signal
+        emitted again without the flag to indicate the resulting direction when
+        the remote end has accepted or rejected the change.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            A stream identifier is unknown
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested direction is not available on this stream
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RequestStreams"></a>
+     <span class="permalink">(<a href="Channel_Type_Streamed_Media.html#Method:RequestStreams">Permalink</a>)</span>
+     <h2>RequestStreams (u: Contact_Handle, au: Types) &#8594; a(uuuuuu): Streams</h2>
+
+     
+     <div class="annotation changed"><span class="version">Changed in 0.17.2. </span>
+        <p>It is valid to use a handle which is neither
+          a current nor pending member in this channel's <a href="Channel_Interface_Group.html" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.Group">Group</a>
+          interface. If
+          so, that handle will be added to the remote-pending set only when
+          an attempt has actually been made to contact them. For further
+          call-state notification, use the <a href="Channel_Interface_Call_State.html" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.CallState">CallState</a>
+          interface, if
+          supported. This usage was not allowed in spec versions below
+          0.17.2.</p>
+      </div>
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contact_Handle &mdash; u
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A contact handle with whom to establish the streams
+        </div>
+      
+       <li>
+        Types &mdash; au
+        
+          (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Type" title="Array of Enum Media_Stream_Type">Media_Stream_Type_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of stream types (values of MediaStreamType)
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Streams &mdash; a(uuuuuu)
+        
+          (<a href="Channel_Type_Streamed_Media.html#Struct:Media_Stream_Info" title="Array of Struct Media_Stream_Info">Media_Stream_Info_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          An array of structs (in the same order as the given stream types)
+          containing:
+          <ul>
+            <li>the stream identifier</li>
+            <li>the contact handle who the stream is with (or 0 if the stream
+              represents more than a single member)</li>
+            <li>the type of the stream</li>
+            <li>the current stream state</li>
+            <li>the current direction of the stream</li>
+            <li>the current pending send flags</li>
+          </ul>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request that streams be established to exchange the given types of
+        media with the given member. In general this will try and establish a
+        bidirectional stream, but on some protocols it may not be possible to
+        indicate to the peer that you would like to receive media, so a
+        send-only stream will be created initially. In the cases where the
+        stream requires remote agreement (eg you wish to receive media from
+        them), the <a href="Channel_Type_Streamed_Media.html#Signal:StreamDirectionChanged" title="Signal org.freedesktop.Telepathy.Channel.Type.StreamedMedia.StreamDirectionChanged">StreamDirectionChanged</a> signal
+        will be emitted with the
+        MEDIA_STREAM_PENDING_REMOTE_SEND flag set, and the signal emitted again
+        with the flag cleared when the remote end has replied.</p>
+
+        <p>If streams of the requested types already exist, calling this
+          method results in the creation of additional streams. Accordingly,
+          clients wishing to have exactly one audio stream or exactly one
+          video stream SHOULD check for the current streams using
+          <a href="Channel_Type_Streamed_Media.html#Method:ListStreams" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.ListStreams">ListStreams</a> before calling this
+          method.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            A stream type given is invalid.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            A stream type given is not implemented by the connection manager.
+            Since 0.17.23, connection managers SHOULD raise this error
+            in preference to InvalidArgument.
+            <div class="rationale"><h5>Rationale:</h5><div>
+              Connection managers can't know whether an unknown number
+              is a valid stream type that was introduced in a later spec
+              version.
+            </div></div>
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            That contact's client does not implement one of the given stream
+            types. For this method, clients SHOULD consider this error and
+            NotCapable to be equivalent.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Capable" title="Error org.freedesktop.Telepathy.Error.NotCapable">Not Capable</a></li>
+       
+       
+       
+       <div class="docstring">
+            That contact's client does not implement one of the given stream
+            types. Since 0.17.23, connection managers SHOULD raise
+            this in preference to NotAvailable.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:StreamAdded"></a>
+     <span class="permalink">(<a href="Channel_Type_Streamed_Media.html#Signal:StreamAdded">Permalink</a>)</span>
+     <h2>StreamAdded (u: Stream_ID, u: Contact_Handle, u: Stream_Type)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Stream_ID &mdash; u
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The stream identifier (as defined in
+          <a href="Channel_Type_Streamed_Media.html#Method:ListStreams" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.ListStreams">ListStreams</a>)
+        </div>
+      
+       <li>
+       Contact_Handle &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contact handle who the stream is with (or 0 if it
+          represents more than a single member)
+        </div>
+      
+       <li>
+       Stream_Type &mdash; u
+       
+        (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Type" title="Enum Media_Stream_Type">Media_Stream_Type</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The stream type (a value from MediaStreamType)
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when a new stream has been added to this channel.
+          Clients SHOULD assume that the stream's
+          <a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_State">Media_Stream_State</a> is initially Disconnected.</p>
+
+        <p>If a connection manager needs to represent the addition of a stream
+          whose state is already Connecting or Connected, it MUST do this
+          by emitting StreamAdded, closely followed by
+          <a href="Channel_Type_Streamed_Media.html#Signal:StreamStateChanged" title="Signal org.freedesktop.Telepathy.Channel.Type.StreamedMedia.StreamStateChanged">StreamStateChanged</a> indicating a
+          change to the appropriate state.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Historically, it was not clear from the StreamAdded signal what
+            the state of the stream was. telepathy-spec 0.17.22
+            clarified this.</p>
+        </div></div>
+
+        <p>Similarly, clients SHOULD assume that the initial
+          <a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Direction">Media_Stream_Direction</a> of a newly added stream
+          is Receive, and that the initial
+          <a href="Channel_Type_Streamed_Media.html#Flags:Media_Stream_Pending_Send">Media_Stream_Pending_Send</a> is
+          Pending_Local_Send.</p>
+
+        <p>If a connection manager needs to represent the addition of a stream
+          whose direction or pending-send differs from those initial values,
+          it MUST do so by emitting StreamAdded, closely followed by
+          <a href="Channel_Type_Streamed_Media.html#Signal:StreamDirectionChanged" title="Signal org.freedesktop.Telepathy.Channel.Type.StreamedMedia.StreamDirectionChanged">StreamDirectionChanged</a> indicating a
+          change to the appropriate direction and pending-send state.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>StreamAdded doesn't itself indicate the stream's direction; this
+            is unfortunate, but is preserved for compatibility.</p>
+
+          <p>This is the appropriate direction for streams added by a remote
+            contact on existing connection managers, and does not violate
+            user privacy by automatically sending audio or video (audio streams
+            start off muted, video streams start off not sending). For
+            streams added by the local user using the client receiving the
+            signal, the true direction can also be determined from the return
+            value of the <a href="Channel_Type_Streamed_Media.html#Method:RequestStreams" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.RequestStreams">RequestStreams</a>
+            method.</p>
+
+          <p>Existing clients typically operate by maintaining a separate
+            idea of the directions that they would like the streams to have,
+            and enforcing these intended directions by calling
+            <a href="Channel_Type_Streamed_Media.html#Method:RequestStreamDirection" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.RequestStreamDirection">RequestStreamDirection</a> whenever
+            needed.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:StreamDirectionChanged"></a>
+     <span class="permalink">(<a href="Channel_Type_Streamed_Media.html#Signal:StreamDirectionChanged">Permalink</a>)</span>
+     <h2>StreamDirectionChanged (u: Stream_ID, u: Stream_Direction, u: Pending_Flags)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Stream_ID &mdash; u
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+        The stream identifier (as defined in <a href="Channel_Type_Streamed_Media.html#Method:ListStreams" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.ListStreams">ListStreams</a>)
+        </div>
+      
+       <li>
+       Stream_Direction &mdash; u
+       
+        (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Direction" title="Enum Media_Stream_Direction">Media_Stream_Direction</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+        The new stream direction (as defined in ListStreams)
+        </div>
+      
+       <li>
+       Pending_Flags &mdash; u
+       
+        (<a href="Channel_Type_Streamed_Media.html#Flags:Media_Stream_Pending_Send" title="Flags Media_Stream_Pending_Send">Media_Stream_Pending_Send</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+        The new pending send flags (as defined in ListStreams)
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when the direction or pending flags of a stream are
+          changed.</p>
+
+        <p>If the MEDIA_STREAM_PENDING_LOCAL_SEND flag is set, the remote user
+          has requested that we begin sending on this stream.
+          <a href="Channel_Type_Streamed_Media.html#Method:RequestStreamDirection" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.RequestStreamDirection">RequestStreamDirection</a>
+          should be called to indicate whether or not this change is
+          acceptable.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This allows for a MSN-style user interface, &quot;Fred has asked you
+            to enable your webcam. (Accept | Reject)&quot;, if desired.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:StreamError"></a>
+     <span class="permalink">(<a href="Channel_Type_Streamed_Media.html#Signal:StreamError">Permalink</a>)</span>
+     <h2>StreamError (u: Stream_ID, u: Error_Code, s: Message)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Stream_ID &mdash; u
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+        The stream identifier (as defined in
+        <a href="Channel_Type_Streamed_Media.html#Method:ListStreams" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.ListStreams">ListStreams</a>)
+        </div>
+      
+       <li>
+       Error_Code &mdash; u
+       
+        (<a href="Media_Stream_Handler.html#Enum:Media_Stream_Error" title="Enum Media_Stream_Error">Media_Stream_Error</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A stream error number, one of the values of MediaStreamError
+        </div>
+      
+       <li>
+       Message &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A string describing the error (for debugging purposes only)
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when a stream encounters an error.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:StreamRemoved"></a>
+     <span class="permalink">(<a href="Channel_Type_Streamed_Media.html#Signal:StreamRemoved">Permalink</a>)</span>
+     <h2>StreamRemoved (u: Stream_ID)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Stream_ID &mdash; u
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+        stream_id - the stream identifier (as defined in
+        <a href="Channel_Type_Streamed_Media.html#Method:ListStreams" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.ListStreams">ListStreams</a>)
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when a stream has been removed from this channel.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:StreamStateChanged"></a>
+     <span class="permalink">(<a href="Channel_Type_Streamed_Media.html#Signal:StreamStateChanged">Permalink</a>)</span>
+     <h2>StreamStateChanged (u: Stream_ID, u: Stream_State)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Stream_ID &mdash; u
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The stream identifier (as defined in
+          <a href="Channel_Type_Streamed_Media.html#Method:ListStreams" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.ListStreams">ListStreams</a>)
+        </div>
+      
+       <li>
+       Stream_State &mdash; u
+       
+        (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_State" title="Enum Media_Stream_State">Media_Stream_State</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new stream state (as defined in ListStreams)
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when a member's stream's state changes.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:InitialAudio"></a>
+     <span class="permalink">(<a href="Channel_Type_Streamed_Media.html#Property:InitialAudio">Permalink</a>)</span>
+     <h2>
+      InitialAudio &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If set to true in a channel request that will create a new channel,
+          the connection manager should immediately attempt to establish an
+          audio stream to the remote contact, making it unnecessary for the
+          client to call <a href="Channel_Type_Streamed_Media.html#Method:RequestStreams" namespace="org.freedesktop.Telepathy.Channel.Type.StreamedMedia" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.RequestStreams">RequestStreams</a>.</p>
+
+        <p>If this property, or InitialVideo, is passed to EnsureChannel
+          (as opposed to CreateChannel), the connection manager SHOULD ignore
+          these properties when checking whether it can return an existing
+          channel as suitable; these properties only become significant when
+          the connection manager has decided to create a new channel.</p>
+
+        <p>If true on a requested channel, this indicates that the audio
+          stream has already been requested and the client does not need to
+          call RequestStreams, although it MAY still do so.</p>
+
+        <p>If true on an unrequested (incoming) channel, this indicates that
+          the remote contact initially requested an audio stream; this does
+          not imply that that audio stream is still active (as indicated by
+          <a href="Channel_Type_Streamed_Media.html#Method:ListStreams" namespace="org.freedesktop.Telepathy.Channel.Type.StreamedMedia" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.ListStreams">ListStreams</a>).</p>
+
+        <p>This property is immutable (cannot change), and therefore SHOULD
+          appear wherever immutable properties are reported, e.g. <a href="Connection_Interface_Requests.html#Signal:NewChannels" namespace="org.freedesktop.Telepathy.Connection.Interface.Requests" title="Signal org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannels">NewChannels</a>
+          signals.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div><p>This reduces D-Bus round trips.</p></div></div>
+
+        <p>Connection managers capable of signalling audio calls to contacts
+          SHOULD include a channel class in <a href="Connection_Interface_Requests.html#Property:RequestableChannelClasses" namespace="org.freedesktop.Telepathy.Connection.Interface.Requests" title="Property org.freedesktop.Telepathy.Connection.Interface.Requests.RequestableChannelClasses">RequestableChannelClasses</a>
+          with <a href="Channel.html#Property:ChannelType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a>
+          = <a href="Channel_Type_Streamed_Media.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamedMedia">StreamedMedia</a>
+          and <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+          = Contact in the fixed properties dictionary, and InitialAudio
+          (and also InitialVideo, if applicable) in the allowed properties
+          list. Clients wishing to discover whether a connection manager
+          can signal audio and/or video calls SHOULD use this information.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Not all protocols support signalling video calls, and it would be
+            possible (although unlikely) to have a protocol where only video,
+            and not audio, could be signalled.</p>
+        </div></div>
+
+        <p>Connection managers that support the <a href="Connection_Interface_Contact_Capabilities.html" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities">ContactCapabilities</a>
+          interface SHOULD represent the capabilities of receiving audio
+          and/or video calls by including a channel class in
+          a contact's capabilities with ChannelType = StreamedMedia
+          in the fixed properties dictionary, and InitialAudio and/or
+          InitialVideo in the allowed properties list. Clients wishing to
+          discover whether a particular contact is likely to be able to
+          receive audio and/or video calls SHOULD use this information.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Not all clients support video calls, and it would also be
+            possible (although unlikely) to have a client which could only
+            stream video, not audio.</p>
+        </div></div>
+
+        <p>Clients that are willing to receive audio and/or video calls
+          SHOULD include the following among their channel classes if
+          calling <a href="Connection_Interface_Contact_Capabilities.html#Method:UpdateCapabilities" namespace="org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities.UpdateCapabilities">UpdateCapabilities</a>
+          (clients of a <a href="Channel_Dispatcher.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ChannelDispatcher">ChannelDispatcher</a>
+          SHOULD instead arrange for the ChannelDispatcher to do this,
+          by including the filters in their <a href="Client_Handler.html#Property:HandlerChannelFilter" namespace="org.freedesktop.Telepathy.Client.Handler" title="Property org.freedesktop.Telepathy.Client.Handler.HandlerChannelFilter">HandlerChannelFilter</a>
+          properties):</p>
+
+        <ul>
+          <li>{ ChannelType = StreamedMedia }</li>
+          <li>{ ChannelType = StreamedMedia, InitialAudio = true }
+            if receiving calls with audio is supported</li>
+          <li>{ ChannelType = StreamedMedia, InitialVideo = true }
+            if receiving calls with video is supported</li>
+        </ul>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Connection managers for protocols with capability discovery,
+            like XMPP, need this information to advertise the appropriate
+            capabilities for their protocol.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:InitialVideo"></a>
+     <span class="permalink">(<a href="Channel_Type_Streamed_Media.html#Property:InitialVideo">Permalink</a>)</span>
+     <h2>
+      InitialVideo &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The same as <a href="Channel_Type_Streamed_Media.html#Property:InitialAudio" title="Property org.freedesktop.Telepathy.Channel.Type.StreamedMedia.InitialAudio">InitialAudio</a>, but for
+          a video stream. This property is immutable (cannot change).</p>
+
+        <p>In particular, note that if this property is false, this does not
+          imply that an active video stream has not been added, only that no
+          video stream was active at the time the channel appeared.</p>
+
+        <p>This property is the correct way to discover whether connection
+          managers, contacts etc. support video calls; it appears in
+          capabilities structures in the same way as InitialAudio.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ImmutableStreams"></a>
+     <span class="permalink">(<a href="Channel_Type_Streamed_Media.html#Property:ImmutableStreams">Permalink</a>)</span>
+     <h2>
+      ImmutableStreams &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If <tt>True</tt>, once streams have been requested for this channel
+          (either by setting <a href="Channel_Type_Streamed_Media.html#Property:InitialAudio" title="Property org.freedesktop.Telepathy.Channel.Type.StreamedMedia.InitialAudio">InitialAudio</a> or
+          <a href="Channel_Type_Streamed_Media.html#Property:InitialVideo" title="Property org.freedesktop.Telepathy.Channel.Type.StreamedMedia.InitialVideo">InitialVideo</a> when the channel is
+          requested, or by calling
+          <a href="Channel_Type_Streamed_Media.html#Method:RequestStreams" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.RequestStreams">RequestStreams</a> on a channel with no
+          streams), a stream of a different content type cannot be added;
+          subsequent calls to <a href="Channel_Type_Streamed_Media.html#Method:RequestStreams" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.RequestStreams">RequestStreams</a>
+          that attempt to do so will fail.</p>
+
+        <p>If this property is missing, clients SHOULD assume that it is false,
+          and thus that the channel's streams can be changed once the call has
+          started.</p>
+
+        <p>If this property is present in the &quot;allowed&quot; set in all of the
+          StreamedMedia entries in a contact's capabilities, then user
+          interfaces MAY choose to show a separate &quot;call&quot; option for each
+          class of call.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>For example, once an audio-only Google Talk call has started,
+              it is not possible to add a video stream; both audio and video
+              must be requested at the start of the call if video is desired.
+              User interfaces may use this pseudo-capability as a hint to
+              display separate &quot;Audio call&quot; and &quot;Video call&quot; buttons, rather
+              than a single &quot;Call&quot; button with the option to add and remove
+              video once the call has started for contacts without this flag.
+            </p>
+          </div></div>
+
+        <p>This property is immutable, and therefore SHOULD be announced
+          in <a href="Connection_Interface_Requests.html#Signal:NewChannels" namespace="org.freedesktop.Telepathy.Connection.Interface.Requests" title="Signal org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannels">NewChannels</a>,
+          etc.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Stream_ID"></a>
+      <span class="permalink">Simple Type (<a href="Channel_Type_Streamed_Media.html#Simple-Type:Stream_ID">Permalink</a>)</span>
+      <h2>
+       Stream_ID &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>An unsigned integer identifying a stream within a channel.</p>
+      </div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Media_Stream_Type"></a>
+      <span class="permalink">Enum (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Type">Permalink</a>)</span>
+      <h2>
+       Media_Stream_Type &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Audio (0)</li>
+<div class="docstring">An audio stream</div><li>Video (1)</li>
+<div class="docstring">A video stream</div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Media_Stream_State"></a>
+      <span class="permalink">Enum (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_State">Permalink</a>)</span>
+      <h2>
+       Media_Stream_State &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Disconnected (0)</li>
+<div class="docstring">The stream is disconnected.</div><li>Connecting (1)</li>
+<div class="docstring">The stream is trying to connect.</div><li>Connected (2)</li>
+<div class="docstring">The stream is connected.</div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Media_Stream_Direction"></a>
+      <span class="permalink">Enum (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Direction">Permalink</a>)</span>
+      <h2>
+       Media_Stream_Direction &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>None (0)</li>
+<div class="docstring">Media are not being sent or received</div><li>Send (1)</li>
+<div class="docstring">Media are being sent, but not received</div><li>Receive (2)</li>
+<div class="docstring">Media are being received, but not sent</div><li>Bidirectional (3)</li>
+<div class="docstring">Media are being sent and received</div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Flags:Media_Stream_Pending_Send"></a>
+      <span class="permalink">Flags (<a href="Channel_Type_Streamed_Media.html#Flags:Media_Stream_Pending_Send">Permalink</a>)</span>
+      <h2>
+       Media_Stream_Pending_Send &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Local_Send (1)</li>
+<div class="docstring">
+            The local user has been asked to send media by the remote user.
+            Call <a href="Channel_Type_Streamed_Media.html#Method:RequestStreamDirection" title="Method org.freedesktop.Telepathy.Channel.Type.StreamedMedia.RequestStreamDirection">RequestStreamDirection</a> to
+            indicate whether or not this is acceptable.
+        </div><li>Remote_Send (2)</li>
+<div class="docstring">
+            The remote user has been asked to send media by the local user.
+            The <a href="Channel_Type_Streamed_Media.html#Signal:StreamDirectionChanged" title="Signal org.freedesktop.Telepathy.Channel.Type.StreamedMedia.StreamDirectionChanged">StreamDirectionChanged</a> signal
+            will be emitted when the remote user accepts or rejects this
+            change.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Flags:Channel_Media_Capabilities"></a>
+      <span class="permalink">Flags (<a href="Channel_Type_Streamed_Media.html#Flags:Channel_Media_Capabilities">Permalink</a>)</span>
+      <h2>
+       Channel_Media_Capabilities &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        The channel-type-specific capability flags used for
+        Channel.Type.StreamedMedia in the <a href="Connection_Interface_Capabilities.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection.Interface.Capabilities">Connection.Interface.Capabilities</a>
+        interface. See the <a href="Channel_Type_Streamed_Media.html#Property:InitialAudio" title="Property org.freedesktop.Telepathy.Channel.Type.StreamedMedia.InitialAudio">InitialAudio</a>
+        property for details of the mechanisms that will replace this.
+      </div>
+      <ul>
+<li>Audio (1)</li>
+<div class="docstring">
+          The handle is capable of using audio streams within a media channel.
+        </div><li>Video (2)</li>
+<div class="docstring">
+          The handle is capable of using video streams within a media channel.
+        </div><li>NAT_Traversal_STUN (4)</li>
+<div class="docstring">
+          The handle is capable of performing STUN to traverse NATs.
+        </div><li>NAT_Traversal_GTalk_P2P (8)</li>
+<div class="docstring">
+          The handle is capable of establishing Google Talk peer-to-peer
+          connections (as implemented in libjingle 0.3) to traverse NATs.
+        </div><li>NAT_Traversal_ICE_UDP (16)</li>
+<div class="docstring">
+          The handle is capable of establishing ICE UDP peer-to-peer
+          connections (as defined by the IETF MMUSIC working group) to traverse
+          NATs.
+        </div><li>Immutable_Streams (32)</li>
+<div class="docstring">
+          Channels whose target handle is this contact will have
+          <a href="Channel_Type_Streamed_Media.html#Property:ImmutableStreams" title="Property org.freedesktop.Telepathy.Channel.Type.StreamedMedia.ImmutableStreams">ImmutableStreams</a> = <tt>True</tt>.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Media_Stream_Info"></a>
+      <span class="permalink">Struct (<a href="Channel_Type_Streamed_Media.html#Struct:Media_Stream_Info">Permalink</a>)</span>
+      <h2>
+       Media_Stream_Info &mdash; (uuuuuu)
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Identifier &mdash; u (<a href="Channel_Type_Streamed_Media.html#Simple-Type:Stream_ID" title="Simple Type Stream_ID">Stream_ID</a>)</li>
+<li>Contact &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<li>Type &mdash; u (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Type" title="Enum Media_Stream_Type">Media_Stream_Type</a>)</li>
+<li>State &mdash; u (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_State" title="Enum Media_Stream_State">Media_Stream_State</a>)</li>
+<li>Direction &mdash; u (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Direction" title="Enum Media_Stream_Direction">Media_Stream_Direction</a>)</li>
+<li>Pending_Send_Flags &mdash; u (<a href="Channel_Type_Streamed_Media.html#Flags:Media_Stream_Pending_Send" title="Flags Media_Stream_Pending_Send">Media_Stream_Pending_Send</a>)</li>
+</ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

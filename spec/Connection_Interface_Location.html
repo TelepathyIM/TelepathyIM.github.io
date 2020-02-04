@@ -1,0 +1,1020 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.Location &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.Location'>Connection.Interface.Location</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+    | <a href="#contact-attributes">Contact Attributes</a> 
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Location.html#Method:GetLocations">GetLocations</a></td>
+       <td>(au: Contacts)</td>
+       <td>&#8594;</td>
+       <td>a{ua{sv}}: Locations</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Location.html#Method:RequestLocation">RequestLocation</a></td>
+       <td>(u: Contact)</td>
+       <td>&#8594;</td>
+       <td>a{sv}: Location</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Location.html#Method:SetLocation">SetLocation</a></td>
+       <td>(a{sv}: Location)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Location.html#Signal:LocationUpdated">LocationUpdated</a></td>
+       <td>(u: Contact, a{sv}: Location)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Location.html#Property:LocationAccessControlTypes">LocationAccessControlTypes</a></td>
+       <td>
+        au
+        
+          (<a href="Connection_Interface_Simple_Presence.html#Enum:Rich_Presence_Access_Control_Type" title="Array of Enum Rich_Presence_Access_Control_Type">
+              Rich_Presence_Access_Control_Type_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Location.html#Property:LocationAccessControl">LocationAccessControl</a></td>
+       <td>
+        (uv)
+        
+          (<a href="Connection_Interface_Simple_Presence.html#Struct:Rich_Presence_Access_Control" title="Struct Rich_Presence_Access_Control">
+              Rich_Presence_Access_Control</a>)
+        
+       </td>
+       <td>Read/Write</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Location.html#Property:SupportedLocationFeatures">SupportedLocationFeatures</a></td>
+       <td>
+        u
+        
+          (<a href="Connection_Interface_Location.html#Flags:Location_Features" title="Flags Location_Features">
+              Location_Features</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+     <h3>Contact Attributes</h3>
+     <table class="summary">
+      
+       <tr class="contact-attribute">
+       <td><a href="Connection_Interface_Location.html#Contact-Attribute:location">org.freedesktop.Telepathy.Connection.Interface.Location/location</a></td>
+       <td>
+        a{sv}
+        
+        (<a href="Connection_Interface_Location.html#Mapping:Location" title="Mapping Location">
+            Location</a>)
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Location.html#Flags:Location_Features">Location_Features</a></td>
+       <td>Flags</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Location.html#Mapping:Location">Location</a></td>
+       <td>Mapping</td>
+       <td>a{sv}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Location.html#Mapping:Contact_Locations">Contact_Locations</a></td>
+       <td>Mapping</td>
+       <td>a{ua{sv}}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.27. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface on connections to support protocols which allow users to
+        publish their current geographical location, and subscribe to the
+        current location of their contacts.</p>
+
+      <p>This interface is geared strongly towards automatic propagation and
+        use of this information, so focuses on latitude, longitude and
+        altitude which can be determined by GPS, although provision is also
+        included for an optional human-readable description of locations. All
+        co-ordinate information is required to be relative to the WGS84
+        datum.</p>
+
+      <p>The information published through this interface is intended to have
+        the same scope as presence information, so will normally be made
+        available to those individuals on the user's &quot;publish&quot; contact list.
+        Even so, user interfaces should not automatically publish location
+        information without the consent of the user, and it is recommended
+        that an option is made available to reduce the accuracy of the
+        reported information to allow the user to maintain their privacy.</p>
+
+      <p>Location information is represented using the terminology of XMPP's
+        <a href="http://www.xmpp.org/extensions/xep-0080.html">XEP-0080</a>
+        or the XEP-0080-derived
+        <a href="http://geoclue.freedesktop.org/">Geoclue</a> API where
+        possible.</p>
+
+      <p>Clients of this interface SHOULD register an interest in it by calling
+        <a href="Connection.html#Method:AddClientInterest" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.AddClientInterest">Connection.AddClientInterest</a> with an argument
+        containing the name of this interface,
+        before calling any Location method. If they do so, they SHOULD also call
+        <a href="Connection.html#Method:RemoveClientInterest" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.RemoveClientInterest">Connection.RemoveClientInterest</a> after use to allow
+        the CM to release resources associated with this interface.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:GetLocations"></a>
+     <span class="permalink">(<a href="Connection_Interface_Location.html#Method:GetLocations">Permalink</a>)</span>
+     <h2>GetLocations (au: Contacts) &#8594; a{ua{sv}}: Locations</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contacts &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contacts whose locations should be returned or signalled.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Locations &mdash; a{ua{sv}}
+        
+          (<a href="Connection_Interface_Location.html#Mapping:Contact_Locations" title="Mapping Contact_Locations">Contact_Locations</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contacts' locations, if already known. Contacts whose locations
+          are not already known are omitted from the mapping; contacts known
+          to have no location information appear in the mapping with an empty
+          Location dictionary.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Return the current locations of the given contacts, if they are
+          already known. If any of the given contacts' locations are not known,
+          request their current locations, but return immediately without waiting
+          for a reply; if a reply with a non-empty location is later received
+          for those contacts, the <a href="Connection_Interface_Location.html#Signal:LocationUpdated" title="Signal org.freedesktop.Telepathy.Connection.Interface.Location.LocationUpdated">LocationUpdated</a>
+          signal will be emitted for them.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This method is appropriate for &quot;lazy&quot; location finding, for instance
+            displaying the location (if available) of everyone in your contact
+            list.</p>
+        </div></div>
+
+        <p>For backwards compatibility, if this method is called by a client
+          whose &quot;interest count&quot; for this interface, as defined by <a href="Connection.html#Method:AddClientInterest" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.AddClientInterest">Connection.AddClientInterest</a>, is zero, the
+          Connection SHOULD behave as if AddClientInterest had been called for
+          this interface just before that method call. Clients that do not
+          explicitly call AddClientInterest SHOULD NOT call <a href="Connection.html#Method:RemoveClientInterest" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.RemoveClientInterest">Connection.RemoveClientInterest</a> either.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RequestLocation"></a>
+     <span class="permalink">(<a href="Connection_Interface_Location.html#Method:RequestLocation">Permalink</a>)</span>
+     <h2>RequestLocation (u: Contact) &#8594; a{sv}: Location</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contact &mdash; u
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contact whose location should be returned.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Location &mdash; a{sv}
+        
+          (<a href="Connection_Interface_Location.html#Mapping:Location" title="Mapping Location">Location</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contact's location. It MAY be empty, indicating that no location
+          information was found.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Return the current location of the given contact. If necessary, make
+        a request to the server for up-to-date information, and wait for a
+        reply.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          This method is appropriate for use in a &quot;Contact Information...&quot;
+          dialog; it can be used to show progress information (while waiting
+          for the method to return), and can distinguish between various error
+          conditions.
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested contact does not allow the local user to see their
+            location information.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:SetLocation"></a>
+     <span class="permalink">(<a href="Connection_Interface_Location.html#Method:SetLocation">Permalink</a>)</span>
+     <h2>SetLocation (a{sv}: Location) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Location &mdash; a{sv}
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The location to advertise. If the user wants to obscure their
+          exact location by reducing the precision or accuracy, clients
+          MUST do this themselves, rather than relying on the connection
+          manager to do so. Clients that interact with more than one
+          connection SHOULD advertise the same reduced-accuracy location
+          to all of them, so that contacts cannot obtain an undesirably
+          accurate location by assuming that random errors have been added
+          and averaging the locations advertised on multiple connections.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Set the local user's own location.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The user's server does not support publishing their own location.
+            If it is possible to determine this ahead of time, the
+            <code>Can_Set</code> flag will not be set in
+            <a href="Connection_Interface_Location.html#Property:SupportedLocationFeatures" title="Property org.freedesktop.Telepathy.Connection.Interface.Location.SupportedLocationFeatures">SupportedLocationFeatures</a>.
+          </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:LocationUpdated"></a>
+     <span class="permalink">(<a href="Connection_Interface_Location.html#Signal:LocationUpdated">Permalink</a>)</span>
+     <h2>LocationUpdated (u: Contact, a{sv}: Location)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Contact &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contact
+        </div>
+      
+       <li>
+       Location &mdash; a{sv}
+       
+        (<a href="Connection_Interface_Location.html#Mapping:Location" title="Mapping Location">Location</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The contact's location, or empty to indicate that nothing is known
+          about the contact's location.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when a contact's location changes or becomes known.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:LocationAccessControlTypes"></a>
+     <span class="permalink">(<a href="Connection_Interface_Location.html#Property:LocationAccessControlTypes">Permalink</a>)</span>
+     <h2>
+      LocationAccessControlTypes &mdash; au
+      
+        (<a href="Connection_Interface_Simple_Presence.html#Enum:Rich_Presence_Access_Control_Type" title="Array of Enum Rich_Presence_Access_Control_Type">Rich_Presence_Access_Control_Type_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">The types of access control that are supported by this
+        connection.</div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:LocationAccessControl"></a>
+     <span class="permalink">(<a href="Connection_Interface_Location.html#Property:LocationAccessControl">Permalink</a>)</span>
+     <h2>
+      LocationAccessControl &mdash; (uv)
+      
+        (<a href="Connection_Interface_Simple_Presence.html#Struct:Rich_Presence_Access_Control" title="Struct Rich_Presence_Access_Control">Rich_Presence_Access_Control</a>)
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">The current access control mechanism and settings
+        for this connection. Before publishing location for the first time,
+        if this has not been set by a client, implementations SHOULD
+        set it to be as restrictive as possible (an empty whitelist, if
+        supported).</div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SupportedLocationFeatures"></a>
+     <span class="permalink">(<a href="Connection_Interface_Location.html#Property:SupportedLocationFeatures">Permalink</a>)</span>
+     <h2>
+      SupportedLocationFeatures &mdash; u
+      
+        (<a href="Connection_Interface_Location.html#Flags:Location_Features" title="Flags Location_Features">Location_Features</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.19.6. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        Indicates the Location features supported by this connection. This
+        property MAY be undefined before <a href="Connection.html#Property:Status" namespace="org.freedesktop.Telepathy.Connection" title="Property org.freedesktop.Telepathy.Connection.Status">Status</a>
+        becomes <code>Connected</code>, but MUST remain constant thereafter.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset contact-attributes">
+    <a name="contact-attributes"></a>
+    <h1>Contact Attributes</h1>
+    <div>
+      Attributes that a contact can have, accessed with the
+      org.freedesktop.Telepathy.Connection.Interface.Contacts interface.
+    </div>
+    
+    <div class="inset contact-attribute">
+     <a name="Contact-Attribute:location"></a>
+     <span class="permalink">(<a href="Connection_Interface_Location.html#Contact-Attribute:location">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Connection.Interface.Location/location &mdash; a{sv}
+      
+       (<a href="Connection_Interface_Location.html#Mapping:Location" title="Mapping Location">Location</a>)
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The same mapping that would be returned by
+          <a href="Connection_Interface_Location.html#Method:GetLocations" title="Method org.freedesktop.Telepathy.Connection.Interface.Location.GetLocations">GetLocations</a> for this contact.
+          Omitted from the result if the contact's location
+          is not known.</p>
+
+        <p>For backwards compatibility, if contact attributes that include
+          this interface are requested
+          by a client whose &quot;interest count&quot; for this interface, as defined by
+          <a href="Connection.html#Method:AddClientInterest" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.AddClientInterest">Connection.AddClientInterest</a>, is zero, the
+          Connection SHOULD behave as if AddClientInterest was called for this
+          interface just before that request. Clients that do not explicitly
+          call AddClientInterest SHOULD NOT call <a href="Connection.html#Method:RemoveClientInterest" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.RemoveClientInterest">Connection.RemoveClientInterest</a> either.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Flags:Location_Features"></a>
+      <span class="permalink">Flags (<a href="Connection_Interface_Location.html#Flags:Location_Features">Permalink</a>)</span>
+      <h2>
+       Location_Features &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        Flags describing the Location features which may be supported on any
+        given connection.
+      </div>
+      <ul>
+<li>Can_Set (1)</li>
+<div class="docstring">
+          Indicates that setting your own location with
+          <a href="Connection_Interface_Location.html#Method:SetLocation" title="Method org.freedesktop.Telepathy.Connection.Interface.Location.SetLocation">SetLocation</a> is supported on this
+          connection.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Location"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Location.html#Mapping:Location">Permalink</a>)</span>
+      <h2>
+       Location &mdash; a{sv}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A user's location, represented as an extensible mapping.
+      </div>
+      <ul>
+<li>Key &mdash; s</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+
+          <p>Civic addresses are represented by the following well-known
+            keys (all of which have string values), which should be kept in
+            sync with those used in XEP-0080 and in the Geoclue project:</p>
+
+          <ul>
+            <li>countrycode - s: an ISO-3166-1 alpha-2 (two-letter) country
+              code, e.g. &quot;us&quot;, &quot;gb&quot;, &quot;fr&quot;</li>
+            <li>country - s: a country name in unspecified locale, e.g.
+              &quot;USA&quot;</li>
+            <li>region - s: an administrative region of the nation, such as a
+              state or province</li>
+            <li>locality - s: a locality within the administrative region, such
+              as a town or city</li>
+            <li>area - s: a named area such as a campus or neighborhood</li>
+            <li>postalcode - s: a code used for postal delivery</li>
+            <li>street - s: a thoroughfare within the locality, or a crossing of
+              two thoroughfares</li>
+          </ul>
+
+          <p>The following address keys are defined in XEP-0080 but not by
+            Geoclue, and are also allowed:</p>
+
+          <ul>
+            <li>building - s: a specific building on a street or in an area</li>
+            <li>floor - s: a particular floor in a building</li>
+            <li>room - s: a particular room in a building</li>
+            <li>text - s: any more specific information, e.g.
+              &quot;Northwest corner of the lobby&quot;</li>
+            <li>description - s: A natural-language name for or description of
+              the location, e.g. &quot;Bill's house&quot;</li>
+            <li>uri - s: a URI representing the location or pointing to more
+              information about it</li>
+          </ul>
+
+          <p>Since the previous strings have data intended to be read by users,
+            the language used should be stated using:</p>
+
+          <ul>
+            <li>language - s: a specific language or locale of location
+              information in a format compatible to RFC 4646. Note that UTF-8
+              is the only allowed encoding, e.g. &quot;en&quot; or &quot;fr-CA&quot;.</li>
+          </ul>
+
+          <p>Positions are represented by the following well-known keys:</p>
+
+          <ul>
+            <li>lat - d: latitude in decimal degrees north, -90 to +90,
+              relative to the WGS-84 datum
+              <div class="rationale"><h5>Rationale:</h5><div>
+                This is from XEP-0080; the XEP allows use of a different
+                datum, but recommends this one. We enforce sanity by requiring
+                a consistent datum: a minimal compliant implementation of this
+                specification in terms of XEP-0080 would simply ignore the
+                &lt;lat&gt; and &lt;lon&gt; elements if &lt;datum&gt; exists
+                and has a value other than WGS-84, while an advanced
+                implementation might correct for the different datum.
+              </div></div>
+            </li>
+            <li>lon - d: Longitude in decimal degrees east, -180 to +180,
+              relative to the WGS-84 datum
+              <div class="rationale"><h5>Rationale:</h5><div>
+                Same rationale as 'lat'
+              </div></div>
+            </li>
+            <li>alt - d: altitude in metres above sea level (negative
+              if below sea level)
+              <div class="rationale"><h5>Rationale:</h5><div>
+                This is from XEP-0080
+              </div></div>
+            </li>
+
+            <!-- Potentially to be reinstated later:
+                 http://bugs.freedesktop.org/show_bug.cgi?id=19585
+            <li>accuracy-level - i (<tp:type>Location_Accuracy_Level</tp:type>):
+              an indication of accuracy, which SHOULD be omitted if it would be
+              Location_Accuracy_Level_None or
+              Location_Accuracy_Level_Detailed
+              <tp:rationale>
+                This is a struct field in GeoClue; the name is new in this
+                specification, and was chosen in an attempt to avoid clashing
+                with any future XEP-0080 terminology.
+              </tp:rationale>
+            </li>
+            -->
+
+            <li>accuracy - d: horizontal position error in metres if
+              known
+              <div class="rationale"><h5>Rationale:</h5><div>
+                This is from XEP-0080
+              </div></div>
+            </li>
+          </ul>
+
+          <p>Velocities are represented by the following well-known keys:</p>
+
+          <ul>
+            <li>speed - d: speed in metres per second
+              <div class="rationale"><h5>Rationale:</h5><div>
+                This is from XEP-0080
+              </div></div>
+            </li>
+            <li>bearing - d: direction of movement in decimal degrees,
+              where North is 0 and East is 90
+              <div class="rationale"><h5>Rationale:</h5><div>
+                This is from XEP-0080, and is equivalent to the struct field
+                called &quot;direction&quot; in GeoClue
+              </div></div>
+            </li>
+          </ul>
+
+          <p>Other well-known keys:</p>
+
+          <ul>
+            <li>timestamp - x (<a href="generic-types.html#Simple-Type:Unix_Timestamp64">Unix_Timestamp64</a>): the time
+              that the contact was at this location, in seconds since
+              1970-01-01T00:00:00Z (i.e. the beginning of 1970 in UTC)
+              <div class="rationale"><h5>Rationale:</h5><div>
+                XEP-0080 uses an ISO 8601 string for this, but a number of
+                seconds since the epoch is probably easier to work with.
+              </div></div>
+            </li>
+          </ul>
+        </div><li>Value &mdash; v</li>
+<div class="docstring">
+          The value corresponding to the well-known key.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Contact_Locations"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Location.html#Mapping:Contact_Locations">Permalink</a>)</span>
+      <h2>
+       Contact_Locations &mdash; a{ua{sv}}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A map from contacts to their locations.
+      </div>
+      <ul>
+<li>Contact &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">A contact</div><li>Location &mdash; a{sv} (<a href="Connection_Interface_Location.html#Mapping:Location" title="Mapping Location">Location</a>)</li>
+<div class="docstring">The contact's location, which MAY be empty to indicate
+          that the contact's location is unknown</div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Media.SessionHandler &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Media.SessionHandler'>Media.SessionHandler</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+   
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Media_Session_Handler.html#Method:Error">Error</a></td>
+       <td>(u: Error_Code, s: Message)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Session_Handler.html#Method:Ready">Ready</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Media_Session_Handler.html#Signal:NewStreamHandler">NewStreamHandler</a></td>
+       <td>(o: Stream_Handler, u: ID, u: Media_Type, u: Direction)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring">
+      An media session handler is an object that handles a number of synchronised
+    media streams.
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:Error"></a>
+     <span class="permalink">(<a href="Media_Session_Handler.html#Method:Error">Permalink</a>)</span>
+     <h2>Error (u: Error_Code, s: Message) &#8594; nothing</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.13.4. </span>
+        Use <a href="Media_Stream_Handler.html#Method:Error" namespace="org.freedesktop.Telepathy.Media" title="Method org.freedesktop.Telepathy.Media.StreamHandler.Error">StreamHandler.Error</a>
+        on each StreamHandler object instead.
+      </div>
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Error_Code &mdash; u
+        
+          (<a href="Media_Stream_Handler.html#Enum:Media_Stream_Error" title="Enum Media_Stream_Error">Media_Stream_Error</a>)
+        
+       </li>
+       
+       
+       
+       
+      
+       <li>
+        Message &mdash; s
+        
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Informs the connection manager that an error occured in this session.
+        If used, the connection manager must terminate the session and all of
+        the streams within it, and may also emit a <a href="Channel_Type_Streamed_Media.html#Signal:StreamError" namespace="org.freedesktop.Telepathy.Channel.Type.StreamedMedia" title="Signal org.freedesktop.Telepathy.Channel.Type.StreamedMedia.StreamError">StreamError</a>
+        signal on the channel for each stream within the session.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:Ready"></a>
+     <span class="permalink">(<a href="Media_Session_Handler.html#Method:Ready">Permalink</a>)</span>
+     <h2>Ready () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring">
+        Inform the connection manager that a client is ready to handle
+        this session handler (i.e. that it has connected to the
+        <a href="Media_Session_Handler.html#Signal:NewStreamHandler" title="Signal org.freedesktop.Telepathy.Media.SessionHandler.NewStreamHandler">NewStreamHandler</a> signal and done any
+        other necessary setup).
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:NewStreamHandler"></a>
+     <span class="permalink">(<a href="Media_Session_Handler.html#Signal:NewStreamHandler">Permalink</a>)</span>
+     <h2>NewStreamHandler (o: Stream_Handler, u: ID, u: Media_Type, u: Direction)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Stream_Handler &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The path of a new object implementing the <a href="Media_Stream_Handler.html" namespace="org.freedesktop.Telepathy.Media" title="Interface org.freedesktop.Telepathy.Media.StreamHandler">StreamHandler</a>
+          interface.
+        </div>
+      
+       <li>
+       ID &mdash; u
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The unique ID of the new stream
+        </div>
+      
+       <li>
+       Media_Type &mdash; u
+       
+        (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Type" title="Enum Media_Stream_Type">Media_Stream_Type</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Type of media that this stream should handle
+        </div>
+      
+       <li>
+       Direction &mdash; u
+       
+        (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Direction" title="Enum Media_Stream_Direction">Media_Stream_Direction</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Direction of this stream
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when a new stream handler has been created for this
+        session.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

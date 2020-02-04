@@ -1,0 +1,2049 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Call1.Stream.I.Media &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Call1.Stream.Interface.Media'>Call1.Stream.Interface.Media</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Method:CompleteSendingStateChange">CompleteSendingStateChange</a></td>
+       <td>(u: State)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Method:ReportSendingFailure">ReportSendingFailure</a></td>
+       <td>(u: Reason, s: Error, s: Message)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Method:CompleteReceivingStateChange">CompleteReceivingStateChange</a></td>
+       <td>(u: State)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Method:ReportReceivingFailure">ReportReceivingFailure</a></td>
+       <td>(u: Reason, s: Error, s: Message)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Method:SetCredentials">SetCredentials</a></td>
+       <td>(s: Username, s: Password)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Method:AddCandidates">AddCandidates</a></td>
+       <td>(a(usua{sv}): Candidates)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Method:FinishInitialCandidates">FinishInitialCandidates</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Method:Fail">Fail</a></td>
+       <td>((uuss): Reason)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Signal:SendingStateChanged">SendingStateChanged</a></td>
+       <td>(u: State)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Signal:ReceivingStateChanged">ReceivingStateChanged</a></td>
+       <td>(u: State)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Signal:LocalCandidatesAdded">LocalCandidatesAdded</a></td>
+       <td>(a(usua{sv}): Candidates)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Signal:LocalCredentialsChanged">LocalCredentialsChanged</a></td>
+       <td>(s: Username, s: Password)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Signal:RelayInfoChanged">RelayInfoChanged</a></td>
+       <td>(aa{sv}: Relay_Info)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Signal:STUNServersChanged">STUNServersChanged</a></td>
+       <td>(a(sq): Servers)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Signal:ServerInfoRetrieved">ServerInfoRetrieved</a></td>
+       <td>()</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Signal:EndpointsChanged">EndpointsChanged</a></td>
+       <td>(ao: Endpoints_Added, ao: Endpoints_Removed)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Signal:ICERestartRequested">ICERestartRequested</a></td>
+       <td>()</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Property:SendingState">SendingState</a></td>
+       <td>
+        u
+        
+          (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Flow_State" title="Enum Stream_Flow_State">
+              Stream_Flow_State</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Property:ReceivingState">ReceivingState</a></td>
+       <td>
+        u
+        
+          (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Flow_State" title="Enum Stream_Flow_State">
+              Stream_Flow_State</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Property:Transport">Transport</a></td>
+       <td>
+        u
+        
+          (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Transport_Type" title="Enum Stream_Transport_Type">
+              Stream_Transport_Type</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Property:LocalCandidates">LocalCandidates</a></td>
+       <td>
+        a(usua{sv})
+        
+          (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Array of Struct Candidate">
+              Candidate_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Property:LocalCredentials">LocalCredentials</a></td>
+       <td>
+        (ss)
+        
+          (<a href="Call_Stream_Interface_Media.html#Struct:Stream_Credentials" title="Struct Stream_Credentials">
+              Stream_Credentials</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Property:STUNServers">STUNServers</a></td>
+       <td>
+        a(sq)
+        
+          (<a href="generic-types.html#Struct:Socket_Address_IP" title="Array of Struct Socket_Address_IP">
+              Socket_Address_IP_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Property:RelayInfo">RelayInfo</a></td>
+       <td>
+        aa{sv}
+        
+          (<a href="generic-types.html#Mapping:String_Variant_Map" title="Array of Mapping String_Variant_Map">
+              String_Variant_Map_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Property:HasServerInfo">HasServerInfo</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Property:Endpoints">Endpoints</a></td>
+       <td>
+        ao
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Property:ICERestartPending">ICERestartPending</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Enum:Stream_Flow_State">Stream_Flow_State</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Enum:Call_Stream_Candidate_Type">Call_Stream_Candidate_Type</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Enum:Stream_Component">Stream_Component</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Enum:Stream_Transport_Type">Stream_Transport_Type</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Mapping:Candidate_Info">Candidate_Info</a></td>
+       <td>Mapping</td>
+       <td>a{sv}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Struct:Candidate">Candidate</a></td>
+       <td>Struct</td>
+       <td>(usua{sv})</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Call_Stream_Interface_Media.html#Struct:Stream_Credentials">Stream_Credentials</a></td>
+       <td>Struct</td>
+       <td>(ss)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.25.2. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Call_Stream.html" title="Interface org.freedesktop.Telepathy.Call1.Stream">org.freedesktop.Telepathy.Call1.Stream</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface deals with how to connect a stream to an
+      endpoint.  It contains all that is required to describe the
+      local endpoint, to succesfully establish a connection. While a
+      call is established, one may try to connect to multiple remote
+      endpoints at the same time. This is called forking in the SIP
+      jargon.  Informations related to the connections are on the
+      <a href="Call_Stream_Endpoint.html" namespace="ofdT.Call1.Stream" title="Interface org.freedesktop.Telepathy.Call1.Stream.Endpoint">Endpoint</a>
+      objects. Once the call is established, there MUST be a single
+      endpoint left.</p>
+
+      <h4>ICE restarts</h4>
+
+      <p>If the CM wants to do an ICE restart, then the
+        <a href="Call_Stream_Interface_Media.html#Property:ICERestartPending" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.ICERestartPending">ICERestartPending</a> property is set,
+        and the <a href="Call_Stream_Interface_Media.html#Signal:ICERestartRequested" title="Signal org.freedesktop.Telepathy.Call1.Stream.Interface.Media.ICERestartRequested">ICERestartRequested</a> signal is
+        emitted. The streaming implementation should then call
+        <a href="Call_Stream_Interface_Media.html#Method:SetCredentials" title="Method org.freedesktop.Telepathy.Call1.Stream.Interface.Media.SetCredentials">SetCredentials</a> again. This will trigger
+        the actual ICE restart, and cause
+        <a href="Call_Stream_Interface_Media.html#Property:LocalCandidates" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.LocalCandidates">LocalCandidates</a> to be cleared.</p>
+
+      <p>For more information on ICE restarts see
+        <a href="http://tools.ietf.org/html/rfc5245#section-9.1.1.1">RFC 5245
+        section 9.1.1.1</a></p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:CompleteSendingStateChange"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Method:CompleteSendingStateChange">Permalink</a>)</span>
+     <h2>CompleteSendingStateChange (u: State) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        State &mdash; u
+        
+          (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Flow_State" title="Enum Stream_Flow_State">Stream_Flow_State</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new (non-pending) value of SendingState.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Called in response to
+          <a href="Call_Stream_Interface_Media.html#Signal:SendingStateChanged" title="Signal org.freedesktop.Telepathy.Call1.Stream.Interface.Media.SendingStateChanged">SendingStateChanged</a>(Pending_*, *) to
+          indicate that the media state has successfully progressed from
+          Pending_{Start, Stop, Pause} to the corresponding non-pending
+          state.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The state change made no sense, and was ignored by the CM. The
+            most likely cause for this is a race-condition between the CM
+            emitting a new state change and the streaming implementation
+            responding to the previous state change.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:ReportSendingFailure"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Method:ReportSendingFailure">Permalink</a>)</span>
+     <h2>ReportSendingFailure (u: Reason, s: Error, s: Message) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Reason &mdash; u
+        
+          (<a href="Channel_Type_Call.html#Enum:Call_State_Change_Reason" title="Enum Call_State_Change_Reason">Call_State_Change_Reason</a>)
+        
+       </li>
+       
+       
+       
+       
+      
+       <li>
+        Error &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">DBus_Error_Name</a>)
+        
+       </li>
+       
+       
+       
+       
+      
+       <li>
+        Message &mdash; s
+        
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        Can be called at any point to indicate a failure in the outgoing
+        portion of the stream.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:CompleteReceivingStateChange"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Method:CompleteReceivingStateChange">Permalink</a>)</span>
+     <h2>CompleteReceivingStateChange (u: State) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        State &mdash; u
+        
+          (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Flow_State" title="Enum Stream_Flow_State">Stream_Flow_State</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new (non-pending) value of ReceivingState.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Called in response to
+          <a href="Call_Stream_Interface_Media.html#Signal:ReceivingStateChanged" title="Signal org.freedesktop.Telepathy.Call1.Stream.Interface.Media.ReceivingStateChanged">ReceivingStateChanged</a>(Pending_*, *) to
+          indicate that the media state has successfully progressed from
+          Pending_{Start, Stop, Pause} to the corresponding non-pending
+          state.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The state change made no sense, and was ignored by the CM. The
+            most likely cause for this is a race-condition between the CM
+            emitting a new state change and the streaming implementation
+            responding to the previous state change.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:ReportReceivingFailure"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Method:ReportReceivingFailure">Permalink</a>)</span>
+     <h2>ReportReceivingFailure (u: Reason, s: Error, s: Message) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Reason &mdash; u
+        
+          (<a href="Channel_Type_Call.html#Enum:Call_State_Change_Reason" title="Enum Call_State_Change_Reason">Call_State_Change_Reason</a>)
+        
+       </li>
+       
+       
+       
+       
+      
+       <li>
+        Error &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">DBus_Error_Name</a>)
+        
+       </li>
+       
+       
+       
+       
+      
+       <li>
+        Message &mdash; s
+        
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        Can be called at any point to indicate a failure in the incoming
+        portion of the stream.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:SetCredentials"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Method:SetCredentials">Permalink</a>)</span>
+     <h2>SetCredentials (s: Username, s: Password) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Username &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The username to use when authenticating on the stream.
+        </div>
+      
+       <li>
+        Password &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The password to use when authenticating on the stream.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Used to set the username fragment and password for streams that have
+          global credentials.</p>
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:AddCandidates"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Method:AddCandidates">Permalink</a>)</span>
+     <h2>AddCandidates (a(usua{sv}): Candidates) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Candidates &mdash; a(usua{sv})
+        
+          (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Array of Struct Candidate">Candidate_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The candidates to be added.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Add candidates to the
+        <a href="Call_Stream_Interface_Media.html#Property:LocalCandidates" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.LocalCandidates">LocalCandidates</a> property and
+        signal them to the remote contact(s). Note that connection managers
+        MAY delay the sending of candidates until
+        <a href="Call_Stream_Interface_Media.html#Method:FinishInitialCandidates" title="Method org.freedesktop.Telepathy.Call1.Stream.Interface.Media.FinishInitialCandidates">FinishInitialCandidates</a> is called.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:FinishInitialCandidates"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Method:FinishInitialCandidates">Permalink</a>)</span>
+     <h2>FinishInitialCandidates () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring">
+        This indicates to the CM that the initial batch of candidates
+        has been added, and should now be processed/sent to the remote side.
+        <div class="rationale"><h5>Rationale:</h5><div>
+          Protocols supporting Raw UDP SHOULD wait for FinishInitialCandidates,
+          and then set the lowest priority candidate as the Raw UDP candidate.
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The minimal required candidates have not been set. For
+            example, for an RTP protocol, at least one candidate on the
+            component 1 (RTP) must have been set.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:Fail"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Method:Fail">Permalink</a>)</span>
+     <h2>Fail ((uuss): Reason) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Reason &mdash; (uuss)
+        
+          (<a href="Channel_Type_Call.html#Struct:Call_State_Reason" title="Struct Call_State_Reason">Call_State_Reason</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A structured reason for stream removal.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Signal an unrecoverable error for this stream, and remove it. If all
+        streams are removed from a content, then it will also be removed.
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:SendingStateChanged"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Signal:SendingStateChanged">Permalink</a>)</span>
+     <h2>SendingStateChanged (u: State)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       State &mdash; u
+       
+        (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Flow_State" title="Enum Stream_Flow_State">Stream_Flow_State</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of SendingState.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Change notification for <a href="Call_Stream_Interface_Media.html#Property:SendingState" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.SendingState">SendingState</a>.
+        Note that this information is duplicated onto the Stream interface, so
+        that UIs can ignore the Media interface, and streaming implementations
+        can ignore everything but the media interface.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:ReceivingStateChanged"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Signal:ReceivingStateChanged">Permalink</a>)</span>
+     <h2>ReceivingStateChanged (u: State)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       State &mdash; u
+       
+        (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Flow_State" title="Enum Stream_Flow_State">Stream_Flow_State</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of ReceivingState.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Change notification for <a href="Call_Stream_Interface_Media.html#Property:ReceivingState" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.ReceivingState">ReceivingState</a>.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:LocalCandidatesAdded"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Signal:LocalCandidatesAdded">Permalink</a>)</span>
+     <h2>LocalCandidatesAdded (a(usua{sv}): Candidates)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Candidates &mdash; a(usua{sv})
+       
+        (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Array of Struct Candidate">Candidate_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Candidates that have been added.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when local candidates are added to the
+        <a href="Call_Stream_Interface_Media.html#Property:LocalCandidates" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.LocalCandidates">LocalCandidates</a> property.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:LocalCredentialsChanged"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Signal:LocalCredentialsChanged">Permalink</a>)</span>
+     <h2>LocalCredentialsChanged (s: Username, s: Password)</h2>
+
+     
+     <div class="annotation changed"><span class="version">Changed in 0.21.2. </span>renamed from LocalCredentailsSet</div>
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Username &mdash; s
+       
+       </li>
+       
+       
+       
+       
+      
+       <li>
+       Password &mdash; s
+       
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the value of
+        <a href="Call_Stream_Interface_Media.html#Property:LocalCredentials" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.LocalCredentials">LocalCredentials</a> changes to a non-empty
+        value. This should only happen when the streaming implementation calls
+        <a href="Call_Stream_Interface_Media.html#Method:SetCredentials" title="Method org.freedesktop.Telepathy.Call1.Stream.Interface.Media.SetCredentials">SetCredentials</a>, so this signal is
+        mostly useful for debugging.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:RelayInfoChanged"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Signal:RelayInfoChanged">Permalink</a>)</span>
+     <h2>RelayInfoChanged (aa{sv}: Relay_Info)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Relay_Info &mdash; aa{sv}
+       
+        (<a href="generic-types.html#Mapping:String_Variant_Map" title="Array of Mapping String_Variant_Map">String_Variant_Map_List</a>)
+       
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the value of
+        <a href="Call_Stream_Interface_Media.html#Property:RelayInfo" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.RelayInfo">RelayInfo</a> changes.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:STUNServersChanged"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Signal:STUNServersChanged">Permalink</a>)</span>
+     <h2>STUNServersChanged (a(sq): Servers)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Servers &mdash; a(sq)
+       
+        (<a href="generic-types.html#Struct:Socket_Address_IP" title="Array of Struct Socket_Address_IP">Socket_Address_IP_List</a>)
+       
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the value of
+        <a href="Call_Stream_Interface_Media.html#Property:STUNServers" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.STUNServers">STUNServers</a> changes.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:ServerInfoRetrieved"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Signal:ServerInfoRetrieved">Permalink</a>)</span>
+     <h2>ServerInfoRetrieved ()</h2>
+
+     
+     
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Signals that the initial information about STUN and Relay servers
+          has been retrieved, i.e. the
+          <a href="Call_Stream_Interface_Media.html#Property:HasServerInfo" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.HasServerInfo">HasServerInfo</a> property is
+          now true.</p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:EndpointsChanged"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Signal:EndpointsChanged">Permalink</a>)</span>
+     <h2>EndpointsChanged (ao: Endpoints_Added, ao: Endpoints_Removed)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Endpoints_Added &mdash; ao
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Endpoints that were added.
+        </div>
+      
+       <li>
+       Endpoints_Removed &mdash; ao
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Endpoints that no longer exist.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the <a href="Call_Stream_Interface_Media.html#Property:Endpoints" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.Endpoints">Endpoints</a> property
+        changes.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:ICERestartRequested"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Signal:ICERestartRequested">Permalink</a>)</span>
+     <h2>ICERestartRequested ()</h2>
+
+     
+     
+     
+
+     
+
+     <div class="docstring">
+        Emitted when the remote side requests an ICE restart (e.g. third party
+        call control, when the remote endpoint changes). The streaming
+        implementation should call
+        <a href="Call_Stream_Interface_Media.html#Method:SetCredentials" title="Method org.freedesktop.Telepathy.Call1.Stream.Interface.Media.SetCredentials">SetCredentials</a> again.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SendingState"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Property:SendingState">Permalink</a>)</span>
+     <h2>
+      SendingState &mdash; u
+      
+        (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Flow_State" title="Enum Stream_Flow_State">Stream_Flow_State</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        Indicates whether the streaming implementation is/should be sending
+        media for this stream. The streaming implementation should be able to
+        rely on reading this value and listening to
+        <a href="Call_Stream_Interface_Media.html#Signal:SendingStateChanged" title="Signal org.freedesktop.Telepathy.Call1.Stream.Interface.Media.SendingStateChanged">SendingStateChanged</a> to
+        determine whether it should be sending media or not. It should not
+        need to listen to the Hold interfaces on the Call/Content.
+        Feedback on success should be given via
+        <a href="Call_Stream_Interface_Media.html#Method:CompleteSendingStateChange" title="Method org.freedesktop.Telepathy.Call1.Stream.Interface.Media.CompleteSendingStateChange">CompleteSendingStateChange</a>. Failures
+        should be reported via <a href="Call_Stream_Interface_Media.html#Method:ReportSendingFailure" title="Method org.freedesktop.Telepathy.Call1.Stream.Interface.Media.ReportSendingFailure">ReportSendingFailure</a>.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ReceivingState"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Property:ReceivingState">Permalink</a>)</span>
+     <h2>
+      ReceivingState &mdash; u
+      
+        (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Flow_State" title="Enum Stream_Flow_State">Stream_Flow_State</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The counterpart of <a href="Call_Stream_Interface_Media.html#Property:SendingState" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.SendingState">SendingState</a>.
+        Indicates whether the streaming implementation is/should be expecting
+        to receive media for this stream. The CM should only tell the
+        streaming implementation to stop receiving if it has been told to put
+        the stream on hold, or the stream has been removed from the call.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Transport"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Property:Transport">Permalink</a>)</span>
+     <h2>
+      Transport &mdash; u
+      
+        (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Transport_Type" title="Enum Stream_Transport_Type">Stream_Transport_Type</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        The transport for this stream.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:LocalCandidates"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Property:LocalCandidates">Permalink</a>)</span>
+     <h2>
+      LocalCandidates &mdash; a(usua{sv})
+      
+        (<a href="Call_Stream_Interface_Media.html#Struct:Candidate" title="Array of Struct Candidate">Candidate_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        [FIXME]. Change notification is via the
+        <a href="Call_Stream_Interface_Media.html#Signal:LocalCandidatesAdded" title="Signal org.freedesktop.Telepathy.Call1.Stream.Interface.Media.LocalCandidatesAdded">LocalCandidatesAdded</a> signal.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:LocalCredentials"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Property:LocalCredentials">Permalink</a>)</span>
+     <h2>
+      LocalCredentials &mdash; (ss)
+      
+        (<a href="Call_Stream_Interface_Media.html#Struct:Stream_Credentials" title="Struct Stream_Credentials">Stream_Credentials</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The local credentials are sent to the remote site over the
+        signalling protocol. They are used in ICE to make sure that
+        the connectivity checks come from the right peer. Change
+        notification is via the
+        <a href="Call_Stream_Interface_Media.html#Signal:LocalCredentialsChanged" title="Signal org.freedesktop.Telepathy.Call1.Stream.Interface.Media.LocalCredentialsChanged">LocalCredentialsChanged</a> signal.
+
+        This property will be a pair of empty strings if ICE has not yet been
+        started.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:STUNServers"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Property:STUNServers">Permalink</a>)</span>
+     <h2>
+      STUNServers &mdash; a(sq)
+      
+        (<a href="generic-types.html#Struct:Socket_Address_IP" title="Array of Struct Socket_Address_IP">Socket_Address_IP_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The IP addresses of possible STUN servers to use for NAT
+          traversal, as dotted-quad IPv4 address literals or RFC2373
+          IPv6 address literals.  Change notification is via the
+          <a href="Call_Stream_Interface_Media.html#Signal:STUNServersChanged" title="Signal org.freedesktop.Telepathy.Call1.Stream.Interface.Media.STUNServersChanged">STUNServersChanged</a>
+          signal. The IP addresses MUST NOT be given as DNS hostnames.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          High-quality connection managers already need an asynchronous
+          DNS resolver, so they might as well resolve this name to an IP
+          to make life easier for streaming implementations.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RelayInfo"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Property:RelayInfo">Permalink</a>)</span>
+     <h2>
+      RelayInfo &mdash; aa{sv}
+      
+        (<a href="generic-types.html#Mapping:String_Variant_Map" title="Array of Mapping String_Variant_Map">String_Variant_Map_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A list of mappings describing TURN or Google relay servers
+          available for the client to use in its candidate gathering, as
+          determined from the protocol. Well-known map keys are:</p>
+
+        <dl>
+          <dt><code>ip</code> - s</dt>
+          <dd>The IP address of the relay server as a dotted-quad IPv4
+            address literal or an RFC2373 IPv6 address literal. This MUST NOT
+            be a DNS hostname.
+
+            <div class="rationale"><h5>Rationale:</h5><div>
+              High-quality connection managers already need an asynchronous
+              DNS resolver, so they might as well resolve this name to an IP
+              and make life easier for streaming implementations.
+            </div></div>
+          </dd>
+
+          <dt><code>type</code> - s</dt>
+          <dd>
+            <p>Either <code>udp</code> for UDP (UDP MUST be assumed if this
+              key is omitted), <code>tcp</code> for TCP, or
+              <code>tls</code>.</p>
+
+            <p>The precise meaning of this key depends on the
+              <a href="Call_Stream_Interface_Media.html#Property:Transport" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.Transport">Transport</a> property: if
+              Transport is ICE, <code>tls</code> means
+              TLS over TCP as referenced by ICE draft 19, and if
+              Transport is GTalk_P2P, <code>tls</code> means
+              a fake SSL session over TCP as implemented by libjingle.</p>
+          </dd>
+
+          <dt><code>port</code> - q</dt>
+          <dd>The UDP or TCP port of the relay server as an ASCII unsigned
+            integer</dd>
+
+          <dt><code>unique-id</code> - s</dt>
+          <dd>A string identifying the relay server. If two RelayInfo entries
+            have the same unique-id, but different <code>type</code>s, there
+            is usually little point in connecting to both. Use
+            <code>priority</code> to determine which version to prefer in this
+            case. Can also be used by the streaming implementation to avoid
+            connecting to the same relay multiple times if relaying is
+            required for both audio and video.</dd>
+
+          <dt><code>priority</code> - u</dt>
+          <dd>A number determining which version of a server to prefer (if
+            multiple are present with the same <code>unique-id</code>,
+            the one with the highest priority should be used, or the streaming
+            implementation should use the one whose <code>type</code> has the
+            most desirable properties)</dd>
+
+          <dt><code>username</code> - s</dt>
+          <dd>The username to use</dd>
+
+          <dt><code>password</code> - s</dt>
+          <dd>The password to use</dd>
+
+          <dt><code>component</code> - u</dt>
+          <dd>The component number to use this relay server for, as an
+            ASCII unsigned integer; if not included, this relay server
+            may be used for any or all components.
+
+            <div class="rationale"><h5>Rationale:</h5><div>
+              In ICE draft 6, as used by Google Talk, credentials are only
+              valid once, so each component needs relaying separately.
+            </div></div>
+          </dd>
+        </dl>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>An equivalent of the gtalk-p2p-relay-token property on
+            MediaSignalling channels is not included here. The connection
+            manager should be responsible for making the necessary HTTP
+            requests to turn the token into a username and password.</p>
+        </div></div>
+
+        <p>The type of relay server that this represents depends on
+          the value of the <a href="Call_Stream_Interface_Media.html#Property:Transport" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.Transport">Transport</a>
+          property. If Transport is ICE, this is a TURN server;
+          if Transport is GTalk_P2P, this is a Google relay server;
+          otherwise, the meaning of RelayInfo is undefined.</p>
+
+        <p>If relaying is not possible for this stream, the list is
+          empty.</p>
+
+        <p>Change notification is given via the
+          <a href="Call_Stream_Interface_Media.html#Signal:RelayInfoChanged" title="Signal org.freedesktop.Telepathy.Call1.Stream.Interface.Media.RelayInfoChanged">RelayInfoChanged</a> signal.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:HasServerInfo"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Property:HasServerInfo">Permalink</a>)</span>
+     <h2>
+      HasServerInfo &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>True if all the initial information about STUN servers and Relay
+          servers has been retrieved. Change notification is via the
+          <a href="Call_Stream_Interface_Media.html#Signal:ServerInfoRetrieved" title="Signal org.freedesktop.Telepathy.Call1.Stream.Interface.Media.ServerInfoRetrieved">ServerInfoRetrieved</a> signal.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          Streaming implementations that can't cope with STUN and
+          relay servers being added later SHOULD wait for this
+          property to become true before proceeding.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Endpoints"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Property:Endpoints">Permalink</a>)</span>
+     <h2>
+      Endpoints &mdash; ao
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        <p>The list of <a href="Call_Stream_Endpoint.html" namespace="ofdT.Call1.Stream" title="Interface org.freedesktop.Telepathy.Call1.Stream.Endpoint">Endpoint</a> objects that exist for this
+          stream.</p>
+
+        <p>Change notification is via the
+          <a href="Call_Stream_Interface_Media.html#Signal:EndpointsChanged" title="Signal org.freedesktop.Telepathy.Call1.Stream.Interface.Media.EndpointsChanged">EndpointsChanged</a> signal.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ICERestartPending"></a>
+     <span class="permalink">(<a href="Call_Stream_Interface_Media.html#Property:ICERestartPending">Permalink</a>)</span>
+     <h2>
+      ICERestartPending &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        State recovery for <a href="Call_Stream_Interface_Media.html#Signal:ICERestartRequested" title="Signal org.freedesktop.Telepathy.Call1.Stream.Interface.Media.ICERestartRequested">ICERestartRequested</a>.
+        Set when the signal is emitted, and unset when
+        <a href="Call_Stream_Interface_Media.html#Method:SetCredentials" title="Method org.freedesktop.Telepathy.Call1.Stream.Interface.Media.SetCredentials">SetCredentials</a> is called.
+        Useful for debugging.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Stream_Flow_State"></a>
+      <span class="permalink">Enum (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Flow_State">Permalink</a>)</span>
+      <h2>
+       Stream_Flow_State &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        The type of <a href="Call_Stream_Interface_Media.html#Property:SendingState" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.SendingState">SendingState</a>
+        and <a href="Call_Stream_Interface_Media.html#Property:ReceivingState" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.ReceivingState">ReceivingState</a>.
+      </div>
+      <ul>
+<li>Stopped (0)</li>
+<div class="docstring">
+          No data is flowing (or expected to be flowing) at this time.
+        </div><li>Pending_Start (1)</li>
+<div class="docstring">
+          The streaming implementation has been told to start or receiving,
+          but has not yet indicated that it is doing so.
+        </div><li>Pending_Stop (2)</li>
+<div class="docstring">
+          The streaming implementation has been told to stop sending or
+          receiving data, but it has not yet indicated that it has done so.
+        </div><li>Started (3)</li>
+<div class="docstring">
+          The streaming implementation is successfully sending or receiving
+          data, and everything is going swimmingly.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Call_Stream_Candidate_Type"></a>
+      <span class="permalink">Enum (<a href="Call_Stream_Interface_Media.html#Enum:Call_Stream_Candidate_Type">Permalink</a>)</span>
+      <h2>
+       Call_Stream_Candidate_Type &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        The network topology that an IP candidate represents. This can
+        sometimes be used to infer what kind of performance characteristics
+        (latency, bandwith, etc) can be expected of connections made to this
+        candidate.
+      </div>
+      <ul>
+<li>None (0)</li>
+<div class="docstring">
+          This is not an IP candidate. This is a reserved value, and should
+          not be seen on the bus.
+        </div><li>Host (1)</li>
+<div class="docstring">
+          This candidate represents a direct connection to the host, as its
+          address is taken directly the host's IP stack.
+        </div><li>Server_Reflexive (2)</li>
+<div class="docstring">
+          This candidate probably represents a connection to the host through
+          a NAT device, as its address was discovered by sending a binding
+          request to a STUN server or similar.
+        </div><li>Peer_Reflexive (3)</li>
+<div class="docstring">
+          This candidate probably represents a good route between the host and
+          its peer, as its address was discovered by sending a STUN binding
+          request to one of the candidates advertised by the peer.
+        </div><li>Relay (4)</li>
+<div class="docstring">
+          This candidate represents the address of a relay server (usually
+          somewhere on the public internet). This candidate is the most likely
+          to work, but all media will go via a relay server, so latency is
+          likely to be higher than other types of candidate.
+        </div><li>Multicast (5)</li>
+<div class="docstring">
+          This candidate represents a Multicast group. This value should only
+          appear if the Stream's <a href="Call_Stream_Interface_Media.html#Property:Transport" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.Transport">Transport</a> is
+          set to Multicast.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Stream_Component"></a>
+      <span class="permalink">Enum (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Component">Permalink</a>)</span>
+      <h2>
+       Stream_Component &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        Media streams can use more than one UDP socket: one for RTP (data)
+        and one for RTCP (control). Most of the time, they are adjacent
+        to each other, but some protocols (xmpp) signal each port separately.
+      </div>
+      <ul>
+<li>Unknown (0)</li>
+<div class="docstring">
+          The stream transport type is unknown or not applicable
+          (should not appear over dbus).
+        </div><li>Data (1)</li>
+<div class="docstring">
+          This is the high-traffic data socket, containing the audio/video
+          data for the stream.
+        </div><li>Control (2)</li>
+<div class="docstring">
+          This is the low-traffic control socket, usually containing feedback
+          about packet loss etc.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Stream_Transport_Type"></a>
+      <span class="permalink">Enum (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Transport_Type">Permalink</a>)</span>
+      <h2>
+       Stream_Transport_Type &mdash; u
+      </h2>
+
+      
+      <div class="annotation changed"><span class="version">Changed in 0.21.2. </span>WLM_8_5 was removed</div>
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        A transport that can be used for streaming.
+      </div>
+      <ul>
+<li>Unknown (0)</li>
+<div class="docstring">
+          The stream transport type is unknown or not applicable
+          (for streams that do not have a configurable transport).
+        </div><li>Raw_UDP (1)</li>
+<div class="docstring">
+          Raw UDP, with or without STUN. All streaming clients are assumed to
+          support this transport, so there is no handler capability token for
+          it in the <a href="Channel_Type_Call.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Call1">Call1</a> interface.
+          [This corresponds to &quot;none&quot; or &quot;stun&quot; in the old Media.StreamHandler
+          interface.]
+        </div><li>ICE (2)</li>
+<div class="docstring">
+          Interactive Connectivity Establishment, as defined by RFC
+          5245. Note that this value covers ICE-UDP only.
+          [This corresponds to &quot;ice-udp&quot; in the old
+          Media.StreamHandler interface.]
+        </div><li>GTalk_P2P (3)</li>
+<div class="docstring">
+          Google Talk peer-to-peer connectivity establishment, as implemented
+          by libjingle 0.3.
+          [This corresponds to &quot;gtalk-p2p&quot; in the old Media.StreamHandler
+          interface.]
+        </div><li>WLM_2009 (4)</li>
+<div class="docstring">
+          The transport used by Windows Live Messenger 2009 or later, which
+          resembles ICE draft 19.
+          [This corresponds to &quot;wlm-2009&quot; in the old Media.StreamHandler
+          interface.]
+        </div><li>SHM (5)</li>
+<div class="annotation added"><span class="version">Added in 0.21.2. </span></div><div class="docstring">
+          Shared memory transport, as implemented by the GStreamer
+          shmsrc and shmsink plugins.
+        </div><li>Multicast (6)</li>
+<div class="annotation added"><span class="version">Added in 0.21.5. </span></div><div class="docstring">
+          Multicast transport.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Candidate_Info"></a>
+      <span class="permalink">Mapping (<a href="Call_Stream_Interface_Media.html#Mapping:Candidate_Info">Permalink</a>)</span>
+      <h2>
+       Candidate_Info &mdash; a{sv}
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Extra information about the candidate. Allowed and mandatory keys
+          depend on the transport protocol used. The following keys are commenly
+          used:</p>
+
+        <dl>
+          <dt><code>type</code> - u</dt>
+          <dd>The type of candidate
+            (<a href="Call_Stream_Interface_Media.html#Enum:Call_Stream_Candidate_Type">Call_Stream_Candidate_Type</a>)</dd>
+
+          <dt><code>foundation</code> - s</dt>
+          <dd>The foundation of this candidate</dd>
+
+          <dt><code>protocol</code> - u</dt>
+          <dd>Underlying protocol of the candidate
+            (<a href="Media_Stream_Handler.html#Enum:Media_Stream_Base_Proto">Media_Stream_Base_Proto</a>) </dd>
+
+          <dt><code>priority</code> - u</dt>
+          <dd>Priority of the candidate (should be a number between 0 and
+            65535). Most ICE implementations will prefer the highest priority
+            candidate pair that manages to connect. For backwards
+            compatibility with non-ICE SIP clients, the lowest priority
+            candidate may be sent as a raw UDP fallback candidate.
+            It is recommended that a relay candidate is used as the lowest
+            priority candidate if possible. If both IPv4 and IPv6 raw udp
+            fallback candidates are available, they should be set to the
+            same priority and advertised to the CM at the same time. The CM
+            will decide which to advertise to the remote end.</dd>
+
+          <dt><code>base-ip</code> - s</dt>
+          <dd>The underlying Host address where media sent to this
+            (non-host-type) candidate will eventually arrive.</dd>
+
+          <dt><code>base-port</code> - u</dt>
+          <dd>The underlying Host port where media sent to this
+            (non-host-type) candidate will eventually arrive.</dd>
+
+          <dt><code>username</code> - s</dt>
+          <dd>Username of this candidate
+            (only if credentials are per candidate)</dd>
+
+          <dt><code>password</code> - s</dt>
+          <dd>Password of this candidate
+            (only if credentials are per candidate)</dd>
+
+          <dt><code>ttl</code> - u</dt>
+          <dd>The TTL mandated for RTP/RTCP packets sent to a multicast group
+            (only valid for Multicast Streams)</dd>
+        </dl>
+      </div>
+      <ul>
+<li>Key &mdash; s</li>
+<div class="docstring">One of the well-known keys documented here, or an
+          implementation-specific key.</div><li>Value &mdash; v</li>
+<div class="docstring">The value corresponding to that key.</div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Candidate"></a>
+      <span class="permalink">Struct (<a href="Call_Stream_Interface_Media.html#Struct:Candidate">Permalink</a>)</span>
+      <h2>
+       Candidate &mdash; (usua{sv})
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A Stream Candidate.</div>
+      <ul>
+<li>Component &mdash; u (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Component" title="Enum Stream_Component">Stream_Component</a>)</li>
+<div class="docstring">The component number.</div><li>IP &mdash; s</li>
+<div class="docstring">The IP address to use.</div><li>Port &mdash; u</li>
+<div class="docstring">The port number to use.</div><li>Info &mdash; a{sv} (<a href="Call_Stream_Interface_Media.html#Mapping:Candidate_Info" title="Mapping Candidate_Info">Candidate_Info</a>)</li>
+<div class="docstring">Additional information about the candidate.</div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Stream_Credentials"></a>
+      <span class="permalink">Struct (<a href="Call_Stream_Interface_Media.html#Struct:Stream_Credentials">Permalink</a>)</span>
+      <h2>
+       Stream_Credentials &mdash; (ss)
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A username and password pair.</div>
+      <ul>
+<li>Username &mdash; s</li>
+<div class="docstring">The username.</div><li>Password &mdash; s</li>
+<div class="docstring">The password.</div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

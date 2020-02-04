@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.Contacts &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.Contacts'>Connection.Interface.Contacts</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contacts.html#Method:GetContactAttributes">GetContactAttributes</a></td>
+       <td>(au: Handles, as: Interfaces, b: Hold)</td>
+       <td>&#8594;</td>
+       <td>a{ua{sv}}: Attributes</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contacts.html#Method:GetContactByID">GetContactByID</a></td>
+       <td>(s: Identifier, as: Interfaces)</td>
+       <td>&#8594;</td>
+       <td>u: Handle, a{sv}: Attributes</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contacts.html#Property:ContactAttributeInterfaces">ContactAttributeInterfaces</a></td>
+       <td>
+        as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">
+              DBus_Interface_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contacts.html#Simple-Type:Contact_Attribute">Contact_Attribute</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contacts.html#Mapping:Single_Contact_Attributes_Map">Single_Contact_Attributes_Map</a></td>
+       <td>Mapping</td>
+       <td>a{sv}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Contacts.html#Mapping:Contact_Attributes_Map">Contact_Attributes_Map</a></td>
+       <td>Mapping</td>
+       <td>a{ua{sv}}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.9. </span></div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface allows many attributes of many contacts to be
+        obtained in a single D-Bus round trip.</p>
+
+      <p>Each contact attribute has an string identifier
+        (<a href="Connection_Interface_Contacts.html#Simple-Type:Contact_Attribute">Contact_Attribute</a>), which is namespaced
+        by the D-Bus interface which defines it.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:GetContactAttributes"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contacts.html#Method:GetContactAttributes">Permalink</a>)</span>
+     <h2>GetContactAttributes (au: Handles, as: Interfaces, b: Hold) &#8594; a{ua{sv}}: Attributes</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Handles &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of handles representing contacts.
+        </div>
+      
+       <li>
+        Interfaces &mdash; as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+        
+       </li>
+       
+       <div class="annotation changed"><span class="version">Changed in 0.19.2. </span>
+          requesting information for interfaces not mentioned in
+          <a href="Connection_Interface_Contacts.html#Property:ContactAttributeInterfaces" title="Property org.freedesktop.Telepathy.Connection.Interface.Contacts.ContactAttributeInterfaces">ContactAttributeInterfaces</a> is no
+          longer an error. Be aware that older connection managers may still
+          consider this an error.
+        </div>
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A list of strings indicating which D-Bus interfaces the calling
+            process is interested in. All supported attributes from these
+            interfaces, whose values can be obtained without additional network
+            activity, will be in the reply.</p>
+
+          <p>Connection managers SHOULD ignore interfaces requested which they
+            do not support (i.e. those not mentioned in the
+            <a href="Connection_Interface_Contacts.html#Property:ContactAttributeInterfaces" title="Property org.freedesktop.Telepathy.Connection.Interface.Contacts.ContactAttributeInterfaces">ContactAttributeInterfaces</a>
+            property.)</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>This simplifies client-side code. Clients which care may
+              distinguish between unsupported interfaces (e.g. this Connection
+              does not support Avatars), and interfaces on which no information
+              is known for these contacts (e.g. we don't know the avatar tokens
+              of any of the contacts, so we omitted them all) by inspecting
+              <a href="Connection_Interface_Contacts.html#Property:ContactAttributeInterfaces" title="Property org.freedesktop.Telepathy.Connection.Interface.Contacts.ContactAttributeInterfaces">ContactAttributeInterfaces</a>.</p>
+          </div></div>
+
+          <p>Attributes from the interface
+            <a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a>
+            are always returned, and need not be requested explicitly.</p>
+
+          <p>As well as returning cached information immediately, the
+            connection MAY start asynchronous requests to obtain better
+            values for the contact attributes. If better values are later
+            obtained by this process, they will be indicated with the usual
+            signals (such as <a href="Connection_Interface_Aliasing.html#Signal:AliasesChanged" namespace="org.freedesktop.Telepathy.Connection.Interface.Aliasing" title="Signal org.freedesktop.Telepathy.Connection.Interface.Aliasing.AliasesChanged">AliasesChanged</a>).</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            For instance, an XMPP connection manager could download vCards
+            in response to a request for <a href="Connection_Interface_Aliasing.html" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.Aliasing">Aliasing</a>
+            attributes.
+          </div></div>
+        </div>
+      
+       <li>
+        Hold &mdash; b
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>If true, all handles that appear as keys in the result have been
+            held on behalf of the calling process, as if by a call to
+            <a href="Connection.html#Method:HoldHandles" namespace="ofdT" title="Method org.freedesktop.Telepathy.Connection.HoldHandles">Connection.HoldHandles</a>.
+            (If <a href="Connection.html#Property:HasImmortalHandles" namespace="ofdT.Connection" title="Property org.freedesktop.Telepathy.Connection.HasImmortalHandles">HasImmortalHandles</a> is true, which SHOULD be the
+            case in all new connection managers, this has no effect.)</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>For further round-trip avoidance.</p>
+          </div></div>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Attributes &mdash; a{ua{sv}}
+        
+          (<a href="Connection_Interface_Contacts.html#Mapping:Contact_Attributes_Map" title="Mapping Contact_Attributes_Map">Contact_Attributes_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A dictionary mapping the contact handles to contact attributes.
+            If any of the requested handles are in fact invalid, they are
+            simply omitted from this mapping. If contact attributes are not
+            immediately known, the behaviour is defined by the interface;
+            the attribute should either be omitted from the result or
+            replaced with a default value.</p>
+
+          <p>Each contact's attributes will always include at least the
+            identifier that would be obtained by inspecting the handle
+            (<code>org.freedesktop.Telepathy.Connection/contact-id</code>).</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Return any number of contact attributes for the given handles.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetContactByID"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contacts.html#Method:GetContactByID">Permalink</a>)</span>
+     <h2>GetContactByID (s: Identifier, as: Interfaces) &#8594; u: Handle, a{sv}: Attributes</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.27.0. </span></div>
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Identifier &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An identifier representing a contact.
+        </div>
+      
+       <li>
+        Interfaces &mdash; as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A list of strings indicating which D-Bus interfaces the calling
+            process is interested in. All supported attributes from these
+            interfaces, whose values can be obtained without additional network
+            activity, will be in the reply.</p>
+          <p>See <a href="Connection_Interface_Contacts.html#Method:GetContactAttributes" title="Method org.freedesktop.Telepathy.Connection.Interface.Contacts.GetContactAttributes">GetContactAttributes</a> for
+            details.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Handle &mdash; u
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The contact's handle, as returned by <a href="Connection.html#Method:RequestHandles" namespace="ofdT.Connection" title="Method org.freedesktop.Telepathy.Connection.RequestHandles">RequestHandles</a></p>
+        </div>
+      
+       <li>
+        Attributes &mdash; a{sv}
+        
+          (<a href="Connection_Interface_Contacts.html#Mapping:Single_Contact_Attributes_Map" title="Mapping Single_Contact_Attributes_Map">Single_Contact_Attributes_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>All supported attributes of the contact on
+            the given interfaces that can be returned without network
+            round-trips. If contact attributes are not immediately known, the
+            behaviour is defined by the interface; the attribute should either
+            be omitted from the result or replaced with a default value.</p>
+
+          <p>The contact's attributes will always include at least the
+            identifier that would be obtained by inspecting the handle
+            (<code>org.freedesktop.Telepathy.Connection/contact-id</code>).</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Return any number of contact attributes for the given identifier.
+        <div class="rationale"><h5>Rationale:</h5><div>
+          This is for a single identifier to make it simpler to use for the most
+          common use case. For multiple contacts case,
+          <a href="Connection_Interface_Contacts.html#Method:GetContactAttributes" title="Method org.freedesktop.Telepathy.Connection.Interface.Contacts.GetContactAttributes">GetContactAttributes</a> should be used.
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ContactAttributeInterfaces"></a>
+     <span class="permalink">(<a href="Connection_Interface_Contacts.html#Property:ContactAttributeInterfaces">Permalink</a>)</span>
+     <h2>
+      ContactAttributeInterfaces &mdash; as
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        A list of D-Bus interfaces for which
+        <a href="Connection_Interface_Contacts.html#Method:GetContactAttributes" title="Method org.freedesktop.Telepathy.Connection.Interface.Contacts.GetContactAttributes">GetContactAttributes</a> is expected to work.
+        This cannot change during the lifetime of the Connection.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Contact_Attribute"></a>
+      <span class="permalink">Simple Type (<a href="Connection_Interface_Contacts.html#Simple-Type:Contact_Attribute">Permalink</a>)</span>
+      <h2>
+       Contact_Attribute &mdash; s
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A <a href="generic-types.html#Simple-Type:DBus_Interface">DBus_Interface</a>, followed by a slash '/' character
+        and an identifier for an attribute defined by that interface. The
+        attribute identifier SHOULD be in lower case.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          These aren't D-Bus core Properties, and we want them to look visibly
+          different.
+        </div></div>
+      </div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Single_Contact_Attributes_Map"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Contacts.html#Mapping:Single_Contact_Attributes_Map">Permalink</a>)</span>
+      <h2>
+       Single_Contact_Attributes_Map &mdash; a{sv}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        Some of the attributes of a single contact.
+      </div>
+      <ul>
+<li>Attribute &mdash; s (<a href="Connection_Interface_Contacts.html#Simple-Type:Contact_Attribute" title="Simple Type Contact_Attribute">Contact_Attribute</a>)</li>
+<div class="docstring">
+          The name of the attribute
+        </div><li>Value &mdash; v</li>
+<div class="docstring">
+          The value of the attribute
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Contact_Attributes_Map"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Contacts.html#Mapping:Contact_Attributes_Map">Permalink</a>)</span>
+      <h2>
+       Contact_Attributes_Map &mdash; a{ua{sv}}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">Mapping returned by
+        <a href="Connection_Interface_Contacts.html#Method:GetContactAttributes" title="Method org.freedesktop.Telepathy.Connection.Interface.Contacts.GetContactAttributes">GetContactAttributes</a>, representing a
+        collection of Contacts and their requested attributes.</div>
+      <ul>
+<li>Contact &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+          A contact
+        </div><li>Attributes &mdash; a{sv} (<a href="Connection_Interface_Contacts.html#Mapping:Single_Contact_Attributes_Map" title="Mapping Single_Contact_Attributes_Map">Single_Contact_Attributes_Map</a>)</li>
+<div class="docstring">
+          Attributes of that contact
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

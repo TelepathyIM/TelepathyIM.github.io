@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.T.ServerTLSConnection &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Type.ServerTLSConnection'>Channel.Type.ServerTLSConnection</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Server_TLS_Connection.html#Property:ServerCertificate">ServerCertificate</a></td>
+       <td>
+        o
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Server_TLS_Connection.html#Property:Hostname">Hostname</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Server_TLS_Connection.html#Property:ReferenceIdentities">ReferenceIdentities</a></td>
+       <td>
+        as
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.19.13. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>A channel type that carries a TLS certificate between a server
+      and a client connecting to it.</p>
+      <p>Channels of this kind always have <a href="Channel.html#Property:Requested" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.Requested">Requested</a> = False,
+      <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+      = None and <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>
+      = 0, and cannot be requested with methods such as <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy.Connection.Interface.Requests" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>.
+      Also, they SHOULD be dispatched while the
+      <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>
+      owning them is in the CONNECTING state.</p>
+      <p>In this case, handlers SHOULD accept or reject the certificate, using
+      the relevant methods on the provided object, or MAY just <a href="Channel.html#Method:Close" namespace="org.freedesktop.Telepathy.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a> the channel before doing so, to fall
+      back to a non-interactive verification process done inside the CM.</p>
+      <p>For example, channels of this kind can pop up while a client is
+      connecting to an XMPP server.</p>
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ServerCertificate"></a>
+     <span class="permalink">(<a href="Channel_Type_Server_TLS_Connection.html#Property:ServerCertificate">Permalink</a>)</span>
+     <h2>
+      ServerCertificate &mdash; o
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        <p>A <a href="Authentication_TLS_Certificate.html" namespace="org.freedesktop.Telepathy.Authentication" title="Interface org.freedesktop.Telepathy.Authentication.TLSCertificate">TLSCertificate</a>
+        containing the certificate chain as sent by the server,
+        and other relevant information.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Hostname"></a>
+     <span class="permalink">(<a href="Channel_Type_Server_TLS_Connection.html#Property:Hostname">Permalink</a>)</span>
+     <h2>
+      Hostname &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.19.12. </span></div>
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        <p>The hostname or domain that the user expects to connect to. Clients
+        SHOULD use the <a href="Channel_Type_Server_TLS_Connection.html#Property:ReferenceIdentities" title="Property org.freedesktop.Telepathy.Channel.Type.ServerTLSConnection.ReferenceIdentities">ReferenceIdentities</a>
+        property to verify the identity of the certificate. Clients MAY display
+        this hostname to the user as the expected identity. Clients SHOULD use
+        this property to lookup pinned certificates or other user preferences
+        for the connection.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ReferenceIdentities"></a>
+     <span class="permalink">(<a href="Channel_Type_Server_TLS_Connection.html#Property:ReferenceIdentities">Permalink</a>)</span>
+     <h2>
+      ReferenceIdentities &mdash; as
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.21.10. </span>
+        If this property is not present, clients SHOULD use the
+        <a href="Channel_Type_Server_TLS_Connection.html#Property:Hostname" title="Property org.freedesktop.Telepathy.Channel.Type.ServerTLSConnection.Hostname">Hostname</a> property as the reference
+        identity to validate server certificates against.
+      </div>
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        <p>The identities of the server we expect
+        <a href="Channel_Type_Server_TLS_Connection.html#Property:ServerCertificate" title="Property org.freedesktop.Telepathy.Channel.Type.ServerTLSConnection.ServerCertificate">ServerCertificate</a> to certify; clients
+        SHOULD verify that <a href="Channel_Type_Server_TLS_Connection.html#Property:ServerCertificate" title="Property org.freedesktop.Telepathy.Channel.Type.ServerTLSConnection.ServerCertificate">ServerCertificate</a>
+        matches one of these identities when checking its validity.</p>
+
+        <p>This property MUST NOT be the empty list; it MUST
+        contain the value of the <a href="Channel_Type_Server_TLS_Connection.html#Property:Hostname" title="Property org.freedesktop.Telepathy.Channel.Type.ServerTLSConnection.Hostname">Hostname</a>
+        property. All other identities included in this property MUST be derived from
+        explicit user input or choices, such as <a href="Account.html#Property:Parameters" namespace="ofdT.Account" title="Property org.freedesktop.Telepathy.Account.Parameters">Parameters</a> passed to
+        <a href="Connection_Manager.html#Method:RequestConnection" namespace="ofdT.ConnectionManager" title="Method org.freedesktop.Telepathy.ConnectionManager.RequestConnection">RequestConnection</a>.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The primary use for this property is for XMPP services hosted by
+            <a href="http://www.google.com/apps/intl/en/business/gmail.html">Google
+            Apps</a>. When connecting to Google Talk using an
+            <tt>@gmail.com</tt> JID, the server correctly presents a
+            certificate for <tt>gmail.com</tt>; however, for domains hosted via
+            Google Apps, a certificate for <tt>talk.google.com</tt> is
+            offered, due to unresolved technical limitations.</p>
+
+          <p>If the user has explicitly chosen to create a <q>Google Talk</q>
+            account, then trusting a certificate for <tt>talk.google.com</tt>
+            is reasonable. To handle this case, the connection manager may add
+            the values of any or all of the <tt>server</tt>,
+            <tt>fallback-server</tt> and <tt>extra-identities</tt> parameters;
+            the Google Talk account creation user interface may set these
+            parameters appropriately, or the user may set them for accounts
+            with other services.</p>
+        </div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

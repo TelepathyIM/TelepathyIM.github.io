@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.CallState &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.CallState'>Channel.Interface.CallState</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+   
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Call_State.html#Method:GetCallStates">GetCallStates</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>a{uu}: States</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Call_State.html#Signal:CallStateChanged">CallStateChanged</a></td>
+       <td>(u: Contact, u: State)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Call_State.html#Flags:Channel_Call_State_Flags">Channel_Call_State_Flags</a></td>
+       <td>Flags</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Call_State.html#Mapping:Channel_Call_State_Map">Channel_Call_State_Map</a></td>
+       <td>Mapping</td>
+       <td>a{uu}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.2. </span></div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel_Type_Streamed_Media.html" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamedMedia">org.freedesktop.Telepathy.Channel.Type.StreamedMedia</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for streamed media channels that can indicate call
+        progress or call states. The presence of this interface is no guarantee
+        that call states will actually be signalled (for instance, SIP
+        implementations are not guaranteed to generate status 180 Ringing, so a
+        call can be accepted without the Ringing flag ever having been set;
+        similarly, Jingle implementations are not guaranteed to send
+        <code>&lt;ringing/&gt;</code>).</p>
+
+      <p>To notify the other participant in the call that they are on hold,
+        see <a href="Channel_Interface_Hold.html" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.Hold">Hold</a>.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:GetCallStates"></a>
+     <span class="permalink">(<a href="Channel_Interface_Call_State.html#Method:GetCallStates">Permalink</a>)</span>
+     <h2>GetCallStates () &#8594; a{uu}: States</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        States &mdash; a{uu}
+        
+          (<a href="Channel_Interface_Call_State.html#Mapping:Channel_Call_State_Map" title="Mapping Channel_Call_State_Map">Channel_Call_State_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The current call states. Participants where the call state flags
+          would be 0 (all unset) may be omitted from this mapping.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Get the current call states for all contacts involved in this call.
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:CallStateChanged"></a>
+     <span class="permalink">(<a href="Channel_Interface_Call_State.html#Signal:CallStateChanged">Permalink</a>)</span>
+     <h2>CallStateChanged (u: Contact, u: State)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Contact &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An integer handle for the contact.
+        </div>
+      
+       <li>
+       State &mdash; u
+       
+        (<a href="Channel_Interface_Call_State.html#Flags:Channel_Call_State_Flags" title="Flags Channel_Call_State_Flags">Channel_Call_State_Flags</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new state for this contact.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the state of a member of the channel has changed.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Flags:Channel_Call_State_Flags"></a>
+      <span class="permalink">Flags (<a href="Channel_Interface_Call_State.html#Flags:Channel_Call_State_Flags">Permalink</a>)</span>
+      <h2>
+       Channel_Call_State_Flags &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A set of flags representing call states.
+      </div>
+      <ul>
+<li>Ringing (1)</li>
+<div class="docstring">
+          The contact has been alerted about the call but has not responded
+          (e.g. 180 Ringing in SIP).
+        </div><li>Queued (2)</li>
+<div class="docstring">
+          The contact is temporarily unavailable, and the call has been placed
+          in a queue (e.g. 182 Queued in SIP, or call-waiting in telephony).
+        </div><li>Held (4)</li>
+<div class="docstring">
+          The contact has placed the call on hold, and will not receive
+          media from the local user or any other participants until they
+          unhold the call again.
+        </div><li>Forwarded (8)</li>
+<div class="docstring">
+          The initiator of the call originally called a contact other than the
+          current recipient of the call, but the call was then forwarded or
+          diverted.
+        </div><li>In_Progress (16)</li>
+<div class="docstring">
+          Progress has been made in placing the outgoing call, but the
+          destination contact may not have been made aware of the call yet
+          (so the Ringing state is not appropriate). This corresponds to SIP's
+          status code 183 Session Progress, and could be used when the
+          outgoing call has reached a gateway, for instance.
+        </div><li>Conference_Host (32)</li>
+<div class="annotation added"><span class="version">Added in 0.19.11. </span></div><div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          This contact has merged this call into a conference. Note that GSM
+          provides a notification when the remote party merges a call into a
+          conference, but not when it is split out again; thus, this flag can
+          only indicate that the call has been part of a conference at some
+          point. If a GSM connection manager receives a notification that a
+          call has been merged into a conference a second time, it SHOULD
+          represent this by clearing and immediately re-setting this flag on
+          the remote contact.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Channel_Call_State_Map"></a>
+      <span class="permalink">Mapping (<a href="Channel_Interface_Call_State.html#Mapping:Channel_Call_State_Map">Permalink</a>)</span>
+      <h2>
+       Channel_Call_State_Map &mdash; a{uu}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A map from contacts to call states.
+      </div>
+      <ul>
+<li>Contact &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">A contact involved in this call.</div><li>State &mdash; u (<a href="Channel_Interface_Call_State.html#Flags:Channel_Call_State_Flags" title="Flags Channel_Call_State_Flags">Channel_Call_State_Flags</a>)</li>
+<div class="docstring">State flags for the given contact.</div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

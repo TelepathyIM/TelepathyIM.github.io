@@ -1,0 +1,739 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Authentication.TLSCertificate &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Authentication.TLSCertificate'>Authentication.TLSCertificate</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Authentication_TLS_Certificate.html#Method:Accept">Accept</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Authentication_TLS_Certificate.html#Method:Reject">Reject</a></td>
+       <td>(a(usa{sv}): Rejections)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Authentication_TLS_Certificate.html#Signal:Accepted">Accepted</a></td>
+       <td>()</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Authentication_TLS_Certificate.html#Signal:Rejected">Rejected</a></td>
+       <td>(a(usa{sv}): Rejections)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Authentication_TLS_Certificate.html#Property:State">State</a></td>
+       <td>
+        u
+        
+          (<a href="Authentication_TLS_Certificate.html#Enum:TLS_Certificate_State" title="Enum TLS_Certificate_State">
+              TLS_Certificate_State</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Authentication_TLS_Certificate.html#Property:Rejections">Rejections</a></td>
+       <td>
+        a(usa{sv})
+        
+          (<a href="Authentication_TLS_Certificate.html#Struct:TLS_Certificate_Rejection" title="Array of Struct TLS_Certificate_Rejection">
+              TLS_Certificate_Rejection_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Authentication_TLS_Certificate.html#Property:CertificateType">CertificateType</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Authentication_TLS_Certificate.html#Property:CertificateChainData">CertificateChainData</a></td>
+       <td>
+        aay
+        
+          (<a href="Authentication_TLS_Certificate.html#Simple-Type:Certificate_Data" title="Array of Simple Type Certificate_Data">
+              Certificate_Data_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Authentication_TLS_Certificate.html#Simple-Type:Certificate_Data">Certificate_Data</a></td>
+       <td>Simple Type</td>
+       <td>ay</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Authentication_TLS_Certificate.html#Enum:TLS_Certificate_State">TLS_Certificate_State</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Authentication_TLS_Certificate.html#Enum:TLS_Certificate_Reject_Reason">TLS_Certificate_Reject_Reason</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Authentication_TLS_Certificate.html#Struct:TLS_Certificate_Rejection">TLS_Certificate_Rejection</a></td>
+       <td>Struct</td>
+       <td>(usa{sv})</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.19.13. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring">
+      This object represents a TLS certificate.
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:Accept"></a>
+     <span class="permalink">(<a href="Authentication_TLS_Certificate.html#Method:Accept">Permalink</a>)</span>
+     <h2>Accept () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring">
+        Accepts this certificate, i.e. marks it as verified.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:Reject"></a>
+     <span class="permalink">(<a href="Authentication_TLS_Certificate.html#Method:Reject">Permalink</a>)</span>
+     <h2>Reject (a(usa{sv}): Rejections) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Rejections &mdash; a(usa{sv})
+        
+          (<a href="Authentication_TLS_Certificate.html#Struct:TLS_Certificate_Rejection" title="Array of Struct TLS_Certificate_Rejection">TLS_Certificate_Rejection_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The new value of the <a href="Authentication_TLS_Certificate.html#Property:Rejections" title="Property org.freedesktop.Telepathy.Authentication.TLSCertificate.Rejections">Rejections</a> property.</p>
+          <p>This MUST NOT be an empty array.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Rejects this certificate.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            Raised when the method is called on an object whose <a href="Authentication_TLS_Certificate.html#Property:State" title="Property org.freedesktop.Telepathy.Authentication.TLSCertificate.State">State</a>
+            is not <code>Pending</code>, or when the provided rejection list is empty.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:Accepted"></a>
+     <span class="permalink">(<a href="Authentication_TLS_Certificate.html#Signal:Accepted">Permalink</a>)</span>
+     <h2>Accepted ()</h2>
+
+     
+     
+     
+
+     
+
+     <div class="docstring">
+        The <a href="Authentication_TLS_Certificate.html#Property:State" title="Property org.freedesktop.Telepathy.Authentication.TLSCertificate.State">State</a> of this certificate has changed to Accepted.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:Rejected"></a>
+     <span class="permalink">(<a href="Authentication_TLS_Certificate.html#Signal:Rejected">Permalink</a>)</span>
+     <h2>Rejected (a(usa{sv}): Rejections)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Rejections &mdash; a(usa{sv})
+       
+        (<a href="Authentication_TLS_Certificate.html#Struct:TLS_Certificate_Rejection" title="Array of Struct TLS_Certificate_Rejection">TLS_Certificate_Rejection_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of the <a href="Authentication_TLS_Certificate.html#Property:Rejections" title="Property org.freedesktop.Telepathy.Authentication.TLSCertificate.Rejections">Rejections</a> property.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        The <a href="Authentication_TLS_Certificate.html#Property:State" title="Property org.freedesktop.Telepathy.Authentication.TLSCertificate.State">State</a> of this certificate has changed to Rejected.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:State"></a>
+     <span class="permalink">(<a href="Authentication_TLS_Certificate.html#Property:State">Permalink</a>)</span>
+     <h2>
+      State &mdash; u
+      
+        (<a href="Authentication_TLS_Certificate.html#Enum:TLS_Certificate_State" title="Enum TLS_Certificate_State">TLS_Certificate_State</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The current state of this certificate.
+        State change notifications happen by means of the
+        <a href="Authentication_TLS_Certificate.html#Signal:Accepted" title="Signal org.freedesktop.Telepathy.Authentication.TLSCertificate.Accepted">Accepted</a> and
+        <a href="Authentication_TLS_Certificate.html#Signal:Rejected" title="Signal org.freedesktop.Telepathy.Authentication.TLSCertificate.Rejected">Rejected</a> signals.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Rejections"></a>
+     <span class="permalink">(<a href="Authentication_TLS_Certificate.html#Property:Rejections">Permalink</a>)</span>
+     <h2>
+      Rejections &mdash; a(usa{sv})
+      
+        (<a href="Authentication_TLS_Certificate.html#Struct:TLS_Certificate_Rejection" title="Array of Struct TLS_Certificate_Rejection">TLS_Certificate_Rejection_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If the <a href="Authentication_TLS_Certificate.html#Property:State" title="Property org.freedesktop.Telepathy.Authentication.TLSCertificate.State">State</a> is Rejected,
+        an array of <a href="Authentication_TLS_Certificate.html#Struct:TLS_Certificate_Rejection">TLS_Certificate_Rejection</a>
+        structures containing the reason why the certificate is rejected.</p>
+        <p>If the <a href="Authentication_TLS_Certificate.html#Property:State" title="Property org.freedesktop.Telepathy.Authentication.TLSCertificate.State">State</a> is not Rejected,
+        this property is not meaningful, and SHOULD be set to an empty
+        array.</p>
+        <p>The first rejection in the list MAY be assumed to be
+        the most important; if the array contains more than one
+        element, the CM MAY either use the values after the first,
+        or ignore them.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CertificateType"></a>
+     <span class="permalink">(<a href="Authentication_TLS_Certificate.html#Property:CertificateType">Permalink</a>)</span>
+     <h2>
+      CertificateType &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The type of this TLS certificate (e.g. 'x509' or 'pgp').
+        <p>This property is immutable</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CertificateChainData"></a>
+     <span class="permalink">(<a href="Authentication_TLS_Certificate.html#Property:CertificateChainData">Permalink</a>)</span>
+     <h2>
+      CertificateChainData &mdash; aay
+      
+        (<a href="Authentication_TLS_Certificate.html#Simple-Type:Certificate_Data" title="Array of Simple Type Certificate_Data">Certificate_Data_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>One or more TLS certificates forming a trust chain, each encoded as
+        specified by <a href="Authentication_TLS_Certificate.html#Simple-Type:Certificate_Data">Certificate_Data</a>.</p>
+        <p>The first certificate in the chain MUST be the server certificate,
+        followed by the issuer's certificate, followed by the issuer's issuer
+        and so on.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Certificate_Data"></a>
+      <span class="permalink">Simple Type (<a href="Authentication_TLS_Certificate.html#Simple-Type:Certificate_Data">Permalink</a>)</span>
+      <h2>
+       Certificate_Data &mdash; ay
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The raw data contained in a TLS certificate.</p>
+
+        <p>For X.509 certificates (<a href="Authentication_TLS_Certificate.html#Property:CertificateType" title="Property org.freedesktop.Telepathy.Authentication.TLSCertificate.CertificateType">CertificateType</a>
+        = &quot;x509&quot;), this MUST be in DER format, as defined by the
+        <a href="http://www.itu.int/ITU-T/studygroups/com17/languages/X.690-0207.pdf">X.690</a>
+        ITU standard.</p>
+
+        <p>For PGP certificates (<a href="Authentication_TLS_Certificate.html#Property:CertificateType" title="Property org.freedesktop.Telepathy.Authentication.TLSCertificate.CertificateType">CertificateType</a>
+        = &quot;pgp&quot;), this MUST be a binary OpenPGP key as defined by section 11.1
+        of <a href="http://www.rfc-editor.org/rfc/4880.txt">RFC 4880</a>.</p>
+      </div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:TLS_Certificate_State"></a>
+      <span class="permalink">Enum (<a href="Authentication_TLS_Certificate.html#Enum:TLS_Certificate_State">Permalink</a>)</span>
+      <h2>
+       TLS_Certificate_State &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        The possible states for a <a href="Authentication_TLS_Certificate.html" namespace="org.freedesktop.Telepathy.Authentication" title="Interface org.freedesktop.Telepathy.Authentication.TLSCertificate">TLSCertificate</a>
+        object.
+      </div>
+      <ul>
+<li>Pending (0)</li>
+<div class="docstring">
+          The certificate is currently waiting to be accepted or rejected.
+        </div><li>Accepted (1)</li>
+<div class="docstring">
+          The certificate has been verified.
+        </div><li>Rejected (2)</li>
+<div class="docstring">
+          The certificate has been rejected.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:TLS_Certificate_Reject_Reason"></a>
+      <span class="permalink">Enum (<a href="Authentication_TLS_Certificate.html#Enum:TLS_Certificate_Reject_Reason">Permalink</a>)</span>
+      <h2>
+       TLS_Certificate_Reject_Reason &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        Possible reasons to reject a TLS certificate.
+      </div>
+      <ul>
+<li>Unknown (0)</li>
+<div class="docstring">
+          The certificate has been rejected for another reason
+          not listed in this enumeration.
+        </div><li>Untrusted (1)</li>
+<div class="docstring">
+          The certificate is not trusted.
+        </div><li>Expired (2)</li>
+<div class="docstring">
+          The certificate is expired.
+        </div><li>Not_Activated (3)</li>
+<div class="docstring">
+          The certificate is not active yet.
+        </div><li>Fingerprint_Mismatch (4)</li>
+<div class="docstring">
+          The certificate provided does not have the expected
+          fingerprint.
+        </div><li>Hostname_Mismatch (5)</li>
+<div class="docstring">
+          The hostname certified does not match the provided one.
+        </div><li>Self_Signed (6)</li>
+<div class="docstring">
+          The certificate is self-signed.
+        </div><li>Revoked (7)</li>
+<div class="docstring">
+          The certificate has been revoked.
+        </div><li>Insecure (8)</li>
+<div class="docstring">
+          The certificate uses an insecure cipher algorithm, or is
+          cryptographically weak.
+        </div><li>Limit_Exceeded (9)</li>
+<div class="docstring">
+          The length in bytes of the certificate, or the depth of the
+          certificate chain exceed the limits imposed by the crypto
+          library.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:TLS_Certificate_Rejection"></a>
+      <span class="permalink">Struct (<a href="Authentication_TLS_Certificate.html#Struct:TLS_Certificate_Rejection">Permalink</a>)</span>
+      <h2>
+       TLS_Certificate_Rejection &mdash; (usa{sv})
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Struct representing one reason why a TLS certificate was rejected.</p>
+        <p>Since there can be multiple things wrong with a TLS certificate,
+        arrays of this type are used to represent lists of reasons for
+        rejection. In that case, the most important reason SHOULD be placed
+        first in the list.</p>
+      </div>
+      <ul>
+<li>Reason &mdash; u (<a href="Authentication_TLS_Certificate.html#Enum:TLS_Certificate_Reject_Reason" title="Enum TLS_Certificate_Reject_Reason">TLS_Certificate_Reject_Reason</a>)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The value of the TLS_Certificate_Reject_Reason enumeration for
+          this certificate rejection.
+          <div class="rationale"><h5>Rationale:</h5><div>
+            Clients that do not understand the <code>Error</code> member,
+            which may be implementation-specific, can use this property to
+            classify rejection reasons into common categories.
+          </div></div>
+	  </p>
+        </div><li>Error &mdash; s (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">DBus_Error_Name</a>)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The DBus error name for this certificate rejection.</p>
+          <p>This MAY correspond to the value of the <code>Reason</code> member,
+          or MAY be a more specific D-Bus error name, perhaps implementation-specific.</p>
+        </div><li>Details &mdash; a{sv} (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Additional information about why the certificate was rejected.
+          This MAY also include one or more of the following well-known keys:</p>
+          <p>
+          <dl>
+            <dt>user-requested (b)</dt>
+            <dd>True if the error was due to an user-requested rejection of
+            the certificate; False if there was an unrecoverable error in the
+            verification process.</dd>
+            <dt>expected-hostname (s)</dt>
+            <dd>If the rejection reason is Hostname_Mismatch, the hostname that
+            the server certificate was expected to have.</dd>
+            <dt>certificate-hostname (s)</dt>
+            <dd>If the rejection reason is Hostname_Mismatch, the hostname of
+            the certificate that was presented.
+            <div class="rationale"><h5>Rationale:</h5><div>
+              <p>For instance, if you try to connect to gmail.com but are presented
+              with a TLS certificate issued to evil.example.org, the error details
+              for Hostname_Mismatch MAY include:</p>
+              <pre>
+                {
+                  'expected-hostname': 'gmail.com',
+                  'certificate-hostname': 'evil.example.org',
+                }
+              </pre>
+            </div></div>
+            </dd>
+            <dt>debug-message (s)</dt>
+            <dd>Debugging information on the error, corresponding to the
+            message part of a D-Bus error message, which SHOULD NOT be
+            displayed to users under normal circumstances</dd>
+          </dl>
+          </p>
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

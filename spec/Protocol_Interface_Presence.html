@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Protocol.I.Presence &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Protocol.Interface.Presence'>Protocol.Interface.Presence</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Protocol_Interface_Presence.html#Property:Statuses">Statuses</a></td>
+       <td>
+        a{s(ubb)}
+        
+          (<a href="Connection_Interface_Simple_Presence.html#Mapping:Simple_Status_Spec_Map" title="Mapping Simple_Status_Spec_Map">
+              Simple_Status_Spec_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.21.3. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Protocol.html" title="Interface org.freedesktop.Telepathy.Protocol">org.freedesktop.Telepathy.Protocol</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for protocols where it might be possible to set the
+        user's presence, and the supported presence types can be predicted
+        before connecting.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>This allows UIs to show or hide presence types that aren't
+          always supported, such as &quot;invisible&quot;, while not online.</p>
+      </div></div>
+
+      <p>The properties on this interface SHOULD be cached in the
+        <code>.manager</code> file, in the
+        <code>[Protocol <em>proto</em>]</code>
+        group. For each status <em>s</em> in
+        <a href="Protocol_Interface_Presence.html#Property:Statuses" title="Property org.freedesktop.Telepathy.Protocol.Interface.Presence.Statuses">Statuses</a>, that group should
+        contain a key of the form <code>status-<em>s</em></code> whose value
+        is the <a href="Connection_Interface_Simple_Presence.html#Enum:Connection_Presence_Type">Connection_Presence_Type</a> as an ASCII
+        decimal integer, followed by a space-separated sequence of tokens
+        from the following set:</p>
+
+      <dl>
+        <dt>settable</dt>
+        <dd>If present, the user can set this status on themselves using
+          <a href="Connection_Interface_Simple_Presence.html#Method:SetPresence" namespace="org.freedesktop.Telepathy.Connection.Interface.SimplePresence" title="Method org.freedesktop.Telepathy.Connection.Interface.SimplePresence.SetPresence">SetPresence</a>; this corresponds to May_Set_On_Self
+          in the <a href="Connection_Interface_Simple_Presence.html#Struct:Simple_Status_Spec">Simple_Status_Spec</a> struct.</dd>
+
+        <dt>message</dt>
+        <dd>If present, the user can set a non-empty message for this status;
+          this corresponds to Can_Have_Message in the
+          <a href="Connection_Interface_Simple_Presence.html#Struct:Simple_Status_Spec">Simple_Status_Spec</a> struct.</dd>
+      </dl>
+
+      <p>Unrecognised tokens MUST be ignored.</p>
+
+      <p>For instance, an XMPP connection manager might have this
+        <code>.manager</code> file:</p>
+
+<pre>[Protocol jabber]
+Interfaces=org.freedesktop.Telepathy.Protocol.Interface.Presence;
+param-account=s required
+param-password=s required
+status-offline=1
+status-unknown=7
+status-error=8
+status-hidden=5 settable message
+status-xa=4 settable message
+status-away=3 settable message
+status-dnd=6 settable message
+status-available=2 settable message
+status-chat=2 settable message
+</pre>
+
+      <p>which corresponds to these property values (using a Python-like
+        syntax):</p>
+
+<pre>Statuses = {
+    'offline': (OFFLINE, False, False),
+    'unknown': (UNKNOWN, False, False),
+    'error': (ERROR, False, False),
+    'hidden': (HIDDEN, True, True),
+    'xa': (EXTENDED_AWAY, True, True),
+    'away': (AWAY, True, True),
+    'dnd': (BUSY, True, True),
+    'available': (AVAILABLE, True, True),
+    'chat': (AVAILABLE, True, True),
+}
+</pre>
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Statuses"></a>
+     <span class="permalink">(<a href="Protocol_Interface_Presence.html#Property:Statuses">Permalink</a>)</span>
+     <h2>
+      Statuses &mdash; a{s(ubb)}
+      
+        (<a href="Connection_Interface_Simple_Presence.html#Mapping:Simple_Status_Spec_Map" title="Mapping Simple_Status_Spec_Map">Simple_Status_Spec_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring">
+        <p>The statuses that might appear in the <a href="Connection_Interface_Simple_Presence.html#Property:Statuses" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Connection.Interface.SimplePresence.Statuses">Connection.Interface.SimplePresence.Statuses</a>
+          property on a connection to this protocol that supports
+          SimplePresence. This property is immutable.</p>
+
+        <p>Depending on server capabilities, it is possible that not all
+          of these will actually appear on the Connection.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

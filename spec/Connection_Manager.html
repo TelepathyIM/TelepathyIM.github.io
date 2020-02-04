@@ -1,0 +1,1172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>ConnectionManager &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.ConnectionManager'>ConnectionManager</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager.html#Method:GetParameters">GetParameters</a></td>
+       <td>(s: Protocol)</td>
+       <td>&#8594;</td>
+       <td>a(susv): Parameters</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager.html#Method:ListProtocols">ListProtocols</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>as: Protocols</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager.html#Method:RequestConnection">RequestConnection</a></td>
+       <td>(s: Protocol, a{sv}: Parameters)</td>
+       <td>&#8594;</td>
+       <td>s: Bus_Name, o: Object_Path</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager.html#Signal:NewConnection">NewConnection</a></td>
+       <td>(s: Bus_Name, o: Object_Path, s: Protocol)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager.html#Property:Protocols">Protocols</a></td>
+       <td>
+        a{sa{sv}}
+        
+          (<a href="Connection_Manager.html#Mapping:Protocol_Properties_Map" title="Mapping Protocol_Properties_Map">
+              Protocol_Properties_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager.html#Property:Interfaces">Interfaces</a></td>
+       <td>
+        as
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager.html#Simple-Type:Connection_Manager_Name">Connection_Manager_Name</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager.html#Simple-Type:Protocol">Protocol</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager.html#Simple-Type:Connection_Parameter_Name">Connection_Parameter_Name</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager.html#Flags:Conn_Mgr_Param_Flags">Conn_Mgr_Param_Flags</a></td>
+       <td>Flags</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager.html#Mapping:Protocol_Properties_Map">Protocol_Properties_Map</a></td>
+       <td>Mapping</td>
+       <td>a{sa{sv}}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager.html#Struct:Param_Spec">Param_Spec</a></td>
+       <td>Struct</td>
+       <td>(susv)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   
+   <div class="annotation changed"><span class="version">Changed in 0.17.2. </span>Prior to version 0.17.2, support for
+      CMs with no .manager file was not explicitly required.</div>
+<div class="annotation changed"><span class="version">Changed in 0.17.16. </span>Prior to version 0.17.16 the serialization
+      of string arrays (signature 'as') was not defined</div>
+<div class="annotation changed"><span class="version">Changed in 0.25.2. </span>Prior to version 0.25.2 the
+      serialization of object-path arrays (signature 'ao') was not
+      defined</div>
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+    <p>A D-Bus service which allows connections to be created. The manager
+      processes are intended to be started by D-Bus service activation.</p>
+
+    <p>For service discovery, each Telepathy connection manager must have
+      a <em>connection manager name</em> (see
+      <a href="Connection_Manager.html#Simple-Type:Connection_Manager_Name">Connection_Manager_Name</a> for syntax).</p>
+
+    <p>The connection manager must then provide a well-known bus name of
+      <code>org.freedesktop.Telepathy.ConnectionManager.<em>cmname</em></code>
+      where <em>cmname</em> is its connection manager name. If it makes sense
+      to start the connection manager using D-Bus service activation, it
+      must register that well-known name for service activation by installing
+      a .service file.</p>
+
+    <p>Clients can list the running connection managers by calling the
+      ListNames method on the D-Bus daemon's org.freedesktop.DBus interface
+      and looking for names matching the above pattern; they can list the
+      activatable connection managers by calling ListActivatableNames, and
+      they should usually combine the two lists to get a complete list of
+      running or activatable connection managers.</p>
+
+    <p>When the connection manager is running, it must have an object
+      implementing the ConnectionManager interface at the object path
+      <code>/org/freedesktop/Telepathy/ConnectionManager/<em>cmname</em></code>.
+    </p>
+
+    <p>Connection managers' capabilities can be determined dynamically by
+      calling their <a href="Connection_Manager.html#Method:ListProtocols" title="Method org.freedesktop.Telepathy.ConnectionManager.ListProtocols">ListProtocols</a> method, then
+      for each protocol of interest, calling
+      <a href="Connection_Manager.html#Method:GetParameters" title="Method org.freedesktop.Telepathy.ConnectionManager.GetParameters">GetParameters</a> to discover the required and
+      optional parameters.
+      However, since it is inefficient to activate all possible connection
+      managers on the system just to find out what they can do, there
+      is a standard mechanism to store static information about CMs in
+      &quot;.manager files&quot;.</p>
+
+    <p>To look up a connection manager's supported protocols, clients
+      should search the data directories specified by
+      <a href="http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html">the
+        freedesktop.org XDG Base Directory Specification</a> ($XDG_DATA_HOME,
+      defaulting to $HOME/.local/share if unset, followed by
+      colon-separated paths from $XDG_DATA_DIRS, defaulting to
+      /usr/local/share:/usr/share if unset) for the first file named
+      <code>telepathy/managers/<em>cmname</em>.manager</code> that can be
+      read without error. This file has the same syntax as a
+      <a href="http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html">freedesktop.org Desktop Entry file</a>.</p>
+
+    <p>Clients must still support connection managers for which no
+      <code>.manager</code> file can be found, which they can do by activating
+      the connection manager and calling its methods; the
+      <code>.manager</code> file is merely an optimization. Connection managers
+      whose list of protocols can change at any time (for instance, via
+      a plugin architecture) should not install a <code>.manager</code>
+      file.</p>
+
+    <p>The <code>.manager</code> file SHOULD have a group headed
+      <code>[ConnectionManager]</code>, containing a key
+      <code>Interfaces</code> representing
+      <a href="Connection_Manager.html#Property:Interfaces" title="Property org.freedesktop.Telepathy.ConnectionManager.Interfaces">Interfaces</a> as a sequence of strings
+      each followed by a semicolon (the &quot;localestrings&quot; type from the Desktop
+      Entry Specification).</p>
+
+    <p>The <code>[ConnectionManager]</code> group SHOULD NOT contain keys
+      <code>ObjectPath</code> or <code>BusName</code>. If it does, they MUST
+      be ignored.</p>
+
+    <div class="rationale"><h5>Rationale:</h5><div>
+      <p>The object path and bus name are derivable from the connection
+        manager's name, which is part of the filename, so these keys are
+        redundant. They were required in very old versions of Telepathy.</p>
+    </div></div>
+
+    <p>For each protocol name <em>proto</em> that would be returned by
+      ListProtocols, the .manager file contains a group
+      headed <code>[Protocol <em>proto</em>]</code>. For each parameter
+      <em>p</em> that would be returned by GetParameters(<em>proto</em>), the
+      .manager file contains a key <code>param-<em>p</em></code> with a value
+      consisting of a D-Bus signature (a single complete type), optionally
+      followed by a space and a space-separated list of flags. The supported
+      flags are:</p>
+
+    <ul>
+      <li><code>required</code>, corresponding to
+        Conn_Mgr_Param_Flag_Required</li>
+      <li><code>register</code>, corresponding
+        to Conn_Mgr_Param_Flag_Register</li>
+      <li><code>secret</code>, corresponding
+        to Conn_Mgr_Param_Flag_Secret</li>
+      <li><code>dbus-property</code>, corresponding
+        to Conn_Mgr_Param_Flag_DBus_Property</li>
+    </ul>
+
+    <p>The group may also contain a key <code>default-<em>p</em></code>
+      whose value is a string form of the default value for the parameter.
+      If this key exists, it sets the default, and also sets the flag
+      Conn_Mgr_Param_Flag_Has_Default. The default value is formatted
+      according to the D-Bus signature as follows:</p>
+
+    <dl>
+      <dt>s (string)</dt>
+        <dd>The UTF-8 string, with the standard backslash escape
+          sequences supported by the Desktop Entry Specification
+          (the &quot;localestring&quot; type from the Desktop Entry Specification)</dd>
+      <dt>o (object path)</dt>
+        <dd>The object path as an ASCII string</dd>
+      <dt>b (boolean)</dt>
+        <dd>&quot;true&quot; (case-insensitively) or &quot;1&quot; means True, &quot;false&quot;
+          (case-insensitively) or &quot;0&quot; means False; when writing a file,
+          &quot;true&quot; and &quot;false&quot; SHOULD be used</dd>
+      <dt>y, q, u, t (8-, 16-, 32-, 64-bit unsigned integer)</dt>
+        <dd>ASCII decimal integer</dd>
+      <dt>n, i, x (16-, 32-, 64-bit signed integer)</dt>
+        <dd>ASCII decimal integer, optionally prefixed with &quot;-&quot;</dd>
+      <dt>d (double-precision floating point)</dt>
+        <dd>ASCII decimal number</dd>
+      <dt>as (array of string), ao (array of object path)</dt>
+        <dd>A sequence of UTF-8 strings each followed by a semicolon, with
+          any semicolons they contain escaped with a backslash
+          (the &quot;localestrings&quot; type from the Desktop Entry Specification)</dd>
+    </dl>
+
+    <p>Currently, no other D-Bus signatures are allowed to have default values,
+      but clients parsing the .manager file MUST ignore defaults
+      that they cannot parse, and treat them as if the
+      <code>default-<em>p</em></code> key was not present at all.</p>
+
+    <p>It is not required that a connection manager be able to support multiple
+    protocols, or even multiple connections. When a connection is made, a
+    service name where the connection object can be found is returned. A
+    manager which can only make one connection may then remove itself from its
+    well-known bus name, causing a new connection manager to be activated when
+    somebody attempts to make a new connection.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:GetParameters"></a>
+     <span class="permalink">(<a href="Connection_Manager.html#Method:GetParameters">Permalink</a>)</span>
+     <h2>GetParameters (s: Protocol) &#8594; a(susv): Parameters</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Protocol &mdash; s
+        
+          (<a href="Connection_Manager.html#Simple-Type:Protocol" title="Simple Type Protocol">Protocol</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The required protocol name
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Parameters &mdash; a(susv)
+        
+          (<a href="Connection_Manager.html#Struct:Param_Spec" title="Array of Struct Param_Spec">Param_Spec_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          An array of structs representing possible parameters.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Get a list of the parameters which may be specified in the
+        <a href="Account.html#Property:Parameters" namespace="ofdT.Account" title="Property org.freedesktop.Telepathy.Account.Parameters">Parameters</a> of an
+        <a href="Account.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.Account">Account</a> (or, for
+        specialised applications which do not use the account manager, passed
+        to <a href="Connection_Manager.html#Method:RequestConnection" title="Method org.freedesktop.Telepathy.ConnectionManager.RequestConnection">RequestConnection</a>). Some parameters
+        are mandatory, and some parameters only make sense when registering new
+        accounts with the server; see the <a href="Connection_Manager.html#Struct:Param_Spec">Param_Spec</a>
+        documentation for more details.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested protocol is not supported by this manager
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:ListProtocols"></a>
+     <span class="permalink">(<a href="Connection_Manager.html#Method:ListProtocols">Permalink</a>)</span>
+     <h2>ListProtocols () &#8594; as: Protocols</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Protocols &mdash; as
+        
+          (<a href="Connection_Manager.html#Simple-Type:Protocol" title="Array of Simple Type Protocol">Protocol_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The keys of the <a href="Connection_Manager.html#Property:Protocols" title="Property org.freedesktop.Telepathy.ConnectionManager.Protocols">Protocols</a> map.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Get a list of protocol identifiers that are implemented by this
+        connection manager.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RequestConnection"></a>
+     <span class="permalink">(<a href="Connection_Manager.html#Method:RequestConnection">Permalink</a>)</span>
+     <h2>RequestConnection (s: Protocol, a{sv}: Parameters) &#8594; s: Bus_Name, o: Object_Path</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Protocol &mdash; s
+        
+          (<a href="Connection_Manager.html#Simple-Type:Protocol" title="Simple Type Protocol">Protocol</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The protocol identifier
+        </div>
+      
+       <li>
+        Parameters &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A dictionary mapping parameter names to values of the appropriate
+          type, as indicated by <a href="Connection_Manager.html#Method:GetParameters" title="Method org.freedesktop.Telepathy.ConnectionManager.GetParameters">GetParameters</a>
+          and the well-known list of names and value types documented on the
+          <a href="Connection_Manager.html#Simple-Type:Connection_Parameter_Name">Connection_Parameter_Name</a> type.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Bus_Name &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Bus_Name" title="Simple Type DBus_Bus_Name">DBus_Bus_Name</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A D-Bus service name where the new Connection object can be found
+        </div>
+      
+       <li>
+        Object_Path &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The D-Bus object path to the Connection on this service
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request a
+          <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>
+          object representing a given account on a given
+          protocol with the given parameters. The method returns the bus name
+          and the object path where the new Connection object can be found,
+          which should have the status of Connection_Status_Disconnected, to
+          allow signal handlers to be attached before connecting is started
+          with the
+          <a href="Connection.html#Method:Connect" namespace="org.freedesktop.Telepathy.Connection" title="Method org.freedesktop.Telepathy.Connection.Connect">Connect</a>
+          method.</p>
+
+        <p><strong>Most applications should not use this method</strong>: they
+          should instead use the the <a href="Account.html#Property:Connection" namespace="ofdT.Account" title="Property org.freedesktop.Telepathy.Account.Connection">Connection</a> property on an
+          <a href="Account.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.Account">Account</a> object obtained
+          from the <a href="Account_Manager.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.AccountManager">AccountManager</a>. This method is used
+          internally by the account manager to create connections when
+          needed.</p>
+
+        <p>The parameters which must and may be provided in the parameters
+        dictionary can be discovered with the
+        <a href="Connection_Manager.html#Method:GetParameters" title="Method org.freedesktop.Telepathy.ConnectionManager.GetParameters">GetParameters</a> method. These
+        parameters, their types, and their default values may be cached
+        in files so that all available connection managers do not need to be
+        started to discover which protocols are available.</p>
+
+        <p>To request values for these parameters from the user, a client must
+        have prior knowledge of the meaning of the parameter names, so the
+        well-known names and types defined by the
+        <a href="Connection_Manager.html#Simple-Type:Connection_Parameter_Name">Connection_Parameter_Name</a> type should be used where
+        appropriate.</p>
+
+        <p>Connection manager authors SHOULD avoid introducing parameters
+          whose default values would not be serializable in a
+          <code>.manager</code> file.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The same serialization format is used in Mission Control
+            to store accounts.</p>
+        </div></div>
+
+        <p>Every successful RequestConnection call will cause the emission of a
+        <a href="Connection_Manager.html#Signal:NewConnection" title="Signal org.freedesktop.Telepathy.ConnectionManager.NewConnection">NewConnection</a> signal for the same newly
+        created connection. The
+        requester can use the returned object path and service name
+        independently of the emission of that signal. In that case this signal
+        emission is most useful for, e.g. other processes that are monitoring
+        the creation of new connections.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested protocol is not supported by this manager
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested connection already appears to exist
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            Unrecognised connection parameters
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:NewConnection"></a>
+     <span class="permalink">(<a href="Connection_Manager.html#Signal:NewConnection">Permalink</a>)</span>
+     <h2>NewConnection (s: Bus_Name, o: Object_Path, s: Protocol)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Bus_Name &mdash; s
+       
+        (<a href="generic-types.html#Simple-Type:DBus_Bus_Name" title="Simple Type DBus_Bus_Name">DBus_Bus_Name</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The D-Bus service where the connection object can be found
+        </div>
+      
+       <li>
+       Object_Path &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The object path of the Connection object on this service
+        </div>
+      
+       <li>
+       Protocol &mdash; s
+       
+        (<a href="Connection_Manager.html#Simple-Type:Protocol" title="Simple Type Protocol">Protocol</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The identifier for the protocol this connection uses
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when a new <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a> object
+        is created.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Protocols"></a>
+     <span class="permalink">(<a href="Connection_Manager.html#Property:Protocols">Permalink</a>)</span>
+     <h2>
+      Protocols &mdash; a{sa{sv}}
+      
+        (<a href="Connection_Manager.html#Mapping:Protocol_Properties_Map" title="Mapping Protocol_Properties_Map">Protocol_Properties_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A map from protocol identifiers supported by this connection
+          manager to the immutable properties of the corresponding
+          <a href="Protocol.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Protocol">Protocol</a> objects.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Providing the immutable properties here means that
+            when the API of Protocol objects has been finalized,
+            most clients will only need one D-Bus round trip to interrogate
+            the ConnectionManager about all its protocols.</p>
+        </div></div>
+
+        <p>If this map is empty or missing, clients SHOULD fall back to
+          calling <a href="Connection_Manager.html#Method:ListProtocols" title="Method org.freedesktop.Telepathy.ConnectionManager.ListProtocols">ListProtocols</a> and
+          <a href="Connection_Manager.html#Method:GetParameters" title="Method org.freedesktop.Telepathy.ConnectionManager.GetParameters">GetParameters</a>.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Interfaces"></a>
+     <span class="permalink">(<a href="Connection_Manager.html#Property:Interfaces">Permalink</a>)</span>
+     <h2>
+      Interfaces &mdash; as
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.8. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A list of the extra interfaces provided by this connection manager
+          (i.e. extra functionality that can be provided even before a
+          connection has been created).</p>
+
+        <p>No interfaces suitable for listing in this property are currently
+          defined; it's provided as a hook for possible future
+          functionality.</p>
+
+        <p>To be compatible with older connection managers, if retrieving
+          this property fails, clients SHOULD assume that its value is
+          an empty list.</p>
+
+        <p>Connection managers with a non-empty list of Interfaces MUST
+          represent them in the <code>.manager</code> file, if they have one,
+          as an <code>Interfaces</code> key in the
+          group headed <code>[ConnectionManager]</code>, whose value is a list
+          of strings each followed by a semicolon.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Connection_Manager_Name"></a>
+      <span class="permalink">Simple Type (<a href="Connection_Manager.html#Simple-Type:Connection_Manager_Name">Permalink</a>)</span>
+      <h2>
+       Connection_Manager_Name &mdash; s
+      </h2>
+
+      
+      <div class="annotation changed"><span class="version">Changed in 0.17.1. </span>Prior to version 0.17.1, the allowed
+        characters were not specified</div>
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The name of a connection manager, found in its well-known
+          bus name and object path. This must be a non-empty string of
+          ASCII letters, digits and underscores, starting with a letter.
+          This is typically the name of the executable with any &quot;telepathy-&quot;
+          prefix removed, and any hyphen/minus signs replaced by
+          underscores.</p>
+
+        <p>Connection manager names SHOULD NOT be the same as the name of
+          the protocol they implement.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This is likely to lead to conflicts between different
+            implementations of the same protocol (or indeed inability
+            to distinguish between the different implementations!). The
+            Telepathy project traditionally uses some sort of pun (Haze is
+            based on libpurple, Salut implements a protocol often called
+            Bonjour, and Wilde implements the OSCAR protocol).</p>
+        </div></div>
+
+        <p>Connection manager names SHOULD NOT be the same as the name of
+          a library on which they are based.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>We often abbreviate, for instance, <i>telepathy-haze</i> as
+            “Haze”, but abbreviating <i>telepathy-sofiasip</i>—since renamed to
+            <i>telepathy-rakia</i> for exactly this reason—to “Sofia-SIP”
+            caused confusion between the connection manager and the library it
+            uses. Please don't repeat that mistake.</p>
+        </div></div>
+      </div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Protocol"></a>
+      <span class="permalink">Simple Type (<a href="Connection_Manager.html#Simple-Type:Protocol">Permalink</a>)</span>
+      <h2>
+       Protocol &mdash; s
+      </h2>
+
+      
+      <div class="annotation changed"><span class="version">Changed in 0.17.1. </span>Prior to version 0.17.1, the allowed
+        characters were not specified</div>
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>An instant messaging protocol. It must consist only of ASCII
+          letters, digits and hyphen/minus signs (U+002D &quot;-&quot;), and must start
+          with a letter. Where possible, this SHOULD be
+          chosen from the following well-known values:</p>
+
+        <ul>
+          <li>aim - AOL Instant Messenger (OSCAR or TOC)</li>
+          <li>gadugadu - Gadu-Gadu</li>
+          <li>groupwise - Novell Groupwise</li>
+          <li>icq - ICQ (OSCAR)</li>
+          <li>irc - Internet Relay Chat (RFC 1459, 2810-2813)</li>
+          <li>jabber - XMPP (RFC 3920, 3921) or Jabber</li>
+          <li>local-xmpp - Link-local XMPP (XEP-0174) (Bonjour, Salut)</li>
+          <li>msn - MSNP (Windows Live Messenger)</li>
+          <li>myspace - MySpaceIM</li>
+          <li>mxit - MXit</li>
+          <li>napster - Napster</li>
+          <li>qq - Tencent QQ</li>
+          <li>sametime - IBM Lotus Sametime</li>
+          <li>silc - SILC</li>
+          <li>sip - Session Initiation Protocol (SIP), with or without
+            SIMPLE support</li>
+          <li>skype - Skype</li>
+          <li>tel - telephony (the
+            <abbr title="Public Switched Telephone Network">PSTN</abbr>,
+            including GSM, CDMA and fixed-line telephony)</li>
+          <li>trepia - Trepia</li>
+          <li>yahoo - YMSG (Yahoo! Messenger)</li>
+          <li>yahoojp - Japanese version of YMSG</li>
+          <li>zephyr - Zephyr</li>
+        </ul>
+      </div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Connection_Parameter_Name"></a>
+      <span class="permalink">Simple Type (<a href="Connection_Manager.html#Simple-Type:Connection_Parameter_Name">Permalink</a>)</span>
+      <h2>
+       Connection_Parameter_Name &mdash; s
+      </h2>
+
+      <div class="annotation added"><span class="version">Added in 0.21.2. </span></div>
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Well-known connection parameter names, along with their expected
+          type. Where possible, connection managers should use names and types
+          from this list in the <a href="Protocol.html#Property:Parameters" namespace="ofdT.Protocol" title="Property org.freedesktop.Telepathy.Protocol.Parameters">Parameters</a> that may be passed
+          to <a href="Connection_Manager.html#Method:RequestConnection" title="Method org.freedesktop.Telepathy.ConnectionManager.RequestConnection">RequestConnection</a>.</p>
+
+        <dl>
+          <dt>account (s)</dt>
+          <dd>The identifier for the user's account on the server</dd>
+
+          <dt>server (s)</dt>
+          <dd>A fully qualified domain name or numeric IPv4 or IPv6 address.
+            Using the fully-qualified domain name form is recommended whenever
+            possible. If this parameter is specified and the account for that
+            protocol also specifies a server, this parameter should override
+            that in the user id.</dd>
+
+          <dt>port (q)</dt>
+          <dd>A TCP or UDP port number. If this parameter is specified and the
+            account for that protocol also specifies a port, this parameter
+            should override that in the account.</dd>
+
+          <dt>password (s)</dt>
+          <dd>A password associated with the account.</dd>
+
+          <dt>require-encryption (b)</dt>
+          <dd>Require encryption for this connection. A connection should fail
+            to connect if require-encryption is set and an encrypted connection
+            is not possible.</dd>
+
+          <dt>register (b)</dt>
+          <dd>This account should be created on the server if it does not
+            already exist.</dd>
+
+          <dt>ident (s)</dt>
+          <dd>The local username to report to the server if necessary, such as
+            in IRC.</dd>
+
+          <dt>fullname (s)</dt>
+          <dd>The user's full name if the service requires this when
+            authenticating or registering.</dd>
+
+          <dt>stun-server (s)</dt>
+          <dd>The IP address or FQDN of a STUN server to use for NAT traversal,
+            without any &quot;:port&quot; suffix.</dd>
+
+          <dt>stun-port (q)</dt>
+          <dd>The UDP port number on the stun-server to use for STUN. Only
+            significant if the stun-server is also supplied.</dd>
+
+          <dt>keepalive-interval (u)</dt>
+          <dd>
+            <p>The time in seconds between pings sent to the server to ensure
+              that the connection is still alive, or <tt>0</tt> to disable such
+              pings.</p>
+
+            <p>This parameter is superseded by the <a href="Connection_Interface_Keepalive.html#Property:KeepaliveInterval" namespace="ofdT.Connection.Interface.Keepalive.DRAFT" title="Property org.freedesktop.Telepathy.Connection.Interface.Keepalive.DRAFT.KeepaliveInterval">KeepaliveInterval</a>
+              property, which can be updated on an already-established
+              connection as well as being specified when requesting the
+              connection. Clients SHOULD provide that parameter instead, if
+              allowed; new connection managers SHOULD implement it in
+              preference to this one.</p>
+          </dd>
+
+          <dt>account-path-suffix (s)</dt>
+          <dd>The suffix of the Connection's Account object-path such as
+          &quot;gabble/jabber/chris_40example_2ecom0&quot; for the account whose
+          object path is &quot;/org/freedesktop/Telepathy/Account/gabble/jabber/chris_40example_2ecom0&quot;.
+          This parameter should be set by the AccountManager on CMs supporting
+          this parameter.</dd>
+        </dl>
+
+        <p>The following well-known parameter names correspond to D-Bus
+          properties, and thus their <a href="Connection_Manager.html#Flags:Conn_Mgr_Param_Flags">Conn_Mgr_Param_Flags</a>
+          should include DBus_Property. See that flag for more details on this
+          kind of parameter.</p>
+
+        <ul><li><a href="Connection_Interface_Contact_List.html#Property:DownloadAtConnection">org.freedesktop.Telepathy.Connection.Interface.ContactList.DownloadAtConnection</a> (b)</li><li><a href="Connection_Interface_Anonymity.html#Property:AnonymityMandatory">org.freedesktop.Telepathy.Connection.Interface.Anonymity.AnonymityMandatory</a> (b)</li><li><a href="Connection_Interface_Anonymity.html#Property:AnonymityModes">org.freedesktop.Telepathy.Connection.Interface.Anonymity.AnonymityModes</a> (u)</li><li><a href="Connection_Interface_Cellular.html#Property:MessageValidityPeriod">org.freedesktop.Telepathy.Connection.Interface.Cellular.MessageValidityPeriod</a> (u)</li><li><a href="Connection_Interface_Cellular.html#Property:OverrideMessageServiceCentre">org.freedesktop.Telepathy.Connection.Interface.Cellular.OverrideMessageServiceCentre</a> (b)</li><li><a href="Connection_Interface_Cellular.html#Property:MessageServiceCentre">org.freedesktop.Telepathy.Connection.Interface.Cellular.MessageServiceCentre</a> (s)</li><li><a href="Connection_Interface_Cellular.html#Property:MessageReducedCharacterSet">org.freedesktop.Telepathy.Connection.Interface.Cellular.MessageReducedCharacterSet</a> (b)</li><li><a href="Connection_Interface_Cellular.html#Property:MessageNationalCharacterSet">org.freedesktop.Telepathy.Connection.Interface.Cellular.MessageNationalCharacterSet</a> (s)</li><li><a href="Connection_Interface_Keepalive.html#Property:KeepaliveInterval">org.freedesktop.Telepathy.Connection.Interface.Keepalive.DRAFT.KeepaliveInterval</a> (u)</li></ul>
+      </div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Flags:Conn_Mgr_Param_Flags"></a>
+      <span class="permalink">Flags (<a href="Connection_Manager.html#Flags:Conn_Mgr_Param_Flags">Permalink</a>)</span>
+      <h2>
+       Conn_Mgr_Param_Flags &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Required (1)</li>
+<div class="docstring">
+          This parameter is required for connecting to the server.
+        </div><li>Register (2)</li>
+<div class="docstring">
+          This parameter is required for registering an account on the
+          server.
+        </div><li>Has_Default (4)</li>
+<div class="docstring">
+          This parameter has a default value, which is returned in
+          GetParameters; not providing this parameter is equivalent to
+          providing the default.
+        </div><li>Secret (8)</li>
+<div class="annotation added"><span class="version">Added in 0.17.2. </span></div><div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>This parameter should be considered private or secret; for
+            instance, clients should store it in a &quot;password safe&quot; like
+            gnome-keyring or kwallet, omit it from debug logs, and use a
+            text input widget that hides the value of the parameter.</p>
+
+          <p>(Clients that support older connection managers may also treat
+            any parameter whose name contains &quot;password&quot; as though it had this
+            flag.)</p>
+        </div><li>DBus_Property (16)</li>
+<div class="annotation added"><span class="version">Added in 0.17.16. </span></div><div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>This parameter is also a D-Bus property on the resulting
+            <a href="Connection.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>; a
+            parameter named <code>com.example.Duck.Macaroni</code> with this
+            flag corresponds to the <code>Macaroni</code> property on the
+            <code>com.example.Duck</code> interface.  Its value can be queried
+            and possibly changed on an existing Connection using methods on the
+            <code>org.freedesktop.DBus.Properties</code> interface.</p>
+
+          <p>When a new value for a parameter with this flag is passed to
+            <a href="Account.html#Method:UpdateParameters" namespace="ofdT" title="Method org.freedesktop.Telepathy.Account.UpdateParameters">Account.UpdateParameters</a>,
+            the account manager will attempt to update its value on any running
+            connections. Similarly, if the parameter also has the
+            <code>Has_Default</code> flag, and is passed in the second argument
+            to <code>UpdateParameters</code>, the default value will be applied
+            to any running
+            connections. Thus, clients generally do not need to directly access
+            or update the connection property; instead, they SHOULD manipulate
+            <a href="Account.html#Property:Parameters" namespace="ofdT" title="Property org.freedesktop.Telepathy.Account.Parameters">Account.Parameters</a>.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>This allows runtime-configurable options to be stored and
+              maintained by the <a href="Account_Manager.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.AccountManager">AccountManager</a>, without needing to
+              invent a separate account preference for “properties that should
+              be set on the connection as soon as it is created”. It was
+              originally invented to manage <a href="Connection_Interface_Cellular.html" namespace="ofdT.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.Cellular">Cellular</a>
+              preferences.</p>
+          </div></div>
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Protocol_Properties_Map"></a>
+      <span class="permalink">Mapping (<a href="Connection_Manager.html#Mapping:Protocol_Properties_Map">Permalink</a>)</span>
+      <h2>
+       Protocol_Properties_Map &mdash; a{sa{sv}}
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A map from protocol identifiers supported by a connection
+          manager to the immutable properties of the corresponding
+          <a href="Protocol.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Protocol">Protocol</a> objects.</p>
+      </div>
+      <ul>
+<li>Protocol &mdash; s (<a href="Connection_Manager.html#Simple-Type:Protocol" title="Simple Type Protocol">Protocol</a>)</li>
+<div class="docstring">A protocol name</div><li>Properties &mdash; a{sv} (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)</li>
+<div class="docstring">The immutable properties of the corresponding
+          Protocol object</div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Param_Spec"></a>
+      <span class="permalink">Struct (<a href="Connection_Manager.html#Struct:Param_Spec">Permalink</a>)</span>
+      <h2>
+       Param_Spec &mdash; (susv)
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A struct representing an allowed parameter, as returned
+        by GetParameters on the ConnectionManager interface.</div>
+      <ul>
+<li>Name &mdash; s</li>
+<div class="docstring">A string parameter name</div><li>Flags &mdash; u (<a href="Connection_Manager.html#Flags:Conn_Mgr_Param_Flags" title="Flags Conn_Mgr_Param_Flags">Conn_Mgr_Param_Flags</a>)</li>
+<div class="docstring">A bitwise OR of the parameter flags</div><li>Signature &mdash; s (<a href="generic-types.html#Simple-Type:DBus_Signature" title="Simple Type DBus_Signature">DBus_Signature</a>)</li>
+<div class="docstring">A string containing the D-Bus type signature
+          for this parameter</div><li>Default_Value &mdash; v</li>
+<div class="docstring">The default value (if the Has_Default flag is not
+          present, there is no default and this takes some dummy value,
+          which SHOULD be of the appropriate D-Bus type)</div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

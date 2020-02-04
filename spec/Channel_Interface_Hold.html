@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.Hold &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.Hold'>Channel.Interface.Hold</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+   
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Hold.html#Method:GetHoldState">GetHoldState</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>u: HoldState, u: Reason</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Hold.html#Method:RequestHold">RequestHold</a></td>
+       <td>(b: Hold)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Hold.html#Signal:HoldStateChanged">HoldStateChanged</a></td>
+       <td>(u: HoldState, u: Reason)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Hold.html#Enum:Local_Hold_State">Local_Hold_State</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Hold.html#Enum:Local_Hold_State_Reason">Local_Hold_State_Reason</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   
+   <div class="annotation changed"><span class="version">Changed in 0.17.4. </span>first API-stable version</div>
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+     <li>
+      
+       <a href="Channel_Type_Streamed_Media.html" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamedMedia">org.freedesktop.Telepathy.Channel.Type.StreamedMedia</a>
+        <strong>or</strong> 
+      
+       <a href="Channel_Type_Call.html" title="Interface org.freedesktop.Telepathy.Channel.Type.Call1">org.freedesktop.Telepathy.Channel.Type.Call1</a>
+        <strong>or</strong> 
+      
+       <a href="Call_Content.html" title="Interface org.freedesktop.Telepathy.Call1.Content">org.freedesktop.Telepathy.Call1.Content</a>
+       
+      
+     </li>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>Interface for channels where you may put the channel on hold.
+        This only makes sense for channels where
+        you are streaming media to or from the members. (To see whether the
+        other participant has put you on hold, see <a href="Channel_Interface_Call_State.html" namespace="org.freedesktop.Telepathy.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.CallState">CallState</a>.)</p>
+
+      <p>If you place a channel on hold, this indicates that you do not wish
+        to be sent media streams by any of its members and will be ignoring
+        any media streams you continue to receive. It also requests that the
+        connection manager free up any resources that are only needed for
+        an actively used channel (e.g. in a GSM or PBX call, it will be
+        necessary to place an active call on hold before you can start
+        another call).</p>
+
+      <p>This can also be used for putting a single Content on hold, if the
+        protocol supports it (This interface is in the Channel namespace for
+        historical reasons).</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:GetHoldState"></a>
+     <span class="permalink">(<a href="Channel_Interface_Hold.html#Method:GetHoldState">Permalink</a>)</span>
+     <h2>GetHoldState () &#8594; u: HoldState, u: Reason</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        HoldState &mdash; u
+        
+          (<a href="Channel_Interface_Hold.html#Enum:Local_Hold_State" title="Enum Local_Hold_State">Local_Hold_State</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The state of the channel
+        </div>
+      
+       <li>
+        Reason &mdash; u
+        
+          (<a href="Channel_Interface_Hold.html#Enum:Local_Hold_State_Reason" title="Enum Local_Hold_State_Reason">Local_Hold_State_Reason</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The reason why the channel is in that state
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Return whether the local user has placed the channel on hold.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:RequestHold"></a>
+     <span class="permalink">(<a href="Channel_Interface_Hold.html#Method:RequestHold">Permalink</a>)</span>
+     <h2>RequestHold (b: Hold) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Hold &mdash; b
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A boolean indicating whether or not the channel should be on hold
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request that the channel be put on hold (be instructed not to send
+          any media streams to you) or be taken off hold.</p>
+
+        <p>If the connection manager can immediately tell that the requested
+          state change could not possibly succeed, this method SHOULD
+          return the NotAvailable error. If the requested state is the
+          same as the current state, this method SHOULD return successfully
+          without doing anything.</p>
+
+        <p>Otherwise, this method SHOULD immediately set the hold state to
+          Local_Hold_State_Pending_Hold or Local_Hold_State_Pending_Unhold
+          (as appropriate), emitting
+          <a href="Channel_Interface_Hold.html#Signal:HoldStateChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.Hold.HoldStateChanged">HoldStateChanged</a> if this is a change,
+          and return successfully.</p>
+
+        <p>The eventual success or failure of the request is indicated by a
+          subsequent HoldStateChanged signal, changing the hold state to
+          Local_Hold_State_Held or Local_Hold_State_Unheld.</p>
+
+        <p>If the channel has multiple streams, and the connection manager
+          succeeds in changing the hold state of one stream but fails to
+          change the hold state of another, it SHOULD attempt to revert
+          all streams to their previous hold states.</p>
+
+        <p>The following state transitions SHOULD be used, where
+          appropriate:</p>
+
+        <ul>
+          <li>Successful hold:
+            (Unheld, any reason) → (Pending_Hold, Requested) →
+            (Held, Requested)
+          </li>
+          <li>Successful unhold:
+            (Held, any reason) → (Pending_Unhold, Requested) →
+            (Unheld, Requested)
+          </li>
+          <li>Attempting to unhold fails at the first attempt to acquire a
+            resource:
+            (Held, any reason) → (Pending_Unhold, Requested) →
+            (Held, Resource_Not_Available)
+          </li>
+          <li>Attempting to unhold acquires one resource, but fails to acquire
+            a second, and takes time to release the first:
+            (Held, any reason) → (Pending_Unhold, Requested) →
+            (Pending_Hold, Resource_Not_Available) →
+            (Held, Resource_Not_Available)
+          </li>
+        </ul>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested hold state cannot be achieved; for example,
+            if only a limited number of channels can be in the &quot;not on hold&quot;
+            state, attempts to exceed this number will raise NotAvailable.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:HoldStateChanged"></a>
+     <span class="permalink">(<a href="Channel_Interface_Hold.html#Signal:HoldStateChanged">Permalink</a>)</span>
+     <h2>HoldStateChanged (u: HoldState, u: Reason)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       HoldState &mdash; u
+       
+        (<a href="Channel_Interface_Hold.html#Enum:Local_Hold_State" title="Enum Local_Hold_State">Local_Hold_State</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The state of the channel
+        </div>
+      
+       <li>
+       Reason &mdash; u
+       
+        (<a href="Channel_Interface_Hold.html#Enum:Local_Hold_State_Reason" title="Enum Local_Hold_State_Reason">Local_Hold_State_Reason</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The reason for the state change
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted to indicate that the hold state has changed for this channel.
+        This may occur as a consequence of you requesting a change with
+        <a href="Channel_Interface_Hold.html#Method:RequestHold" title="Method org.freedesktop.Telepathy.Channel.Interface.Hold.RequestHold">RequestHold</a>, or the state changing as a
+        result of a request from
+        another process.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Local_Hold_State"></a>
+      <span class="permalink">Enum (<a href="Channel_Interface_Hold.html#Enum:Local_Hold_State">Permalink</a>)</span>
+      <h2>
+       Local_Hold_State &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        The hold state of a channel.
+      </div>
+      <ul>
+<li>Unheld (0)</li>
+<div class="docstring">
+          All streams are unheld (the call is active). New channels SHOULD
+          have this hold state.
+        </div><li>Held (1)</li>
+<div class="docstring">
+          All streams are held (the call is on hold)
+        </div><li>Pending_Hold (2)</li>
+<div class="docstring">
+          The connection manager is attempting to move to state Held, but
+          has not yet completed that operation. It is unspecified whether
+          any, all or none of the streams making up the channel are on hold.
+          Examining the Hold state of Call Contents (if applicable) may
+          provide more useful information.
+        </div><li>Pending_Unhold (3)</li>
+<div class="docstring">
+          The connection manager is attempting to move to state Unheld, but
+          has not yet completed that operation. It is unspecified whether
+          any, all or none of the streams making up the channel are on hold.
+          Examining the Hold state of Call Contents (if applicable) may
+          provide more useful information.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Local_Hold_State_Reason"></a>
+      <span class="permalink">Enum (<a href="Channel_Interface_Hold.html#Enum:Local_Hold_State_Reason">Permalink</a>)</span>
+      <h2>
+       Local_Hold_State_Reason &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        The reason for a change to the Local_Hold_State. Clients MUST
+        treat unknown values as equivalent to Local_Hold_State_Reason_None.
+      </div>
+      <ul>
+<li>None (0)</li>
+<div class="docstring">
+          The reason cannot be described by any of the predefined values
+          (connection managers SHOULD avoid this reason, but clients MUST
+          handle it gracefully)
+        </div><li>Requested (1)</li>
+<div class="docstring">
+          The change is in response to a user request
+        </div><li>Resource_Not_Available (2)</li>
+<div class="docstring">
+          The change is because some resource was not available
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

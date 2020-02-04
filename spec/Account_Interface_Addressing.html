@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Account.I.Addressing &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Account.Interface.Addressing'>Account.Interface.Addressing</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Account_Interface_Addressing.html#Method:SetURISchemeAssociation">SetURISchemeAssociation</a></td>
+       <td>(s: URI_Scheme, b: Association)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Account_Interface_Addressing.html#Property:URISchemes">URISchemes</a></td>
+       <td>
+        as
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.21.5. </span>(as stable API)</div>
+   <div class="annotation changed"><span class="version">Changed in 0.27.1. </span>
+      The standard D-Bus <code>PropertiesChanged</code> signal is now used
+      for <a href="Account_Interface_Addressing.html#Property:URISchemes" title="Property org.freedesktop.Telepathy.Account.Interface.Addressing.URISchemes">URISchemes</a> property change notifications.
+    </div>
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Account.html" title="Interface org.freedesktop.Telepathy.Account">org.freedesktop.Telepathy.Account</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>Some accounts can be used for multiple protocols; for instance, SIP
+        and Skype accounts can often be used to contact the PSTN, MSN and
+        Yahoo accounts can contact each other, and XMPP accounts can
+        potentially contact many protocols via a transport.</p>
+      <p>However, if the user does not intend to make use of this functionality,
+        user interfaces can improve clarity by not displaying it: for instance,
+        if a user prefers to call phone numbers via a particular SIP account,
+        when an address book displays a contact with a phone number, it is
+        desirable to display a &quot;call with SIP&quot; button for that account, but
+        avoid displaying similar buttons for any other configured SIP or
+        Skype accounts.</p>
+      <p>The purpose of this interface is to allow this &quot;for use with&quot; information
+        to be recorded and retrieved.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:SetURISchemeAssociation"></a>
+     <span class="permalink">(<a href="Account_Interface_Addressing.html#Method:SetURISchemeAssociation">Permalink</a>)</span>
+     <h2>SetURISchemeAssociation (s: URI_Scheme, b: Association) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        URI_Scheme &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          <p>URI scheme to associate/disassociate the account with/from</p>
+        </div>
+      
+       <li>
+        Association &mdash; b
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          <p>True to associate this account with a given addressing scheme</p>
+          <p>False if the account should not be associated with said scheme</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        <p>Associate (or disassociate) an account with a particular
+          URI addressing scheme, (such as 'tel' for telephony)</p>
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:URISchemes"></a>
+     <span class="permalink">(<a href="Account_Interface_Addressing.html#Property:URISchemes">Permalink</a>)</span>
+     <h2>
+      URISchemes &mdash; as
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A list of fields indicating the type of URI addressing scheme
+          the the account should be used for (eg 'tel') indicating the
+          account is intended for use by applications offering a telephony
+          UI, or 'sip' or 'xmpp' for those protocols</p>
+        <p>Note that these fields signify intent, not ability: It is
+          entirely possible that an account which can be used for a
+          given URI scheme is not wanted for it by the user, and
+          therefore not flagged as such in this field.</p>
+        <p>Change notification for this property is provided by the
+          standard D-Bus <code>PropertiesChanged</code> signal.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

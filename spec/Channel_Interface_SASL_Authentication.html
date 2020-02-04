@@ -1,0 +1,1661 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.SASLAuthentication &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication'>Channel.Interface.SASLAuthentication</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanism">StartMechanism</a></td>
+       <td>(s: Mechanism)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanismWithData">StartMechanismWithData</a></td>
+       <td>(s: Mechanism, ay: Initial_Data)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Method:Respond">Respond</a></td>
+       <td>(ay: Response_Data)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Method:AcceptSASL">AcceptSASL</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Method:AbortSASL">AbortSASL</a></td>
+       <td>(u: Reason, s: Debug_Message)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Signal:SASLStatusChanged">SASLStatusChanged</a></td>
+       <td>(u: Status, s: Reason, a{sv}: Details)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Signal:NewChallenge">NewChallenge</a></td>
+       <td>(ay: Challenge_Data)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Property:AvailableMechanisms">AvailableMechanisms</a></td>
+       <td>
+        as
+        
+          (<a href="Channel_Interface_SASL_Authentication.html#Simple-Type:SASL_Mechanism" title="Array of Simple Type SASL_Mechanism">
+              SASL_Mechanism_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Property:HasInitialData">HasInitialData</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Property:CanTryAgain">CanTryAgain</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Property:SASLStatus">SASLStatus</a></td>
+       <td>
+        u
+        
+          (<a href="Channel_Interface_SASL_Authentication.html#Enum:SASL_Status" title="Enum SASL_Status">
+              SASL_Status</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Property:SASLError">SASLError</a></td>
+       <td>
+        s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">
+              DBus_Error_Name</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Property:SASLErrorDetails">SASLErrorDetails</a></td>
+       <td>
+        a{sv}
+        
+          (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">
+              String_Variant_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Property:AuthorizationIdentity">AuthorizationIdentity</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Property:DefaultUsername">DefaultUsername</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Property:DefaultRealm">DefaultRealm</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Property:MaySaveResponse">MaySaveResponse</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Simple-Type:SASL_Mechanism">SASL_Mechanism</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Enum:SASL_Abort_Reason">SASL_Abort_Reason</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_SASL_Authentication.html#Enum:SASL_Status">SASL_Status</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.21.5. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>A channel interface for SASL authentication,
+        as defined by
+        <a href="http://tools.ietf.org/html/rfc4422">RFC 4422</a>.
+        When this interface appears on a <a href="Channel_Type_Server_Authentication.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ServerAuthentication">ServerAuthentication</a>
+        channel, it represents authentication with the server. In future,
+        it could also be used to authenticate with secondary services,
+        or even to authenticate end-to-end connections with contacts. As a result,
+        this interface does not REQUIRE <a href="Channel_Type_Server_Authentication.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ServerAuthentication">ServerAuthentication</a> to allow for a potential future
+        Channel.Type.PeerAuthentication interface.</p>
+
+      <p>In any protocol that requires a password, the connection manager can
+        use this channel to let a user interface carry out a simple SASL-like
+        handshake with it, as a way to get the user's credentials
+        interactively. This can be used to connect to protocols that may
+        require a password, without requiring that the password is saved in
+        the <a href="Account.html#Property:Parameters" namespace="ofdT" title="Property org.freedesktop.Telepathy.Account.Parameters">Account.Parameters</a>.</p>
+
+      <p>In some protocols, such as XMPP, authentication with the server
+        is also carried out using SASL. In these protocols, a channel with this
+        interface can provide a simple 1:1 mapping of the SASL negotiations
+        taking place in the protocol, allowing more advanced clients to
+        perform authentication via SASL mechanisms not known to the
+        connection manager.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>By providing SASL directly when the protocol supports it, we can
+          use mechanisms like Kerberos or Google's <code>X-GOOGLE-TOKEN</code>
+          without specific support in the connection manager.</p>
+      </div></div>
+
+      <p>For channels managed by a
+        <a href="Channel_Dispatcher.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.ChannelDispatcher">ChannelDispatcher</a>,
+        only the channel's <a href="Client_Handler.html" namespace="ofdT.Client" title="Interface org.freedesktop.Telepathy.Client.Handler">Handler</a> may call the
+        methods on this interface. Other clients MAY observe the
+        authentication process by watching its signals and properties.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>There can only be one Handler, which is a good fit for SASL's
+          1-1 conversation between a client and a server.</p>
+      </div></div>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:StartMechanism"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanism">Permalink</a>)</span>
+     <h2>StartMechanism (s: Mechanism) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Mechanism &mdash; s
+        
+          (<a href="Channel_Interface_SASL_Authentication.html#Simple-Type:SASL_Mechanism" title="Simple Type SASL_Mechanism">SASL_Mechanism</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The chosen mechanism.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Start an authentication try using <var>Mechanism</var>, without
+          sending initial data (an &quot;initial response&quot; as defined in RFC
+          4422).</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This method is appropriate for mechanisms where the client
+            cannot send anything until it receives a challenge from the
+            server, such as
+            <code><a href="http://tools.ietf.org/html/rfc2831">DIGEST-MD5</a></code>
+            in &quot;initial authentication&quot; mode.</p>
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The channel is not in a state where starting authentication makes
+            sense (i.e. SASL_Status_Not_Started, or (if
+            <a href="Channel_Interface_SASL_Authentication.html#Property:CanTryAgain" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.CanTryAgain">CanTryAgain</a> is true)
+            SASL_Status_Server_Failed or
+            SASL_Status_Client_Failed). You should call
+            <a href="Channel_Interface_SASL_Authentication.html#Method:AbortSASL" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AbortSASL">AbortSASL</a> and wait for
+            SASL_Status_Client_Failed before starting another attempt.
+          </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The server or connection manager doesn't implement the given
+            SASL mechanism. Choose a SASL mechanism from
+            <a href="Channel_Interface_SASL_Authentication.html#Property:AvailableMechanisms" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AvailableMechanisms">AvailableMechanisms</a>, or abort
+            authentication if none of them are suitable.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:StartMechanismWithData"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanismWithData">Permalink</a>)</span>
+     <h2>StartMechanismWithData (s: Mechanism, ay: Initial_Data) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Mechanism &mdash; s
+        
+          (<a href="Channel_Interface_SASL_Authentication.html#Simple-Type:SASL_Mechanism" title="Simple Type SASL_Mechanism">SASL_Mechanism</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The chosen mechanism.
+        </div>
+      
+       <li>
+        Initial_Data &mdash; ay
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Initial data (an &quot;initial response&quot; in RFC 4422's terminology) to send
+          with the mechanism.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Start an authentication try using <var>Mechanism</var>, and send
+          <var>Initial_Data</var> as the &quot;initial response&quot; defined in
+          <a href="http://tools.ietf.org/html/rfc4422#section-3.3">RFC 4422
+            §3.3</a>.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This method is appropriate for mechanisms where the client may
+            send data first, such as <code>PLAIN</code>, or must send data
+            first, such as
+            <code><a href="http://tools.ietf.org/html/rfc2831">DIGEST-MD5</a></code>
+            in &quot;subsequent authentication&quot; mode.</p>
+
+          <p>Having two methods allows any mechanism where it makes a difference
+            to distinguish between the absence of an initial response
+            (<a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanism" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.StartMechanism">StartMechanism</a>) and a zero-byte
+            initial response (StartMechanismWithData, with Initial_Data
+            empty).</p>
+        </div></div>
+
+        <p>If the <a href="Channel_Interface_SASL_Authentication.html#Property:HasInitialData" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.HasInitialData">HasInitialData</a>
+          property is false, this indicates that the underlying protocol
+          does not make it possible to send initial data. In such protocols,
+          this method may only be used for the <code>X-TELEPATHY-</code>
+          pseudo-mechanisms (such as <code>X-TELEPATHY-PASSWORD</code>),
+          and will fail if used with an ordinary SASL mechanism.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>For instance, the IRC SASL extension implemented in Charybdis and
+            Atheme does not support initial data - the first message in the
+            exchange only carries the mechanism. This is significant if using
+            <code><a href="http://tools.ietf.org/html/rfc2831">DIGEST-MD5</a></code>,
+            which cannot be used in the faster &quot;subsequent authentication&quot;
+            mode on a protocol not supporting initial data.</p>
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The channel is not in a state where starting authentication makes
+            sense (i.e. SASL_Status_Not_Started, or (if
+            <a href="Channel_Interface_SASL_Authentication.html#Property:CanTryAgain" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.CanTryAgain">CanTryAgain</a> is true)
+            SASL_Status_Server_Failed or
+            SASL_Status_Client_Failed). You should call
+            <a href="Channel_Interface_SASL_Authentication.html#Method:AbortSASL" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AbortSASL">AbortSASL</a> and wait for
+            SASL_Status_Client_Failed before starting another attempt.
+          </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The server or connection manager doesn't implement the given
+            SASL mechanism (choose one from
+            <a href="Channel_Interface_SASL_Authentication.html#Property:AvailableMechanisms" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AvailableMechanisms">AvailableMechanisms</a>, or abort
+            authentication if none of them are suitable), or doesn't allow
+            initial data to be sent (as indicated by
+            <a href="Channel_Interface_SASL_Authentication.html#Property:HasInitialData" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.HasInitialData">HasInitialData</a>; call
+            <a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanism" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.StartMechanism">StartMechanism</a> instead).
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:Respond"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Method:Respond">Permalink</a>)</span>
+     <h2>Respond (ay: Response_Data) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Response_Data &mdash; ay
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The response data.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Send a response to the the last challenge received via
+          <a href="Channel_Interface_SASL_Authentication.html#Signal:NewChallenge" title="Signal org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.NewChallenge">NewChallenge</a>.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            Either the state is not In_Progress, or no challenge has been
+            received yet, or you have already responded to the last challenge.
+          </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:AcceptSASL"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Method:AcceptSASL">Permalink</a>)</span>
+     <h2>AcceptSASL () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If the channel's status is SASL_Status_Server_Succeeded,
+          this method confirms successful authentication and advances
+          the status of the channel to SASL_Status_Succeeded.</p>
+
+        <p>If the channel's status is SASL_Status_In_Progress, calling this
+          method indicates that the last
+          <a href="Channel_Interface_SASL_Authentication.html#Signal:NewChallenge" title="Signal org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.NewChallenge">NewChallenge</a> signal was in fact
+          additional data sent after a successful SASL negotiation, and
+          declares that from the client's point of view, authentication
+          was successful. This advances the state of the channel to
+          SASL_Status_Client_Accepted.</p>
+
+        <p>In mechanisms where the server authenticates itself to the client,
+          calling this method indicates that the client considers this to have
+          been successful. In the case of <a href="Channel_Type_Server_Authentication.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ServerAuthentication">ServerAuthentication</a>
+          channels, this means that the connection manager MAY continue to
+          connect, and MAY advance the <a href="Connection.html#Property:Status" namespace="ofdT" title="Property org.freedesktop.Telepathy.Connection.Status">Connection.Status</a> to Connected.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            Either the state is neither In_Progress nor Server_Succeeded, or no
+            challenge has been received yet, or you have already responded to
+            the last challenge.
+          </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:AbortSASL"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Method:AbortSASL">Permalink</a>)</span>
+     <h2>AbortSASL (u: Reason, s: Debug_Message) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Reason &mdash; u
+        
+          (<a href="Channel_Interface_SASL_Authentication.html#Enum:SASL_Abort_Reason" title="Enum SASL_Abort_Reason">SASL_Abort_Reason</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Reason for abort.
+        </div>
+      
+       <li>
+        Debug_Message &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Debug message for abort.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Abort the current authentication try.</p>
+
+        <p>If the current status is SASL_Status_Server_Failed or
+          SASL_Status_Client_Failed, this method returns successfully, but has
+          no further effect. If the current status is SASL_Status_Succeeded
+          or SASL_Status_Client_Accepted then NotAvailable is raised.
+          Otherwise, it changes the channel's state to
+          SASL_Status_Client_Failed, with an appropriate error name and
+          reason code.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The current state is either Succeeded or Client_Accepted.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:SASLStatusChanged"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Signal:SASLStatusChanged">Permalink</a>)</span>
+     <h2>SASLStatusChanged (u: Status, s: Reason, a{sv}: Details)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Status &mdash; u
+       
+        (<a href="Channel_Interface_SASL_Authentication.html#Enum:SASL_Status" title="Enum SASL_Status">SASL_Status</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of <a href="Channel_Interface_SASL_Authentication.html#Property:SASLStatus" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.SASLStatus">SASLStatus</a>.
+        </div>
+      
+       <li>
+       Reason &mdash; s
+       
+        (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">DBus_Error_Name</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of <a href="Channel_Interface_SASL_Authentication.html#Property:SASLError" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.SASLError">SASLError</a>.
+        </div>
+      
+       <li>
+       Details &mdash; a{sv}
+       
+        (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of <a href="Channel_Interface_SASL_Authentication.html#Property:SASLErrorDetails" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.SASLErrorDetails">SASLErrorDetails</a>.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the status of the channel changes.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:NewChallenge"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Signal:NewChallenge">Permalink</a>)</span>
+     <h2>NewChallenge (ay: Challenge_Data)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Challenge_Data &mdash; ay
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The challenge data or additional data from the server.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when a new challenge is received from the server, or when
+          a message indicating successful authentication and containing
+          additional data is received from the server.</p>
+
+        <p>When the channel's handler is ready to proceed, it should respond
+          to the challenge by calling <a href="Channel_Interface_SASL_Authentication.html#Method:Respond" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.Respond">Respond</a>,
+          or respond to the additional data by calling
+          <a href="Channel_Interface_SASL_Authentication.html#Method:AcceptSASL" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AcceptSASL">AcceptSASL</a>. Alternatively, it may call
+          <a href="Channel_Interface_SASL_Authentication.html#Method:AbortSASL" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AbortSASL">AbortSASL</a> to abort authentication.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:AvailableMechanisms"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Property:AvailableMechanisms">Permalink</a>)</span>
+     <h2>
+      AvailableMechanisms &mdash; as
+      
+        (<a href="Channel_Interface_SASL_Authentication.html#Simple-Type:SASL_Mechanism" title="Array of Simple Type SASL_Mechanism">SASL_Mechanism_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The SASL mechanisms as offered by the server, plus any
+          pseudo-SASL mechanisms supported by the connection manager for
+          credentials transfer. For instance, in a protocol that
+          natively uses SASL (like XMPP), this might be
+          <code>[ &quot;X-TELEPATHY-PASSWORD&quot;, &quot;PLAIN&quot;, &quot;DIGEST-MD5&quot;,
+            &quot;SCRAM-SHA-1&quot; ]</code>.</p>
+
+        <p>To make it possible to implement a very simple password-querying
+          user interface without knowledge of any particular SASL mechanism,
+          implementations of this interface MUST implement the
+          pseudo-mechanism <code>X-TELEPATHY-PASSWORD</code>, unless each
+          of the available mechanisms either requires additional information
+          beyond the password (such as a username), or does not use a
+          password.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:HasInitialData"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Property:HasInitialData">Permalink</a>)</span>
+     <h2>
+      HasInitialData &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If true, <a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanismWithData" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.StartMechanismWithData">StartMechanismWithData</a>
+          can be expected to work for SASL mechanisms not starting with
+          <code>X-TELEPATHY-</code> (this is the case in most, but not all,
+          protocols). If false, <a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanism" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.StartMechanism">StartMechanism</a>
+          must be used instead.</p>
+
+        <p>This property does not affect the <code>X-TELEPATHY-</code>
+          pseudo-mechanisms such as <code>X-TELEPATHY-PASSWORD</code>,
+          which can use
+          <a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanismWithData" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.StartMechanismWithData">StartMechanismWithData</a> regardless
+          of the value of this property.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CanTryAgain"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Property:CanTryAgain">Permalink</a>)</span>
+     <h2>
+      CanTryAgain &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If true, <a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanism" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.StartMechanism">StartMechanism</a> and (if
+          supported) <a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanismWithData" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.StartMechanismWithData">StartMechanismWithData</a>
+          can be expected to work when in one of the Failed states. If
+          false, the only thing you can do after failure is to close the
+          channel.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Retrying isn't required to work, although some protocols and
+            implementations allow it.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SASLStatus"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Property:SASLStatus">Permalink</a>)</span>
+     <h2>
+      SASLStatus &mdash; u
+      
+        (<a href="Channel_Interface_SASL_Authentication.html#Enum:SASL_Status" title="Enum SASL_Status">SASL_Status</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        The current status of this channel.
+        Change notification is via the
+        <a href="Channel_Interface_SASL_Authentication.html#Signal:SASLStatusChanged" title="Signal org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.SASLStatusChanged">SASLStatusChanged</a> signal.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SASLError"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Property:SASLError">Permalink</a>)</span>
+     <h2>
+      SASLError &mdash; s
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">DBus_Error_Name</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The reason for the <a href="Channel_Interface_SASL_Authentication.html#Property:SASLStatus" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.SASLStatus">SASLStatus</a>, or
+          an empty string if the state is neither
+          Server_Failed nor Client_Failed.</p>
+
+        <p>In particular, an ordinary authentication failure (as would
+          be produced for an incorrect password) SHOULD be represented by
+          <a href="errors.html#Error:Authentication Failed" title="org.freedesktop.Telepathy.Error.AuthenticationFailed">AuthenticationFailed</a>,
+          cancellation by the user's request SHOULD be represented
+          by <a href="errors.html#Error:Cancelled" title="org.freedesktop.Telepathy.Error.Cancelled">Cancelled</a>, and
+          cancellation by a local process due to inconsistent or invalid
+          challenges from the server SHOULD be represented by
+          <a href="errors.html#Error:Service Confused" title="org.freedesktop.Telepathy.Error.ServiceConfused">ServiceConfused</a>.</p>
+
+        <p>If this interface appears on a <a href="Channel_Type_Server_Authentication.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ServerAuthentication">ServerAuthentication</a>
+          channel, and connection to the server fails with an authentication
+          failure, this error code SHOULD be copied into the
+          <a href="Connection.html#Signal:ConnectionError" namespace="ofdT" title="Signal org.freedesktop.Telepathy.Connection.ConnectionError">Connection.ConnectionError</a>
+          signal.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SASLErrorDetails"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Property:SASLErrorDetails">Permalink</a>)</span>
+     <h2>
+      SASLErrorDetails &mdash; a{sv}
+      
+        (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If <a href="Channel_Interface_SASL_Authentication.html#Property:SASLError" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.SASLError">SASLError</a> is non-empty,
+          any additional information about the last
+          disconnection; otherwise, the empty map. The keys and values are
+          the same as for the second argument of
+          <a href="Connection.html#Signal:ConnectionError" namespace="ofdT" title="Signal org.freedesktop.Telepathy.Connection.ConnectionError">Connection.ConnectionError</a>.</p>
+
+        <p>If this interface appears on a <a href="Channel_Type_Server_Authentication.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ServerAuthentication">ServerAuthentication</a>
+          channel, and connection to the server fails with an authentication
+          failure, these details SHOULD be copied into the
+          <a href="Connection.html#Signal:ConnectionError" namespace="ofdT" title="Signal org.freedesktop.Telepathy.Connection.ConnectionError">Connection.ConnectionError</a>
+          signal.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:AuthorizationIdentity"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Property:AuthorizationIdentity">Permalink</a>)</span>
+     <h2>
+      AuthorizationIdentity &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The identity for which authorization is being attempted,
+          typically the 'account' from the <a href="Connection_Manager.html#Method:RequestConnection" namespace="ofdT.ConnectionManager" title="Method org.freedesktop.Telepathy.ConnectionManager.RequestConnection">RequestConnection</a>
+          parameters, normalized and formatted according to the
+          conventions used for SASL in this protocol.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The normalization used for SASL might not be the same
+            normalization used elsewhere: for instance, in a protocol
+            with email-like identifiers such as XMPP or SIP, the user
+            &quot;juliet@example.com&quot; might have to authenticate to the
+            example.com server via SASL PLAIN as &quot;juliet&quot;.</p>
+        </div></div>
+
+        <p>This is usually achieved by using the authorization identity for
+          authentication, but an advanced Handler could offer the option
+          to authenticate under a different identity.</p>
+
+        <p>The terminology used here is that the authorization identity
+          is who you want to act as, and the authentication identity is
+          used to prove that you may do so. For instance, if Juliet is
+          authorized to access a role account, &quot;sysadmin@example.com&quot;,
+          and act on its behalf, it might be possible to authenticate
+          as &quot;juliet@example.com&quot; with her own password, but request to
+          be authorized as &quot;sysadmin@example.com&quot; instead of her own
+          account. See
+          <a href="http://tools.ietf.org/html/rfc4422#section-3.4.1">RFC
+            4422 §3.4.1</a> for more details.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>In SASL the authorization identity is normally guessed from
+            the authentication identity, but the information available
+            to the connection manager is the identity for which
+            authorization is required, such as the desired JID in XMPP,
+            so that's what we signal to UIs; it's up to the UI to
+            choose whether to authenticate as the authorization identity
+            or some other identity.</p>
+
+          <p>As a concrete example, the &quot;sysadmin&quot; XMPP account mentioned
+            above would have <code>{ 'account': 'sysadmin@example.com' }</code>
+            in its Parameters, and this property would also be
+            'sysadmin@example.com'. A simple Handler would
+            merely prompt for sysadmin@example.com's password,
+            and use that JID as both the authorization and authentication
+            identity, which might result in SASL PLAIN authentication with the
+            initial response
+            '\000sysadmin@example.com\000root'.</p>
+
+          <p>A more advanced Handler might also ask for an authentication
+            identity, defaulting to 'sysadmin@example.com'; if Juliet
+            provided authentication identity 'juliet@example.com' and
+            password 'romeo', the Handler might perform SASL PLAIN
+            authentication using the initial response
+            'sysadmin@example.com\000juliet@example.com\000romeo'.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:DefaultUsername"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Property:DefaultUsername">Permalink</a>)</span>
+     <h2>
+      DefaultUsername &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The default username for use with SASL mechanisms that deal
+          with a &quot;simple username&quot; (as defined in <a href="http://tools.ietf.org/html/rfc4422">RFC 4422</a>). If
+          such a SASL mechanism is in use, clients SHOULD default to
+          using the DefaultUsername; also, if the client uses
+          the DefaultUsername, it SHOULD assume that the authorization
+          identity <a href="Channel_Interface_SASL_Authentication.html#Property:AuthorizationIdentity" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AuthorizationIdentity">AuthorizationIdentity</a>
+          will be derived from it by the server.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>In XMPP, <a href="http://trac.tools.ietf.org/wg/xmpp/trac/ticket/49">
+            servers typically expect</a> &quot;user@example.com&quot; to
+            authenticate with username &quot;user&quot;; this was a SHOULD in <a href="http://tools.ietf.org/html/rfc3920">RFC 3920</a>.</p>
+
+          <p><a href="http://tools.ietf.org/html/draft-ietf-xmpp-3920bis-19">3920bis</a>
+            weakens that SHOULD to &quot;in the absence of local information
+            provided by the server, an XMPP client SHOULD assume that
+            the authentication identity for such a SASL mechanism is the
+            combination of a user name and password, where the simple
+            user name is the localpart of the user's JID&quot;.</p>
+        </div></div>
+
+        <p>For example, in the simple case, if the user connects with
+        <a href="Connection_Manager.html#Method:RequestConnection" namespace="ofdT.ConnectionManager" title="Method org.freedesktop.Telepathy.ConnectionManager.RequestConnection">RequestConnection</a>({
+        account: &quot;<tt>user@example.com</tt>&quot; }) and use PLAIN with
+        password &quot;password&quot;, he or she should authenticate like so:
+        &quot;<tt>\0user\0password</tt>&quot; and the channel will look like
+        this:</p>
+
+<blockquote><pre>{ &quot;...<a href="Channel_Interface_SASL_Authentication.html#Property:DefaultUsername" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.DefaultUsername">DefaultUsername</a>&quot;: &quot;user&quot;,
+  &quot;...<a href="Channel_Interface_SASL_Authentication.html#Property:AuthorizationIdentity" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AuthorizationIdentity">AuthorizationIdentity</a>&quot;: &quot;user@example.com }
+</pre></blockquote>
+
+        <p>In the complex case, if the same user is using his or her
+          sysadmin powers to log in as the &quot;announcements&quot; role address,
+          he or she would connect with <a href="Connection_Manager.html#Method:RequestConnection" namespace="ofdT.ConnectionManager" title="Method org.freedesktop.Telepathy.ConnectionManager.RequestConnection">RequestConnection</a>({
+          account: &quot;<tt>announcements@example.com</tt>&quot; }) and the SASL
+          channel would look like this:</p>
+
+<blockquote><pre>{ &quot;...<a href="Channel_Interface_SASL_Authentication.html#Property:DefaultUsername" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.DefaultUsername">DefaultUsername</a>&quot;: &quot;announcements&quot;,
+  &quot;...<a href="Channel_Interface_SASL_Authentication.html#Property:AuthorizationIdentity" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AuthorizationIdentity">AuthorizationIdentity</a>&quot;: &quot;announcements@example.com }
+</pre></blockquote>
+
+        <p>A sufficiently elaborate UI could give the opportunity
+          to override the username from &quot;announcements&quot; to &quot;user&quot;.
+          The user's simple username is still &quot;user&quot;, and the password is
+          still &quot;password&quot;, but this time he or she is trying to authorize
+          to act as <tt>announcements@example.com</tt>, so the UI would
+          have to perform SASL PLAIN with this string:
+          &quot;<tt>announcements@example.com\0user\0password</tt>&quot;, where
+          &quot;announcements@example.com&quot; is the
+          <a href="Channel_Interface_SASL_Authentication.html#Property:AuthorizationIdentity" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AuthorizationIdentity">AuthorizationIdentity</a>.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:DefaultRealm"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Property:DefaultRealm">Permalink</a>)</span>
+     <h2>
+      DefaultRealm &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The default realm (as defined in
+          <a href="http://tools.ietf.org/html/rfc2831#section-2.1.1">RFC
+            2831</a>) to use for authentication, if the server does not
+          supply one.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The server is not required to provide a realm; if it doesn't,
+            the client is expected to ask the user or provide a sensible
+            default, typically the requested DNS name of the server.
+            In some implementations of <code>DIGEST-MD5</code>, the
+            server does not specify a realm, but expects that the client
+            will choose a particular default, and authentication will
+            fail if the client's default is different. Connection
+            managers for protocols where this occurs are more easily able
+            to work around these implementations than a generic client
+            would be.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MaySaveResponse"></a>
+     <span class="permalink">(<a href="Channel_Interface_SASL_Authentication.html#Property:MaySaveResponse">Permalink</a>)</span>
+     <h2>
+      MaySaveResponse &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Whether or not the client can save the authentication response and
+          re-use it to automate future authentication challenges.</p>
+
+        <p>If this property is <code>False</code>, the client SHOULD NOT attempt
+          to cache the authentication response in its own keyring.</p>
+
+        <p>If this property is not specified, it should be treated as if it were
+          <code>True</code>.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>Some protocols or services may have terms and conditions
+          that prohibit caching a user's credentials.</div></div>
+
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Simple-Type:SASL_Mechanism"></a>
+      <span class="permalink">Simple Type (<a href="Channel_Interface_SASL_Authentication.html#Simple-Type:SASL_Mechanism">Permalink</a>)</span>
+      <h2>
+       SASL_Mechanism &mdash; s
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A SASL mechanism, as defined by
+          <a href="http://tools.ietf.org/html/rfc4422">RFC 4422</a>
+          and registered in
+          <a href="http://www.iana.org/assignments/sasl-mechanisms">the
+            IANA registry of SASL mechanisms</a>, or an unregistered
+          SASL mechanism such as <code>X-GOOGLE-TOKEN</code> used in the
+          same contexts.</p>
+
+        <p>As a special case, pseudo-mechanisms starting with
+          <code>X-TELEPATHY-</code> are defined by this specification.
+          Use of these pseudo-mechanisms indicates that the user's credentials
+          are to be passed to the connection manager, which will then use
+          them for authentication with the service, either by implementing
+          the client side of some SASL mechanisms itself or by using a
+          non-SASL protocol. The only such pseudo-mechanism currently
+          defined is <code>X-TELEPATHY-PASSWORD</code>.</p>
+
+        <p>The <code>X-TELEPATHY-PASSWORD</code> mechanism is extremely
+          simple:</p>
+
+        <ul>
+          <li>The client MUST call
+            <a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanismWithData" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.StartMechanismWithData">StartMechanismWithData</a>, with
+            Initial_Data set to the password encoded in UTF-8.
+            For simplicity, calling <a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanism" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.StartMechanism">StartMechanism</a>
+            followed by calling <a href="Channel_Interface_SASL_Authentication.html#Method:Respond" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.Respond">Respond</a> is not
+            allowed in this mechanism.</li>
+
+          <li>The connection manager uses the password, together with
+            authentication details from the Connection parameters, to
+            authenticate itself to the server.</li>
+
+          <li>When the connection manager finishes its attempt to authenticate
+            to the server, the channel's state changes to
+            either SASL_Status_Server_Succeeded or
+            SASL_Status_Server_Failed as appropriate.</li>
+        </ul>
+      </div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:SASL_Abort_Reason"></a>
+      <span class="permalink">Enum (<a href="Channel_Interface_SASL_Authentication.html#Enum:SASL_Abort_Reason">Permalink</a>)</span>
+      <h2>
+       SASL_Abort_Reason &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A reason why SASL authentication was aborted by the client.</p>
+      </div>
+      <ul>
+<li>Invalid_Challenge (0)</li>
+<div class="docstring">
+          The server sent an invalid challenge or data.
+        </div><li>User_Abort (1)</li>
+<div class="docstring">
+          The user aborted the authentication.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:SASL_Status"></a>
+      <span class="permalink">Enum (<a href="Channel_Interface_SASL_Authentication.html#Enum:SASL_Status">Permalink</a>)</span>
+      <h2>
+       SASL_Status &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Not_Started (0)</li>
+<div class="docstring">
+          The initial state. The Handler SHOULD either
+          call <a href="Channel_Interface_SASL_Authentication.html#Method:AbortSASL" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AbortSASL">AbortSASL</a>, or connect to the
+          <a href="Channel_Interface_SASL_Authentication.html#Signal:NewChallenge" title="Signal org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.NewChallenge">NewChallenge</a> signal then call
+          <a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanism" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.StartMechanism">StartMechanism</a> or
+          <a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanismWithData" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.StartMechanismWithData">StartMechanismWithData</a>.
+        </div><li>In_Progress (1)</li>
+<div class="docstring">
+          The challenge/response exchange is in progress. The Handler SHOULD
+          call either <a href="Channel_Interface_SASL_Authentication.html#Method:Respond" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.Respond">Respond</a> or
+          <a href="Channel_Interface_SASL_Authentication.html#Method:AcceptSASL" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AcceptSASL">AcceptSASL</a> exactly once per emission
+          of <a href="Channel_Interface_SASL_Authentication.html#Signal:NewChallenge" title="Signal org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.NewChallenge">NewChallenge</a>, or call
+          <a href="Channel_Interface_SASL_Authentication.html#Method:AbortSASL" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AbortSASL">AbortSASL</a> at any time.
+        </div><li>Server_Succeeded (2)</li>
+<div class="docstring">
+          The server has indicated successful authentication, and the
+          connection manager is waiting for confirmation from the Handler.
+          The Handler must call either <a href="Channel_Interface_SASL_Authentication.html#Method:AcceptSASL" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AcceptSASL">AcceptSASL</a> or
+          <a href="Channel_Interface_SASL_Authentication.html#Method:AbortSASL" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AbortSASL">AbortSASL</a> to indicate whether it
+          considers authentication to have been successful.
+        </div><li>Client_Accepted (3)</li>
+<div class="docstring">
+          The Handler has indicated successful authentication, and the
+          connection manager is waiting for confirmation from the server.
+          The state will progress to either Succeeded or Server_Failed when
+          confirmation is received.
+        </div><li>Succeeded (4)</li>
+<div class="docstring">
+          Everyone is happy (the server sent success, and the client has called
+          <a href="Channel_Interface_SASL_Authentication.html#Method:AcceptSASL" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.AcceptSASL">AcceptSASL</a>). Connection to the server
+          will proceed as soon as this state is reached. The Handler SHOULD
+          call <a href="Channel.html#Method:Close" namespace="org.freedesktop.Telepathy.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a>
+          to close the channel.
+        </div><li>Server_Failed (5)</li>
+<div class="docstring">
+          The server has indicated an authentication failure.
+          If <a href="Channel_Interface_SASL_Authentication.html#Property:CanTryAgain" title="Property org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.CanTryAgain">CanTryAgain</a> is true,
+          the client may try to authenticate again, by calling
+          <a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanism" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.StartMechanism">StartMechanism</a> or
+          <a href="Channel_Interface_SASL_Authentication.html#Method:StartMechanismWithData" title="Method org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication.StartMechanismWithData">StartMechanismWithData</a> again.
+          Otherwise, it should give up completely, by calling <a href="Channel.html#Method:Close" namespace="org.freedesktop.Telepathy.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a>
+          on the channel.
+        </div><li>Client_Failed (6)</li>
+<div class="docstring">
+          The client has indicated an authentication failure. The
+          possible actions are the same as for Server_Failed.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

@@ -1,0 +1,1773 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.T.FileTransfer &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Type.FileTransfer'>Channel.Type.FileTransfer</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Method:AcceptFile">AcceptFile</a></td>
+       <td>(u: Address_Type, u: Access_Control, v: Access_Control_Param, t: Offset)</td>
+       <td>&#8594;</td>
+       <td>v: Address</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Method:ProvideFile">ProvideFile</a></td>
+       <td>(u: Address_Type, u: Access_Control, v: Access_Control_Param)</td>
+       <td>&#8594;</td>
+       <td>v: Address</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Signal:FileTransferStateChanged">FileTransferStateChanged</a></td>
+       <td>(u: State, u: Reason)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Signal:TransferredBytesChanged">TransferredBytesChanged</a></td>
+       <td>(t: Count)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Signal:InitialOffsetDefined">InitialOffsetDefined</a></td>
+       <td>(t: InitialOffset)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Signal:URIDefined">URIDefined</a></td>
+       <td>(s: URI)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Property:State">State</a></td>
+       <td>
+        u
+        
+          (<a href="Channel_Type_File_Transfer.html#Enum:File_Transfer_State" title="Enum File_Transfer_State">
+              File_Transfer_State</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Property:ContentType">ContentType</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Property:Filename">Filename</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Property:Size">Size</a></td>
+       <td>
+        t
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Property:ContentHashType">ContentHashType</a></td>
+       <td>
+        u
+        
+          (<a href="Channel_Type_File_Transfer.html#Enum:File_Hash_Type" title="Enum File_Hash_Type">
+              File_Hash_Type</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Property:ContentHash">ContentHash</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Property:Description">Description</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Property:Date">Date</a></td>
+       <td>
+        x
+        
+          (<a href="generic-types.html#Simple-Type:Unix_Timestamp64" title="Simple Type Unix_Timestamp64">
+              Unix_Timestamp64</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Property:AvailableSocketTypes">AvailableSocketTypes</a></td>
+       <td>
+        a{uau}
+        
+          (<a href="Channel_Type_Tubes.html#Mapping:Supported_Socket_Map" title="Mapping Supported_Socket_Map">
+              Supported_Socket_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Property:TransferredBytes">TransferredBytes</a></td>
+       <td>
+        t
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Property:InitialOffset">InitialOffset</a></td>
+       <td>
+        t
+        
+       </td>
+       <td>Read only</td>
+       <td>Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Property:URI">URI</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read/Write</td>
+       <td>Sometimes immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Property:FileCollection">FileCollection</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Enum:File_Transfer_State">File_Transfer_State</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Enum:File_Transfer_State_Change_Reason">File_Transfer_State_Change_Reason</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_File_Transfer.html#Enum:File_Hash_Type">File_Hash_Type</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.18. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>A channel type for transferring files. The
+      transmission of data between contacts is achieved by reading from
+      or writing to a socket. The type of the socket (local Unix, IPv4,
+      etc.) is decided on when the file transfer is offered or accepted.</p>
+
+      <p>A socket approach is used to make the transfer less dependent on both
+      client and connection manager knowing the same protocols. As an example,
+      when browsing an SMB share in a file manager, one selects &quot;Send file&quot;
+      and chooses a contact. Instead of passing a URL which would then require
+      the connection manager to connect to the SMB share itself, the client
+      passes a stream from which the connection manager reads, requiring no
+      further connection to the share. It also allows connection managers to
+      be more restricted in their access to the system, allowing tighter
+      security policies with eg SELinux, or more flexible deployments which
+      cross user or system boundaries.</p>
+
+      <p>The Telepathy client should connect to the socket or address that
+      the connection manager has set up and provided back to the clients
+      through the two methods.</p>
+
+      <ul><li>In order to send a file, one should request a FileTransfer
+      channel for a contact, including at least the mandatory properties
+      (<a href="Channel_Type_File_Transfer.html#Property:Filename" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.Filename">Filename</a>,
+      <a href="Channel_Type_File_Transfer.html#Property:Size" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.Size">Size</a> and <a href="Channel_Type_File_Transfer.html#Property:ContentType" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.ContentType">ContentType</a>).
+      Then, one should
+      call <a href="Channel_Type_File_Transfer.html#Method:ProvideFile" title="Method org.freedesktop.Telepathy.Channel.Type.FileTransfer.ProvideFile">ProvideFile</a> to configure the socket that
+      will be used to transfer the file.</li>
+
+      <li>In order to receive an incoming file transfer, one should call
+      <a href="Channel_Type_File_Transfer.html#Method:AcceptFile" title="Method org.freedesktop.Telepathy.Channel.Type.FileTransfer.AcceptFile">AcceptFile</a> and then wait until the state
+      changes to Open. When the receiver wants to resume a transfer, the Offset
+      argument should be should be set to a non-zero value when calling
+      <a href="Channel_Type_File_Transfer.html#Method:AcceptFile" title="Method org.freedesktop.Telepathy.Channel.Type.FileTransfer.AcceptFile">AcceptFile</a>.</li>
+
+    <li>Once the offset has been negotiated, the
+      <a href="Channel_Type_File_Transfer.html#Signal:InitialOffsetDefined" title="Signal org.freedesktop.Telepathy.Channel.Type.FileTransfer.InitialOffsetDefined">InitialOffsetDefined</a> signal
+      is emitted and the <a href="Channel_Type_File_Transfer.html#Property:InitialOffset" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.InitialOffset">InitialOffset</a> property
+      is defined. The <a href="Channel_Type_File_Transfer.html#Signal:InitialOffsetDefined" title="Signal org.freedesktop.Telepathy.Channel.Type.FileTransfer.InitialOffsetDefined">InitialOffsetDefined</a>
+      signal is emitted before channel becomes Open.
+      The receiver MUST check the value of
+      <a href="Channel_Type_File_Transfer.html#Property:InitialOffset" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.InitialOffset">InitialOffset</a> for a difference in offset
+      from the requested value in AcceptFile.</li>
+
+      <li>When the state changes to Open, Clients can start the transfer of the
+      file using the offset previously announced.
+      </li></ul>
+
+      <p>If something goes wrong with the transfer,
+      <a href="Channel.html#Method:Close" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Channel.Close">Channel.Close</a>
+      should be called on the channel.</p>
+
+      <p>The File channel type may be requested for handles of type
+      HANDLE_TYPE_CONTACT. If the channel is requested for any other
+      handle type then the behaviour is undefined.</p>
+
+      <p>Connection managers SHOULD NOT advertise support for file transfer to
+        other contacts unless it has been indicated by a call to
+        <a href="Connection_Interface_Contact_Capabilities.html#Method:UpdateCapabilities" namespace="org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities.UpdateCapabilities">UpdateCapabilities</a>.
+      </p>
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>People would send us files, and it would always fail. That would be silly.</p>
+      </div></div>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:AcceptFile"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Method:AcceptFile">Permalink</a>)</span>
+     <h2>AcceptFile (u: Address_Type, u: Access_Control, v: Access_Control_Param, t: Offset) &#8594; v: Address</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Address_Type &mdash; u
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Socket_Address_Type" title="Enum Socket_Address_Type">Socket_Address_Type</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The type of address the connection manager should listen on.
+        </div>
+      
+       <li>
+        Access_Control &mdash; u
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Socket_Access_Control" title="Enum Socket_Access_Control">Socket_Access_Control</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The type of access control the connection manager should apply to
+          the socket.
+        </div>
+      
+       <li>
+        Access_Control_Param &mdash; v
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A parameter for the access control type, to be interpreted as
+          specified in the documentation for the Socket_Access_Control enum.
+        </div>
+      
+       <li>
+        Offset &mdash; t
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The desired offset in bytes where the file transfer should start.
+          The offset is taken from the beginning of the file. Specifying an
+          offset of zero will start the transfer from the beginning of the
+          file. The offset that is actually given in the
+          <a href="Channel_Type_File_Transfer.html#Property:InitialOffset" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.InitialOffset">InitialOffset</a> property can differ
+          from this argument where the requested offset is not supported.
+          (For example, some protocols do not support offsets at all so
+          the InitialOffset property will always be 0.)
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Address &mdash; v
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The address on which the connection manager will listen for
+          connections for this file transfer.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Accept a file transfer that's in the Pending state. The file
+        transfer's state becomes Accepted after this method is called.
+        At this point the client can connect to the socket. CM MUST emit
+        <a href="Channel_Type_File_Transfer.html#Signal:InitialOffsetDefined" title="Signal org.freedesktop.Telepathy.Channel.Type.FileTransfer.InitialOffsetDefined">InitialOffsetDefined</a> and change
+        the state to Open before writing to the socket.
+        Then <a href="Channel_Type_File_Transfer.html#Property:InitialOffset" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.InitialOffset">InitialOffset</a> should be respected in case
+        its value differs from the offset that was specified as an argument
+        to AcceptFile.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The given address type or access-control mechanism is not supported.
+          </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when one of the provided arguments is invalid.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The file transfer is not in the Pending state, there isn't
+            or there is a local error with acquiring a socket.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:ProvideFile"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Method:ProvideFile">Permalink</a>)</span>
+     <h2>ProvideFile (u: Address_Type, u: Access_Control, v: Access_Control_Param) &#8594; v: Address</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Address_Type &mdash; u
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Socket_Address_Type" title="Enum Socket_Address_Type">Socket_Address_Type</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The type of address the connection manager should listen on.
+        </div>
+      
+       <li>
+        Access_Control &mdash; u
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Socket_Access_Control" title="Enum Socket_Access_Control">Socket_Access_Control</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The type of access control the connection manager should apply to
+          the socket.
+        </div>
+      
+       <li>
+        Access_Control_Param &mdash; v
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A parameter for the access control type, to be interpreted as
+          specified in the documentation for the Socket_Access_Control enum.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Address &mdash; v
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The address on which the connection manager will listen for
+          connections for this file transfer.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Provide the file for an outgoing file transfer which has been offered.
+        Opens a socket that the client can use to provide a file to the connection manager.
+        The channel MUST have been requested, and will change state
+        to Open when this method is called if its state was Accepted.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The given address type or access-control mechanism is not supported.
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when one of the provided arguments is invalid.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            Channel is not an outgoing transfer, ProvideFile has already been called,
+            or there was a local error acquiring the socket.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:FileTransferStateChanged"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Signal:FileTransferStateChanged">Permalink</a>)</span>
+     <h2>FileTransferStateChanged (u: State, u: Reason)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       State &mdash; u
+       
+        (<a href="Channel_Type_File_Transfer.html#Enum:File_Transfer_State" title="Enum File_Transfer_State">File_Transfer_State</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new state of the file transfer; see the File_Transfer_State enumeration.
+        </div>
+      
+       <li>
+       Reason &mdash; u
+       
+        (<a href="Channel_Type_File_Transfer.html#Enum:File_Transfer_State_Change_Reason" title="Enum File_Transfer_State_Change_Reason">File_Transfer_State_Change_Reason</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The reason for the state change; see the File_Transfer_State_Change_Reason
+          enumeration.
+          The value will always be File_Transfer_State_Change_Reason_None, except
+          when changing state to cancelled.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the state of a file transfer changes.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:TransferredBytesChanged"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Signal:TransferredBytesChanged">Permalink</a>)</span>
+     <h2>TransferredBytesChanged (t: Count)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Count &mdash; t
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The number of already transferred bytes.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the number of transferred bytes changes. This will not be
+        signalled with every single byte change. Instead, the most frequent
+        this signal will be emitted is once a second. This should be
+        sufficient, and the <a href="Channel_Type_File_Transfer.html#Property:TransferredBytes" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.TransferredBytes">TransferredBytes</a>
+        property SHOULD NOT be polled.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:InitialOffsetDefined"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Signal:InitialOffsetDefined">Permalink</a>)</span>
+     <h2>InitialOffsetDefined (t: InitialOffset)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       InitialOffset &mdash; t
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The value of the <a href="Channel_Type_File_Transfer.html#Property:InitialOffset" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.InitialOffset">InitialOffset</a> property.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the value of the <a href="Channel_Type_File_Transfer.html#Property:InitialOffset" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.InitialOffset">InitialOffset</a>
+        property has been negotiated. This signal MUST be emitted before the channel
+        becomes Open and clients have to use this offset when transferring the
+        file.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:URIDefined"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Signal:URIDefined">Permalink</a>)</span>
+     <h2>URIDefined (s: URI)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.21.9. </span></div>
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       URI &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The value of the <a href="Channel_Type_File_Transfer.html#Property:URI" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.URI">URI</a> property.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the value of the <a href="Channel_Type_File_Transfer.html#Property:URI" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.URI">URI</a>
+        property has been set. This signal MUST only be emitted on
+        incoming file transfers, and only if the handler sets the
+        <a href="Channel_Type_File_Transfer.html#Property:URI" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.URI">URI</a> property before
+        accepting the file.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:State"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Property:State">Permalink</a>)</span>
+     <h2>
+      State &mdash; u
+      
+        (<a href="Channel_Type_File_Transfer.html#Enum:File_Transfer_State" title="Enum File_Transfer_State">File_Transfer_State</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The state of the file transfer as described by the
+        File_Transfer_State enum.</p>
+
+        <p>Change notification is via
+          <a href="Channel_Type_File_Transfer.html#Signal:FileTransferStateChanged" title="Signal org.freedesktop.Telepathy.Channel.Type.FileTransfer.FileTransferStateChanged">FileTransferStateChanged</a> signal.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ContentType"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Property:ContentType">Permalink</a>)</span>
+     <h2>
+      ContentType &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The file's MIME type. This cannot change once the channel has
+        been created.</p>
+
+        <p>This property is mandatory when requesting the channel with the
+        <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">Connection.Interface.Requests.CreateChannel</a>
+        method. Protocols which do not have a content-type property with file
+        transfers should set this value to application/octet-stream.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Filename"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Property:Filename">Permalink</a>)</span>
+     <h2>
+      Filename &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The name of the file on the sender's side. This is therefore given
+        as a suggested filename for the receiver. This cannot change
+        once the channel has been created.</p>
+
+        <p>This property should be the basename of the file being sent. For example,
+        if the sender sends the file /home/user/monkey.pdf then this property should
+        be set to monkey.pdf.</p>
+
+        <p>This property is mandatory when requesting the channel with the
+        <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">Connection.Interface.Requests.CreateChannel</a>
+        method. This property cannot be empty and MUST be set to a sensible value.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Size"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Property:Size">Permalink</a>)</span>
+     <h2>
+      Size &mdash; t
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The size of the file. If this property is set, then the file
+        transfer is guaranteed to be this size. This cannot change once
+        the channel has been created.</p>
+
+        <p>When you are creating a channel with this property, its value
+        MUST be accurate and in bytes. However, when receiving a file, this
+        property still MUST be in bytes but might not be entirely accurate
+        to the byte.</p>
+
+        <p>This property is mandatory when requesting the channel with the
+        <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">Connection.Interface.Requests.CreateChannel</a>
+        method. If this information isn't provided in the protocol, connection managers MUST set it
+        to UINT64_MAX.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ContentHashType"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Property:ContentHashType">Permalink</a>)</span>
+     <h2>
+      ContentHashType &mdash; u
+      
+        (<a href="Channel_Type_File_Transfer.html#Enum:File_Hash_Type" title="Enum File_Hash_Type">File_Hash_Type</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The type of the <a href="Channel_Type_File_Transfer.html#Property:ContentHash" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.ContentHash">ContentHash</a> property.</p>
+
+        <p>This property is optional when requesting the channel with the
+        <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">Connection.Interface.Requests.CreateChannel</a>
+        method. However, if you wish to include the <a href="Channel_Type_File_Transfer.html#Property:ContentHash" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.ContentHash">ContentHash</a>
+        property you MUST also include this property. If you omit this property from a
+        <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">Connection.Interface.Requests.CreateChannel</a>
+        method call then its value will be assumed to be File_Hash_Type_None.</p>
+
+        <p>For each supported hash type, implementations SHOULD include an entry
+          in <a href="Connection_Interface_Requests.html#Property:RequestableChannelClasses" namespace="org.freedesktop.Telepathy.Connection.Interface.Requests" title="Property org.freedesktop.Telepathy.Connection.Interface.Requests.RequestableChannelClasses">RequestableChannelClasses</a>
+          with this property fixed to that hash type. If the protocol supports
+          offering a file without a content hash, implementations SHOULD list
+          this property in Allowed in a requestable channel class, mapping hash
+          types they don't understand to None.
+        </p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ContentHash"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Property:ContentHash">Permalink</a>)</span>
+     <h2>
+      ContentHash &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Hash of the contents of the file transfer, of type described
+        in the value of the <a href="Channel_Type_File_Transfer.html#Property:ContentHashType" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.ContentHashType">ContentHashType</a>
+        property.</p>
+
+        <p>This property is optional when requesting the channel with the
+        <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">Connection.Interface.Requests.CreateChannel</a>
+        method. Its value MUST correspond to the appropriate type of the
+        <a href="Channel_Type_File_Transfer.html#Property:ContentHashType" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.ContentHashType">ContentHashType</a> property. If the
+        ContentHashType property is not set, or set to File_Hash_Type_None,
+        then this property will not even be looked at.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Description"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Property:Description">Permalink</a>)</span>
+     <h2>
+      Description &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Description of the file transfer. This cannot change once the
+        channel has been created.</p>
+
+        <p>This property is optional when requesting the channel with the
+        <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">Connection.Interface.Requests.CreateChannel</a>
+        method. If this property was not provided by the remote party, connection managers MUST set it to
+        the empty string.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Date"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Property:Date">Permalink</a>)</span>
+     <h2>
+      Date &mdash; x
+      
+        (<a href="generic-types.html#Simple-Type:Unix_Timestamp64" title="Simple Type Unix_Timestamp64">Unix_Timestamp64</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The last modification time of the file being transferred. This
+        cannot change once the channel has been created</p>
+
+        <p>This property is optional when requesting the channel with the
+        <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">Connection.Interface.Requests.CreateChannel</a>
+        method.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:AvailableSocketTypes"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Property:AvailableSocketTypes">Permalink</a>)</span>
+     <h2>
+      AvailableSocketTypes &mdash; a{uau}
+      
+        (<a href="Channel_Type_Tubes.html#Mapping:Supported_Socket_Map" title="Mapping Supported_Socket_Map">Supported_Socket_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A mapping from address types (members of Socket_Address_Type) to
+        arrays of access-control type (members of Socket_Access_Control)
+        that the connection manager supports for sockets with that
+        address type. For simplicity, if a CM supports offering a
+        particular type of file transfer, it is assumed to support accepting
+        it. Connection Managers MUST support at least Socket_Address_Type_IPv4.</p>
+
+        <p>A typical value for a host without IPv6 support:</p>
+
+        <pre>
+          {
+            Socket_Address_Type_IPv4:
+              [Socket_Access_Control_Localhost, Socket_Access_Control_Port,
+               Socket_Access_Control_Netmask],
+            Socket_Address_Type_Unix:
+              [Socket_Access_Control_Localhost, Socket_Access_Control_Credentials]
+          }
+        </pre>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:TransferredBytes"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Property:TransferredBytes">Permalink</a>)</span>
+     <h2>
+      TransferredBytes &mdash; t
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The number of bytes that have been transferred at the time of
+        requesting the property. This will be updated as the file transfer
+        continues.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:InitialOffset"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Property:InitialOffset">Permalink</a>)</span>
+     <h2>
+      InitialOffset &mdash; t
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The offset in bytes from where the file should be sent. This MUST
+        be respected by both the receiver and the sender after the state
+        becomes Open, but before any data is sent or received. Until the
+        <a href="Channel_Type_File_Transfer.html#Signal:InitialOffsetDefined" title="Signal org.freedesktop.Telepathy.Channel.Type.FileTransfer.InitialOffsetDefined">InitialOffsetDefined</a> signal
+        is emitted, this property is undefined.</p>
+
+        <p>Before setting the <a href="Channel_Type_File_Transfer.html#Property:State" title="Property org.freedesktop.Telepathy.Channel.Type.FileTransfer.State">State</a> property to
+        Open, the connection manager MUST set the InitialOffset property,
+        possibly to 0.</p>
+
+        <p>This property MUST NOT change after the state of the transfer has
+        changed to Open.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:URI"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Property:URI">Permalink</a>)</span>
+     <h2>
+      URI &mdash; s
+      
+     </h2>
+      <div class="access">Read/Write</div>
+
+     
+     <div class="annotation immutable">Depending on the protocol, this
+       property may be <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     <div class="annotation added"><span class="version">Added in 0.21.9. </span></div>
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>For outgoing file transfers, this requestable property allows the channel
+        requester to inform observers (and the handler, if it is not the requester
+        itself) of the URI of the file being transferred. Note that the
+        connection manager SHOULD NOT read this file directly; the handler
+        streams the file into the CM through the socket negotiated using
+        <a href="Channel_Type_File_Transfer.html#Method:ProvideFile" title="Method org.freedesktop.Telepathy.Channel.Type.FileTransfer.ProvideFile">ProvideFile</a>.</p>
+
+        <p>On outgoing file transfers, this property MUST NOT change after the channel
+        is requested.</p>
+
+        <p>For incoming file transfers, this property MAY be set by the channel
+        handler before calling <a href="Channel_Type_File_Transfer.html#Method:AcceptFile" title="Method org.freedesktop.Telepathy.Channel.Type.FileTransfer.AcceptFile">AcceptFile</a> to
+        inform observers where the incoming file will be saved. If set by an
+        approver, the handler MUST save the file to that location.
+        Setting this property once <a href="Channel_Type_File_Transfer.html#Method:AcceptFile" title="Method org.freedesktop.Telepathy.Channel.Type.FileTransfer.AcceptFile">AcceptFile</a>
+        has been called MUST fail. Once this property has been set
+        <a href="Channel_Type_File_Transfer.html#Signal:URIDefined" title="Signal org.freedesktop.Telepathy.Channel.Type.FileTransfer.URIDefined">URIDefined</a> is emitted.</p>
+
+        <p>If set, this URI SHOULD generally point to a file on the local system, as
+        defined by <a href="http://www.apps.ietf.org/rfc/rfc1738.html#sec-3.10">
+        RFC 1738 §3.10</a>; that is, it should be of the form
+        <tt>file:///path/to/file</tt> or <tt>file://localhost/path/to/file</tt>.
+        For outgoing files, this URI MAY use a different scheme, such as
+        <tt>http:</tt>, if a remote resource is being transferred
+        to a contact.</p>
+
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:FileCollection"></a>
+     <span class="permalink">(<a href="Channel_Type_File_Transfer.html#Property:FileCollection">Permalink</a>)</span>
+     <h2>
+      FileCollection &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.27.3. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The collection of files to which this channel belongs,
+          or the empty string if this channel does not belong to
+          a collection of files.</p>
+
+        <p>A channel's FileCollection property can never change.</p>
+
+        <p>At least on GTalk and apparently also on iChat the user can
+          send a set of files to a contact and that contact can then
+          pick and choose which files to actually receive.</p>
+
+        <p> The CM should emit all new FT channels belonging to one collection
+          at the same time. UIs supporting this feature can then
+          bundle all these channels together in some way, and show a
+          nice UI. UIs not supporting it will treat them as separate
+          transfers, which is not great but a reasonable fallback.</p>
+
+        <p>No mechanism is currently defined to indicate whether the UI
+          should expect any more files in the same collection. UIs
+          SHOULD assume that more file transfers may be added to a
+          collection. It is possible that a &quot;no more channels in this
+          collection&quot; indication will be added in a future version of
+          this specification.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:File_Transfer_State"></a>
+      <span class="permalink">Enum (<a href="Channel_Type_File_Transfer.html#Enum:File_Transfer_State">Permalink</a>)</span>
+      <h2>
+       File_Transfer_State &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>None (0)</li>
+<div class="docstring">
+          An invalid state type used as a null value. This value MUST NOT
+          appear in the State property.
+        </div><li>Pending (1)</li>
+<div class="docstring">
+          The file transfer is waiting to be accepted/closed by the receiver.
+          The receiver has to call <a href="Channel_Type_File_Transfer.html#Method:AcceptFile" title="Method org.freedesktop.Telepathy.Channel.Type.FileTransfer.AcceptFile">AcceptFile</a>,
+          then wait for the state to change to Open and check the offset value.
+        </div><li>Accepted (2)</li>
+<div class="docstring">
+          The receiver has accepted the transfer. The sender now has to
+          call <a href="Channel_Type_File_Transfer.html#Method:ProvideFile" title="Method org.freedesktop.Telepathy.Channel.Type.FileTransfer.ProvideFile">ProvideFile</a> to actually start the transfer.
+          The receiver should now wait for the state to change to Open
+          and check the offset value.
+        </div><li>Open (3)</li>
+<div class="docstring">
+          The file transfer is open for traffic.
+        </div><li>Completed (4)</li>
+<div class="docstring">
+          The file transfer has been completed successfully.
+        </div><li>Cancelled (5)</li>
+<div class="docstring">
+          The file transfer has been cancelled.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:File_Transfer_State_Change_Reason"></a>
+      <span class="permalink">Enum (<a href="Channel_Type_File_Transfer.html#Enum:File_Transfer_State_Change_Reason">Permalink</a>)</span>
+      <h2>
+       File_Transfer_State_Change_Reason &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>None (0)</li>
+<div class="docstring">
+          No reason was specified.
+        </div><li>Requested (1)</li>
+<div class="docstring">
+          The change in state was requested.
+        </div><li>Local_Stopped (2)</li>
+<div class="docstring">
+          The file transfer was cancelled by the local user.
+        </div><li>Remote_Stopped (3)</li>
+<div class="docstring">
+          The file transfer was cancelled by the remote user.
+        </div><li>Local_Error (4)</li>
+<div class="docstring">
+          The file transfer was cancelled because of a local error.
+        </div><li>Remote_Error (5)</li>
+<div class="docstring">
+          The file transfer was cancelled because of a remote error.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:File_Hash_Type"></a>
+      <span class="permalink">Enum (<a href="Channel_Type_File_Transfer.html#Enum:File_Hash_Type">Permalink</a>)</span>
+      <h2>
+       File_Hash_Type &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>None (0)</li>
+<div class="docstring">
+          No hash.
+        </div><li>MD5 (1)</li>
+<div class="docstring">
+          MD5 digest as a string of 32 ASCII hex digits.
+        </div><li>SHA1 (2)</li>
+<div class="docstring">
+          SHA1 digest as a string of ASCII hex digits.
+        </div><li>SHA256 (3)</li>
+<div class="docstring">
+          SHA256 digest as a string of ASCII hex digits.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

@@ -1,0 +1,1172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.Requests &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.Requests'>Connection.Interface.Requests</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Requests.html#Method:CreateChannel">CreateChannel</a></td>
+       <td>(a{sv}: Request)</td>
+       <td>&#8594;</td>
+       <td>o: Channel, a{sv}: Properties</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Requests.html#Method:EnsureChannel">EnsureChannel</a></td>
+       <td>(a{sv}: Request)</td>
+       <td>&#8594;</td>
+       <td>b: Yours, o: Channel, a{sv}: Properties</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Requests.html#Signal:NewChannels">NewChannels</a></td>
+       <td>(a(oa{sv}): Channels)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Requests.html#Signal:ChannelClosed">ChannelClosed</a></td>
+       <td>(o: Removed)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Requests.html#Property:Channels">Channels</a></td>
+       <td>
+        a(oa{sv})
+        
+          (<a href="Connection_Interface_Requests.html#Struct:Channel_Details" title="Array of Struct Channel_Details">
+              Channel_Details_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Requests.html#Property:RequestableChannelClasses">RequestableChannelClasses</a></td>
+       <td>
+        a(a{sv}as)
+        
+          (<a href="Connection_Interface_Requests.html#Struct:Requestable_Channel_Class" title="Array of Struct Requestable_Channel_Class">
+              Requestable_Channel_Class_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Requests.html#Mapping:Channel_Class">Channel_Class</a></td>
+       <td>Mapping</td>
+       <td>a{sv}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Requests.html#Struct:Channel_Details">Channel_Details</a></td>
+       <td>Struct</td>
+       <td>(oa{sv})</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Requests.html#Struct:Requestable_Channel_Class">Requestable_Channel_Class</a></td>
+       <td>Struct</td>
+       <td>(a{sv}as)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.11. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An enhanced version of the Telepathy connection interface, which can
+        represent bundles of channels that should be dispatched together, and
+        does not assume any particular properties by which channels are
+        uniquely identifiable.</p>
+
+      <p>If this interface is implemented on a connection, then
+        <a href="Connection_Interface_Requests.html#Signal:NewChannels" title="Signal org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannels">NewChannels</a> MUST be emitted for
+        all new channels, even those created with <a href="Connection.html#Method:RequestChannel" namespace="org.freedesktop.Telepathy.Connection" title="Method org.freedesktop.Telepathy.Connection.RequestChannel">RequestChannel</a>.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:CreateChannel"></a>
+     <span class="permalink">(<a href="Connection_Interface_Requests.html#Method:CreateChannel">Permalink</a>)</span>
+     <h2>CreateChannel (a{sv}: Request) &#8594; o: Channel, a{sv}: Properties</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.17.11. </span>(as stable API)</div>
+     <div class="annotation changed"><span class="version">Changed in 0.17.14. </span>It is now guaranteed that
+        CreateChannel returns the channel before NewChannels announces it
+        (the reverse was previously guaranteed).</div>
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Request &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A dictionary containing desirable properties, which MUST include
+            <a href="Channel.html#Property:ChannelType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a>.
+            Some properties
+            are defined such that only an exact match makes sense, and
+            connection managers MUST NOT satisfy a request with a channel
+            where that property does not match; some properties are defined
+            such that the connection manager MAY treat the request as merely
+            a hint, and make a best-effort attempt to satisfy it. This is
+            documented separately for each property.</p>
+
+          <p>If this dictionary contains a property whose semantics
+            are not known to the connection manager, this method MUST fail
+            without side-effects (in particular it must not create a new
+            channel).</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>This is necessary if we want to be able to invent properties
+              in future that, when used in a request, are hard requirements
+              rather than just hints. A connection manager that did not know
+              the semantics of those properties could incorrectly return a
+              new channel that did not satisfy the requirements.</p>
+          </div></div>
+
+          <p>The connection manager MUST NOT respond successfully,
+            and SHOULD NOT create a new channel or cause any other
+            side-effects, unless it can create a new channel that satisfies
+            the client's requirements.</p>
+
+          <p>Properties that will be set by this argument need not have write
+            access after the channel has been created - indeed, it is
+            expected that most will be read-only.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Channel &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The Channel object, which MUST NOT be signalled with
+            <a href="Connection_Interface_Requests.html#Signal:NewChannels" title="Signal org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannels">NewChannels</a> until after this method
+            returns.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>This allows the requester to alter its handling of
+              NewChannels by knowing whether one of the channels satisfied
+              a request it made.</p>
+          </div></div>
+        </div>
+      
+       <li>
+        Properties &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Properties of the channel that was produced, equivalent to
+            the properties in <a href="Connection_Interface_Requests.html#Struct:Channel_Details">Channel_Details</a>.
+            Connection managers MUST NOT include properties here whose
+            values can change, for the same reasons as in
+            <a href="Connection_Interface_Requests.html#Struct:Channel_Details">Channel_Details</a>.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request that an entirely new channel is created.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>There is deliberately no flag corresponding to the
+            suppress_handler argument to
+            <a href="Connection.html#Method:RequestChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.RequestChannel">Connection.RequestChannel</a>,
+            because passing a FALSE value for that argument is deprecated.
+            Requests made using this interface always behave as though
+            suppress_handler was TRUE.</p>
+        </div></div>
+
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The channel request was one that can never succeed,
+            such as requesting an unsupported channel type, or requesting
+            a channel type which this connection manager does not support with
+            the given target handle type.
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+            An invalid handle was requested as the value of a property whose
+            value is a handle (like
+            <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">Channel.TargetHandle</a>),
+            or a syntactically invalid identifier was requested as the value
+            of a property whose value is the string corresponding to a handle
+            (like <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Channel.TargetID">Channel.TargetID</a>).
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The request matched the fixed properties of a
+            <a href="Connection_Interface_Requests.html#Struct:Requestable_Channel_Class">Requestable_Channel_Class</a> in
+            <a href="Connection_Interface_Requests.html#Property:RequestableChannelClasses" title="Property org.freedesktop.Telepathy.Connection.Interface.Requests.RequestableChannelClasses">RequestableChannelClasses</a>, but the
+            allowed arguments did not make sense; for example, a <a href="Channel_Type_Room_List.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.RoomList">RoomList</a>
+            was requested, but the <a href="Channel_Type_Room_List.html#Property:Server" namespace="org.freedesktop.Telepathy.Channel.Type.RoomList" title="Property org.freedesktop.Telepathy.Channel.Type.RoomList.Server">Server</a>
+            property provided was not a valid DNS name.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Capable" title="Error org.freedesktop.Telepathy.Error.NotCapable">Not Capable</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested channel cannot be created because the requested
+            contact is using a client that lacks a particular feature.
+          </div>
+      
+       <li><a href="errors.html#Error:Offline" title="Error org.freedesktop.Telepathy.Error.Offline">Offline</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested channel cannot be created because the target is
+            offline.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+            <p>The requested channel cannot be created, but in
+              principle, a similar request might succeed in future.
+              For instance, this might be because:</p>
+
+            <ul>
+              <li>a channel matching the request already exists and the
+                protocol requires that only one such channel can exist at a
+                time</li>
+              <li>a channel matching the request has already been requested
+                (by a previous call to CreateChannel,
+                <a href="Connection_Interface_Requests.html#Method:EnsureChannel" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>,
+                <a href="Connection.html#Method:RequestChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.RequestChannel">Connection.RequestChannel</a>
+                or similar) and the protocol requires that only one such
+                channel can exist at a time</li>
+            </ul>
+          </div>
+      
+       <li><a href="errors.html#Error:Channel.Banned" title="Error org.freedesktop.Telepathy.Error.Channel.Banned">Channel.Banned</a></li>
+       
+       
+       
+       <div class="docstring">
+    You are banned from the channel.
+    </div>
+      
+       <li><a href="errors.html#Error:Channel.Full" title="Error org.freedesktop.Telepathy.Error.Channel.Full">Channel.Full</a></li>
+       
+       
+       
+       <div class="docstring">
+    The channel is full.
+    </div>
+      
+       <li><a href="errors.html#Error:Channel.Invite Only" title="Error org.freedesktop.Telepathy.Error.Channel.InviteOnly">Channel.Invite Only</a></li>
+       
+       
+       
+       <div class="docstring">
+    The requested channel is invite-only.
+    </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:EnsureChannel"></a>
+     <span class="permalink">(<a href="Connection_Interface_Requests.html#Method:EnsureChannel">Permalink</a>)</span>
+     <h2>EnsureChannel (a{sv}: Request) &#8594; b: Yours, o: Channel, a{sv}: Properties</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.17.12. </span></div>
+     <div class="annotation changed"><span class="version">Changed in 0.17.14. </span>It is now guaranteed that if
+        the channel was created by this call to EnsureChannel, it's returned
+        before NewChannels announces it (the reverse was previously
+        guaranteed).</div>
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Request &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A dictionary containing desirable properties, with the same
+            semantics as the corresponding parameter to
+            <a href="Connection_Interface_Requests.html#Method:CreateChannel" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Yours &mdash; b
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>If false, the caller of EnsureChannel MUST assume that some
+            other process is handling this channel; if true, the caller of
+            EnsureChannel SHOULD handle it themselves or delegate it to another
+            client.</p>
+
+          <p>If the creation of a channel makes several calls to EnsureChannel
+            (and no other requests) successful, exactly one of those calls MUST
+            return a true value for this argument.</p>
+
+          <p>If the creation of a channel makes other requests successful,
+            the value returned for this argument MUST be such that exactly
+            one of the clients making requests ends up responsible for the
+            channel. In particular, if
+            <a href="Connection_Interface_Requests.html#Method:CreateChannel" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a> returns a channel
+            <em>C</em>, any EnsureChannel calls that also return <em>C</em>
+            MUST return a false value for this argument.</p>
+        </div>
+      
+       <li>
+        Channel &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The Channel object. If it was created as a result of this method
+          call, it MUST NOT be signalled by
+          <a href="Connection_Interface_Requests.html#Signal:NewChannels" title="Signal org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannels">NewChannels</a> until after this method
+          returns.
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>This allows the requester to alter its handling of
+              NewChannels by knowing whether one of the channels satisfied
+              a request it made.</p>
+          </div></div>
+        </div>
+      
+       <li>
+        Properties &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Properties of the channel that was produced, equivalent to
+            the properties in <a href="Connection_Interface_Requests.html#Struct:Channel_Details">Channel_Details</a>.
+            Connection managers MUST NOT include properties here whose
+            values can change, for the same reasons as in
+            <a href="Connection_Interface_Requests.html#Struct:Channel_Details">Channel_Details</a>.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request that channels are ensured to exist.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The connection manager is in the best position to determine which
+            existing channels could satisfy which requests.</p>
+        </div></div>
+
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The channel request was one that can never succeed,
+            such as requesting an unsupported channel type, or requesting
+            a channel type which this connection manager does not support with
+            the given target handle type.
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+            An invalid handle was requested as the value of a property whose
+            value is a handle (like
+            <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">Channel.TargetHandle</a>),
+            or a syntactically invalid identifier was requested as the value
+            of a property whose value is the string corresponding to a handle
+            (like <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy" title="Property org.freedesktop.Telepathy.Channel.TargetID">Channel.TargetID</a>).
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The request matched the fixed properties of a
+            <a href="Connection_Interface_Requests.html#Struct:Requestable_Channel_Class">Requestable_Channel_Class</a> in
+            <a href="Connection_Interface_Requests.html#Property:RequestableChannelClasses" title="Property org.freedesktop.Telepathy.Connection.Interface.Requests.RequestableChannelClasses">RequestableChannelClasses</a>, but the
+            allowed arguments did not make sense; for example, a <a href="Channel_Type_Room_List.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.RoomList">RoomList</a>
+            was requested, but the <a href="Channel_Type_Room_List.html#Property:Server" namespace="org.freedesktop.Telepathy.Channel.Type.RoomList" title="Property org.freedesktop.Telepathy.Channel.Type.RoomList.Server">Server</a>
+            property provided was not a valid DNS name.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Capable" title="Error org.freedesktop.Telepathy.Error.NotCapable">Not Capable</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested channel cannot be created because the requested
+            contact is using a client that lacks a particular feature.
+          </div>
+      
+       <li><a href="errors.html#Error:Offline" title="Error org.freedesktop.Telepathy.Error.Offline">Offline</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested channel cannot be created because the target is
+            offline.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested channel cannot be created, but in
+            principle, a similar request might succeed in future.
+          </div>
+      
+       <li><a href="errors.html#Error:Channel.Banned" title="Error org.freedesktop.Telepathy.Error.Channel.Banned">Channel.Banned</a></li>
+       
+       
+       
+       <div class="docstring">
+    You are banned from the channel.
+    </div>
+      
+       <li><a href="errors.html#Error:Channel.Full" title="Error org.freedesktop.Telepathy.Error.Channel.Full">Channel.Full</a></li>
+       
+       
+       
+       <div class="docstring">
+    The channel is full.
+    </div>
+      
+       <li><a href="errors.html#Error:Channel.Invite Only" title="Error org.freedesktop.Telepathy.Error.Channel.InviteOnly">Channel.Invite Only</a></li>
+       
+       
+       
+       <div class="docstring">
+    The requested channel is invite-only.
+    </div>
+      
+       <li><a href="errors.html#Error:Permission Denied" title="Error org.freedesktop.Telepathy.Error.PermissionDenied">Permission Denied</a></li>
+       
+       
+       
+       <div class="docstring">
+    The user is not permitted to perform the requested operation.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:NewChannels"></a>
+     <span class="permalink">(<a href="Connection_Interface_Requests.html#Signal:NewChannels">Permalink</a>)</span>
+     <h2>NewChannels (a(oa{sv}): Channels)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.17.11. </span>(as stable API)</div>
+     <div class="annotation changed"><span class="version">Changed in 0.17.14. </span>Added a guarantee of ordering
+        relative to NewChannel</div>
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Channels &mdash; a(oa{sv})
+       
+        (<a href="Connection_Interface_Requests.html#Struct:Channel_Details" title="Array of Struct Channel_Details">Channel_Details_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The channels and their details. All channels that are signalled
+          together like this MUST have the same
+          <a href="Channel_Future.html#Property:Bundle" namespace="org.freedesktop.Telepathy.Channel.FUTURE" title="Property org.freedesktop.Telepathy.Channel.FUTURE.Bundle">Bundle</a>
+          property, which may
+          either refer to an existing bundle, or establish a new bundle.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>New channels have been created. The connection manager SHOULD emit
+          a single signal for any group of closely related channels that are
+          created at the same time, so that the channel dispatcher can try to
+          dispatch them to a handler as a unit.</p>
+
+        <p>In particular, if additional channels are created as a side-effect
+          of a call to <a href="Connection_Interface_Requests.html#Method:CreateChannel" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>,
+          these channels SHOULD appear in the same NewChannels signal as
+          the channel that satisfies the request.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Joining a MUC Tube in XMPP requires joining the corresponding
+            MUC (chatroom), so a <a href="Channel_Type_Text.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Text">Text</a>
+            channel can be created as a side-effect.</p>
+        </div></div>
+
+        <p>Every time NewChannels is emitted, it MUST be followed by
+          a <a href="Connection.html#Signal:NewChannel" namespace="org.freedesktop.Telepathy" title="Signal org.freedesktop.Telepathy.Connection.NewChannel">Connection.NewChannel</a>
+          signal for each channel.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The double signal emission is for the benefit of older Telepathy
+            clients, which won't be listening for NewChannels.</p>
+
+          <p>The more informative NewChannels signal comes first so that
+            clients that did not examine the connection to find
+            out whether Requests is supported will see the more informative
+            signal for each channel first, and then ignore the less
+            informative signal because it announces a new channel of which
+            they are already aware.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:ChannelClosed"></a>
+     <span class="permalink">(<a href="Connection_Interface_Requests.html#Signal:ChannelClosed">Permalink</a>)</span>
+     <h2>ChannelClosed (o: Removed)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.17.11. </span>(as stable API)</div>
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Removed &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The channel which has been removed from the Channels property
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when a channel is closed and hence disappears from the
+        <a href="Connection_Interface_Requests.html#Property:Channels" title="Property org.freedesktop.Telepathy.Connection.Interface.Requests.Channels">Channels</a> property.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          This is redundant with the <a href="Channel.html#Signal:Closed" namespace="org.freedesktop.Telepathy.Channel" title="Signal org.freedesktop.Telepathy.Channel.Closed">Closed</a>
+          signal on the channel itself, but it does provide full change
+          notification for the Channels property.
+        </div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Channels"></a>
+     <span class="permalink">(<a href="Connection_Interface_Requests.html#Property:Channels">Permalink</a>)</span>
+     <h2>
+      Channels &mdash; a(oa{sv})
+      
+        (<a href="Connection_Interface_Requests.html#Struct:Channel_Details" title="Array of Struct Channel_Details">Channel_Details_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.11. </span>(as stable API)</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        A list of all the channels which currently exist on this connection.
+        Change notification is via the
+        <a href="Connection_Interface_Requests.html#Signal:NewChannels" title="Signal org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannels">NewChannels</a> and
+        <a href="Connection_Interface_Requests.html#Signal:ChannelClosed" title="Signal org.freedesktop.Telepathy.Connection.Interface.Requests.ChannelClosed">ChannelClosed</a> signals.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RequestableChannelClasses"></a>
+     <span class="permalink">(<a href="Connection_Interface_Requests.html#Property:RequestableChannelClasses">Permalink</a>)</span>
+     <h2>
+      RequestableChannelClasses &mdash; a(a{sv}as)
+      
+        (<a href="Connection_Interface_Requests.html#Struct:Requestable_Channel_Class" title="Array of Struct Requestable_Channel_Class">Requestable_Channel_Class_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.11. </span>(as stable API)</div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The classes of channel that are expected to be available on this
+          connection, i.e. those for which
+          <a href="Connection_Interface_Requests.html#Method:CreateChannel" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a> can reasonably
+          be expected to succeed. User interfaces can use this information
+          to show or hide UI components.</p>
+
+        <p>This property cannot change after the connection has gone to
+          state Connection_Status_Connected, so there is no change
+          notification (if the connection has context-dependent capabilities,
+          it SHOULD advertise support for all classes of channel that it might
+          support during its lifetime). Before this state has been reached,
+          the value of this property is undefined.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This is not on an optional interface, because connection
+            managers can always offer some sort of clue about the channel
+            classes they expect to support (at worst, they can announce
+            support for everything for which they have code).</p>
+        </div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Mapping:Channel_Class"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Requests.html#Mapping:Channel_Class">Permalink</a>)</span>
+      <h2>
+       Channel_Class &mdash; a{sv}
+      </h2>
+
+      <div class="annotation added"><span class="version">Added in 0.17.11. </span>(as stable API)</div>
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Mapping representing a class of channels that can be requested
+          from a connection manager, can be handled by a user interface,
+          are supported by a contact, etc.</p>
+
+        <p>Classes of channel are identified by the fixed values of
+          a subset of their properties.</p>
+
+        <p>Channel classes SHOULD always include the keys
+          <a href="Channel.html#Property:ChannelType" title="Property org.freedesktop.Telepathy.Channel.ChannelType">org.freedesktop.Telepathy.Channel.ChannelType</a>
+          and
+          <a href="Channel.html#Property:TargetHandleType" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">org.freedesktop.Telepathy.Channel.TargetHandleType</a>.
+          (One exception is that <a href="Channel_Type_Contact_Search.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ContactSearch">ContactSearch</a> channels do not have TargetHandleType
+          <code>None</code> in their requestable channel classes, for
+          historical reasons.)</p>
+      </div>
+      <ul>
+<li>Key &mdash; s (<a href="generic-types.html#Simple-Type:DBus_Qualified_Member" title="Simple Type DBus_Qualified_Member">DBus_Qualified_Member</a>)</li>
+<div class="docstring">
+          A D-Bus interface name, followed by a dot and a D-Bus property name.
+        </div><li>Value &mdash; v</li>
+<div class="docstring">
+          The value of the property.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Channel_Details"></a>
+      <span class="permalink">Struct (<a href="Connection_Interface_Requests.html#Struct:Channel_Details">Permalink</a>)</span>
+      <h2>
+       Channel_Details &mdash; (oa{sv})
+      </h2>
+
+      <div class="annotation added"><span class="version">Added in 0.17.11. </span>(as stable API)</div>
+      
+      
+      <div class="docstring">
+        Enough details of a channel that clients can work out how to dispatch
+        or handle it.
+      </div>
+      <ul>
+<li>Channel &mdash; o</li>
+<div class="docstring">
+          The object path of the channel.
+        </div><li>Properties &mdash; a{sv} (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Properties of the channel.</p>
+
+          <p>Connection managers MUST NOT include properties in this mapping
+            if their values can change. Clients MUST ignore properties
+            that appear in this mapping if their values can change.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>If properties that could change were included, the following
+              race condition would be likely to exist in some cases:</p>
+
+            <ul>
+              <li>NewChannels or Get(&quot;Channels&quot;) includes a property P with
+                value V1</li>
+              <li>Client creates a proxy object for the channel</li>
+              <li>The value of P changes to V2</li>
+              <li>Client connects to PChanged signal</li>
+              <li>Client should call Get(&quot;P&quot;) or GetAll here, to avoid the
+                race, but client's author has forgotten to do so</li>
+              <li>Proxy object thinks P == V1, but actually P == V2</li>
+            </ul>
+
+            <p>We've taken the opportunity to make the API encourage the
+              client author to get it right. Where possible, we intend that
+              properties whose value will be used in channel dispatching
+              or other &quot;early&quot; processing will be defined so that they are
+              immutable (can never change).</p>
+          </div></div>
+
+          <p>Each dictionary MUST contain the keys
+            <a href="Channel.html#Property:ChannelType" title="Property org.freedesktop.Telepathy.Channel.ChannelType">org.freedesktop.Telepathy.Channel.ChannelType</a>,
+            <a href="Channel.html#Property:TargetHandleType" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">org.freedesktop.Telepathy.Channel.TargetHandleType</a>,
+            <a href="Channel.html#Property:TargetHandle" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">org.freedesktop.Telepathy.Channel.TargetHandle</a>,
+            <a href="Channel.html#Property:TargetID" title="Property org.freedesktop.Telepathy.Channel.TargetID">org.freedesktop.Telepathy.Channel.TargetID</a>
+            and
+            <a href="Channel.html#Property:Requested" title="Property org.freedesktop.Telepathy.Channel.Requested">org.freedesktop.Telepathy.Channel.Requested</a>.
+          </p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>We expect these to be crucial to the channel-dispatching
+              process.</p>
+          </div></div>
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Requestable_Channel_Class"></a>
+      <span class="permalink">Struct (<a href="Connection_Interface_Requests.html#Struct:Requestable_Channel_Class">Permalink</a>)</span>
+      <h2>
+       Requestable_Channel_Class &mdash; (a{sv}as)
+      </h2>
+
+      <div class="annotation added"><span class="version">Added in 0.17.11. </span>(as stable API)</div>
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Structure representing a class of channels that can be requested,
+          identified by a set of properties that identify that class of
+          channel.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This will often just be the channel type and the handle type,
+            but can include other properties of the channel - for instance,
+            encrypted channels might require properties that
+            unencrypted channels do not, like an encryption key.</p>
+        </div></div>
+
+        <p>In some cases, these classes of channel may overlap, in the sense
+          that one class fixes all the properties that another class does,
+          plus some more properties.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>For older clients to still be able to understand how to request
+            channels in the presence of a hypothetical &quot;encryption&quot; interface,
+            we'd need to represent it like this:</p>
+
+          <ul>
+            <li>class 1: ChannelType = Text, TargetHandleType = CONTACT</li>
+            <li>class 2: Channel.ChannelType = Text,
+              Channel.TargetHandleType = CONTACT,
+              Encryption.Encrypted = TRUE</li>
+          </ul>
+        </div></div>
+      </div>
+      <ul>
+<li>Fixed_Properties &mdash; a{sv} (<a href="Connection_Interface_Requests.html#Mapping:Channel_Class" title="Mapping Channel_Class">Channel_Class</a>)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The property values that identify this requestable channel class.
+            These properties MUST be included in requests for a channel of this
+            class, and MUST take these values.</p>
+
+          <p>Clients that do not understand the semantics of all the
+            Fixed_Properties MUST NOT request channels of this class, since
+            they would be unable to avoid making an incorrect request.</p>
+
+          <p>This implies that connection managers wishing to make channels
+            available to old or minimal clients SHOULD have a channel class
+            with the minimum number of Fixed_Properties, and MAY additionally
+            have channel classes with extra Fixed_Properties.</p>
+
+          <p>Interface designers SHOULD avoid introducing fixed properties
+            whose types are not serializable in a <code>.manager</code>
+            file.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>Connection managers with a fixed property that is not
+              serializable cannot have a complete <code>.manager</code>
+              file.</p>
+          </div></div>
+        </div><li>Allowed_Properties &mdash; as (<a href="generic-types.html#Simple-Type:DBus_Qualified_Member" title="Array of Simple Type DBus_Qualified_Member">DBus_Qualified_Member_List</a>)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Properties that MAY be set when requesting a channel of this
+            channel type and handle type.</p>
+
+          <p>This array MUST NOT include properties that are in the
+            Fixed_Properties mapping.</p>
+
+          <p>Properties in this array may either be required or optional,
+            according to their documented semantics.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>For instance, if
+              TargetHandleType takes a value that is not Handle_Type_None,
+              one or the other of TargetHandle and TargetID is required.
+              Clients are expected to understand the documented relationship
+              between the properties, so we do not have separate arrays
+              of required and optional properties.</p>
+          </div></div>
+
+          <p>If this array contains the
+            <a href="Channel_Future.html#Property:Bundle" namespace="org.freedesktop.Telepathy.Channel.FUTURE" title="Property org.freedesktop.Telepathy.Channel.FUTURE.Bundle">Bundle</a>
+            property, then this class of channel can be combined with other
+            channels with that property in a request, or added to an existing
+            bundle. If not, this signifies that the connection manager is
+            unable to mark channels of this class as part of a bundle - this
+            means that to the remote contact they are likely to be
+            indistinguishable from channels requested separately.</p>
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

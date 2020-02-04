@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>AccountManager.I.Hidden.DRAFT1 &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.AccountManager.Interface.Hidden.DRAFT1'>AccountManager.Interface.Hidden.DRAFT1</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Account_Manager_Interface_Hidden.html#Signal:HiddenAccountRemoved">HiddenAccountRemoved</a></td>
+       <td>(o: Account)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account_Manager_Interface_Hidden.html#Signal:HiddenAccountValidityChanged">HiddenAccountValidityChanged</a></td>
+       <td>(o: Account, b: Valid)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Account_Manager_Interface_Hidden.html#Property:ValidHiddenAccounts">ValidHiddenAccounts</a></td>
+       <td>
+        ao
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Account_Manager_Interface_Hidden.html#Property:InvalidHiddenAccounts">InvalidHiddenAccounts</a></td>
+       <td>
+        ao
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is kind of sketchy and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   <div class="annotation added"><span class="version">Added in 0.21.10. </span>first draft</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Account_Manager.html" title="Interface org.freedesktop.Telepathy.AccountManager">org.freedesktop.Telepathy.AccountManager</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface lists accounts whose <a href="Account_Interface_Hidden.html#Property:Hidden" namespace="ofdT.Account.Interface.Hidden.DRAFT1" title="Property org.freedesktop.Telepathy.Account.Interface.Hidden.DRAFT1.Hidden">Hidden</a>
+        property is <code>True</code>.</p>
+    </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:HiddenAccountRemoved"></a>
+     <span class="permalink">(<a href="Account_Manager_Interface_Hidden.html#Signal:HiddenAccountRemoved">Permalink</a>)</span>
+     <h2>HiddenAccountRemoved (o: Account)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Account &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An Account, which must not be used any more.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        The given account has been removed from
+        <a href="Account_Manager_Interface_Hidden.html#Property:ValidHiddenAccounts" title="Property org.freedesktop.Telepathy.AccountManager.Interface.Hidden.DRAFT1.ValidHiddenAccounts">ValidHiddenAccounts</a> or
+        <a href="Account_Manager_Interface_Hidden.html#Property:InvalidHiddenAccounts" title="Property org.freedesktop.Telepathy.AccountManager.Interface.Hidden.DRAFT1.InvalidHiddenAccounts">InvalidHiddenAccounts</a>.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:HiddenAccountValidityChanged"></a>
+     <span class="permalink">(<a href="Account_Manager_Interface_Hidden.html#Signal:HiddenAccountValidityChanged">Permalink</a>)</span>
+     <h2>HiddenAccountValidityChanged (o: Account, b: Valid)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Account &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An <a href="Account.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Account">Account</a>.
+        </div>
+      
+       <li>
+       Valid &mdash; b
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          True if the account is now valid.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        The validity of the given account has changed. New magic
+        accounts are also indicated by this signal, as an account validity
+        change (usually to True) on an account that did not previously exist.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          This is effectively change notification for the valid and invalid
+          accounts lists.
+        </div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ValidHiddenAccounts"></a>
+     <span class="permalink">(<a href="Account_Manager_Interface_Hidden.html#Property:ValidHiddenAccounts">Permalink</a>)</span>
+     <h2>
+      ValidHiddenAccounts &mdash; ao
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        A list of valid (complete, usable) <a href="Account.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Account">Account</a>s intended
+        exclusively for noninteractive applications. These accounts are not
+        included in <a href="Account_Manager.html#Property:ValidAccounts" namespace="ofdT" title="Property org.freedesktop.Telepathy.AccountManager.ValidAccounts">AccountManager.ValidAccounts</a>.  Change
+          notification is via
+        <a href="Account_Manager_Interface_Hidden.html#Signal:HiddenAccountValidityChanged" title="Signal org.freedesktop.Telepathy.AccountManager.Interface.Hidden.DRAFT1.HiddenAccountValidityChanged">HiddenAccountValidityChanged</a>.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:InvalidHiddenAccounts"></a>
+     <span class="permalink">(<a href="Account_Manager_Interface_Hidden.html#Property:InvalidHiddenAccounts">Permalink</a>)</span>
+     <h2>
+      InvalidHiddenAccounts &mdash; ao
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        A list of incomplete or otherwise unusable <a href="Account.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Account">Account</a>s intended
+        exclusively for noninteractive applications. Change notification is via
+        <a href="Account_Manager_Interface_Hidden.html#Signal:HiddenAccountValidityChanged" title="Signal org.freedesktop.Telepathy.AccountManager.Interface.Hidden.DRAFT1.HiddenAccountValidityChanged">HiddenAccountValidityChanged</a>.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

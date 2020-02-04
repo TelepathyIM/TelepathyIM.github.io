@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.Addressing1 &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.Addressing1'>Channel.Interface.Addressing1</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Addressing.html#Property:TargetVCardField">TargetVCardField</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Addressing.html#Property:TargetURIScheme">TargetURIScheme</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Addressing.html#Property:TargetVCardAddress">TargetVCardAddress</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Addressing.html#Property:TargetURI">TargetURI</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is experimental and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   <div class="annotation added"><span class="version">Added in 0.19.12. </span>(as draft)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface provides properties that can be used for
+        requesting channels through different contact addressing
+        schemes like vCard addresses or URIs.
+      </p>
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:TargetVCardField"></a>
+     <span class="permalink">(<a href="Channel_Interface_Addressing.html#Property:TargetVCardField">Permalink</a>)</span>
+     <h2>
+      TargetVCardField &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The vCard field, normalized to lower case,
+          <a href="Channel_Interface_Addressing.html#Property:TargetVCardAddress" title="Property org.freedesktop.Telepathy.Channel.Interface.Addressing1.TargetVCardAddress">TargetVCardAddress</a> refers to.</p>
+
+          <p>The <code>url</code> vCard field MUST NOT appear here; see
+            <a href="Channel_Interface_Addressing.html#Property:TargetURI" title="Property org.freedesktop.Telepathy.Channel.Interface.Addressing1.TargetURI">TargetURI</a> instead.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>In practice, protocols have a limited set of URI
+              schemes that make sense to resolve as a contact.</p>
+          </div></div>
+
+        <p>If this is omitted from a request,
+          <a href="Channel_Interface_Addressing.html#Property:TargetVCardAddress" title="Property org.freedesktop.Telepathy.Channel.Interface.Addressing1.TargetVCardAddress">TargetVCardAddress</a> MUST be
+          omitted as well.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:TargetURIScheme"></a>
+     <span class="permalink">(<a href="Channel_Interface_Addressing.html#Property:TargetURIScheme">Permalink</a>)</span>
+     <h2>
+      TargetURIScheme &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The URI scheme used in <a href="Channel_Interface_Addressing.html#Property:TargetURI" title="Property org.freedesktop.Telepathy.Channel.Interface.Addressing1.TargetURI">TargetURI</a></p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>While this seems redundant, since the scheme is included in
+            <a href="Channel_Interface_Addressing.html#Property:TargetURI" title="Property org.freedesktop.Telepathy.Channel.Interface.Addressing1.TargetURI">TargetURI</a>, it exists for constructing
+            <a href="Connection_Interface_Requests.html#Property:RequestableChannelClasses" namespace="org.freedesktop.Telepathy.Connection.Interface.Requests" title="Property org.freedesktop.Telepathy.Connection.Interface.Requests.RequestableChannelClasses">RequestableChannelClasses</a>
+            that support a limited set of URI schemes.</p>
+        </div></div>
+
+        <p>If this is omitted from a request,
+          <a href="Channel_Interface_Addressing.html#Property:TargetURI" title="Property org.freedesktop.Telepathy.Channel.Interface.Addressing1.TargetURI">TargetURI</a> MUST be
+          omitted as well.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:TargetVCardAddress"></a>
+     <span class="permalink">(<a href="Channel_Interface_Addressing.html#Property:TargetVCardAddress">Permalink</a>)</span>
+     <h2>
+      TargetVCardAddress &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The vCard address of the Channel's target.</p>
+
+        <p>If this is present in a channel request,
+          <a href="Channel_Interface_Addressing.html#Property:TargetVCardField" title="Property org.freedesktop.Telepathy.Channel.Interface.Addressing1.TargetVCardField">TargetVCardField</a>
+          MUST be present, and
+          <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>,
+          <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>,
+          and <a href="Channel_Interface_Addressing.html#Property:TargetURI" title="Property org.freedesktop.Telepathy.Channel.Interface.Addressing1.TargetURI">TargetURI</a> MUST NOT be present.
+          <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+          must either not be present or set to Handle_Type_Contact.
+          The request MUST fail with error InvalidHandle, without
+          side-effects, if the requested vCard address cannot be found.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:TargetURI"></a>
+     <span class="permalink">(<a href="Channel_Interface_Addressing.html#Property:TargetURI">Permalink</a>)</span>
+     <h2>
+      TargetURI &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The URI of the Channel's target. The URI's scheme (i.e. the
+          part before the first colon) MUST be identical to
+          <a href="Channel_Interface_Addressing.html#Property:TargetURIScheme" title="Property org.freedesktop.Telepathy.Channel.Interface.Addressing1.TargetURIScheme">TargetURIScheme</a>.</p>
+
+        <p>If this is present in a channel request,
+          <a href="Channel_Interface_Addressing.html#Property:TargetVCardField" title="Property org.freedesktop.Telepathy.Channel.Interface.Addressing1.TargetVCardField">TargetVCardField</a>
+          MUST be present, and
+          <a href="Channel.html#Property:TargetHandle" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>,
+          <a href="Channel.html#Property:TargetID" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>,
+          and <a href="Channel_Interface_Addressing.html#Property:TargetVCardAddress" title="Property org.freedesktop.Telepathy.Channel.Interface.Addressing1.TargetVCardAddress">TargetVCardAddress</a> MUST NOT be
+          present.
+          <a href="Channel.html#Property:TargetHandleType" namespace="org.freedesktop.Telepathy.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>
+          must either not be present or set to Handle_Type_Contact.
+          The request MUST fail with error InvalidHandle, without
+          side-effects, if the requested vCard address cannot be found.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

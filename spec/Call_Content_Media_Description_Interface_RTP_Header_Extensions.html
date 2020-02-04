@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Call1.Content.MediaDescription.I.RTPHeaderExtensions &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Call1.Content.MediaDescription.Interface.RTPHeaderExtensions'>Call1.Content.MediaDescription.Interface.RTPHeaderExtensions</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description_Interface_RTP_Header_Extensions.html#Property:HeaderExtensions">HeaderExtensions</a></td>
+       <td>
+        a(uuss)
+        
+          (<a href="Call_Content_Media_Description_Interface_RTP_Header_Extensions.html#Struct:RTP_Header_Extension" title="Array of Struct RTP_Header_Extension">
+              RTP_Header_Extensions_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Call_Content_Media_Description_Interface_RTP_Header_Extensions.html#Struct:RTP_Header_Extension">RTP_Header_Extension</a></td>
+       <td>Struct</td>
+       <td>(uuss)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.25.2. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Call_Content_Media_Description.html" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription">org.freedesktop.Telepathy.Call1.Content.MediaDescription</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This media description interface provides a method of signalling
+        support for RTP Header Extensions, documented by
+        <em>A General Mechanism for RTP Header Extensions (RFC 5285)</em>.</p>
+
+      <p>For more details on the General Mechanism for RTP Header Extensions
+         and how to use them, one should refer to
+        <a href="http://www.faqs.org/rfcs/rfc5285.html">RFC 5285</a>.</p>
+
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:HeaderExtensions"></a>
+     <span class="permalink">(<a href="Call_Content_Media_Description_Interface_RTP_Header_Extensions.html#Property:HeaderExtensions">Permalink</a>)</span>
+     <h2>
+      HeaderExtensions &mdash; a(uuss)
+      
+        (<a href="Call_Content_Media_Description_Interface_RTP_Header_Extensions.html#Struct:RTP_Header_Extension" title="Array of Struct RTP_Header_Extension">RTP_Header_Extensions_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        A list of remote header extensions which are supported.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Struct:RTP_Header_Extension"></a>
+      <span class="permalink">Struct (<a href="Call_Content_Media_Description_Interface_RTP_Header_Extensions.html#Struct:RTP_Header_Extension">Permalink</a>)</span>
+      <h2>
+       RTP_Header_Extension &mdash; (uuss)
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A struct defining a RTP Header extension.
+      </div>
+      <ul>
+<li>ID &mdash; u</li>
+<div class="docstring">
+          Identifier to be negotiated.
+        </div><li>Direction &mdash; u (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Direction" title="Enum Media_Stream_Direction">Media_Stream_Direction</a>)</li>
+<div class="docstring">
+          Direction in which the Header Extension is negotiated.
+        </div><li>URI &mdash; s</li>
+<div class="docstring">
+          URI defining the extension.
+        </div><li>Parameters &mdash; s</li>
+<div class="docstring">
+          Feedback parameters as a string. Format is defined in the relevant RFC.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Generic Types</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+ </head>
+ <body>
+  <div class="header">
+  <h1>Generic Types</h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   | <a href="#types">Types</a>
+  </div>
+  <div class="main">
+    <div class="summary">
+     <a name="summary"></a>
+     <h3>Generic Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Simple-Type:Unix_Timestamp">Unix_Timestamp</a></td>
+       <td>Simple Type</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Simple-Type:Unix_Timestamp64">Unix_Timestamp64</a></td>
+       <td>Simple Type</td>
+       <td>x</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Simple-Type:DBus_Bus_Name">DBus_Bus_Name</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Simple-Type:DBus_Well_Known_Name">DBus_Well_Known_Name</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Simple-Type:DBus_Unique_Name">DBus_Unique_Name</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Simple-Type:DBus_Interface">DBus_Interface</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Simple-Type:DBus_Error_Name">DBus_Error_Name</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Simple-Type:DBus_Signature">DBus_Signature</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Simple-Type:DBus_Member">DBus_Member</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Simple-Type:DBus_Qualified_Member">DBus_Qualified_Member</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Simple-Type:User_Action_Timestamp">User_Action_Timestamp</a></td>
+       <td>Simple Type</td>
+       <td>x</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Simple-Type:Language_Tag">Language_Tag</a></td>
+       <td>Simple Type</td>
+       <td>s</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Mapping:Qualified_Property_Value_Map">Qualified_Property_Value_Map</a></td>
+       <td>Mapping</td>
+       <td>a{sv}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Mapping:String_Variant_Map">String_Variant_Map</a></td>
+       <td>Mapping</td>
+       <td>a{sv}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Mapping:String_String_Map">String_String_Map</a></td>
+       <td>Mapping</td>
+       <td>a{ss}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Mapping:Object_Immutable_Properties_Map">Object_Immutable_Properties_Map</a></td>
+       <td>Mapping</td>
+       <td>a{oa{sv}}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Struct:Socket_Address_IP">Socket_Address_IP</a></td>
+       <td>Struct</td>
+       <td>(sq)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Struct:Socket_Address_IPv4">Socket_Address_IPv4</a></td>
+       <td>Struct</td>
+       <td>(sq)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Struct:Socket_Address_IPv6">Socket_Address_IPv6</a></td>
+       <td>Struct</td>
+       <td>(sq)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Struct:Socket_Netmask_IPv4">Socket_Netmask_IPv4</a></td>
+       <td>Struct</td>
+       <td>(sy)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="generic-types.html#Struct:Socket_Netmask_IPv6">Socket_Netmask_IPv6</a></td>
+       <td>Struct</td>
+       <td>(sy)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    </div>
+
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Generic Types</h1>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Unix_Timestamp"></a>
+      <span class="permalink">Simple Type (<a href="generic-types.html#Simple-Type:Unix_Timestamp">Permalink</a>)</span>
+      <h2>
+       Unix_Timestamp &mdash; u
+      </h2>
+
+      
+      
+      <div class="docstring">An unsigned 32-bit integer representing time as the number
+      of seconds elapsed since the Unix epoch
+      (1970-01-01T00:00:00Z)</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Unix_Timestamp64"></a>
+      <span class="permalink">Simple Type (<a href="generic-types.html#Simple-Type:Unix_Timestamp64">Permalink</a>)</span>
+      <h2>
+       Unix_Timestamp64 &mdash; x
+      </h2>
+
+      
+      
+      <div class="docstring">An signed 64-bit integer representing time as the number
+      of seconds elapsed since the Unix epoch
+      (1970-01-01T00:00:00Z); negative for times before the epoch</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:DBus_Bus_Name"></a>
+      <span class="permalink">Simple Type (<a href="generic-types.html#Simple-Type:DBus_Bus_Name">Permalink</a>)</span>
+      <h2>
+       DBus_Bus_Name &mdash; s
+      </h2>
+
+      
+      
+      <div class="docstring">A string representing a D-Bus bus name - either a well-known
+      name like &quot;org.freedesktop.Telepathy.MissionControl&quot; or a unique name
+      like &quot;:1.123&quot;</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:DBus_Well_Known_Name"></a>
+      <span class="permalink">Simple Type (<a href="generic-types.html#Simple-Type:DBus_Well_Known_Name">Permalink</a>)</span>
+      <h2>
+       DBus_Well_Known_Name &mdash; s
+      </h2>
+
+      
+      
+      <div class="docstring">A string representing a D-Bus well-known
+      name like &quot;org.freedesktop.Telepathy.MissionControl&quot;.</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:DBus_Unique_Name"></a>
+      <span class="permalink">Simple Type (<a href="generic-types.html#Simple-Type:DBus_Unique_Name">Permalink</a>)</span>
+      <h2>
+       DBus_Unique_Name &mdash; s
+      </h2>
+
+      
+      
+      <div class="docstring">A string representing a D-Bus unique name, such as
+      &quot;:1.123&quot;</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:DBus_Interface"></a>
+      <span class="permalink">Simple Type (<a href="generic-types.html#Simple-Type:DBus_Interface">Permalink</a>)</span>
+      <h2>
+       DBus_Interface &mdash; s
+      </h2>
+
+      
+      
+      <div class="docstring">An ASCII string representing a D-Bus interface - two or more
+      elements separated by dots, where each element is a non-empty
+      string of ASCII letters, digits and underscores, not starting with
+      a digit. The maximum total length is 255 characters. For example,
+      &quot;org.freedesktop.DBus.Peer&quot;.</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:DBus_Error_Name"></a>
+      <span class="permalink">Simple Type (<a href="generic-types.html#Simple-Type:DBus_Error_Name">Permalink</a>)</span>
+      <h2>
+       DBus_Error_Name &mdash; s
+      </h2>
+
+      
+      
+      <div class="docstring">An ASCII string representing a D-Bus error. This is
+      syntactically the same as a <a href="generic-types.html#Simple-Type:DBus_Interface">DBus_Interface</a>, but the
+      meaning is different.</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:DBus_Signature"></a>
+      <span class="permalink">Simple Type (<a href="generic-types.html#Simple-Type:DBus_Signature">Permalink</a>)</span>
+      <h2>
+       DBus_Signature &mdash; s
+      </h2>
+
+      
+      
+      <div class="docstring">A string representing a D-Bus signature
+      (the 'g' type isn't used because of poor interoperability, particularly
+      with dbus-glib)</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:DBus_Member"></a>
+      <span class="permalink">Simple Type (<a href="generic-types.html#Simple-Type:DBus_Member">Permalink</a>)</span>
+      <h2>
+       DBus_Member &mdash; s
+      </h2>
+
+      
+      
+      <div class="docstring">An ASCII string representing a D-Bus method, signal
+      or property name - a non-empty string of ASCII letters, digits and
+      underscores, not starting with a digit, with a maximum length of 255
+      characters. For example, &quot;Ping&quot;.</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:DBus_Qualified_Member"></a>
+      <span class="permalink">Simple Type (<a href="generic-types.html#Simple-Type:DBus_Qualified_Member">Permalink</a>)</span>
+      <h2>
+       DBus_Qualified_Member &mdash; s
+      </h2>
+
+      
+      
+      <div class="docstring">A string representing the full name of a D-Bus method,
+      signal or property, consisting of a DBus_Interface, followed by
+      a dot, followed by a DBus_Member. For example,
+      &quot;org.freedesktop.DBus.Peer.Ping&quot;.</div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:User_Action_Timestamp"></a>
+      <span class="permalink">Simple Type (<a href="generic-types.html#Simple-Type:User_Action_Timestamp">Permalink</a>)</span>
+      <h2>
+       User_Action_Timestamp &mdash; x
+      </h2>
+
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>The time at which an user action occurred. This type has the 2
+      following special values:</p>
+
+      <p>0: the action doesn't involve any user action. Clients
+      SHOULD avoid stealing focus when presenting the channel.</p>
+
+      <p>MAX_INT64: clients SHOULD behave as though the user action happened
+      at the current time, e.g. a client MAY request that its window gains
+      focus.
+      </p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+      <p>This can be used by clients that can't know the X server time like
+      command line applications for example.</p>
+      </div></div>
+
+      <p>For all the other values it corresponds to the time of the user
+      action. Clients SHOULD use this for focus-stealing prevention,
+      if applicable.
+      Note that the time is dependant on the local
+      environment and so is not necessarily a wall-clock time.
+      For example in an X environment it's expected to be the X timestamp
+      of events.
+      This corresponds to the _NET_WM_USER_TIME property in
+      <a href="http://standards.freedesktop.org/wm-spec/wm-spec-latest.html">EWMH</a>.</p>
+    </div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Language_Tag"></a>
+      <span class="permalink">Simple Type (<a href="generic-types.html#Simple-Type:Language_Tag">Permalink</a>)</span>
+      <h2>
+       Language_Tag &mdash; s
+      </h2>
+
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      A language tag as defined in
+      <a href="https://www.rfc-editor.org/rfc/bcp/bcp47.txt">IETF BCP 47</a>,
+      such as &quot;en_US&quot;.
+    </div>
+      
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Qualified_Property_Value_Map"></a>
+      <span class="permalink">Mapping (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map">Permalink</a>)</span>
+      <h2>
+       Qualified_Property_Value_Map &mdash; a{sv}
+      </h2>
+
+      
+      
+      <div class="docstring">A mapping from strings representing D-Bus
+      properties (by their namespaced names) to their values.</div>
+      <ul>
+<li>Key &mdash; s (<a href="generic-types.html#Simple-Type:DBus_Qualified_Member" title="Simple Type DBus_Qualified_Member">DBus_Qualified_Member</a>)</li>
+<div class="docstring">
+        A D-Bus interface name, followed by a dot and a D-Bus property name.
+      </div><li>Value &mdash; v</li>
+<div class="docstring">
+        The value of the property.
+      </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:String_Variant_Map"></a>
+      <span class="permalink">Mapping (<a href="generic-types.html#Mapping:String_Variant_Map">Permalink</a>)</span>
+      <h2>
+       String_Variant_Map &mdash; a{sv}
+      </h2>
+
+      
+      
+      <div class="docstring">A mapping from strings to variants representing extra
+      key-value pairs.</div>
+      <ul>
+<li>Key &mdash; s</li>
+<li>Value &mdash; v</li>
+</ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:String_String_Map"></a>
+      <span class="permalink">Mapping (<a href="generic-types.html#Mapping:String_String_Map">Permalink</a>)</span>
+      <h2>
+       String_String_Map &mdash; a{ss}
+      </h2>
+
+      
+      
+      <div class="docstring">A mapping from strings to strings representing extra
+      key-value pairs.</div>
+      <ul>
+<li>Key &mdash; s</li>
+<li>Value &mdash; s</li>
+</ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Object_Immutable_Properties_Map"></a>
+      <span class="permalink">Mapping (<a href="generic-types.html#Mapping:Object_Immutable_Properties_Map">Permalink</a>)</span>
+      <h2>
+       Object_Immutable_Properties_Map &mdash; a{oa{sv}}
+      </h2>
+
+      <div class="annotation added"><span class="version">Added in 0.19.12. </span></div>
+      
+      <div class="docstring">A mapping from object path to the immutable properties of
+        the object.</div>
+      <ul>
+<li>Path &mdash; o</li>
+<div class="docstring">
+        The object path of an object
+      </div><li>Immutable_Properties &mdash; a{sv} (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)</li>
+<div class="docstring">
+        The immutable properties of the object
+      </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Socket_Address_IP"></a>
+      <span class="permalink">Struct (<a href="generic-types.html#Struct:Socket_Address_IP">Permalink</a>)</span>
+      <h2>
+       Socket_Address_IP &mdash; (sq)
+      </h2>
+
+      
+      
+      <div class="docstring">An IP address and port.</div>
+      <ul>
+<li>Address &mdash; s</li>
+<div class="docstring">Either a dotted-quad IPv4 address literal as for
+        <a href="generic-types.html#Struct:Socket_Address_IPv4">Socket_Address_IPv4</a>, or an RFC2373 IPv6 address
+        as for <a href="generic-types.html#Struct:Socket_Address_IPv6">Socket_Address_IPv6</a>.
+      </div><li>Port &mdash; q</li>
+<div class="docstring">The TCP or UDP port number.</div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Socket_Address_IPv4"></a>
+      <span class="permalink">Struct (<a href="generic-types.html#Struct:Socket_Address_IPv4">Permalink</a>)</span>
+      <h2>
+       Socket_Address_IPv4 &mdash; (sq)
+      </h2>
+
+      
+      
+      <div class="docstring">An IPv4 address and port.</div>
+      <ul>
+<li>Address &mdash; s</li>
+<div class="docstring">A dotted-quad IPv4 address literal: four ASCII decimal
+        numbers, each between 0 and 255 inclusive, e.g.
+        &quot;192.168.0.1&quot;.</div><li>Port &mdash; q</li>
+<div class="docstring">The TCP or UDP port number.</div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Socket_Address_IPv6"></a>
+      <span class="permalink">Struct (<a href="generic-types.html#Struct:Socket_Address_IPv6">Permalink</a>)</span>
+      <h2>
+       Socket_Address_IPv6 &mdash; (sq)
+      </h2>
+
+      
+      
+      <div class="docstring">An IPv6 address and port.</div>
+      <ul>
+<li>Address &mdash; s</li>
+<div class="docstring">An IPv6 address literal as specified by RFC2373
+        section 2.2, e.g. &quot;2001:DB8::8:800:200C:4171&quot;.</div><li>Port &mdash; q</li>
+<div class="docstring">The TCP or UDP port number.</div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Socket_Netmask_IPv4"></a>
+      <span class="permalink">Struct (<a href="generic-types.html#Struct:Socket_Netmask_IPv4">Permalink</a>)</span>
+      <h2>
+       Socket_Netmask_IPv4 &mdash; (sy)
+      </h2>
+
+      
+      
+      <div class="docstring">An IPv4 network or subnet.</div>
+      <ul>
+<li>Address &mdash; s</li>
+<div class="docstring">A dotted-quad IPv4 address literal: four ASCII decimal
+        numbers, each between 0 and 255 inclusive, e.g.
+        &quot;192.168.0.1&quot;.</div><li>Prefix_Length &mdash; y</li>
+<div class="docstring">The number of leading bits of the address that must
+        match, for this netmask to be considered to match an
+        address.</div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Socket_Netmask_IPv6"></a>
+      <span class="permalink">Struct (<a href="generic-types.html#Struct:Socket_Netmask_IPv6">Permalink</a>)</span>
+      <h2>
+       Socket_Netmask_IPv6 &mdash; (sy)
+      </h2>
+
+      
+      
+      <div class="docstring">An IPv6 network or subnet.</div>
+      <ul>
+<li>Address &mdash; s</li>
+<div class="docstring">An IPv6 address literal as specified by RFC2373
+        section 2.2, e.g. &quot;2001:DB8::8:800:200C:4171&quot;.</div><li>Prefix_Length &mdash; y</li>
+<div class="docstring">The number of leading bits of the address that must
+        match, for this netmask to be considered to match an
+        address.</div></ul>
+
+     </div>
+    
+   </div>
+   </div>
+
+ </body>
+</html>

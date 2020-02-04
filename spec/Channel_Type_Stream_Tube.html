@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.T.StreamTube &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Type.StreamTube'>Channel.Type.StreamTube</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Stream_Tube.html#Method:Offer">Offer</a></td>
+       <td>(u: address_type, v: address, u: access_control, a{sv}: parameters)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Stream_Tube.html#Method:Accept">Accept</a></td>
+       <td>(u: address_type, u: access_control, v: access_control_param)</td>
+       <td>&#8594;</td>
+       <td>v: address</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Stream_Tube.html#Signal:NewRemoteConnection">NewRemoteConnection</a></td>
+       <td>(u: Handle, v: Connection_Param, u: Connection_ID)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Stream_Tube.html#Signal:NewLocalConnection">NewLocalConnection</a></td>
+       <td>(u: Connection_ID)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Stream_Tube.html#Signal:ConnectionClosed">ConnectionClosed</a></td>
+       <td>(u: Connection_ID, s: Error, s: Message)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Stream_Tube.html#Property:Service">Service</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Stream_Tube.html#Property:SupportedSocketTypes">SupportedSocketTypes</a></td>
+       <td>
+        a{uau}
+        
+          (<a href="Channel_Type_Tubes.html#Mapping:Supported_Socket_Map" title="Mapping Supported_Socket_Map">
+              Supported_Socket_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Stream_Tube.html#Simple-Type:Stream_Tube_Connection_ID">Stream_Tube_Connection_ID</a></td>
+       <td>Simple Type</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+     <li><a href="Channel_Interface_Tube.html" title="Interface org.freedesktop.Telepathy.Channel.Interface.Tube">org.freedesktop.Telepathy.Channel.Interface.Tube</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>A stream tube is a transport for ordered, reliable data transfer,
+        similar to SOCK_STREAM sockets.</p>
+
+      <p>When offering a stream tube, the initiating client creates a local
+        listening socket and offers it to the recipient client using the
+        <a href="Channel_Type_Stream_Tube.html#Method:Offer" title="Method org.freedesktop.Telepathy.Channel.Type.StreamTube.Offer">Offer</a> method.  When a
+        recipient accepts a stream tube using the
+        <a href="Channel_Type_Stream_Tube.html#Method:Accept" title="Method org.freedesktop.Telepathy.Channel.Type.StreamTube.Accept">Accept</a> method, the
+        recipient's connection manager creates a new local listening socket.
+        Each time the recipient's client connects to this socket, the
+        initiator's connection manager proxies this connection to the
+        originally offered socket.</p>
+
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:Offer"></a>
+     <span class="permalink">(<a href="Channel_Type_Stream_Tube.html#Method:Offer">Permalink</a>)</span>
+     <h2>Offer (u: address_type, v: address, u: access_control, a{sv}: parameters) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        address_type &mdash; u
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Socket_Address_Type" title="Enum Socket_Address_Type">Socket_Address_Type</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The type of the listening address of the local service, as a member of
+          Socket_Address_Type.
+        </div>
+      
+       <li>
+        address &mdash; v
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The listening address of the local service, as indicated by the
+          address_type.
+        </div>
+      
+       <li>
+        access_control &mdash; u
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Socket_Access_Control" title="Enum Socket_Access_Control">Socket_Access_Control</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The access control the local service applies to the local socket,
+          specified so the connection manager can behave appropriately
+          when it connects.
+        </div>
+      
+       <li>
+        parameters &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The dictionary of arbitrary
+          <a href="Channel_Interface_Tube.html#Property:Parameters" namespace="org.freedesktop.Telepathy.Channel.Interface.Tube" title="Property org.freedesktop.Telepathy.Channel.Interface.Tube.Parameters">Parameters</a>
+          to send with the tube offer.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Offer a stream tube exporting the local socket specified.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The contact associated with this channel doesn't have tube
+            capabilities.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The connection manager doesn't support the given address type
+            or access-control type.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:Accept"></a>
+     <span class="permalink">(<a href="Channel_Type_Stream_Tube.html#Method:Accept">Permalink</a>)</span>
+     <h2>Accept (u: address_type, u: access_control, v: access_control_param) &#8594; v: address</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        address_type &mdash; u
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Socket_Address_Type" title="Enum Socket_Address_Type">Socket_Address_Type</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The type of address the connection manager should listen on.
+        </div>
+      
+       <li>
+        access_control &mdash; u
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Socket_Access_Control" title="Enum Socket_Access_Control">Socket_Access_Control</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The type of access control the connection manager should apply to
+          the socket.</p>
+
+          <p>Note that if you plan to establish more than one connection
+          through the tube, the Socket_Access_Control_Port access control
+          can't be used as you can't connect more than once from the same
+          port.</p>
+        </div>
+      
+       <li>
+        access_control_param &mdash; v
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A parameter for the access control type, to be interpreted as
+          specified in the documentation for the Socket_Access_Control enum.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        address &mdash; v
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The address on which the connection manager will listen for
+          connections to this tube. The client should not attempt to connect
+          to the address until the tube is open.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Accept a stream tube that's in the &quot;local pending&quot; state. The
+        connection manager will attempt to open the tube. The tube remains in
+        the &quot;local pending&quot; state until the <a href="Channel_Interface_Tube.html#Signal:TubeChannelStateChanged" namespace="org.freedesktop.Telepathy.Channel.Interface.Tube" title="Signal org.freedesktop.Telepathy.Channel.Interface.Tube.TubeChannelStateChanged">TubeChannelStateChanged</a>
+        signal is emitted.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The access_control_param is invalid with the given access_control.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The given address type or access-control mechanism is not supported.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:NewRemoteConnection"></a>
+     <span class="permalink">(<a href="Channel_Type_Stream_Tube.html#Signal:NewRemoteConnection">Permalink</a>)</span>
+     <h2>NewRemoteConnection (u: Handle, v: Connection_Param, u: Connection_ID)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Handle &mdash; u
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The handle of the participant who opened the new connection
+        </div>
+      
+       <li>
+       Connection_Param &mdash; v
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A parameter which can be used by the listening process to identify
+          the connection. Note that this parameter has a meaningful value
+          only in the Socket_Access_Control_Port and
+          Socket_Access_Control_Credentials cases. If a different
+          Socket_Access_Control has been chosen when offering the tube, this
+          parameter should be ignored.</p>
+
+          <p>In the Socket_Access_Control_Port case, the variant
+          contains a struct Socket_Address_IPv4 (or Socket_Address_IPv6)
+          containing the address from which the CM is connected to the client
+          application.</p>
+
+          <p>In the Socket_Access_Control_Credentials case, the variant
+          contains the byte (D-Bus signature 'y') that has been sent with
+          the credentials.</p>
+        </div>
+      
+       <li>
+       Connection_ID &mdash; u
+       
+        (<a href="Channel_Type_Stream_Tube.html#Simple-Type:Stream_Tube_Connection_ID" title="Simple Type Stream_Tube_Connection_ID">Stream_Tube_Connection_ID</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The unique ID associated with this connection. This ID will be used
+          to identifiy the connection when reporting errors with
+          <a href="Channel_Type_Stream_Tube.html#Signal:ConnectionClosed" title="Signal org.freedesktop.Telepathy.Channel.Type.StreamTube.ConnectionClosed">ConnectionClosed</a>.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted each time a participant opens a new connection to its
+        socket.</p>
+
+        <p>This signal is only fired on the offering side.</p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:NewLocalConnection"></a>
+     <span class="permalink">(<a href="Channel_Type_Stream_Tube.html#Signal:NewLocalConnection">Permalink</a>)</span>
+     <h2>NewLocalConnection (u: Connection_ID)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Connection_ID &mdash; u
+       
+        (<a href="Channel_Type_Stream_Tube.html#Simple-Type:Stream_Tube_Connection_ID" title="Simple Type Stream_Tube_Connection_ID">Stream_Tube_Connection_ID</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The unique ID associated with this connection. This ID will be used
+          to identifiy the connection when reporting errors with
+          <a href="Channel_Type_Stream_Tube.html#Signal:ConnectionClosed" title="Signal org.freedesktop.Telepathy.Channel.Type.StreamTube.ConnectionClosed">ConnectionClosed</a>.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when the tube application connects to the CM's socket.</p>
+
+        <p>This signal is only fired on the accepting side.</p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:ConnectionClosed"></a>
+     <span class="permalink">(<a href="Channel_Type_Stream_Tube.html#Signal:ConnectionClosed">Permalink</a>)</span>
+     <h2>ConnectionClosed (u: Connection_ID, s: Error, s: Message)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Connection_ID &mdash; u
+       
+        (<a href="Channel_Type_Stream_Tube.html#Simple-Type:Stream_Tube_Connection_ID" title="Simple Type Stream_Tube_Connection_ID">Stream_Tube_Connection_ID</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The ID of the connection.
+        </div>
+      
+       <li>
+       Error &mdash; s
+       
+        (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">DBus_Error_Name</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The name of a D-Bus error describing the error that occurred.</p>
+
+          <p>The following errors can be used:</p>
+          <ul>
+            <li><code>org.freedesktop.Telepathy.Error.Cancelled</code>:
+               user closed the socket or the tube.</li>
+            <li><code>org.freedesktop.Telepathy.Error.ConnectionLost</code>:
+               the bytestream relaying connection's data has been broken.</li>
+            <li><code>org.freedesktop.Telepathy.Error.ConnectionRefused</code>:
+               the tube offer refused the connection.</li>
+          </ul>
+        </div>
+      
+       <li>
+       Message &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A debug message.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when a connection has been closed.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Service"></a>
+     <span class="permalink">(<a href="Channel_Type_Stream_Tube.html#Property:Service">Permalink</a>)</span>
+     <h2>
+      Service &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p> A string representing the service name that will be used over the
+          tube.  It should be a well-known TCP service name as defined by
+          <a href="http://www.iana.org/assignments/port-numbers">
+            http://www.iana.org/assignments/port-numbers</a> or
+          <a href="http://www.dns-sd.org/ServiceTypes.html">
+            http://www.dns-sd.org/ServiceTypes.html</a>, for instance
+          &quot;rsync&quot; or &quot;daap&quot;.</p>
+        <p>When the tube is offered, the service name is transmitted to the
+          other end.</p>
+        <p>When requesting a channel with
+          <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">Connection.Interface.Requests.CreateChannel</a>,
+          this property MUST be included in the request.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SupportedSocketTypes"></a>
+     <span class="permalink">(<a href="Channel_Type_Stream_Tube.html#Property:SupportedSocketTypes">Permalink</a>)</span>
+     <h2>
+      SupportedSocketTypes &mdash; a{uau}
+      
+        (<a href="Channel_Type_Tubes.html#Mapping:Supported_Socket_Map" title="Mapping Supported_Socket_Map">Supported_Socket_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A mapping from address types (members of Socket_Address_Type) to
+        arrays of access-control type (members of Socket_Access_Control)
+        that the connection manager supports for stream tubes with that
+        address type. For simplicity, if a CM supports offering a
+        particular type of tube, it is assumed to support accepting it.</p>
+
+        <p>A typical value for a host without IPv6 support:</p>
+
+        <pre>
+          {
+            Socket_Address_Type_IPv4:
+              [Socket_Access_Control_Localhost, Socket_Access_Control_Port,
+               Socket_Access_Control_Netmask],
+            Socket_Address_Type_Unix:
+              [Socket_Access_Control_Localhost, Socket_Access_Control_Credentials]
+          }
+        </pre>
+
+        <p>Connection Managers MUST support at least IPv4 with the localhost
+          access control.</p>
+
+        <p>When requesting a channel with
+          <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">Connection.Interface.Requests.CreateChannel</a>,
+          this property MUST NOT be included in the request.</p>
+
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Simple-Type:Stream_Tube_Connection_ID"></a>
+      <span class="permalink">Simple Type (<a href="Channel_Type_Stream_Tube.html#Simple-Type:Stream_Tube_Connection_ID">Permalink</a>)</span>
+      <h2>
+       Stream_Tube_Connection_ID &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">An identifier for a stream tube connection.
+        These are defined with the
+        <a href="Channel_Type_Stream_Tube.html#Signal:NewLocalConnection" title="Signal org.freedesktop.Telepathy.Channel.Type.StreamTube.NewLocalConnection">NewLocalConnection</a> or
+        <a href="Channel_Type_Stream_Tube.html#Signal:NewRemoteConnection" title="Signal org.freedesktop.Telepathy.Channel.Type.StreamTube.NewRemoteConnection">NewRemoteConnection</a> signals
+        and are used by <a href="Channel_Type_Stream_Tube.html#Signal:ConnectionClosed" title="Signal org.freedesktop.Telepathy.Channel.Type.StreamTube.ConnectionClosed">ConnectionClosed</a>
+        to identify the closed connection.
+        </div>
+      
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

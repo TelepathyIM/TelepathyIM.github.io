@@ -1,0 +1,1118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.CaptchaAuthentication1 &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1'>Channel.Interface.CaptchaAuthentication1</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Captcha_Authentication.html#Method:GetCaptchas">GetCaptchas</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>a(ussuas): Captcha_Info, u: Number_Required, s: Language</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Captcha_Authentication.html#Method:GetCaptchaData">GetCaptchaData</a></td>
+       <td>(u: ID, s: Mime_Type)</td>
+       <td>&#8594;</td>
+       <td>ay: Captcha_Data</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Captcha_Authentication.html#Method:AnswerCaptchas">AnswerCaptchas</a></td>
+       <td>(a{us}: Answers)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Captcha_Authentication.html#Method:CancelCaptcha">CancelCaptcha</a></td>
+       <td>(u: Reason, s: Debug_Message)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Captcha_Authentication.html#Property:CanRetryCaptcha">CanRetryCaptcha</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Captcha_Authentication.html#Property:CaptchaStatus">CaptchaStatus</a></td>
+       <td>
+        u
+        
+          (<a href="Channel_Interface_Captcha_Authentication.html#Enum:Captcha_Status" title="Enum Captcha_Status">
+              Captcha_Status</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Captcha_Authentication.html#Property:CaptchaError">CaptchaError</a></td>
+       <td>
+        s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">
+              DBus_Error_Name</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Captcha_Authentication.html#Property:CaptchaErrorDetails">CaptchaErrorDetails</a></td>
+       <td>
+        a{sv}
+        
+          (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">
+              String_Variant_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Captcha_Authentication.html#Enum:Captcha_Cancel_Reason">Captcha_Cancel_Reason</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Captcha_Authentication.html#Enum:Captcha_Status">Captcha_Status</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Captcha_Authentication.html#Flags:Captcha_Flags">Captcha_Flags</a></td>
+       <td>Flags</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Captcha_Authentication.html#Mapping:Captcha_Answers">Captcha_Answers</a></td>
+       <td>Mapping</td>
+       <td>a{us}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Captcha_Authentication.html#Struct:Captcha_Info">Captcha_Info</a></td>
+       <td>Struct</td>
+       <td>(ussuas)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.25.2. </span>(version 1)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>A channel interface for captcha authentication.
+        When this interface appears on a <a href="Channel_Type_Server_Authentication.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ServerAuthentication">ServerAuthentication</a>
+        channel, it represents authentication with the server. In future,
+        it could also be used to authenticate with secondary services,
+        or even to authenticate end-to-end connections with contacts. As a result,
+        this interface does not REQUIRE <a href="Channel_Type_Server_Authentication.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ServerAuthentication">ServerAuthentication</a> to allow for a potential future
+        Channel.Type.PeerAuthentication interface.</p>
+
+      <p>In any protocol that requires a captcha, the connection manager can
+        use this channel to let a user interface carry out a simple captcha
+        handshake with it, as a way to test the user is human
+        interactively.</p>
+
+      <p>For channels managed by a
+        <a href="Channel_Dispatcher.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.ChannelDispatcher">ChannelDispatcher</a>,
+        only the channel's <a href="Client_Handler.html" namespace="ofdT.Client" title="Interface org.freedesktop.Telepathy.Client.Handler">Handler</a> may call the
+        methods on this interface. Other clients MAY observe the
+        authentication process by watching its signals and properties.</p>
+
+      <p>The most commonly used form of captcha challenge is OCR (recognition
+        of distorted letters or words in an image), but for accessibility
+        reasons, this interface also allows various other types of challenge,
+        such as plain-text questions or recognition of words in audio. Its
+        structure is modelled on XMPP's
+        <a href="http://xmpp.org/extensions/xep-0158.html">XEP-0158</a>,
+        but can be used with other protocols by mapping their semantics
+        into those used in XMPP.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>It is important to support multiple types of captcha
+          challenge to avoid discriminating against certain users; for
+          instance, blind or partially-sighted users cannot be expected
+          to answer an OCR challenge.</p>
+
+        <p>XEP-0158 supports a superset of all other known protocols' captcha
+          interfaces, and is sufficiently elaborate that we expect it will
+          continue to do so.</p>
+
+        <p>There can only be one Handler, which is a good fit for the
+          question/answer model implied by captchas.</p>
+      </div></div>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:GetCaptchas"></a>
+     <span class="permalink">(<a href="Channel_Interface_Captcha_Authentication.html#Method:GetCaptchas">Permalink</a>)</span>
+     <h2>GetCaptchas () &#8594; a(ussuas): Captcha_Info, u: Number_Required, s: Language</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Captcha_Info &mdash; a(ussuas)
+        
+          (<a href="Channel_Interface_Captcha_Authentication.html#Struct:Captcha_Info" title="Array of Struct Captcha_Info">Captcha_Info_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          Information about each of the available captcha methods.
+        </div>
+      
+       <li>
+        Number_Required &mdash; u
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          The number of captcha methods required to be answered
+          in order to successfully complete this captcha challenge
+          (most frequently 1, but XMPP allows servers to demand that
+          more than one captcha is answered).
+        </div>
+      
+       <li>
+        Language &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:Language_Tag" title="Simple Type Language_Tag">Language_Tag</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          The language of each Label in Captcha_Info if available,
+          for instance en_US, or &quot;&quot; if unknown.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Gets information regarding each of the captcha methods
+          available and which and how many need to be successfully answered</p>
+
+        <p>To call this method successfully, the state must be Local_Pending
+          or Try_Again. If it is Local_Pending, it remains Local_Pending. If
+          called more than once while in Local_Pending state, or if the state
+          is Try_Again, this method fetches a new set of captcha challenges,
+          if possible, and the state returns to Local_Pending.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>For instance, you could call GetCaptchas again from Local_Pending
+            state if the user indicates that they can't understand the
+            initially-offered captcha.</p>
+
+          <p>This is a method, not a property, so that it can be used to
+            fetch more than one set of captcha challenges, and so that
+            change notification is not required. Only the Handler should
+            call this method and calling GetAll would not reduce round-trips,
+            so the usual reasons to prefer a property do not apply here.</p>
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            Either the state is not Local_Pending or Try_Again, or it has
+            already been called and
+            <a href="Channel_Interface_Captcha_Authentication.html#Property:CanRetryCaptcha" title="Property org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.CanRetryCaptcha">CanRetryCaptcha</a> is False.
+          </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetCaptchaData"></a>
+     <span class="permalink">(<a href="Channel_Interface_Captcha_Authentication.html#Method:GetCaptchaData">Permalink</a>)</span>
+     <h2>GetCaptchaData (u: ID, s: Mime_Type) &#8594; ay: Captcha_Data</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        ID &mdash; u
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The ID of the captcha of which to retrieve data.
+        </div>
+      
+       <li>
+        Mime_Type &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          MIME type picked by the Handler, chosen from the list of MIME
+          types received in <a href="Channel_Interface_Captcha_Authentication.html#Method:GetCaptchas" title="Method org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.GetCaptchas">GetCaptchas</a>.
+          <div class="rationale"><h5>Rationale:</h5><div>
+            XEP-0158 allows the same captcha to be made available in
+            multiple formats, for instance the same spoken question as
+            audio/x-wav, application/ogg and audio/speex.
+          </div></div>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Captcha_Data &mdash; ay
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Captcha data as requested.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Fetch and return the captcha data. In protocols
+          where captchas are downloaded out-of-band (for instance via HTTP),
+          the connection manager is expected to do so.</p>
+        <p>Returns an empty array if the type was &quot;qa&quot;</p>
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>If audio-based and image-based captchas are both available,
+            we don't want to waste time downloading the audio until/unless
+            the user asks to hear it. The extra D-Bus round-trips are not
+            a problem, since they are expected to be quick compared with
+            the time taken for the user to solve the captcha.</p>
+        </div></div>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The state is not in Local_Pending or
+            <a href="Channel_Interface_Captcha_Authentication.html#Method:GetCaptchas" title="Method org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.GetCaptchas">GetCaptchas</a> had never been called.
+          </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:AnswerCaptchas"></a>
+     <span class="permalink">(<a href="Channel_Interface_Captcha_Authentication.html#Method:AnswerCaptchas">Permalink</a>)</span>
+     <h2>AnswerCaptchas (a{us}: Answers) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Answers &mdash; a{us}
+        
+          (<a href="Channel_Interface_Captcha_Authentication.html#Mapping:Captcha_Answers" title="Mapping Captcha_Answers">Captcha_Answers</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The mapping of captcha IDs to answer strings.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Answer as many captchas as desired and/or required.</p>
+        <p>Callable in state Local_Pending only. State changes to
+          Remote_Pending.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The state is not in Local_Pending.
+          </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:CancelCaptcha"></a>
+     <span class="permalink">(<a href="Channel_Interface_Captcha_Authentication.html#Method:CancelCaptcha">Permalink</a>)</span>
+     <h2>CancelCaptcha (u: Reason, s: Debug_Message) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Reason &mdash; u
+        
+          (<a href="Channel_Interface_Captcha_Authentication.html#Enum:Captcha_Cancel_Reason" title="Enum Captcha_Cancel_Reason">Captcha_Cancel_Reason</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Reason for cancelling. This MAY be used to choose an error
+          response to the remote server, and SHOULD also be reflected
+          in the <a href="Channel_Interface_Captcha_Authentication.html#Property:CaptchaError" title="Property org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.CaptchaError">CaptchaError</a>.
+        </div>
+      
+       <li>
+        Debug_Message &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A textual description of the reason for cancelling, supplied
+          by the Handler. This message SHOULD NOT be sent to the remote
+          server, but SHOULD be copied into the 'debug-message' field
+          of the <a href="Channel_Interface_Captcha_Authentication.html#Property:CaptchaErrorDetails" title="Property org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.CaptchaErrorDetails">CaptchaErrorDetails</a> and
+          <a href="Connection.html#Signal:ConnectionError" namespace="ofdT.Connection" title="Signal org.freedesktop.Telepathy.Connection.ConnectionError">ConnectionError</a>.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Cancel. State changes to Failed with error NotAvailable or
+          Cancelled if it isn't already Failed. All you can do now is
+          to close the channel.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The current state is Failed.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CanRetryCaptcha"></a>
+     <span class="permalink">(<a href="Channel_Interface_Captcha_Authentication.html#Property:CanRetryCaptcha">Permalink</a>)</span>
+     <h2>
+      CanRetryCaptcha &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If true, <a href="Channel_Interface_Captcha_Authentication.html#Method:GetCaptchas" title="Method org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.GetCaptchas">GetCaptchas</a>
+          can be expected to return new captcha information when
+          in the Local_Pending state. If false,
+          <a href="Channel_Interface_Captcha_Authentication.html#Method:GetCaptchas" title="Method org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.GetCaptchas">GetCaptchas</a> will return
+          NotAvailable on subsequent calls.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Refreshing the captcha isn't required to work, although
+            some protocols and implementations allow it. This is usually
+            done in case a given captcha is unintelligible.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CaptchaStatus"></a>
+     <span class="permalink">(<a href="Channel_Interface_Captcha_Authentication.html#Property:CaptchaStatus">Permalink</a>)</span>
+     <h2>
+      CaptchaStatus &mdash; u
+      
+        (<a href="Channel_Interface_Captcha_Authentication.html#Enum:Captcha_Status" title="Enum Captcha_Status">Captcha_Status</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The current status of this channel.</p>
+
+        <p>Because only the Handler should call methods on this interface,
+          the Handler MAY reduce round-trips by not fetching the initial
+          value of this property, and instead assume that is initially
+          Local_Pending.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This assumption normally avoids the need to call GetAll(),
+            since the values of <a href="Channel_Interface_Captcha_Authentication.html#Property:CaptchaError" title="Property org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.CaptchaError">CaptchaError</a>
+            and <a href="Channel_Interface_Captcha_Authentication.html#Property:CaptchaErrorDetails" title="Property org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.CaptchaErrorDetails">CaptchaErrorDetails</a>
+            are also implied by this assumption, and the only other
+            property is <a href="Channel_Interface_Captcha_Authentication.html#Property:CanRetryCaptcha" title="Property org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.CanRetryCaptcha">CanRetryCaptcha</a>,
+            which is immutable.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CaptchaError"></a>
+     <span class="permalink">(<a href="Channel_Interface_Captcha_Authentication.html#Property:CaptchaError">Permalink</a>)</span>
+     <h2>
+      CaptchaError &mdash; s
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">DBus_Error_Name</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The reason for the <a href="Channel_Interface_Captcha_Authentication.html#Property:CaptchaStatus" title="Property org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.CaptchaStatus">CaptchaStatus</a>, or
+          an empty string if the state is neither Try_Again nor Failed.</p>
+
+        <p>Typical values: &quot;&quot;, Cancelled, AuthenticationFailed,
+          CaptchaNotSupported</p>
+
+        <p>In particular, an ordinary authentication failure (as would
+          be produced for an incorrect answer) SHOULD be represented by
+          <a href="errors.html#Error:Authentication Failed" title="org.freedesktop.Telepathy.Error.AuthenticationFailed">AuthenticationFailed</a>,
+          cancellation by the user's request SHOULD be represented
+          by <a href="errors.html#Error:Cancelled" title="org.freedesktop.Telepathy.Error.Cancelled">Cancelled</a>, cancellation due
+          to the inability to display the captcha to the user or otherwise
+          answer it SHOULD be represented by
+          <a href="errors.html#Error:Captcha Not Supported" title="org.freedesktop.Telepathy.Error.CaptchaNotSupported">CaptchaNotSupported</a>, and
+          cancellation by a local process due to inconsistent or invalid
+          challenges from the server SHOULD be represented by
+          <a href="errors.html#Error:Service Confused" title="org.freedesktop.Telepathy.Error.ServiceConfused">ServiceConfused</a>.</p>
+
+        <p>If this interface appears on a <a href="Channel_Type_Server_Authentication.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ServerAuthentication">ServerAuthentication</a>
+          channel, and connection to the server fails with an authentication
+          failure, this error code SHOULD be copied into the
+          <a href="Connection.html#Signal:ConnectionError" namespace="ofdT" title="Signal org.freedesktop.Telepathy.Connection.ConnectionError">Connection.ConnectionError</a>
+          signal.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CaptchaErrorDetails"></a>
+     <span class="permalink">(<a href="Channel_Interface_Captcha_Authentication.html#Property:CaptchaErrorDetails">Permalink</a>)</span>
+     <h2>
+      CaptchaErrorDetails &mdash; a{sv}
+      
+        (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     <div class="annotation emits-changed emits-changed-updates">
+       When this property changes, the
+       <code>org.freedesktop.DBus.Properties.PropertiesChanged</code>
+       signal is emitted with the new value.
+     </div>
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If <a href="Channel_Interface_Captcha_Authentication.html#Property:CaptchaError" title="Property org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.CaptchaError">CaptchaError</a> is non-empty,
+          any additional information about the last
+          disconnection; otherwise, the empty map. The keys and values are
+          the same as for the second argument of
+          <a href="Connection.html#Signal:ConnectionError" namespace="ofdT" title="Signal org.freedesktop.Telepathy.Connection.ConnectionError">Connection.ConnectionError</a>.</p>
+
+        <p>If this interface appears on a <a href="Channel_Type_Server_Authentication.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ServerAuthentication">ServerAuthentication</a>
+          channel, and connection to the server fails with an authentication
+          failure, these details SHOULD be copied into the
+          <a href="Connection.html#Signal:ConnectionError" namespace="ofdT" title="Signal org.freedesktop.Telepathy.Connection.ConnectionError">Connection.ConnectionError</a>
+          signal.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Captcha_Cancel_Reason"></a>
+      <span class="permalink">Enum (<a href="Channel_Interface_Captcha_Authentication.html#Enum:Captcha_Cancel_Reason">Permalink</a>)</span>
+      <h2>
+       Captcha_Cancel_Reason &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A reason why captcha authentication was aborted by the client.</p>
+      </div>
+      <ul>
+<li>User_Cancelled (0)</li>
+<div class="docstring">
+          The user aborted the authentication. If this is used, the
+          <a href="Channel_Interface_Captcha_Authentication.html#Property:CaptchaError" title="Property org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.CaptchaError">CaptchaError</a> SHOULD be set to
+          <a href="errors.html#Error:Cancelled" title="org.freedesktop.Telepathy.Error.Cancelled">Cancelled</a>
+        </div><li>Not_Supported (1)</li>
+<div class="docstring">
+          The Handler doesn't support the given/required captcha types.
+          If this is used, the <a href="Channel_Interface_Captcha_Authentication.html#Property:CaptchaError" title="Property org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.CaptchaError">CaptchaError</a>
+          SHOULD be set to <a href="errors.html#Error:Captcha Not Supported" title="org.freedesktop.Telepathy.Error.CaptchaNotSupported">CaptchaNotSupported</a>.
+          This SHOULD also be used if
+          <a href="Channel.html#Method:Close" namespace="ofdT.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a> is called
+          before <a href="Channel_Interface_Captcha_Authentication.html#Method:CancelCaptcha" title="Method org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.CancelCaptcha">CancelCaptcha</a>.
+          <div class="rationale"><h5>Rationale:</h5><div>
+            If no Handler supports captcha channels,
+            the ChannelDispatcher will just call
+            <a href="Channel.html#Method:Close" namespace="ofdT.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a>,
+            because it has no knowledge of specific channel types.
+          </div></div>
+        </div><li>Service_Confused (2)</li>
+<div class="docstring">
+          The Handler doesn't understand the captcha data received. The
+          challenger may be sending gibberish.
+          If this is used, the <a href="Channel_Interface_Captcha_Authentication.html#Property:CaptchaError" title="Property org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.CaptchaError">CaptchaError</a>
+          SHOULD be set to <a href="errors.html#Error:Service Confused" title="org.freedesktop.Telepathy.Error.ServiceConfused">ServiceConfused</a>.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Captcha_Status"></a>
+      <span class="permalink">Enum (<a href="Channel_Interface_Captcha_Authentication.html#Enum:Captcha_Status">Permalink</a>)</span>
+      <h2>
+       Captcha_Status &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Local_Pending (0)</li>
+<div class="docstring">
+          The challenge/response exchange is in progress and waiting for
+          a local action. Call <a href="Channel_Interface_Captcha_Authentication.html#Method:AnswerCaptchas" title="Method org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.AnswerCaptchas">AnswerCaptchas</a>
+          to go to the Remote_Pending state, or call
+          <a href="Channel_Interface_Captcha_Authentication.html#Method:CancelCaptcha" title="Method org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.CancelCaptcha">CancelCaptcha</a> followed by 
+          <a href="Channel.html#Method:Close" namespace="ofdT.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a>
+          to give up.
+        </div><li>Remote_Pending (1)</li>
+<div class="docstring">
+          The challenge/response exchange is in progress and waiting for
+          a response from the server. Wait for a reply from the server,
+          which will result in the Succeeded, Try_Again, or Failed state,
+          or call <a href="Channel_Interface_Captcha_Authentication.html#Method:CancelCaptcha" title="Method org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.CancelCaptcha">CancelCaptcha</a> followed by
+          <a href="Channel.html#Method:Close" namespace="ofdT.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a>
+          to give up.
+        </div><li>Succeeded (2)</li>
+<div class="docstring">
+          Everyone is happy. Connection to the server will proceed as soon as
+          this state is reached. There is nothing useful to do in this state
+          except to call <a href="Channel.html#Method:Close" namespace="ofdT.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a>
+          to close the channel.
+        </div><li>Try_Again (3)</li>
+<div class="docstring">
+          The server has indicated an authentication failure.
+          Call <a href="Channel_Interface_Captcha_Authentication.html#Method:GetCaptchas" title="Method org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.GetCaptchas">GetCaptchas</a> again to get
+          a new captcha, or
+          <a href="Channel_Interface_Captcha_Authentication.html#Method:CancelCaptcha" title="Method org.freedesktop.Telepathy.Channel.Interface.CaptchaAuthentication1.CancelCaptcha">CancelCaptcha</a> followed by
+          <a href="Channel.html#Method:Close" namespace="ofdT.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a>
+          to give up.
+        </div><li>Failed (4)</li>
+<div class="docstring">
+          Authentication has failed in some way. There is nothing
+          useful to do in this state except to close the channel with
+          <a href="Channel.html#Method:Close" namespace="ofdT.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a>.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Flags:Captcha_Flags"></a>
+      <span class="permalink">Flags (<a href="Channel_Interface_Captcha_Authentication.html#Flags:Captcha_Flags">Permalink</a>)</span>
+      <h2>
+       Captcha_Flags &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Extra flags to include with Captcha information</p>
+      </div>
+      <ul>
+<li>Required (1)</li>
+<div class="docstring">
+          This captcha mechanism is required to be successfully
+          answered in order to pass this captcha challenge.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Captcha_Answers"></a>
+      <span class="permalink">Mapping (<a href="Channel_Interface_Captcha_Authentication.html#Mapping:Captcha_Answers">Permalink</a>)</span>
+      <h2>
+       Captcha_Answers &mdash; a{us}
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        A mapping of captcha IDs to answer strings.
+      </div>
+      <ul>
+<li>ID &mdash; u</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          The ID of the captcha to which the associated
+          answer string is answering.
+        </div><li>Answer &mdash; s</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          The answer string to answer the captcha referenced
+          by the associated ID.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Captcha_Info"></a>
+      <span class="permalink">Struct (<a href="Channel_Interface_Captcha_Authentication.html#Struct:Captcha_Info">Permalink</a>)</span>
+      <h2>
+       Captcha_Info &mdash; (ussuas)
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A struct containing information regarding a single captcha
+          mechanism.</p>
+      </div>
+      <ul>
+<li>ID &mdash; u</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The ID with which to reference this captcha method
+            when retrieving its data and answering it.
+            They are unique within this channel instance only.</p>
+        </div><li>Type &mdash; s</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The type of challenge
+            <a href="http://xmpp.org/extensions/xep-0158.html#challenge">
+            as defined by XEP-0158</a>. For instance, the commonly-used
+            &quot;type the letters/words you see in this image&quot; challenge is
+            represented by <code>ocr</code></p>
+        </div><li>Label &mdash; s</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A human-readable label for the challenge, as defined in
+            XEP-0158.</p>
+
+          <p>If the server does not supply a label for a challenge of type
+            other than <code>qa</code>, connection managers SHOULD set Label
+            to an empty string instead of generating their own text.
+            If the Label is an empty string, the Handler SHOULD replace
+            it with a generic label in the user's locale, such as
+            the strings suggested in XEP-0158 (for instance,
+            <code>Enter the text you see</code> for <code>ocr</code>
+            challenges). The Handler MAY use those generic labels
+            in any case, as per
+            <a href="http://xmpp.org/extensions/xep-0158.html#i18n">the
+              Internationalization Considerations section of XEP-0158</a>.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>Connection managers are not usually localized, so text
+              generated by the connection manager would be in English,
+              regardless of the user's locale. The Handler is better-placed
+              to generate a generic Label in the user's locale.</p>
+          </div></div>
+
+          <p>For challenges of type <code>qa</code>, the Label is a plain-text
+            question for the user to answer. The connection manager
+            SHOULD NOT provide an empty Label; if it does, the Handler
+            SHOULD treat that challenge as impossible, and SHOULD NOT
+            attempt to display it.</p>
+        </div><li>Flags &mdash; u (<a href="Channel_Interface_Captcha_Authentication.html#Flags:Captcha_Flags" title="Flags Captcha_Flags">Captcha_Flags</a>)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>One flag defined: Required. Most captchas will have no flags.</p>
+        </div><li>Available_MIME_Types &mdash; as</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A list of MIME types the server is offering to provide
+            for this captcha method.</p>
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

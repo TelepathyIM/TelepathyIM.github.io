@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Client &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Client'>Client</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Client.html#Property:Interfaces">Interfaces</a></td>
+       <td>
+        as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">
+              DBus_Interface_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.26. </span>(as a stable interface)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>Telepathy clients use connection managers, the channel dispatcher
+        and optionally the account manager to provide useful
+        functionality.</p>
+
+      <p>User interface processes are the obvious example of Telepathy
+        clients, but they can provide other functionality, such as
+        address-book synchronization.</p>
+
+      <p>Every running or activatable process with a well-known
+        name of the form org.freedesktop.Telepathy.Client.<em>clientname</em>
+        should be probed by the channel dispatcher to discover its
+        capabilities. Each client is either an <em>observer</em>, an
+        <em>approver</em>, a <em>channel handler</em>, or some combination
+        of these.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>Activatable services (those with a D-Bus <code>.service</code>
+          file) must be supported so that we can run clients
+          in response to channel creation.</p>
+
+        <p>Non-activatable services (those that do not register a D-Bus
+          <code>.service</code> file for their well-known name, but do
+          request it at runtime) must be supported so that we can have
+          programs that process channels, but only if they are already
+          running - for instance, a full-screen media centre
+          application might do this.</p>
+      </div></div>
+
+      <p>The client name, <em>clientname</em>, MUST be a non-empty string of
+        ASCII digits, letters, dots and/or underscores, starting with a
+        letter, and without sets of two consecutive dots or a dot
+        followed by a digit. For non-activatable services, it MAY contain a
+        part that is generated per instance at runtime.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>If each of a client Foo's instances should be able to manipulate
+          channels separately, the instance with unique name
+          <code>:1.25</code> might request a well-known name like
+          <code>org.freedesktop.Telepathy.Client.Foo._1._25</code>.</p>
+
+        <p>(Note that well-known bus-name components may not start with a
+          digit, so o.f.T.Client.Foo.1.25 would not be acceptable.)</p>
+      </div></div>
+
+      <p>Each Client MUST export an object whose object path may be
+        determined by replacing '.' with '/' in the well-known name and
+        prepending '/'. This object represents its API as a Telepathy
+        client; the channel dispatcher will call its methods and read
+        its properties when appropriate.</p>
+
+      <p>As an optimization, activatable clients SHOULD install a file
+        <code><a href="http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html">$XDG_DATA_DIRS</a>/telepathy/clients/<em>clientname</em>.client</code>
+        containing a cached version of its immutable properties,
+        so that for most clients, the channel dispatcher can
+        just read a file to discover capabilities, instead of
+        having to service-activate the client immediately in order to fetch
+        its read-only properties. However, the D-Bus API is canonical, and
+        the channel dispatcher MUST support clients without such a file.</p>
+
+      <p>Non-activatable clients MAY install a <code>.client</code> file,
+        but there's not much point in them doing so.</p>
+
+      <p>The .client files MUST contain UTF-8 text with the same syntax
+        as
+        <a href="http://standards.freedesktop.org/desktop-entry-spec/latest/">Desktop
+          Entry files</a> (although the allowed groups, keys and values differ).
+        Every <code>.client</code> file MUST contain a group whose name is
+        the name of this interface.</p>
+
+      <p>The groups, keys and values in the <code>.client</code> file are
+        defined by individual interfaces. Each interface that can usefully
+        cache information in the <code>.client</code> file SHOULD correspond
+        to a group with the same name.</p>
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Interfaces"></a>
+     <span class="permalink">(<a href="Client.html#Property:Interfaces">Permalink</a>)</span>
+     <h2>
+      Interfaces &mdash; as
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A list of the extra interfaces provided by this client.
+          This SHOULD include at least one of
+          <a href="Client_Observer.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Client.Observer">Client.Observer</a>,
+          <a href="Client_Approver.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Client.Approver">Client.Approver</a> or
+          <a href="Client_Handler.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Client.Handler">Client.Handler</a>.</p>
+
+        <p>In the <code>.client</code> file, this is represented by key
+          &quot;<code>Interfaces</code>&quot; in the group named after this interface.
+          The value of the key is a list of interface names each followed by
+          a semicolon (so it always ends with a semicolon unless it is empty),
+          i.e. a key of type &quot;strings&quot; as described in the Desktop Entry
+          specification.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

@@ -1,0 +1,2472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Media.StreamHandler &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Media.StreamHandler'>Media.StreamHandler</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Method:CodecChoice">CodecChoice</a></td>
+       <td>(u: Codec_ID)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Method:Error">Error</a></td>
+       <td>(u: Error_Code, s: Message)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Method:NativeCandidatesPrepared">NativeCandidatesPrepared</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Method:NewActiveCandidatePair">NewActiveCandidatePair</a></td>
+       <td>(s: Native_Candidate_ID, s: Remote_Candidate_ID)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Method:NewActiveTransportPair">NewActiveTransportPair</a></td>
+       <td>(s: Native_Candidate_ID, (usuussduss): Native_Transport, s: Remote_Candidate_ID, (usuussduss): Remote_Transport)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Method:NewNativeCandidate">NewNativeCandidate</a></td>
+       <td>(s: Candidate_ID, a(usuussduss): Transports)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Method:Ready">Ready</a></td>
+       <td>(a(usuuua{ss}): Codecs)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Method:SetLocalCodecs">SetLocalCodecs</a></td>
+       <td>(a(usuuua{ss}): Codecs)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Method:StreamState">StreamState</a></td>
+       <td>(u: State)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Method:SupportedCodecs">SupportedCodecs</a></td>
+       <td>(a(usuuua{ss}): Codecs)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Method:CodecsUpdated">CodecsUpdated</a></td>
+       <td>(a(usuuua{ss}): Codecs)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Method:HoldState">HoldState</a></td>
+       <td>(b: Held)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Method:UnholdFailure">UnholdFailure</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Method:SupportedFeedbackMessages">SupportedFeedbackMessages</a></td>
+       <td>(a{u(ua(sss))}: Messages)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Method:SupportedHeaderExtensions">SupportedHeaderExtensions</a></td>
+       <td>(a(uuss): Header_Extensions)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Signal:AddRemoteCandidate">AddRemoteCandidate</a></td>
+       <td>(s: Candidate_ID, a(usuussduss): Transports)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Signal:Close">Close</a></td>
+       <td>()</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr class="deprecated">
+       
+       <td><a href="Media_Stream_Handler.html#Signal:RemoveRemoteCandidate">RemoveRemoteCandidate</a></td>
+       <td>(s: Candidate_ID)</td>
+       <td>
+         (deprecated) 
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Signal:SetActiveCandidatePair">SetActiveCandidatePair</a></td>
+       <td>(s: Native_Candidate_ID, s: Remote_Candidate_ID)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Signal:SetRemoteCandidateList">SetRemoteCandidateList</a></td>
+       <td>(a(sa(usuussduss)): Remote_Candidates)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Signal:SetRemoteCodecs">SetRemoteCodecs</a></td>
+       <td>(a(usuuua{ss}): Codecs)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Signal:SetStreamPlaying">SetStreamPlaying</a></td>
+       <td>(b: Playing)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Signal:SetStreamSending">SetStreamSending</a></td>
+       <td>(b: Sending)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Signal:StartTelephonyEvent">StartTelephonyEvent</a></td>
+       <td>(y: Event)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Signal:StartNamedTelephonyEvent">StartNamedTelephonyEvent</a></td>
+       <td>(y: Event, u: Codec_ID)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Signal:StartSoundTelephonyEvent">StartSoundTelephonyEvent</a></td>
+       <td>(y: Event)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Signal:StopTelephonyEvent">StopTelephonyEvent</a></td>
+       <td>()</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Signal:SetStreamHeld">SetStreamHeld</a></td>
+       <td>(b: Held)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Signal:SetRemoteFeedbackMessages">SetRemoteFeedbackMessages</a></td>
+       <td>(a{u(ua(sss))}: Messages)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Signal:SetRemoteHeaderExtensions">SetRemoteHeaderExtensions</a></td>
+       <td>(a(uuss): Header_Extensions)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Property:STUNServers">STUNServers</a></td>
+       <td>
+        a(sq)
+        
+          (<a href="generic-types.html#Struct:Socket_Address_IP" title="Array of Struct Socket_Address_IP">
+              Socket_Address_IP_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Property:CreatedLocally">CreatedLocally</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Property:NATTraversal">NATTraversal</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Property:RelayInfo">RelayInfo</a></td>
+       <td>
+        aa{sv}
+        
+          (<a href="generic-types.html#Mapping:String_Variant_Map" title="Array of Mapping String_Variant_Map">
+              String_Variant_Map_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Enum:Media_Stream_Error">Media_Stream_Error</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Enum:Media_Stream_Base_Proto">Media_Stream_Base_Proto</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Enum:Media_Stream_Transport_Type">Media_Stream_Transport_Type</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Mapping:RTCP_Feedback_Message_Map">RTCP_Feedback_Message_Map</a></td>
+       <td>Mapping</td>
+       <td>a{u(ua(sss))}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Candidate">Media_Stream_Handler_Candidate</a></td>
+       <td>Struct</td>
+       <td>(sa(usuussduss))</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Transport">Media_Stream_Handler_Transport</a></td>
+       <td>Struct</td>
+       <td>(usuussduss)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Codec">Media_Stream_Handler_Codec</a></td>
+       <td>Struct</td>
+       <td>(usuuua{ss})</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Struct:RTCP_Feedback_Message_Properties">RTCP_Feedback_Message_Properties</a></td>
+       <td>Struct</td>
+       <td>(ua(sss))</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Struct:RTCP_Feedback_Message">RTCP_Feedback_Message</a></td>
+       <td>Struct</td>
+       <td>(sss)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Media_Stream_Handler.html#Struct:RTP_Header_Extension">RTP_Header_Extension</a></td>
+       <td>Struct</td>
+       <td>(uuss)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring">
+    Handles signalling the information pertaining to a specific media stream.
+    A client should provide information to this handler as and when it is
+    available.
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:CodecChoice"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Method:CodecChoice">Permalink</a>)</span>
+     <h2>CodecChoice (u: Codec_ID) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Codec_ID &mdash; u
+        
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Inform the connection manager of codec used to receive data.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:Error"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Method:Error">Permalink</a>)</span>
+     <h2>Error (u: Error_Code, s: Message) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Error_Code &mdash; u
+        
+          (<a href="Media_Stream_Handler.html#Enum:Media_Stream_Error" title="Enum Media_Stream_Error">Media_Stream_Error</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          ID of error, from the MediaStreamError enumeration
+        </div>
+      
+       <li>
+        Message &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          String describing the error
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Inform the connection manager that an error occured in this stream. The
+        connection manager should emit the StreamError signal for the stream on
+        the relevant channel, and remove the stream from the session.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:NativeCandidatesPrepared"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Method:NativeCandidatesPrepared">Permalink</a>)</span>
+     <h2>NativeCandidatesPrepared () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring">
+        Informs the connection manager that all possible native candisates
+        have been discovered for the moment.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:NewActiveCandidatePair"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Method:NewActiveCandidatePair">Permalink</a>)</span>
+     <h2>NewActiveCandidatePair (s: Native_Candidate_ID, s: Remote_Candidate_ID) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Native_Candidate_ID &mdash; s
+        
+       </li>
+       
+       
+       
+       
+      
+       <li>
+        Remote_Candidate_ID &mdash; s
+        
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Informs the connection manager that a valid candidate pair
+        has been discovered and streaming is in progress.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:NewActiveTransportPair"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Method:NewActiveTransportPair">Permalink</a>)</span>
+     <h2>NewActiveTransportPair (s: Native_Candidate_ID, (usuussduss): Native_Transport, s: Remote_Candidate_ID, (usuussduss): Remote_Transport) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Native_Candidate_ID &mdash; s
+        
+       </li>
+       
+       
+       
+       
+      
+       <li>
+        Native_Transport &mdash; (usuussduss)
+        
+          (<a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Transport" title="Struct Media_Stream_Handler_Transport">Media_Stream_Handler_Transport</a>)
+        
+       </li>
+       
+       
+       
+       
+      
+       <li>
+        Remote_Candidate_ID &mdash; s
+        
+       </li>
+       
+       
+       
+       
+      
+       <li>
+        Remote_Transport &mdash; (usuussduss)
+        
+          (<a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Transport" title="Struct Media_Stream_Handler_Transport">Media_Stream_Handler_Transport</a>)
+        
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        <p>Informs the connection manager that a valid transport pair
+          has been discovered and streaming is in progress. Component
+          id MUST be the same for both transports and the pair is
+          only valid for that component.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>The connection manager might need to send the details of
+            the active transport pair (e.g. c and o parameters of SDP
+            body need to contain address of selected native RTP transport
+            as stipulated by RFC 5245). However, the candidate ID might
+            not be enough to determine these info if the transport was
+            found after <a href="Media_Stream_Handler.html#Method:NativeCandidatesPrepared" title="Method org.freedesktop.Telepathy.Media.StreamHandler.NativeCandidatesPrepared">NativeCandidatesPrepared</a>
+            has been called (e.g. peer reflexive ICE candidate). </p>
+        </div></div>
+
+        <p>This method must be called before
+          <a href="Media_Stream_Handler.html#Method:NewActiveCandidatePair" title="Method org.freedesktop.Telepathy.Media.StreamHandler.NewActiveCandidatePair">NewActiveCandidatePair</a>.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This way, connection managers supporting this method can
+            safely ignore subsequent
+            <a href="Media_Stream_Handler.html#Method:NewActiveCandidatePair" title="Method org.freedesktop.Telepathy.Media.StreamHandler.NewActiveCandidatePair">NewActiveCandidatePair</a> call.</p>
+        </div></div>
+
+        <p>Connection managers SHOULD NOT implement this method unless
+          they need to inform the peer about selected transports. As a
+          result, streaming implementations MUST NOT treat errors raised
+          by this method as fatal.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Usually, connection managers only need to do one answer/offer
+            round-trip. However, some protocols give the possibility to
+            to send an updated offer (e.g. ICE defines such mechanism to
+            avoid some race conditions and to properly set the state of
+            gateway devices).</p>
+        </div></div>
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:NewNativeCandidate"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Method:NewNativeCandidate">Permalink</a>)</span>
+     <h2>NewNativeCandidate (s: Candidate_ID, a(usuussduss): Transports) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Candidate_ID &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          String identifier for this candidate
+        </div>
+      
+       <li>
+        Transports &mdash; a(usuussduss)
+        
+          (<a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Transport" title="Array of Struct Media_Stream_Handler_Transport">Media_Stream_Handler_Transport_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          Array of transports for this candidate, with fields:
+          <ul>
+            <li>component number</li>
+            <li>IP address (as a string)</li>
+            <li>port</li>
+            <li>base network protocol (one of the values of MediaStreamBaseProto)</li>
+            <li>proto subtype (e.g. RTP)</li>
+            <li>proto profile (e.g. AVP)</li>
+            <li>our preference value of this transport (double in range 0.0-1.0
+              inclusive); 1 signals the most preferred transport</li>
+            <li>transport type, one of the values of MediaStreamTransportType</li>
+            <li>username if authentication is required</li>
+            <li>password if authentication is required</li>
+          </ul>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Inform this MediaStreamHandler that a new native transport candidate
+        has been ascertained.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:Ready"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Method:Ready">Permalink</a>)</span>
+     <h2>Ready (a(usuuua{ss}): Codecs) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Codecs &mdash; a(usuuua{ss})
+        
+          (<a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Codec" title="Array of Struct Media_Stream_Handler_Codec">Media_Stream_Handler_Codec_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Locally-supported codecs.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Inform the connection manager that a client is ready to handle
+        this StreamHandler. Also provide it with info about all supported
+        codecs.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:SetLocalCodecs"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Method:SetLocalCodecs">Permalink</a>)</span>
+     <h2>SetLocalCodecs (a(usuuua{ss}): Codecs) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Codecs &mdash; a(usuuua{ss})
+        
+          (<a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Codec" title="Array of Struct Media_Stream_Handler_Codec">Media_Stream_Handler_Codec_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Locally-supported codecs
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Used to provide codecs after Ready(), so the media client can go
+          ready for an incoming call and exchange candidates/codecs before
+          knowing what local codecs are available.</p>
+
+        <p>This is useful for gatewaying calls between two connection managers.
+          Given an incoming call, you need to call
+          <a href="Media_Stream_Handler.html#Method:Ready" title="Method org.freedesktop.Telepathy.Media.StreamHandler.Ready">Ready</a> to get the remote codecs before
+          you can use them as the &quot;local&quot; codecs to place the outgoing call,
+          and hence receive the outgoing call's remote codecs to use as the
+          incoming call's &quot;local&quot; codecs.</p>
+
+        <p>In this situation, you would pass an empty list of codecs to the
+          incoming call's Ready method, then later call SetLocalCodecs on the
+          incoming call in order to respond to the offer.</p>
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:StreamState"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Method:StreamState">Permalink</a>)</span>
+     <h2>StreamState (u: State) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        State &mdash; u
+        
+          (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_State" title="Enum Media_Stream_State">Media_Stream_State</a>)
+        
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Informs the connection manager of the stream's current state, as
+        as specified in Channel.Type.StreamedMedia::ListStreams.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:SupportedCodecs"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Method:SupportedCodecs">Permalink</a>)</span>
+     <h2>SupportedCodecs (a(usuuua{ss}): Codecs) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Codecs &mdash; a(usuuua{ss})
+        
+          (<a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Codec" title="Array of Struct Media_Stream_Handler_Codec">Media_Stream_Handler_Codec_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Locally supported codecs.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Inform the connection manager of the supported codecs for this session.
+        This is called after the connection manager has emitted SetRemoteCodecs
+        to notify what codecs are supported by the peer, and will thus be an
+        intersection of all locally supported codecs (passed to Ready)
+        and those supported by the peer.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:CodecsUpdated"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Method:CodecsUpdated">Permalink</a>)</span>
+     <h2>CodecsUpdated (a(usuuua{ss}): Codecs) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Codecs &mdash; a(usuuua{ss})
+        
+          (<a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Codec" title="Array of Struct Media_Stream_Handler_Codec">Media_Stream_Handler_Codec_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Locally supported codecs, which SHOULD be the same as were previously
+          in effect, but possibly with different parameters.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Inform the connection manager that the parameters of the supported
+        codecs for this session have changed. The connection manager should
+        send the new parameters to the remote contact.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          This is required for H.264 and Theora, for example.
+        </div></div>
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:HoldState"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Method:HoldState">Permalink</a>)</span>
+     <h2>HoldState (b: Held) &#8594; nothing</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.17.3. </span></div>
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Held &mdash; b
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          If true, the stream is now on hold.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Notify the connection manager that the stream's hold state has
+        been changed successfully in response to SetStreamHeld.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:UnholdFailure"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Method:UnholdFailure">Permalink</a>)</span>
+     <h2>UnholdFailure () &#8594; nothing</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.17.3. </span></div>
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring">
+        Notify the connection manager that an attempt to reacquire the
+        necessary hardware or software resources to unhold the stream,
+        in response to SetStreamHeld, has failed.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:SupportedFeedbackMessages"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Method:SupportedFeedbackMessages">Permalink</a>)</span>
+     <h2>SupportedFeedbackMessages (a{u(ua(sss))}: Messages) &#8594; nothing</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.22.1. </span></div>
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Messages &mdash; a{u(ua(sss))}
+        
+          (<a href="Media_Stream_Handler.html#Mapping:RTCP_Feedback_Message_Map" title="Mapping RTCP_Feedback_Message_Map">RTCP_Feedback_Message_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Locally supported feedback messages.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Inform the connection manager of the supported feedback messages
+        for this session.
+        This is called a before calling
+        <a href="Media_Stream_Handler.html#Method:SupportedCodecs" title="Method org.freedesktop.Telepathy.Media.StreamHandler.SupportedCodecs">SupportedCodecs</a>,
+        <a href="Media_Stream_Handler.html#Method:Ready" title="Method org.freedesktop.Telepathy.Media.StreamHandler.Ready">Ready</a> or
+        <a href="Media_Stream_Handler.html#Method:CodecsUpdated" title="Method org.freedesktop.Telepathy.Media.StreamHandler.CodecsUpdated">CodecsUpdated</a> to indicate the local,
+        or negotiated feedback messages.
+      </div>
+
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:SupportedHeaderExtensions"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Method:SupportedHeaderExtensions">Permalink</a>)</span>
+     <h2>SupportedHeaderExtensions (a(uuss): Header_Extensions) &#8594; nothing</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.22.1. </span></div>
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Header_Extensions &mdash; a(uuss)
+        
+          (<a href="Call_Content_Media_Description_Interface_RTP_Header_Extensions.html#Struct:RTP_Header_Extension" title="Array of Struct RTP_Header_Extension">RTP_Header_Extensions_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Locally supported RTP header extensions.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Inform the connection manager of the supported RTP header extensions
+        for this session.
+        This is called before calling
+        <a href="Media_Stream_Handler.html#Method:SupportedCodecs" title="Method org.freedesktop.Telepathy.Media.StreamHandler.SupportedCodecs">SupportedCodecs</a>,
+        <a href="Media_Stream_Handler.html#Method:Ready" title="Method org.freedesktop.Telepathy.Media.StreamHandler.Ready">Ready</a> or
+        <a href="Media_Stream_Handler.html#Method:CodecsUpdated" title="Method org.freedesktop.Telepathy.Media.StreamHandler.CodecsUpdated">CodecsUpdated</a> to indicate the local
+        or negotiated RTP header extensions.
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:AddRemoteCandidate"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Signal:AddRemoteCandidate">Permalink</a>)</span>
+     <h2>AddRemoteCandidate (s: Candidate_ID, a(usuussduss): Transports)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Candidate_ID &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          String identifier for this candidate
+        </div>
+      
+       <li>
+       Transports &mdash; a(usuussduss)
+       
+        (<a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Transport" title="Array of Struct Media_Stream_Handler_Transport">Media_Stream_Handler_Transport_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Array of transports for this candidate with fields,
+          as defined in NewNativeCandidate
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Signal emitted when the connection manager wishes to inform the
+        client of a new remote candidate.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:Close"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Signal:Close">Permalink</a>)</span>
+     <h2>Close ()</h2>
+
+     
+     
+     
+
+     
+
+     <div class="docstring">
+        Signal emitted when the connection manager wishes the stream to be
+        closed.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:RemoveRemoteCandidate"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Signal:RemoveRemoteCandidate">Permalink</a>)</span>
+     <h2>RemoveRemoteCandidate (s: Candidate_ID)</h2>
+
+     
+     
+     <div class="annotation deprecated"><span class="version">Deprecated since 0.17.18. </span>
+        There is no case where you want to release candidates (except
+        for an ICE reset, and there you'd want to replace then all,
+        using <a href="Media_Stream_Handler.html#Signal:SetRemoteCandidateList" title="Signal org.freedesktop.Telepathy.Media.StreamHandler.SetRemoteCandidateList">SetRemoteCandidateList</a>).
+      </div>
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Candidate_ID &mdash; s
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          String identifier for remote candidate to drop
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Signal emitted when the connection manager wishes to inform the
+        client that the remote end has removed a previously usable
+        candidate.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          It seemed like a good idea at the time, but wasn't.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:SetActiveCandidatePair"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Signal:SetActiveCandidatePair">Permalink</a>)</span>
+     <h2>SetActiveCandidatePair (s: Native_Candidate_ID, s: Remote_Candidate_ID)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Native_Candidate_ID &mdash; s
+       
+       </li>
+       
+       
+       
+       
+      
+       <li>
+       Remote_Candidate_ID &mdash; s
+       
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted by the connection manager to inform the client that a
+        valid candidate pair has been discovered by the remote end
+        and streaming is in progress.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:SetRemoteCandidateList"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Signal:SetRemoteCandidateList">Permalink</a>)</span>
+     <h2>SetRemoteCandidateList (a(sa(usuussduss)): Remote_Candidates)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Remote_Candidates &mdash; a(sa(usuussduss))
+       
+        (<a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Candidate" title="Array of Struct Media_Stream_Handler_Candidate">Media_Stream_Handler_Candidate_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+        A list of candidate id and a list of transports
+        as defined in NewNativeCandidate
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Signal emitted when the connection manager wishes to inform the
+        client of all the available remote candidates at once.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:SetRemoteCodecs"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Signal:SetRemoteCodecs">Permalink</a>)</span>
+     <h2>SetRemoteCodecs (a(usuuua{ss}): Codecs)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Codecs &mdash; a(usuuua{ss})
+       
+        (<a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Codec" title="Array of Struct Media_Stream_Handler_Codec">Media_Stream_Handler_Codec_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Codecs supported by the remote peer.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Signal emitted when the connection manager wishes to inform the
+        client of the codecs supported by the remote end.
+        If these codecs are compatible with the remote codecs, then the client
+        must call <a href="Media_Stream_Handler.html#Method:SupportedCodecs" title="Method org.freedesktop.Telepathy.Media.StreamHandler.SupportedCodecs">SupportedCodecs</a>,
+        otherwise call <a href="Media_Stream_Handler.html#Method:Error" title="Method org.freedesktop.Telepathy.Media.StreamHandler.Error">Error</a>.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:SetStreamPlaying"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Signal:SetStreamPlaying">Permalink</a>)</span>
+     <h2>SetStreamPlaying (b: Playing)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Playing &mdash; b
+       
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        If emitted with argument TRUE, this means that the connection manager
+        wishes to set the stream playing; this means that the streaming
+        implementation should expect to receive data. If emitted with argument
+        FALSE this signal is basically meaningless and should be ignored.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          We're very sorry.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:SetStreamSending"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Signal:SetStreamSending">Permalink</a>)</span>
+     <h2>SetStreamSending (b: Sending)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Sending &mdash; b
+       
+       </li>
+       
+       
+       
+       
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Signal emitted when the connection manager wishes to set whether or not
+        the stream sends to the remote end.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:StartTelephonyEvent"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Signal:StartTelephonyEvent">Permalink</a>)</span>
+     <h2>StartTelephonyEvent (y: Event)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Event &mdash; y
+       
+        (<a href="Channel_Interface_DTMF.html#Enum:DTMF_Event" title="Enum DTMF_Event">DTMF_Event</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A telephony event code.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Request that a telephony event (as defined by RFC 4733) is transmitted
+        over this stream until StopTelephonyEvent is called.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:StartNamedTelephonyEvent"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Signal:StartNamedTelephonyEvent">Permalink</a>)</span>
+     <h2>StartNamedTelephonyEvent (y: Event, u: Codec_ID)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.21.2. </span></div>
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Event &mdash; y
+       
+        (<a href="Channel_Interface_DTMF.html#Enum:DTMF_Event" title="Enum DTMF_Event">DTMF_Event</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A telephony event code as defined by RFC 4733.
+        </div>
+      
+       <li>
+       Codec_ID &mdash; u
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The payload type to use when sending events. The value 0xFFFFFFFF
+          means to send with the already configured event type instead of using
+          the specified one.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Request that a telephony event (as defined by RFC 4733) is transmitted
+        over this stream until StopTelephonyEvent is called. This differs from
+        StartTelephonyEvent in that you force the event to be transmitted
+        as a RFC 4733 named event, not as sound. You can also force a specific
+        Codec ID.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:StartSoundTelephonyEvent"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Signal:StartSoundTelephonyEvent">Permalink</a>)</span>
+     <h2>StartSoundTelephonyEvent (y: Event)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.21.2. </span></div>
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Event &mdash; y
+       
+        (<a href="Channel_Interface_DTMF.html#Enum:DTMF_Event" title="Enum DTMF_Event">DTMF_Event</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A telephony event code as defined by RFC 4733.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Request that a telephony event (as defined by RFC 4733) is transmitted
+        over this stream until StopTelephonyEvent is called. This differs from
+        StartTelephonyEvent in that you force the event to be transmitted
+        as sound instead of as a named event.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:StopTelephonyEvent"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Signal:StopTelephonyEvent">Permalink</a>)</span>
+     <h2>StopTelephonyEvent ()</h2>
+
+     
+     
+     
+
+     
+
+     <div class="docstring">
+        Request that any ongoing telephony events (as defined by RFC 4733)
+        being transmitted over this stream are stopped.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:SetStreamHeld"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Signal:SetStreamHeld">Permalink</a>)</span>
+     <h2>SetStreamHeld (b: Held)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.17.3. </span></div>
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Held &mdash; b
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          If true, the stream is to be placed on hold.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when the connection manager wishes to place the stream on
+          hold (so the streaming client should free hardware or software
+          resources) or take the stream off hold (so the streaming client
+          should reacquire the necessary resources).</p>
+
+        <p>When placing a channel's streams on hold, the connection manager
+          SHOULD notify the remote contact that this will be done (if
+          appropriate in the protocol) before it emits this signal.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>It is assumed that relinquishing a resource will not fail.
+            If it does, the call is probably doomed anyway.</p>
+        </div></div>
+
+        <p>When unholding a channel's streams, the connection manager
+          SHOULD emit this signal and wait for success to be indicated
+          via HoldState before it notifies the remote contact that the
+          channel has been taken off hold.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This means that if a resource is unavailable, the remote
+            contact will never even be told that we tried to acquire it.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:SetRemoteFeedbackMessages"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Signal:SetRemoteFeedbackMessages">Permalink</a>)</span>
+     <h2>SetRemoteFeedbackMessages (a{u(ua(sss))}: Messages)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.22.1. </span></div>
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Messages &mdash; a{u(ua(sss))}
+       
+        (<a href="Media_Stream_Handler.html#Mapping:RTCP_Feedback_Message_Map" title="Mapping RTCP_Feedback_Message_Map">RTCP_Feedback_Message_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Remote Feedback messages desired by the remote side
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Signal emitted when the connection manager wishes to inform the
+        client of the feedback messages supported by the remote end.
+        This signal is emitted before
+        <a href="Media_Stream_Handler.html#Signal:SetRemoteCodecs" title="Signal org.freedesktop.Telepathy.Media.StreamHandler.SetRemoteCodecs">SetRemoteCodecs</a>. If the client
+        supports any of these messages, it must call
+        <a href="Media_Stream_Handler.html#Method:SupportedFeedbackMessages" title="Method org.freedesktop.Telepathy.Media.StreamHandler.SupportedFeedbackMessages">SupportedFeedbackMessages</a> before calling
+        <a href="Media_Stream_Handler.html#Method:SupportedCodecs" title="Method org.freedesktop.Telepathy.Media.StreamHandler.SupportedCodecs">SupportedCodecs</a>.
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:SetRemoteHeaderExtensions"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Signal:SetRemoteHeaderExtensions">Permalink</a>)</span>
+     <h2>SetRemoteHeaderExtensions (a(uuss): Header_Extensions)</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.22.1. </span></div>
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Header_Extensions &mdash; a(uuss)
+       
+        (<a href="Call_Content_Media_Description_Interface_RTP_Header_Extensions.html#Struct:RTP_Header_Extension" title="Array of Struct RTP_Header_Extension">RTP_Header_Extensions_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Header extensions desired by the remote side
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Signal emitted when the connection manager wishes to inform the
+        client of the RTP header extensions supported by the remote end.
+        This signal is emitted before
+        <a href="Media_Stream_Handler.html#Signal:SetRemoteCodecs" title="Signal org.freedesktop.Telepathy.Media.StreamHandler.SetRemoteCodecs">SetRemoteCodecs</a>. If the client
+        supports any of these messages, it must call
+        <a href="Media_Stream_Handler.html#Method:SupportedHeaderExtensions" title="Method org.freedesktop.Telepathy.Media.StreamHandler.SupportedHeaderExtensions">SupportedHeaderExtensions</a> before calling
+        <a href="Media_Stream_Handler.html#Method:SupportedCodecs" title="Method org.freedesktop.Telepathy.Media.StreamHandler.SupportedCodecs">SupportedCodecs</a>.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:STUNServers"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Property:STUNServers">Permalink</a>)</span>
+     <h2>
+      STUNServers &mdash; a(sq)
+      
+        (<a href="generic-types.html#Struct:Socket_Address_IP" title="Array of Struct Socket_Address_IP">Socket_Address_IP_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.22. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The IP addresses of possible STUN servers to use for NAT traversal, as
+        dotted-quad IPv4 address literals or RFC2373 IPv6 address literals.
+        This property cannot change once the stream has been created, so there
+        is no change notification. The IP addresses MUST NOT be given as DNS
+        hostnames.
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          High-quality connection managers already need an asynchronous
+          DNS resolver, so they might as well resolve this name to an IP
+          to make life easier for streaming implementations.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CreatedLocally"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Property:CreatedLocally">Permalink</a>)</span>
+     <h2>
+      CreatedLocally &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.22. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        True if we were the creator of this stream, false otherwise.
+        <div class="rationale"><h5>Rationale:</h5><div>
+          This information is needed for some nat traversal mechanisms, such
+          as ICE-UDP, where the creator gets the role of the controlling agent.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:NATTraversal"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Property:NATTraversal">Permalink</a>)</span>
+     <h2>
+      NATTraversal &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.17.22. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The transport (NAT traversal technique) to be used for this
+          stream. Well-known values include:</p>
+
+        <dl>
+          <dt>none</dt>
+          <dd>Raw UDP, with or without STUN, should be used. If the
+            <a href="Media_Stream_Handler.html#Property:STUNServers" title="Property org.freedesktop.Telepathy.Media.StreamHandler.STUNServers">STUNServers</a> property is non-empty,
+            STUN SHOULD be used.</dd>
+
+          <dt>stun</dt>
+          <dd>A deprecated synonym for 'none'.</dd>
+
+          <dt>gtalk-p2p</dt>
+          <dd>Google Talk peer-to-peer connectivity establishment should be
+            used, as implemented in libjingle 0.3.</dd>
+
+          <dt>ice-udp</dt>
+          <dd>Interactive Connectivity Establishment should be used,
+            as defined by the IETF MMUSIC working group.</dd>
+
+          <dt>wlm-8.5</dt>
+          <dd>The transport used by Windows Live Messenger 8.5 or later,
+            which resembles ICE draft 6, should be used.</dd>
+
+          <dt>wlm-2009</dt>
+          <dd>The transport used by Windows Live Messenger 2009 or later,
+            which resembles ICE draft 19, should be used.</dd>
+        </dl>
+
+        <p>This property cannot change once the stream has been created, so
+          there is no change notification.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:RelayInfo"></a>
+     <span class="permalink">(<a href="Media_Stream_Handler.html#Property:RelayInfo">Permalink</a>)</span>
+     <h2>
+      RelayInfo &mdash; aa{sv}
+      
+        (<a href="generic-types.html#Mapping:String_Variant_Map" title="Array of Mapping String_Variant_Map">String_Variant_Map_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A list of mappings describing TURN or Google relay servers
+          available for the client to use in its candidate gathering, as
+          determined from the protocol. Map keys are:</p>
+
+        <dl>
+          <dt><code>ip</code> - s</dt>
+          <dd>The IP address of the relay server as a dotted-quad IPv4
+            address literal or an RFC2373 IPv6 address literal. This MUST NOT
+            be a DNS hostname.
+
+            <div class="rationale"><h5>Rationale:</h5><div>
+              High-quality connection managers already need an asynchronous
+              DNS resolver, so they might as well resolve this name to an IP
+              and make life easier for streaming implementations.
+            </div></div>
+          </dd>
+
+          <dt><code>type</code> - s</dt>
+          <dd>
+            <p>Either <code>udp</code> for UDP (UDP MUST be assumed if this
+              key is omitted), <code>tcp</code> for TCP, or
+              <code>tls</code>.</p>
+
+            <p>The precise meaning of this key depends on the
+              <a href="Media_Stream_Handler.html#Property:NATTraversal" title="Property org.freedesktop.Telepathy.Media.StreamHandler.NATTraversal">NATTraversal</a> property: if
+              NATTraversal is <code>ice-udp</code>, <code>tls</code> means
+              TLS over TCP as referenced by ICE draft 19, and if
+              NATTraversal is <code>gtalk-p2p</code>, <code>tls</code> means
+              a fake SSL session over TCP as implemented by libjingle.</p>
+          </dd>
+
+          <dt><code>port</code> - q</dt>
+          <dd>The UDP or TCP port of the relay server as an ASCII unsigned
+            integer</dd>
+
+          <dt><code>username</code> - s</dt>
+          <dd>The username to use</dd>
+
+          <dt><code>password</code> - s</dt>
+          <dd>The password to use</dd>
+
+          <dt><code>component</code> - u</dt>
+          <dd>The component number to use this relay server for, as an
+            ASCII unsigned integer; if not included, this relay server
+            may be used for any or all components.
+
+            <div class="rationale"><h5>Rationale:</h5><div>
+              In ICE draft 6, as used by Google Talk, credentials are only
+              valid once, so each component needs relaying separately.
+            </div></div>
+          </dd>
+        </dl>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>An equivalent of the gtalk-p2p-relay-token property on
+            MediaSignalling channels is not included here. The connection
+            manager should be responsible for making the necessary HTTP
+            requests to turn the token into a username and password.</p>
+        </div></div>
+
+        <p>The type of relay server that this represents depends on
+          the value of the <a href="Media_Stream_Handler.html#Property:NATTraversal" title="Property org.freedesktop.Telepathy.Media.StreamHandler.NATTraversal">NATTraversal</a>
+          property. If NATTraversal is ice-udp, this is a TURN server;
+          if NATTraversal is gtalk-p2p, this is a Google relay server;
+          otherwise, the meaning of RelayInfo is undefined.</p>
+
+        <p>If relaying is not possible for this stream, the list is empty.</p>
+
+        <p>This property cannot change once the stream has been created, so
+          there is no change notification.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Media_Stream_Error"></a>
+      <span class="permalink">Enum (<a href="Media_Stream_Handler.html#Enum:Media_Stream_Error">Permalink</a>)</span>
+      <h2>
+       Media_Stream_Error &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Unknown (0)</li>
+<div class="docstring">
+          An unknown error occured.
+        </div><li>EOS (1)</li>
+<div class="annotation deprecated"><span class="version">Deprecated since 0.17.27. </span>
+          This error has no use anywhere. In Farsight 1 times, it was used to
+          indicate a GStreamer EOS (when the end of a file is reached). But
+          since this is for live calls, it makes no sense.
+        </div><div class="docstring">
+          The end of the stream was reached.
+        </div><li>Codec_Negotiation_Failed (2)</li>
+<div class="annotation added"><span class="version">Added in 0.17.27. </span></div><div class="docstring">
+          There are no common codecs between the local side
+          and the other particpants in the call. The possible codecs are not
+          signalled here: the streaming implementation is assumed to report
+          them in an implementation-dependent way, e.g. Farsight should use
+          GstMissingElement.
+        </div><li>Connection_Failed (3)</li>
+<div class="annotation added"><span class="version">Added in 0.17.27. </span></div><div class="docstring">
+          A network connection for the Media could not be established or was
+          lost.
+        </div><li>Network_Error (4)</li>
+<div class="annotation added"><span class="version">Added in 0.17.27. </span></div><div class="docstring">
+          There was an error in the networking stack
+          (other than the connection failure).
+        </div><li>No_Codecs (5)</li>
+<div class="annotation added"><span class="version">Added in 0.17.27. </span></div><div class="docstring">
+          There are no installed codecs for this media type.
+        </div><li>Invalid_CM_Behavior (6)</li>
+<div class="annotation added"><span class="version">Added in 0.17.27. </span></div><div class="docstring">
+          The CM is doing something wrong.
+        </div><li>Media_Error (7)</li>
+<div class="annotation added"><span class="version">Added in 0.17.27. </span></div><div class="docstring">
+          There was an error in the media processing stack.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Media_Stream_Base_Proto"></a>
+      <span class="permalink">Enum (<a href="Media_Stream_Handler.html#Enum:Media_Stream_Base_Proto">Permalink</a>)</span>
+      <h2>
+       Media_Stream_Base_Proto &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>UDP (0)</li>
+<div class="docstring">UDP (User Datagram Protocol)</div><li>TCP (1)</li>
+<div class="docstring">TCP (Transmission Control Protocol)</div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Media_Stream_Transport_Type"></a>
+      <span class="permalink">Enum (<a href="Media_Stream_Handler.html#Enum:Media_Stream_Transport_Type">Permalink</a>)</span>
+      <h2>
+       Media_Stream_Transport_Type &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Local (0)</li>
+<div class="docstring">
+          A local address
+        </div><li>Derived (1)</li>
+<div class="docstring">
+          An external address derived by a method such as STUN
+        </div><li>Relay (2)</li>
+<div class="docstring">
+          An external stream relay
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:RTCP_Feedback_Message_Map"></a>
+      <span class="permalink">Mapping (<a href="Media_Stream_Handler.html#Mapping:RTCP_Feedback_Message_Map">Permalink</a>)</span>
+      <h2>
+       RTCP_Feedback_Message_Map &mdash; a{u(ua(sss))}
+      </h2>
+
+      <div class="annotation added"><span class="version">Added in 0.22.1. </span></div>
+      
+      
+      <div class="docstring">
+        A map of codec and its feedback properties.
+      </div>
+      <ul>
+<li>Codec_Identifier &mdash; u</li>
+<div class="docstring">
+          Numeric identifier for the codec. This will be used as the
+          PT in the SDP or content description.
+        </div><li>Properties &mdash; (ua(sss)) (<a href="Media_Stream_Handler.html#Struct:RTCP_Feedback_Message_Properties" title="Struct RTCP_Feedback_Message_Properties">RTCP_Feedback_Message_Properties</a>)</li>
+<div class="docstring">
+          The RTCP feedback properties for this codec.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Media_Stream_Handler_Candidate"></a>
+      <span class="permalink">Struct (<a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Candidate">Permalink</a>)</span>
+      <h2>
+       Media_Stream_Handler_Candidate &mdash; (sa(usuussduss))
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Name &mdash; s</li>
+<li>Transports &mdash; a(usuussduss) (<a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Transport" title="Array of Struct Media_Stream_Handler_Transport">Media_Stream_Handler_Transport_List</a>)</li>
+</ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Media_Stream_Handler_Transport"></a>
+      <span class="permalink">Struct (<a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Transport">Permalink</a>)</span>
+      <h2>
+       Media_Stream_Handler_Transport &mdash; (usuussduss)
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Component_Number &mdash; u</li>
+<li>IP_Address &mdash; s</li>
+<li>Port &mdash; u</li>
+<li>Protocol &mdash; u (<a href="Media_Stream_Handler.html#Enum:Media_Stream_Base_Proto" title="Enum Media_Stream_Base_Proto">Media_Stream_Base_Proto</a>)</li>
+<li>Subtype &mdash; s</li>
+<li>Profile &mdash; s</li>
+<li>Preference_Value &mdash; d</li>
+<li>Transport_Type &mdash; u (<a href="Media_Stream_Handler.html#Enum:Media_Stream_Transport_Type" title="Enum Media_Stream_Transport_Type">Media_Stream_Transport_Type</a>)</li>
+<li>Username &mdash; s</li>
+<li>Password &mdash; s</li>
+</ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Media_Stream_Handler_Codec"></a>
+      <span class="permalink">Struct (<a href="Media_Stream_Handler.html#Struct:Media_Stream_Handler_Codec">Permalink</a>)</span>
+      <h2>
+       Media_Stream_Handler_Codec &mdash; (usuuua{ss})
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        Information about a codec supported by a client or a peer's client.
+      </div>
+      <ul>
+<li>Codec_ID &mdash; u</li>
+<div class="docstring">
+          The codec's payload identifier, as per RFC 3551 (static or dynamic)
+        </div><li>Name &mdash; s</li>
+<div class="docstring">The codec's name</div><li>Media_Type &mdash; u (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Type" title="Enum Media_Stream_Type">Media_Stream_Type</a>)</li>
+<div class="docstring">Type of stream this codec supports</div><li>Clock_Rate &mdash; u</li>
+<div class="docstring">Sampling frequency in Hertz</div><li>Number_Of_Channels &mdash; u</li>
+<div class="docstring">Number of supported channels</div><li>Parameters &mdash; a{ss} (<a href="generic-types.html#Mapping:String_String_Map" title="Mapping String_String_Map">String_String_Map</a>)</li>
+<div class="docstring">Codec-specific optional parameters</div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:RTCP_Feedback_Message_Properties"></a>
+      <span class="permalink">Struct (<a href="Media_Stream_Handler.html#Struct:RTCP_Feedback_Message_Properties">Permalink</a>)</span>
+      <h2>
+       RTCP_Feedback_Message_Properties &mdash; (ua(sss))
+      </h2>
+
+      <div class="annotation added"><span class="version">Added in 0.22.1. </span></div>
+      <div class="annotation changed"><span class="version">Changed in 0.23.4. </span>This struct is also used by Call, but
+        in call, the CM should know about RTP profiles, and never use MAXUINT
+        as a default value, because it complicates things unnecessarily.
+      </div>
+      
+      
+      <ul>
+<li>RTCPMinimumInterval &mdash; u</li>
+<div class="docstring">
+          The minimum interval between two regular RTCP packets in
+          milliseconds for this content. If no special value is desired, one
+          should put MAXUINT (0xFFFFFFFF).
+
+          Implementors and users of Call's <a href="Call_Content_Media_Description_Interface_RTCP_Feedback.html" namespace="ofdT.Call1.Content.MediaDescription.Interface" title="Interface org.freedesktop.Telepathy.Call1.Content.MediaDescription.Interface.RTCPFeedback">RTCPFeedback</a> should not use the MAXUINT default.
+          Instead, in RTP/AVP, the default should be 5000 (5 seconds).
+          If using the RTP/AVPF profile, it can be set to a lower value,
+          the default being 0.
+        </div><li>Messages &mdash; a(sss) (<a href="Media_Stream_Handler.html#Struct:RTCP_Feedback_Message" title="Array of Struct RTCP_Feedback_Message">RTCP_Feedback_Message_List</a>)</li>
+<div class="docstring">
+          The RTCP feedback messages for this codec.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:RTCP_Feedback_Message"></a>
+      <span class="permalink">Struct (<a href="Media_Stream_Handler.html#Struct:RTCP_Feedback_Message">Permalink</a>)</span>
+      <h2>
+       RTCP_Feedback_Message &mdash; (sss)
+      </h2>
+
+      <div class="annotation added"><span class="version">Added in 0.22.1. </span></div>
+      
+      
+      <div class="docstring">
+        A struct defining an RTCP feedback message.
+      </div>
+      <ul>
+<li>Type &mdash; s</li>
+<div class="docstring">
+          Feedback type, for example &quot;ack&quot;, &quot;nack&quot;, or &quot;ccm&quot;.
+        </div><li>Subtype &mdash; s</li>
+<div class="docstring">
+          Feedback subtype, according to the Type, can be an empty string (&quot;&quot;),
+          if there is no subtype.
+          For example, generic nack is Type=&quot;nack&quot; Subtype=&quot;&quot;.
+        </div><li>Parameters &mdash; s</li>
+<div class="docstring">
+          Feedback parameters as a string. Format is defined in the relevant RFC
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:RTP_Header_Extension"></a>
+      <span class="permalink">Struct (<a href="Media_Stream_Handler.html#Struct:RTP_Header_Extension">Permalink</a>)</span>
+      <h2>
+       RTP_Header_Extension &mdash; (uuss)
+      </h2>
+
+      <div class="annotation added"><span class="version">Added in 0.22.1. </span></div>
+      
+      
+      <div class="docstring">
+        A struct defining a RTP Header extension
+      </div>
+      <ul>
+<li>ID &mdash; u</li>
+<div class="docstring">
+          Identifier to be negotiated
+        </div><li>Direction &mdash; u (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Direction" title="Enum Media_Stream_Direction">Media_Stream_Direction</a>)</li>
+<div class="docstring">
+          Direction in which the Header Extension is negotiated.
+        </div><li>URI &mdash; s</li>
+<div class="docstring">
+          URI defining the extension
+        </div><li>Parameters &mdash; s</li>
+<div class="docstring">
+          Feedback parameters as a string. Format is defined in the relevant RFC
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

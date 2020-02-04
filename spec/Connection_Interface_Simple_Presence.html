@@ -1,0 +1,1243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.SimplePresence &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.SimplePresence'>Connection.Interface.SimplePresence</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+    | <a href="#contact-attributes">Contact Attributes</a> 
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Simple_Presence.html#Method:SetPresence">SetPresence</a></td>
+       <td>(s: Status, s: Status_Message)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Simple_Presence.html#Method:GetPresences">GetPresences</a></td>
+       <td>(au: Contacts)</td>
+       <td>&#8594;</td>
+       <td>a{u(uss)}: Presence</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Simple_Presence.html#Signal:PresencesChanged">PresencesChanged</a></td>
+       <td>(a{u(uss)}: Presence)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Simple_Presence.html#Property:Statuses">Statuses</a></td>
+       <td>
+        a{s(ubb)}
+        
+          (<a href="Connection_Interface_Simple_Presence.html#Mapping:Simple_Status_Spec_Map" title="Mapping Simple_Status_Spec_Map">
+              Simple_Status_Spec_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Simple_Presence.html#Property:MaximumStatusMessageLength">MaximumStatusMessageLength</a></td>
+       <td>
+        u
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+     <h3>Contact Attributes</h3>
+     <table class="summary">
+      
+       <tr class="contact-attribute">
+       <td><a href="Connection_Interface_Simple_Presence.html#Contact-Attribute:presence">org.freedesktop.Telepathy.Connection.Interface.SimplePresence/presence</a></td>
+       <td>
+        (uss)
+        
+        (<a href="Connection_Interface_Simple_Presence.html#Struct:Simple_Presence" title="Struct Simple_Presence">
+            Simple_Presence</a>)
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Simple_Presence.html#Enum:Connection_Presence_Type">Connection_Presence_Type</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Simple_Presence.html#Enum:Access_Control_Type">Access_Control_Type</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Simple_Presence.html#Enum:Rich_Presence_Access_Control_Type">Rich_Presence_Access_Control_Type</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Simple_Presence.html#Mapping:Simple_Contact_Presences">Simple_Contact_Presences</a></td>
+       <td>Mapping</td>
+       <td>a{u(uss)}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Simple_Presence.html#Mapping:Simple_Status_Spec_Map">Simple_Status_Spec_Map</a></td>
+       <td>Mapping</td>
+       <td>a{s(ubb)}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Simple_Presence.html#Struct:Simple_Presence">Simple_Presence</a></td>
+       <td>Struct</td>
+       <td>(uss)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Simple_Presence.html#Struct:Simple_Status_Spec">Simple_Status_Spec</a></td>
+       <td>Struct</td>
+       <td>(ubb)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Simple_Presence.html#Struct:Access_Control">Access_Control</a></td>
+       <td>Struct</td>
+       <td>(uv)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Simple_Presence.html#Struct:Rich_Presence_Access_Control">Rich_Presence_Access_Control</a></td>
+       <td>Struct</td>
+       <td>(uv)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface is for services which have a concept of presence which
+        can be published for yourself and monitored on your contacts.</p>
+
+      <p>Presence on an individual (yourself or one of your contacts) is
+        modelled as a status and a status message. Valid statuses are defined
+        per connection, and a list of those that can be set on youself
+        can be obtained from the
+        <a href="Connection_Interface_Simple_Presence.html#Property:Statuses" title="Property org.freedesktop.Telepathy.Connection.Interface.SimplePresence.Statuses">Statuses</a>
+        property.</p>
+
+      <p>Each status has an arbitrary string identifier which should have an
+        agreed meaning between the connection manager and any client which is
+        expected to make use of it. The following well-known values should be
+        used where possible to allow clients to identify common choices:</p>
+
+      <table>
+        <tr>
+          <th>Status identifier</th>
+          <th><a href="Connection_Interface_Simple_Presence.html#Enum:Connection_Presence_Type">Connection_Presence_Type</a></th>
+          <th>Remarks</th>
+        </tr>
+        <tr>
+          <td><code>&quot;available&quot;</code></td>
+          <td>Available</td>
+          <td/>
+        </tr>
+        <tr>
+          <td><code>&quot;chat&quot;</code></td>
+          <td>Available</td>
+          <td>Actively interested in chatting, as opposed to merely
+            available.</td>
+        </tr>
+        <tr>
+          <td><code>&quot;pstn&quot;</code></td>
+          <td>Available</td>
+          <td>This contact is actually a phone number, not an IM account. As
+            such, the contact is conceptually always available, but not in the
+            same way that a contact can set their IM status to “available”.
+            It does not make sense to allow the user to set this status on
+            herself; hence, on protocols where this status is supported, its
+            entry in <a href="Connection_Interface_Simple_Presence.html#Property:Statuses" title="Property org.freedesktop.Telepathy.Connection.Interface.SimplePresence.Statuses">Statuses</a> SHOULD have
+            <var>May_Set_On_Self</var> set to <code>False</code>.</td>
+        </tr>
+        <tr>
+          <td><code>&quot;away&quot;</code></td>
+          <td>Away</td>
+          <td/>
+        </tr>
+        <tr>
+          <td><code>&quot;brb&quot;</code></td>
+          <td>Away</td>
+          <td>Be Right Back (a more specific form of Away)</td>
+        </tr>
+        <tr>
+          <td><code>&quot;busy&quot;</code></td>
+          <td>Busy</td>
+          <td/>
+        </tr>
+        <tr>
+          <td><code>&quot;dnd&quot;</code></td>
+          <td>Busy</td>
+          <td>Do Not Disturb (a more specific form of Busy)</td>
+        </tr>
+        <tr>
+          <td><code>&quot;xa&quot;</code></td>
+          <td>Extended_Away</td>
+          <td>Extended Away</td>
+        </tr>
+        <tr>
+          <td><code>&quot;hidden&quot;</code></td>
+          <td>Hidden</td>
+          <td>Also known as &quot;Invisible&quot; or &quot;Appear Offline&quot;</td>
+        </tr>
+        <tr>
+          <td><code>&quot;offline&quot;</code></td>
+          <td>Offline</td>
+          <td/>
+        </tr>
+        <tr>
+          <td><code>&quot;unknown&quot;</code></td>
+          <td>Unknown</td>
+          <td>special, see below</td>
+        </tr>
+        <tr>
+          <td><code>&quot;error&quot;</code></td>
+          <td>Error</td>
+          <td>special, see below</td>
+        </tr>
+      </table>
+
+      <p>As well as these well-known status identifiers, every status also has
+        a numerical type value chosen from
+        <a href="Connection_Interface_Simple_Presence.html#Enum:Connection_Presence_Type">Connection_Presence_Type</a> which can be
+        used by the client to classify even unknown statuses into different
+        fundamental types.</p>
+
+      <p>These numerical types exist so that even if a client does not
+        understand the string identifier being used, and hence cannot present
+        the presence to the user to set on themselves, it may display an
+        approximation of the presence if it is set on a contact.</p>
+
+      <p>As well as the normal status identifiers, there are two special ones
+        that may be present: 'unknown' with type Unknown and 'error' with type
+        Error. 'unknown' indicates that it is impossible to determine the
+        presence of a contact at this time, for example because it's not on the
+        'subscribe' list and the protocol only allows one to determine the
+        presence of contacts you're subscribed to. 'error' indicates that there
+        was a failure in determining the status of a contact.</p>
+
+      <p>If the connection has a 'subscribe' contact list,
+        <a href="Connection_Interface_Simple_Presence.html#Signal:PresencesChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.SimplePresence.PresencesChanged">PresencesChanged</a>
+        signals should be emitted to indicate changes of contacts on this list,
+        and should also be emitted for changes in your own presence. Depending
+        on the protocol, the signal may also be emitted for others such as
+        people with whom you are communicating, and any user interface should
+        be updated accordingly.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:SetPresence"></a>
+     <span class="permalink">(<a href="Connection_Interface_Simple_Presence.html#Method:SetPresence">Permalink</a>)</span>
+     <h2>SetPresence (s: Status, s: Status_Message) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Status &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The string identifier of the desired status. Possible status
+            identifiers are defined in the
+            <a href="Connection_Interface_Simple_Presence.html#Property:Statuses" title="Property org.freedesktop.Telepathy.Connection.Interface.SimplePresence.Statuses">Statuses</a> property.</p>
+
+          <p>Clients MUST NOT set a status whose string value they do not
+            recognise, even if its presence type in Statuses
+            matches what the user requested.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>Suppose a protocol has statuses that include 'phone' (of type
+              BUSY) and 'in-a-meeting' (of type BUSY), but there is no
+              generic 'busy' status.</p>
+
+            <p>If the user requests &quot;Busy&quot; status from a menu, a
+              client author might be tempted to pick an arbitrary status
+              that has type BUSY. However, on this protocol, neither of
+              the choices would be appropriate, and incorrect information
+              about the user would be conveyed.</p>
+          </div></div>
+
+          <p>Statuses whose <a href="Connection_Interface_Simple_Presence.html#Enum:Connection_Presence_Type">Connection_Presence_Type</a>
+            is Offline, Error or Unknown MUST NOT be passed to this
+            function. Connection managers SHOULD reject these statuses.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>To go offline, call <a href="Connection.html#Method:Disconnect" namespace="org.freedesktop.Telepathy.Connection" title="Method org.freedesktop.Telepathy.Connection.Disconnect">Disconnect</a>
+            instead. The &quot;error&quot; and &quot;unknown&quot; statuses make no sense.</p>
+          </div></div>
+        </div>
+      
+       <li>
+        Status_Message &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The status message associated with the current status.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request that the presence status and status message are published for
+          the connection.  Changes will be indicated by
+          <a href="Connection_Interface_Simple_Presence.html#Signal:PresencesChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.SimplePresence.PresencesChanged">PresencesChanged</a>
+          signals being emitted.</p>
+
+        <p>This method may be called on a newly-created connection while it
+          is still in the DISCONNECTED state, to request that when the
+          connection connects, it will do so with the selected status.</p>
+
+        <p>In DISCONNECTED state the
+          <a href="Connection_Interface_Simple_Presence.html#Property:Statuses" title="Property org.freedesktop.Telepathy.Connection.Interface.SimplePresence.Statuses">Statuses</a>
+          property will indicate which statuses are allowed to be set
+          while DISCONNECTED (none, if the Connection Manager doesn't allow
+          this). This value MUST NOT be cached, as the set of allowed
+          presences might change upon connecting.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when there is an error reading from or writing to the network.
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            Either the specified status is not supported, the specified
+            status cannot be set on the user themselves, or a non-empty
+            message was supplied for a status that does not
+            accept a message.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when the requested functionality is temporarily unavailable.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetPresences"></a>
+     <span class="permalink">(<a href="Connection_Interface_Simple_Presence.html#Method:GetPresences">Permalink</a>)</span>
+     <h2>GetPresences (au: Contacts) &#8594; a{u(uss)}: Presence</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Contacts &mdash; au
+        
+          (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          An array of the contacts whose presence should be obtained.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Presence &mdash; a{u(uss)}
+        
+          (<a href="Connection_Interface_Simple_Presence.html#Mapping:Simple_Contact_Presences" title="Mapping Simple_Contact_Presences">Simple_Contact_Presences</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Presence information in the same format as for the
+            <a href="Connection_Interface_Simple_Presence.html#Signal:PresencesChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.SimplePresence.PresencesChanged">PresencesChanged</a> signal.
+            The returned mapping MUST include an entry for each contact
+            in the method's argument.</p>
+
+          <p>The definition of the connection presence types Unknown
+            and Offline means that if a connection manager will return
+            Unknown for contacts not on the subscribe list, it MUST delay
+            the reply to this method call until it has found out which
+            contacts are, in fact, on the subscribe list.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Get presence previously emitted by
+        <a href="Connection_Interface_Simple_Presence.html#Signal:PresencesChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.SimplePresence.PresencesChanged">PresencesChanged</a> for the given
+        contacts. Data is returned in the same structure as the
+        PresencesChanged signal; no additional network requests are made.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+       <li><a href="errors.html#Error:Invalid Handle" title="Error org.freedesktop.Telepathy.Error.InvalidHandle">Invalid Handle</a></li>
+       
+       
+       
+       <div class="docstring">
+    The handle specified is unknown on this channel or connection.
+    </div>
+      
+       <li><a href="errors.html#Error:Network Error" title="Error org.freedesktop.Telepathy.Error.NetworkError">Network Error</a></li>
+       
+       
+       
+       <div class="docstring">
+            While discovering the subscribe list in order to distinguish
+            between Unknown and Offline statuses, a network error occurred.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+    Raised when the requested functionality is temporarily unavailable.
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:PresencesChanged"></a>
+     <span class="permalink">(<a href="Connection_Interface_Simple_Presence.html#Signal:PresencesChanged">Permalink</a>)</span>
+     <h2>PresencesChanged (a{u(uss)}: Presence)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Presence &mdash; a{u(uss)}
+       
+        (<a href="Connection_Interface_Simple_Presence.html#Mapping:Simple_Contact_Presences" title="Mapping Simple_Contact_Presences">Simple_Contact_Presences</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A dictionary of contact handles mapped to the status,
+          presence type and status message.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        This signal should be emitted when your own presence has been changed,
+        or the presence of the member of any of the connection's channels has
+        been changed.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Statuses"></a>
+     <span class="permalink">(<a href="Connection_Interface_Simple_Presence.html#Property:Statuses">Permalink</a>)</span>
+     <h2>
+      Statuses &mdash; a{s(ubb)}
+      
+        (<a href="Connection_Interface_Simple_Presence.html#Mapping:Simple_Status_Spec_Map" title="Mapping Simple_Status_Spec_Map">Simple_Status_Spec_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A dictionary where the keys are the presence statuses that are
+          available on this connection, and the values are the corresponding
+          presence types.</p>
+
+        <p>While the connection is in the DISCONNECTED state, it contains
+          the set of presence statuses allowed to be set before connecting.
+          The connection manager will attempt to set the appropriate status
+          when the connection becomes connected, but cannot necessarily
+          guarantee it. The available statuses cannot change until the
+          connection status changes, so there is no change notification.</p>
+
+        <p>While the connection is in the CONNECTED state, this property
+          contains the set of presence statuses which are actually available
+          on this protocol. This set is constant for the remaining lifetime
+          of the connection, so again, there is no change notification.</p>
+
+        <p>While the connection is in the CONNECTING state, the value of
+          this property is undefined and SHOULD NOT be used. It can change
+          at any time without notification (in particular, any cached values
+          from when the connection was in the DISCONNECTED or CONNECTING
+          state MUST NOT be assumed to still be correct when the state has
+          become CONNECTED).</p>
+
+        <p>This property MUST include the special statuses &quot;unknown&quot; and
+          &quot;error&quot; if and only if the connection manager can emit them
+          as a contact's status.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          For instance, connection managers for local-xmpp (XEP-0174) would
+          omit &quot;unknown&quot; since there is no such concept.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MaximumStatusMessageLength"></a>
+     <span class="permalink">(<a href="Connection_Interface_Simple_Presence.html#Property:MaximumStatusMessageLength">Permalink</a>)</span>
+     <h2>
+      MaximumStatusMessageLength &mdash; u
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     <div class="annotation added"><span class="version">Added in 0.22.2. </span></div>
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The maximum length in characters for any individual status
+          message, or 0 if there is no limit.</p>
+
+        <p>While the connection is in the DISCONNECTED state, this property will
+          be 0. The connection manager will attempt to set the appropriate value
+          when the connection becomes connected, but cannot necessarily
+          guarantee it. The maximum length cannot change until the
+          connection status changes, so there is no change notification.</p>
+
+        <p>While the connection is in the CONNECTED state, this property
+          contains the maximum length in characters for any individual status
+          message which is actually allowed on this protocol.
+          This value is constant for the remaining lifetime
+          of the connection, so again, there is no change notification.</p>
+
+        <p>While the connection is in the CONNECTING state, the value of
+          this property is undefined and SHOULD NOT be used. It can change
+          at any time without notification (in particular, any cached values
+          from when the connection was in the DISCONNECTED or CONNECTING
+          state MUST NOT be assumed to still be correct when the state has
+          become CONNECTED).</p>
+
+        <p>If a message passed to <a href="Connection_Interface_Simple_Presence.html#Method:SetPresence" title="Method org.freedesktop.Telepathy.Connection.Interface.SimplePresence.SetPresence">SetPresence</a> is
+          longer than allowed by this property, the connection manager MUST
+          truncate the supplied message; when emitting
+          <a href="Connection_Interface_Simple_Presence.html#Signal:PresencesChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.SimplePresence.PresencesChanged">PresencesChanged</a>, the truncated version
+          of the message MUST be used.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Some XMPP servers, like Google Talk, define a maximum length for
+          status messages. Whether the user's server is one of
+          these cannot be detected until quite late in the connection
+          process.</p>
+        </div></div>
+
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset contact-attributes">
+    <a name="contact-attributes"></a>
+    <h1>Contact Attributes</h1>
+    <div>
+      Attributes that a contact can have, accessed with the
+      org.freedesktop.Telepathy.Connection.Interface.Contacts interface.
+    </div>
+    
+    <div class="inset contact-attribute">
+     <a name="Contact-Attribute:presence"></a>
+     <span class="permalink">(<a href="Connection_Interface_Simple_Presence.html#Contact-Attribute:presence">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Connection.Interface.SimplePresence/presence &mdash; (uss)
+      
+       (<a href="Connection_Interface_Simple_Presence.html#Struct:Simple_Presence" title="Struct Simple_Presence">Simple_Presence</a>)
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The same struct that would be returned by
+          <a href="Connection_Interface_Simple_Presence.html#Method:GetPresences" title="Method org.freedesktop.Telepathy.Connection.Interface.SimplePresence.GetPresences">GetPresences</a>
+          (always present with some value if information from the
+          SimplePresence interface was requested)</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Connection_Presence_Type"></a>
+      <span class="permalink">Enum (<a href="Connection_Interface_Simple_Presence.html#Enum:Connection_Presence_Type">Permalink</a>)</span>
+      <h2>
+       Connection_Presence_Type &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Unset (0)</li>
+<div class="docstring">
+          An invalid presence type used as a null value. This value MUST NOT
+          appear in the <a href="Connection_Interface_Simple_Presence.html#Property:Statuses" title="Property org.freedesktop.Telepathy.Connection.Interface.SimplePresence.Statuses">Statuses</a> property,
+          or in the result of <a href="Connection_Interface_Presence.html#Method:GetStatuses" namespace="org.freedesktop.Telepathy.Connection.Interface.Presence" title="Method org.freedesktop.Telepathy.Connection.Interface.Presence.GetStatuses">GetStatuses</a>
+          on the deprecated <a href="Connection_Interface_Presence.html" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.Presence">Presence</a>
+          interface.
+        </div><li>Offline (1)</li>
+<div class="docstring">
+          Offline
+        </div><li>Available (2)</li>
+<div class="docstring">
+          Available
+        </div><li>Away (3)</li>
+<div class="docstring">
+          Away
+        </div><li>Extended_Away (4)</li>
+<div class="docstring">
+          Away for an extended time
+        </div><li>Hidden (5)</li>
+<div class="docstring">
+          Hidden (invisible)
+        </div><li>Busy (6)</li>
+<div class="annotation added"><span class="version">Added in 0.17.0. </span></div><div class="docstring">
+          Busy, Do Not Disturb.
+        </div><li>Unknown (7)</li>
+<div class="annotation added"><span class="version">Added in 0.17.8. </span></div><div class="docstring">
+          Unknown, unable to determine presence for this contact, for example
+          if the protocol only allows presence of subscribed contacts.
+        </div><li>Error (8)</li>
+<div class="annotation added"><span class="version">Added in 0.17.8. </span></div><div class="docstring">
+          Error, an error occurred while trying to determine presence.  The
+          message, if set, is an error from the server.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Access_Control_Type"></a>
+      <span class="permalink">Enum (<a href="Connection_Interface_Simple_Presence.html#Enum:Access_Control_Type">Permalink</a>)</span>
+      <h2>
+       Access_Control_Type &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A type for communication access control. These control
+          policies are used in
+          <a href="Connection_Interface_Communication_Policy.html" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.CommunicationPolicy.DRAFT">CommunicationPolicy.DRAFT</a>
+          as well as most rich presence interfaces.</p>
+
+        <p>New interfaces should use this type, and NOT
+          <a href="Connection_Interface_Simple_Presence.html#Enum:Rich_Presence_Access_Control_Type">Rich_Presence_Access_Control_Type</a>.</p>
+      </div>
+      <ul>
+<li>Whitelist (0)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Only allow contacts that are in a certain whitelist.</p>
+
+          <p>The associated variant
+            in <a href="Connection_Interface_Simple_Presence.html#Struct:Access_Control">Access_Control</a> is a list of
+            <a href="Connection.html#Simple-Type:Contact_Handle">Contact_Handle</a> representing
+            the whitelist, with signature <code>au</code>.</p>
+        </div><li>Publish_List (1)</li>
+<div class="docstring">
+          Allow contacts in the user's 'publish' list. The associated
+          variant in <a href="Connection_Interface_Simple_Presence.html#Struct:Access_Control">Access_Control</a> is ignored.
+        </div><li>Group (2)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Only allow contacts that are in a certain group.</p>
+
+          <p>The associated variant in <a href="Connection_Interface_Simple_Presence.html#Struct:Access_Control">Access_Control</a> is a
+            <a href="Connection.html#Simple-Type:Group_Handle">Group_Handle</a> representing the permitted
+            group.</p>
+        </div><li>Open (3)</li>
+<div class="docstring">
+          Allow all contacts.  The associated
+          variant in <a href="Connection_Interface_Simple_Presence.html#Struct:Access_Control">Access_Control</a> is ignored.
+        </div><li>Subscribe_Or_Publish_List (4)</li>
+<div class="docstring">
+          Allow all contacts in the user's 'subscribe' or 'publish'
+          list. The associated variant in <a href="Connection_Interface_Simple_Presence.html#Struct:Access_Control">Access_Control</a> is
+          ignored.
+        </div><li>Closed (5)</li>
+<div class="docstring">
+          Forbid all contacts. The associated variant in
+          <a href="Connection_Interface_Simple_Presence.html#Struct:Access_Control">Access_Control</a> is ignored.
+        </div><li>Not_Understood (6)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The access control rule is too complex to be represented
+            in the current Telepathy API. The associated variant is
+            meaningless. Setting this mode is never valid; the
+            connection manager MUST raise an error if this is attempted.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            XEP-0016 Privacy Lists can easily produce access control
+            mechanisms that can't be expressed in a simpler API. We
+            need to be able to at least indicate that fact.
+          </div></div>
+
+          <p>The associated variant in <a href="Connection_Interface_Simple_Presence.html#Struct:Access_Control">Access_Control</a> is
+            ignored.</p>
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Rich_Presence_Access_Control_Type"></a>
+      <span class="permalink">Enum (<a href="Connection_Interface_Simple_Presence.html#Enum:Rich_Presence_Access_Control_Type">Permalink</a>)</span>
+      <h2>
+       Rich_Presence_Access_Control_Type &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A type of access control for Rich_Presence_Access_Control.
+          For most types, the exact access control is given by an associated
+          variant.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>These are the access control types from XMPP publish/subscribe
+          (XEP-0060).</p>
+        </div></div>
+
+        <p><a href="Connection_Interface_Location.html" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.Location">Location</a>
+          uses this for historical reasons, new interfaces will use
+          <a href="Connection_Interface_Simple_Presence.html#Enum:Access_Control_Type">Access_Control_Type</a>.</p>
+      </div>
+      <ul>
+<li>Whitelist (0)</li>
+<div class="docstring">
+          The associated variant is a list of contacts (signature 'au',
+          Contact_Handle[]) who can see the extended presence information.
+        </div><li>Publish_List (1)</li>
+<div class="docstring">
+          All contacts in the user's 'publish' contact list can see the
+          extended presence information. The associated variant is ignored.
+        </div><li>Group (2)</li>
+<div class="docstring">
+          The associated variant is a handle of type Group (signature 'u',
+          Group_Handle) representing a group of contacts who can see the
+          extended presence information.
+        </div><li>Open (3)</li>
+<div class="docstring">
+          Anyone with access to the service can see the extended presence
+          information.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Simple_Contact_Presences"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Simple_Presence.html#Mapping:Simple_Contact_Presences">Permalink</a>)</span>
+      <h2>
+       Simple_Contact_Presences &mdash; a{u(uss)}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        Mapping returned by <a href="Connection_Interface_Simple_Presence.html#Method:GetPresences" title="Method org.freedesktop.Telepathy.Connection.Interface.SimplePresence.GetPresences">GetPresences</a>
+        and signalled by <a href="Connection_Interface_Simple_Presence.html#Signal:PresencesChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.SimplePresence.PresencesChanged">PresencesChanged</a>,
+        indicating the presence of a number of contacts.
+      </div>
+      <ul>
+<li>Contact &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+          A contact
+        </div><li>Presence &mdash; (uss) (<a href="Connection_Interface_Simple_Presence.html#Struct:Simple_Presence" title="Struct Simple_Presence">Simple_Presence</a>)</li>
+<div class="docstring">
+          The contact's presence
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Simple_Status_Spec_Map"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Simple_Presence.html#Mapping:Simple_Status_Spec_Map">Permalink</a>)</span>
+      <h2>
+       Simple_Status_Spec_Map &mdash; a{s(ubb)}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A mapping describing possible statuses.
+      </div>
+      <ul>
+<li>Identifier &mdash; s</li>
+<div class="docstring">
+          The string identifier of this status.
+        </div><li>Spec &mdash; (ubb) (<a href="Connection_Interface_Simple_Presence.html#Struct:Simple_Status_Spec" title="Struct Simple_Status_Spec">Simple_Status_Spec</a>)</li>
+<div class="docstring">
+          Details of this status.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Simple_Presence"></a>
+      <span class="permalink">Struct (<a href="Connection_Interface_Simple_Presence.html#Struct:Simple_Presence">Permalink</a>)</span>
+      <h2>
+       Simple_Presence &mdash; (uss)
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A struct representing the presence of a contact.
+      </div>
+      <ul>
+<li>Type &mdash; u (<a href="Connection_Interface_Simple_Presence.html#Enum:Connection_Presence_Type" title="Enum Connection_Presence_Type">Connection_Presence_Type</a>)</li>
+<div class="docstring">
+          The presence type, e.g. Connection_Presence_Type_Away.
+        </div><li>Status &mdash; s</li>
+<div class="docstring">
+          The string identifier of the status, e.g. &quot;brb&quot;, as defined in the
+          <a href="Connection_Interface_Simple_Presence.html#Property:Statuses" title="Property org.freedesktop.Telepathy.Connection.Interface.SimplePresence.Statuses">Statuses</a> property.
+        </div><li>Status_Message &mdash; s</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The user-defined status message, e.g. &quot;Back soon!&quot;.</p>
+
+          <p>Clients SHOULD set the status message for the local
+            user to the empty string, unless the user has actually provided
+            a specific message (i.e. one that conveys more information than the
+            Status).</p>
+
+          <p>User interfaces SHOULD regard an empty status message as unset,
+            and MAY replace it with a localized string corresponding to the
+            Status or Type.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            Use case: Daf sets his status in Empathy by choosing the Welsh
+            translation of &quot;Available&quot; from a menu.
+            It is more informative for his English-speaking colleagues
+            to see the English translation of &quot;Available&quot; (as localized
+            by their own clients) than to see &quot;Ar Gael&quot; (which they don't
+            understand anyway).
+          </div></div>
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Simple_Status_Spec"></a>
+      <span class="permalink">Struct (<a href="Connection_Interface_Simple_Presence.html#Struct:Simple_Status_Spec">Permalink</a>)</span>
+      <h2>
+       Simple_Status_Spec &mdash; (ubb)
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A struct containing information about a status.
+      </div>
+      <ul>
+<li>Type &mdash; u (<a href="Connection_Interface_Simple_Presence.html#Enum:Connection_Presence_Type" title="Enum Connection_Presence_Type">Connection_Presence_Type</a>)</li>
+<div class="docstring">
+          The type of a presence. This SHOULD NOT be used as a way to set
+          statuses that the client does not recognise (as explained in
+          <a href="Connection_Interface_Simple_Presence.html#Method:SetPresence" title="Method org.freedesktop.Telepathy.Connection.Interface.SimplePresence.SetPresence">SetPresence</a>), but MAY be used to check
+          that the client's assumptions about a particular status name
+          match the connection manager's.
+        </div><li>May_Set_On_Self &mdash; b</li>
+<div class="docstring">
+          If true, the user can set this status on themselves using
+          <a href="Connection_Interface_Simple_Presence.html#Method:SetPresence" title="Method org.freedesktop.Telepathy.Connection.Interface.SimplePresence.SetPresence">SetPresence</a>.
+        </div><li>Can_Have_Message &mdash; b</li>
+<div class="docstring">
+          If true, a non-empty message can be set for this status. Otherwise,
+          the empty string is the only acceptable message.
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            On IRC you can be Away with a status message, but if you are
+            available you cannot set a status message.
+          </div></div>
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Access_Control"></a>
+      <span class="permalink">Struct (<a href="Connection_Interface_Simple_Presence.html#Struct:Access_Control">Permalink</a>)</span>
+      <h2>
+       Access_Control &mdash; (uv)
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>An access control mode for extended presence items like geolocation.
+          This type isn't actually used by the SimplePresence interface, but
+          it's included here so it can be referenced by rich presence
+          interfaces.</p>
+
+        <p>New interfaces should use this type, and NOT
+          <a href="Connection_Interface_Simple_Presence.html#Struct:Rich_Presence_Access_Control">Rich_Presence_Access_Control</a>.</p>
+      </div>
+      <ul>
+<li>Type &mdash; u (<a href="Connection_Interface_Simple_Presence.html#Enum:Access_Control_Type" title="Enum Access_Control_Type">Access_Control_Type</a>)</li>
+<div class="docstring">
+          The type of access control to apply.
+        </div><li>Detail &mdash; v</li>
+<div class="docstring">
+          Any additional information required by the Type. The required
+          type and semantics are defined for each
+          <a href="Connection_Interface_Simple_Presence.html#Enum:Access_Control_Type">Access_Control_Type</a>.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Rich_Presence_Access_Control"></a>
+      <span class="permalink">Struct (<a href="Connection_Interface_Simple_Presence.html#Struct:Rich_Presence_Access_Control">Permalink</a>)</span>
+      <h2>
+       Rich_Presence_Access_Control &mdash; (uv)
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>An access control mode for extended presence items like geolocation.
+          This type isn't actually used by the SimplePresence interface, but
+          it's included here so it can be referenced by rich presence interfaces
+          such as <a href="Connection_Interface_Location.html" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.Location">Location</a>.</p>
+
+        <p><a href="Connection_Interface_Location.html" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.Location">Location</a>
+          uses this for historical reasons, new interfaces will use
+          <a href="Connection_Interface_Simple_Presence.html#Enum:Access_Control_Type">Access_Control_Type</a>.</p>
+      </div>
+      <ul>
+<li>Type &mdash; u (<a href="Connection_Interface_Simple_Presence.html#Enum:Rich_Presence_Access_Control_Type" title="Enum Rich_Presence_Access_Control_Type">Rich_Presence_Access_Control_Type</a>)</li>
+<div class="docstring">
+          The type of access control to apply.
+        </div><li>Detail &mdash; v</li>
+<div class="docstring">
+          Any additional information required by the Type. The required
+          type and semantics are defined for each
+          <a href="Connection_Interface_Simple_Presence.html#Enum:Rich_Presence_Access_Control_Type">Rich_Presence_Access_Control_Type</a>.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

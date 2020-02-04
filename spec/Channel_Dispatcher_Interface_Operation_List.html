@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>ChannelDispatcher.I.OperationList &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.ChannelDispatcher.Interface.OperationList'>ChannelDispatcher.Interface.OperationList</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Dispatcher_Interface_Operation_List.html#Signal:NewDispatchOperation">NewDispatchOperation</a></td>
+       <td>(o: Dispatch_Operation, a{sv}: Properties)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Dispatcher_Interface_Operation_List.html#Signal:DispatchOperationFinished">DispatchOperationFinished</a></td>
+       <td>(o: Dispatch_Operation)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Dispatcher_Interface_Operation_List.html#Property:DispatchOperations">DispatchOperations</a></td>
+       <td>
+        a(oa{sv})
+        
+          (<a href="Channel_Dispatcher_Interface_Operation_List.html#Struct:Dispatch_Operation_Details" title="Array of Struct Dispatch_Operation_Details">
+              Dispatch_Operation_Details_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Dispatcher_Interface_Operation_List.html#Struct:Dispatch_Operation_Details">Dispatch_Operation_Details</a></td>
+       <td>Struct</td>
+       <td>(oa{sv})</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.17.26. </span>(as a stable interface)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel_Dispatcher.html" title="Interface org.freedesktop.Telepathy.ChannelDispatcher">org.freedesktop.Telepathy.ChannelDispatcher</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface allows users of the ChannelDispatcher to enumerate
+        all the pending dispatch operations, with change notification.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>The existence of the
+          <a href="Channel_Dispatcher_Interface_Operation_List.html#Property:DispatchOperations" title="Property org.freedesktop.Telepathy.ChannelDispatcher.Interface.OperationList.DispatchOperations">DispatchOperations</a> property allows a
+          newly started approver to pick up existing dispatch operations.</p>
+
+        <p>This is on a separate interface so clients that aren't interested
+          in doing this aren't woken up by its signals.</p>
+      </div></div>
+    </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:NewDispatchOperation"></a>
+     <span class="permalink">(<a href="Channel_Dispatcher_Interface_Operation_List.html#Signal:NewDispatchOperation">Permalink</a>)</span>
+     <h2>NewDispatchOperation (o: Dispatch_Operation, a{sv}: Properties)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Dispatch_Operation &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The dispatch operation that was created.
+        </div>
+      
+       <li>
+       Properties &mdash; a{sv}
+       
+        (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The same properties that would appear in the Properties member of
+          <a href="Channel_Dispatcher_Interface_Operation_List.html#Struct:Dispatch_Operation_Details">Dispatch_Operation_Details</a>.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when a dispatch operation is added to
+          <a href="Channel_Dispatcher_Interface_Operation_List.html#Property:DispatchOperations" title="Property org.freedesktop.Telepathy.ChannelDispatcher.Interface.OperationList.DispatchOperations">DispatchOperations</a>.</p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:DispatchOperationFinished"></a>
+     <span class="permalink">(<a href="Channel_Dispatcher_Interface_Operation_List.html#Signal:DispatchOperationFinished">Permalink</a>)</span>
+     <h2>DispatchOperationFinished (o: Dispatch_Operation)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Dispatch_Operation &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The dispatch operation that was closed.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        Emitted when a dispatch operation finishes (i.e. exactly once per
+        emission of <a href="Channel_Dispatch_Operation.html#Signal:Finished" namespace="org.freedesktop.Telepathy" title="Signal org.freedesktop.Telepathy.ChannelDispatchOperation.Finished">ChannelDispatchOperation.Finished</a>).
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          Strictly speaking this is redundant with
+          ChannelDispatchOperation.Finished, but it provides full
+          change-notification for the
+          <a href="Channel_Dispatcher_Interface_Operation_List.html#Property:DispatchOperations" title="Property org.freedesktop.Telepathy.ChannelDispatcher.Interface.OperationList.DispatchOperations">DispatchOperations</a> property.
+        </div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:DispatchOperations"></a>
+     <span class="permalink">(<a href="Channel_Dispatcher_Interface_Operation_List.html#Property:DispatchOperations">Permalink</a>)</span>
+     <h2>
+      DispatchOperations &mdash; a(oa{sv})
+      
+        (<a href="Channel_Dispatcher_Interface_Operation_List.html#Struct:Dispatch_Operation_Details" title="Array of Struct Dispatch_Operation_Details">Dispatch_Operation_Details_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The list of ChannelDispatchOperation objects currently being
+          processed. Change notification is via the
+          <a href="Channel_Dispatcher_Interface_Operation_List.html#Signal:NewDispatchOperation" title="Signal org.freedesktop.Telepathy.ChannelDispatcher.Interface.OperationList.NewDispatchOperation">NewDispatchOperation</a> and
+          <a href="Channel_Dispatcher_Interface_Operation_List.html#Signal:DispatchOperationFinished" title="Signal org.freedesktop.Telepathy.ChannelDispatcher.Interface.OperationList.DispatchOperationFinished">DispatchOperationFinished</a> signals.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Struct:Dispatch_Operation_Details"></a>
+      <span class="permalink">Struct (<a href="Channel_Dispatcher_Interface_Operation_List.html#Struct:Dispatch_Operation_Details">Permalink</a>)</span>
+      <h2>
+       Dispatch_Operation_Details &mdash; (oa{sv})
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        Details of a channel dispatch operation.
+      </div>
+      <ul>
+<li>Channel_Dispatch_Operation &mdash; o</li>
+<div class="docstring">
+          The object path of the
+          <a href="Channel_Dispatch_Operation.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ChannelDispatchOperation">ChannelDispatchOperation</a>.
+        </div><li>Properties &mdash; a{sv} (<a href="generic-types.html#Mapping:Qualified_Property_Value_Map" title="Mapping Qualified_Property_Value_Map">Qualified_Property_Value_Map</a>)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Properties of the channel dispatch operation.</p>
+
+          <p>Connection managers MUST NOT include properties in this mapping
+            if their values can change. Clients MUST ignore properties
+            that appear in this mapping if their values can change.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>The rationale is the same as for
+              <a href="Connection_Interface_Requests.html#Struct:Channel_Details">Channel_Details</a>.</p>
+          </div></div>
+
+          <p>Each dictionary MUST contain at least the following keys:</p>
+          <ul>
+            <li><a href="Channel_Dispatch_Operation.html#Property:Interfaces" title="Property org.freedesktop.Telepathy.ChannelDispatchOperation.Interfaces">org.freedesktop.Telepathy.ChannelDispatchOperation.Interfaces</a></li>
+            <li><a href="Channel_Dispatch_Operation.html#Property:Connection" title="Property org.freedesktop.Telepathy.ChannelDispatchOperation.Connection">org.freedesktop.Telepathy.ChannelDispatchOperation.Connection</a></li>
+            <li><a href="Channel_Dispatch_Operation.html#Property:Account" title="Property org.freedesktop.Telepathy.ChannelDispatchOperation.Account">org.freedesktop.Telepathy.ChannelDispatchOperation.Account</a></li>
+            <li><a href="Channel_Dispatch_Operation.html#Property:PossibleHandlers" title="Property org.freedesktop.Telepathy.ChannelDispatchOperation.PossibleHandlers">org.freedesktop.Telepathy.ChannelDispatchOperation.PossibleHandlers</a></li>
+          </ul>
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

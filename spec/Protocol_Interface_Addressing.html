@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Protocol.I.Addressing &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Protocol.Interface.Addressing'>Protocol.Interface.Addressing</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Protocol_Interface_Addressing.html#Method:NormalizeVCardAddress">NormalizeVCardAddress</a></td>
+       <td>(s: VCard_Field, s: VCard_Address)</td>
+       <td>&#8594;</td>
+       <td>s: Normalized_VCard_Address</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol_Interface_Addressing.html#Method:NormalizeContactURI">NormalizeContactURI</a></td>
+       <td>(s: URI)</td>
+       <td>&#8594;</td>
+       <td>s: Normalized_URI</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Protocol_Interface_Addressing.html#Property:AddressableVCardFields">AddressableVCardFields</a></td>
+       <td>
+        as
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Protocol_Interface_Addressing.html#Property:AddressableURISchemes">AddressableURISchemes</a></td>
+       <td>
+        as
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.25.1. </span>(as stable API). From the draft,
+      NormalizeURI was renamed to NormalizeContactURI, clarifying that
+      it removes any actions from the URI.</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for protocols that support multiple forms of
+        addressing contacts, for example through vCard addresses and URIs.</p>
+
+      <p>If the ConnectionManager has a <tt>.manager</tt> file, and it
+        supports this interface, the interface's immutable properties
+        must be represented in the file; the representation is described as
+        part of the documentation for each property.</p>
+
+      <p>For instance, a SIP connection manager might have the
+        following lines in the <tt>.manager</tt> file.</p>
+
+<pre>
+[Protocol sip]
+AddressableVCardFields=tel;x-sip;
+AddressableURISchemes=tel;sip;
+</pre>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:NormalizeVCardAddress"></a>
+     <span class="permalink">(<a href="Protocol_Interface_Addressing.html#Method:NormalizeVCardAddress">Permalink</a>)</span>
+     <h2>NormalizeVCardAddress (s: VCard_Field, s: VCard_Address) &#8594; s: Normalized_VCard_Address</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        VCard_Field &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The vCard field of the address we are normalizing. The
+          field name SHOULD be in lower case, and MUST appear in
+          <a href="Protocol_Interface_Addressing.html#Property:AddressableVCardFields" title="Property org.freedesktop.Telepathy.Protocol.Interface.Addressing.AddressableVCardFields">AddressableVCardFields</a>.
+        </div>
+      
+       <li>
+        VCard_Address &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The address to normalize, which is assumed to belong to a
+          contact (and not, for instance, a chatroom or server).
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Normalized_VCard_Address &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The vCard address, normalized as much as possible.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Attempt to normalize the given vCard address. Where possible, this
+          SHOULD return an address that would appear in the
+          <code>org.freedesktop.Telepathy.Connection.Interface.Addressing1/addresses</code>
+          attribute for a contact on a connected
+          <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>.
+        </p>
+
+        <p>If full normalization requires network activity or is otherwise
+          impossible to do without a <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>,
+          this method SHOULD perform a best-effort normalization.</p>
+
+        <p>An example would be a vCard TEL field with a formatted
+          number in the form of <code>+1 (206) 555 1234</code>, this would be
+          normalized to <code>+12065551234</code>.</p>
+
+        <p>This method MAY simply raise NotImplemented on some
+        protocols, if it has no use.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The vCard field is not supported (it is not in
+            <a href="Protocol_Interface_Addressing.html#Property:AddressableVCardFields" title="Property org.freedesktop.Telepathy.Protocol.Interface.Addressing.AddressableVCardFields">AddressableVCardFields</a>).
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The address is syntactically incorrect.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:NormalizeContactURI"></a>
+     <span class="permalink">(<a href="Protocol_Interface_Addressing.html#Method:NormalizeContactURI">Permalink</a>)</span>
+     <h2>NormalizeContactURI (s: URI) &#8594; s: Normalized_URI</h2>
+
+     <div class="annotation added"><span class="version">Added in 0.25.1. </span>(renamed from NormalizeURI)</div>
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        URI &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          <p>The URI to normalize, which is assumed to refer to a contact
+            (as opposed to, for instance, a chatroom or a server).</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>In some protocols, like XMPP, there is no way to tell whether
+            a given URI refers to a contact or a chatroom by looking at
+            its syntax.</p>
+        </div></div>
+
+          <p>The URI's scheme (i.e. the part before
+            the first colon) MUST appear in
+            <a href="Protocol_Interface_Addressing.html#Property:AddressableURISchemes" title="Property org.freedesktop.Telepathy.Protocol.Interface.Addressing.AddressableURISchemes">AddressableURISchemes</a>.</p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Normalized_URI &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A URI, normalized as much as possible.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Attempt to normalize the given contact URI. Where possible, this
+          SHOULD return an address that would appear in the
+          <code>org.freedesktop.Telepathy.Connection.Interface.Addressing1/uris</code>
+          attribute for a contact on a connected
+          <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>.
+        </p>
+
+        <p>If full normalization requires network activity or is otherwise
+          impossible to do without a <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>,
+          this method SHOULD perform a best-effort normalization.</p>
+
+        <p>If the URI has extra information beyond what's necessary to
+          identify a particular contact, such as an XMPP resource or an
+          action to carry out, this extra information SHOULD be removed.
+          If all URIs in a scheme contain a verb or action
+          (like <code>aim</code>, <code>ymsgr</code> and
+          <code>msnim</code> URIs), then the verb SHOULD be replaced
+          with the one specified in
+          <a href="Protocol_Interface_Addressing.html#Property:AddressableURISchemes" title="Property org.freedesktop.Telepathy.Protocol.Interface.Addressing.AddressableURISchemes">AddressableURISchemes</a>.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This method is intended to normalize URIs stored in address
+            books, for instance. In protocols like XMPP, if you
+            vary the resource or action (query string), the URI still
+            refers to the same high-level contact.</p>
+        </div></div>
+
+        <p>For instance,
+          <code>xmpp:romeo@Example.Com/Empathy?message;body=Hello</code>
+          would be normalized to <code>xmpp:romeo@example.com</code>,
+          and <code>aim:goim?screenname=Romeo%20M&amp;message=Hello</code>
+          would be normalized to
+          <code>aim:addbuddy?screenname=romeom</code>.</p>
+
+        <p>This method MAY simply raise NotImplemented on some
+        protocols, if it has no use.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The URI scheme is not supported (it is not in
+            <a href="Protocol_Interface_Addressing.html#Property:AddressableURISchemes" title="Property org.freedesktop.Telepathy.Protocol.Interface.Addressing.AddressableURISchemes">AddressableURISchemes</a>).
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            <p>The URI is syntactically incorrect or cannot be interpreted
+              as a reference to a contact.</p>
+
+            <div class="rationale"><h5>Rationale:</h5><div>
+              <p>For instance, <code>aim:!?</code> is not a valid AIM URI,
+                while <code>aim:goaway?message=Absent</code> is a
+                valid AIM URI, but not a contact.</p>
+            </div></div>
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:AddressableVCardFields"></a>
+     <span class="permalink">(<a href="Protocol_Interface_Addressing.html#Property:AddressableVCardFields">Permalink</a>)</span>
+     <h2>
+      AddressableVCardFields &mdash; as
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The vCard fields that can be used to request a contact with
+          normalized to lower case. If the <code>URL</code> vCard
+          field is addressable, a colon, followed by the supported URI
+          schemes will be concatenated.</p>
+
+          <p>For example: <code>[&quot;tel&quot;, &quot;x-sip&quot;]</code>.</p>
+
+          <p>The <code>url</code> vCard field MUST NOT appear here; see
+            <a href="Protocol_Interface_Addressing.html#Property:AddressableURISchemes" title="Property org.freedesktop.Telepathy.Protocol.Interface.Addressing.AddressableURISchemes">AddressableURISchemes</a> instead.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>In practice, protocols have a limited set of URI
+              schemes that make sense to resolve as a contact.</p>
+          </div></div>
+
+        <p>Connection managers with a <code>.manager</code> file
+          MUST cache this property in the protocol's section of the
+          <code>.manager</code> file if it is non-empty, using the key
+          <code>AddressableVCardFields</code>. The corresponding value
+          is a list of strings, each followed with a semicolon and in the
+          syntax of the &quot;localestring&quot; type from the Desktop Entry
+          Specification.</p>
+
+        <p>Well-known vCard fields:</p>
+
+        <dl>
+          <dt><code>tel</code></dt>
+          <dd>The TEL vCard field. Used for phone numbers.</dd>
+          <dt><code>x-sip</code></dt>
+          <dd>The X-SIP vCard field. Used for SIP addresses.</dd>
+          <dt><code>x-aim</code></dt>
+          <dd>The X-AIM vCard field. Used for AIM user IDs.</dd>
+          <dt><code>x-icq</code></dt>
+          <dd>The X-ICQ vCard field. Used for ICQ UINs.</dd>
+          <dt><code>x-skype</code></dt>
+          <dd>The X-SKYPE vCard field. Used for Skype user names or
+          telephone numbers. There is also a X-SKYPE-USERNAME field,
+          but for Telepathy purposes, <code>x-skype</code> is preferred</dd>
+          <dt><code>x-groupwise</code></dt>
+          <dd>The X-GROUPWISE vCard field. Used for Groupwise contacts.</dd>
+          <dt><code>x-gadugadu</code></dt>
+          <dd>The X-GADUGADU vCard field. Used for Gadu-Gadu contacts.</dd>
+          <dt><code>x-jabber</code></dt>
+          <dd>The X-JABBER vCard field. Used for XMPP JIDs.</dd>
+          <dt><code>x-msn</code></dt>
+          <dd>The X-MSN vCard field. Used for MSN contacts.</dd>
+          <dt><code>x-yahoo</code></dt>
+          <dd>The X-YAHOO vCard field. Used for Yahoo! IDs.</dd>
+          <dt><code>x-facebook-id</code></dt>
+          <dd>Used for Facebook IDs in XMPP. If the user JID is
+          &quot;-12345@chat.facebook.com&quot; then the x-facebook-id is &quot;12345&quot;</dd>
+        </dl>
+
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:AddressableURISchemes"></a>
+     <span class="permalink">(<a href="Protocol_Interface_Addressing.html#Property:AddressableURISchemes">Permalink</a>)</span>
+     <h2>
+      AddressableURISchemes &mdash; as
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The URI schemes that are supported by this protocol.</p>
+
+        <p>For example: <code>[&quot;tel&quot;, &quot;sip&quot;]</code>.</p>
+
+        <p>This property should only be used when the connection is
+          offline. When it is connected the addressable URI schemes should be
+          retrieved from the
+          <a href="Connection_Interface_Requests.html#Property:RequestableChannelClasses" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Property org.freedesktop.Telepathy.Connection.Interface.Requests.RequestableChannelClasses">Requests.RequestableChannelClasses</a>'s
+             TargetURIScheme fixed-property instead.</p>
+
+        <p>Connection managers with a <code>.manager</code> file
+          MUST cache this property in the protocol's section of the
+          <code>.manager</code> file if it is non-empty, using the key
+          <code>AddressableURISchemes</code>. The corresponding value
+          is a list of strings, each followed with a semicolon and in the
+          syntax of the &quot;localestring&quot; type from the Desktop Entry
+          Specification.</p>
+
+        <p>Well-known URI schemes:</p>
+
+        <dl>
+          <dt><code>sip</code></dt>
+          <dd>SIP protocol.
+            For example: <code>sip:julien@example.com</code>.</dd>
+          <dt><code>sips</code></dt>
+          <dd>Secure (encrypted) SIP protocol.
+            For example: <code>sips:julien@example.com</code>.</dd>
+          <dt><code>tel</code></dt>
+          <dd>Used for telephone numbers.
+            For example: <code>tel:+12065551234</code>.</dd>
+          <dt><code>xmpp</code></dt>
+          <dd>XMPP protocol.
+            For example: <code>xmpp:julien@example.com</code>.</dd>
+          <dt><code>msnim</code></dt>
+          <dd>For the purposes of
+            <a href="Protocol_Interface_Addressing.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Protocol.Interface.Addressing">Protocol.Interface.Addressing</a>,
+            <a href="Connection_Interface_Addressing.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection.Interface.Addressing1">Connection.Interface.Addressing1</a>,
+            and
+            <a href="Channel_Interface_Addressing.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Channel.Interface.Addressing1">Channel.Interface.Addressing1</a>,
+            the verb part is ignored, and SHOULD be <code>add</code>; the
+            <code>contact</code> field in the query string is used to
+            identify the contact.
+            For example: <code>msnim:add?contact=julien</code>.</dd>
+          <dt><code>aim</code></dt>
+          <dd>For the purposes of
+            <a href="Protocol_Interface_Addressing.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Protocol.Interface.Addressing">Protocol.Interface.Addressing</a>,
+            <a href="Connection_Interface_Addressing.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection.Interface.Addressing1">Connection.Interface.Addressing1</a>,
+            and
+            <a href="Channel_Interface_Addressing.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Channel.Interface.Addressing1">Channel.Interface.Addressing1</a>,
+            the verb part is ignored, and SHOULD be <code>addbuddy</code>; the
+            <code>screenname</code> field in the query string is used to
+            identify the contact.
+            For example: <code>aim:addbuddy?screenname=julien</code>.</dd>
+          <dt><code>skype</code></dt>
+          <dd>Skype protocol.
+            For example: <code>skype:julien</code>.</dd>
+          <dt><code>ymsgr</code></dt>
+          <dd>For the purposes of
+            <a href="Protocol_Interface_Addressing.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Protocol.Interface.Addressing">Protocol.Interface.Addressing</a>,
+            <a href="Connection_Interface_Addressing.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection.Interface.Addressing1">Connection.Interface.Addressing1</a>,
+            and
+            <a href="Channel_Interface_Addressing.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Channel.Interface.Addressing1">Channel.Interface.Addressing1</a>,
+            the verb part is ignored, and SHOULD be <code>addfriend</code>; the
+            query string is used to identify the contact.
+            For example: <code>ymsgr:addfriend?julien</code>.</dd>
+          <dt><code>gg</code></dt>
+          <dd>Gadu-Gadu protocol.
+            For example: <code>gg:julien</code>.</dd>
+        </dl>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.Tube &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.Tube'>Channel.Interface.Tube</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Tube.html#Signal:TubeChannelStateChanged">TubeChannelStateChanged</a></td>
+       <td>(u: State)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Tube.html#Property:Parameters">Parameters</a></td>
+       <td>
+        a{sv}
+        
+          (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">
+              String_Variant_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Sometimes immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Tube.html#Property:State">State</a></td>
+       <td>
+        u
+        
+          (<a href="Channel_Interface_Tube.html#Enum:Tube_Channel_State" title="Enum Tube_Channel_State">
+              Tube_Channel_State</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Tube.html#Enum:Tube_Channel_State">Tube_Channel_State</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Tube.html#Enum:Socket_Address_Type">Socket_Address_Type</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Tube.html#Enum:Socket_Access_Control">Socket_Access_Control</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>A <i>tube</i> is a mechanism for arbitrary data transfer between
+      two or more IM users, used to allow applications on the users'
+      systems to communicate without having to establish network
+      connections themselves. Currently, two types of tube exist:
+      <a href="Channel_Type_DBus_Tube.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Channel.Type.DBusTube">Channel.Type.DBusTube</a> and
+      <a href="Channel_Type_Stream_Tube.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamTube">Channel.Type.StreamTube</a>. This interface contains
+      the properties, signals and methods common to both types of tube;
+      you can only create channels of a specific tube type, not of this
+      type. A tube channel contains exactly one tube; if you need several
+      tubes, you have to create several tube channels.</p>
+
+      <p>Tube channels can be requested for <a href="Connection.html#Enum:Handle_Type">Handle_Type</a>
+        Contact (for 1-1 communication) or Room (to communicate with others in
+        the room simultaneously).</p>
+
+      <p>As an exception to the usual handling of capabilities, connection managers
+        for protocols with capability discovery (such as XMPP) SHOULD advertise the
+        capability representing each Tube type that they support
+       (<a href="Channel_Type_DBus_Tube.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Channel.Type.DBusTube">Channel.Type.DBusTube</a> and/or
+        <a href="Channel_Type_Stream_Tube.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamTube">Channel.Type.StreamTube</a>)
+        even if no client has indicated via
+        <a href="Connection_Interface_Contact_Capabilities.html#Method:UpdateCapabilities" namespace="org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities.UpdateCapabilities">UpdateCapabilities</a>
+        that such a tube is supported. They SHOULD also allow clients to offer tubes with any
+        <a href="Channel_Type_Stream_Tube.html#Property:Service" namespace="org.freedesktop.Telepathy.Channel.Type.StreamTube" title="Property org.freedesktop.Telepathy.Channel.Type.StreamTube.Service">Service</a> or
+        <a href="Channel_Type_DBus_Tube.html#Property:ServiceName" namespace="org.freedesktop.Telepathy.Channel.Type.DBusTube" title="Property org.freedesktop.Telepathy.Channel.Type.DBusTube.ServiceName">ServiceName</a>
+        to any contact which supports the corresponding tube capability.</p>
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        <p>This lowers the barrier to entry for those writing new tube
+          applications, and preserves interoperability with older versions of
+          the Telepathy stack which did not support rich capabilities.</p>
+      </div></div>
+    </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:TubeChannelStateChanged"></a>
+     <span class="permalink">(<a href="Channel_Interface_Tube.html#Signal:TubeChannelStateChanged">Permalink</a>)</span>
+     <h2>TubeChannelStateChanged (u: State)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       State &mdash; u
+       
+        (<a href="Channel_Interface_Tube.html#Enum:Tube_Channel_State" title="Enum Tube_Channel_State">Tube_Channel_State</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new state of the tube.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the state of the tube channel changes. Valid state
+        transitions are documented with <a href="Channel_Interface_Tube.html#Enum:Tube_Channel_State">Tube_Channel_State</a>.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Parameters"></a>
+     <span class="permalink">(<a href="Channel_Interface_Tube.html#Property:Parameters">Permalink</a>)</span>
+     <h2>
+      Parameters &mdash; a{sv}
+      
+        (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">Depending on the protocol, this
+       property may be <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Each tube has a dictionary of arbitrary parameters. Parameters are
+          commonly used to bootstrap legacy protocols where you can't
+          negotiate parameters in-band. The allowable keys,
+          types and values are defined by the service, but connection managers
+          must support the value being a string (D-Bus type <tt>'s'</tt>),
+          array of bytes (D-Bus type <tt>'ay'</tt>), unsigned integer (D-Bus
+          type <tt>'u'</tt>), integer (D-Bus type <tt>'i'</tt>) and boolean
+          (D-Bus type <tt>'b'</tt>).</p>
+
+        <p>When the tube is offered, the parameters are transmitted with the
+          offer and appear as a property of the incoming tube for other
+          participants.</p>
+
+        <p>For example, a stream tube for <a href="Channel_Type_Stream_Tube.html#Property:Service" namespace="org.freedesktop.Telepathy.Channel.Type.StreamTube" title="Property org.freedesktop.Telepathy.Channel.Type.StreamTube.Service">Service</a>
+          <tt>&quot;smb&quot;</tt> (<cite>Server Message Block over TCP/IP</cite>) might
+          use the following properties, as defined in <a href="http://www.dns-sd.org/ServiceTypes.html">DNS SRV (RFC 2782)
+          Service Types</a>:</p>
+
+        <pre>
+{ 'u': 'some-username',
+  'p': 'top-secret-password',
+  'path': '/etc/passwd',
+}</pre>
+
+        <p>When requesting a tube with
+          <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy.Connection.Interface.Requests" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>,
+          this property MUST NOT be included in the request; instead, it is set
+          when <a href="Channel_Type_Stream_Tube.html#Method:Offer" namespace="org.freedesktop.Telepathy.Channel.Type" title="Method org.freedesktop.Telepathy.Channel.Type.StreamTube.Offer">StreamTube.Offer</a>
+          or <a href="Channel_Type_DBus_Tube.html#Method:Offer" namespace="org.freedesktop.Telepathy.Channel.Type" title="Method org.freedesktop.Telepathy.Channel.Type.DBusTube.Offer">DBusTube.Offer</a>
+          (as appropriate) is called. Its value is undefined until the tube is
+          offered; once set, its value MUST NOT change.</p>
+
+        <p>When receiving an incoming tube, this property is immutable and so advertised in the
+          <a href="Connection_Interface_Requests.html#Signal:NewChannels" namespace="org.freedesktop.Telepathy.Connection.Interface.Requests" title="Signal org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannels">NewChannels</a>
+          signal.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:State"></a>
+     <span class="permalink">(<a href="Channel_Interface_Tube.html#Property:State">Permalink</a>)</span>
+     <h2>
+      State &mdash; u
+      
+        (<a href="Channel_Interface_Tube.html#Enum:Tube_Channel_State" title="Enum Tube_Channel_State">Tube_Channel_State</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>State of the tube in this channel.</p>
+
+        <p>When requesting a tube with
+          <a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="org.freedesktop.Telepathy.Connection.Interface.Requests" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>,
+          this property MUST NOT be included in the request.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Tube_Channel_State"></a>
+      <span class="permalink">Enum (<a href="Channel_Interface_Tube.html#Enum:Tube_Channel_State">Permalink</a>)</span>
+      <h2>
+       Tube_Channel_State &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Local_Pending (0)</li>
+<div class="docstring">
+          The initiator offered the tube. The tube is waiting to be
+          accepted/closed locally. If the client accepts the tube, the tube's
+          state will be Open.
+        </div><li>Remote_Pending (1)</li>
+<div class="docstring">
+          The tube is waiting to be accepted/closed remotely. If the
+          recipient accepts the tube, the tube's state will be Open.
+        </div><li>Open (2)</li>
+<div class="docstring">
+          The initiator offered the tube and the recipient accepted it. The
+          tube is open for traffic. The tube's state stays in this state until
+          it is closed.
+        </div><li>Not_Offered (3)</li>
+<div class="docstring">
+          The tube channel has been requested but the tube is not yet offered.
+          The client should offer the tube to the recipient and the tube's
+          state will be Remote_Pending. The method used to offer the tube
+          depends on the tube type.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Socket_Address_Type"></a>
+      <span class="permalink">Enum (<a href="Channel_Interface_Tube.html#Enum:Socket_Address_Type">Permalink</a>)</span>
+      <h2>
+       Socket_Address_Type &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Unix (0)</li>
+<div class="docstring">
+          A Unix socket. The address variant contains a byte-array, signature 'ay',
+          containing the path of the socket.
+        </div><li>Abstract_Unix (1)</li>
+<div class="docstring">
+          An abstract Unix socket. The address variant contains a byte-array,
+          signature 'ay', containing the path of the socket including the
+          leading null byte.
+        </div><li>IPv4 (2)</li>
+<div class="docstring">
+          An IPv4 socket. The address variant contains a Socket_Address_IPv4,
+          i.e. a structure with signature (sq)
+          in which the string is an IPv4 dotted-quad address literal
+          (and must not be a DNS name), while the 16-bit unsigned integer is
+          the port number.
+        </div><li>IPv6 (3)</li>
+<div class="docstring">
+          An IPv6 socket. The address variant contains a Socket_Address_IPv6,
+          i.e. a structure with signature (sq)
+          in which the string is an IPv6 address literal as specified in
+          RFC2373 (and must not be a DNS name), while the 16-bit unsigned
+          integer is the port number.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Socket_Access_Control"></a>
+      <span class="permalink">Enum (<a href="Channel_Interface_Tube.html#Enum:Socket_Access_Control">Permalink</a>)</span>
+      <h2>
+       Socket_Access_Control &mdash; u
+      </h2>
+
+      
+      
+      
+      
+      <ul>
+<li>Localhost (0)</li>
+<div class="docstring">
+          <p>The IP or Unix socket can be accessed by any local user (e.g.
+            a Unix socket that accepts all local connections, or an IP socket
+            listening on 127.0.0.1 (or ::1) or rejecting connections not from
+            that address). The associated variant must be ignored.</p>
+
+          <p>For a D-Bus tube, this means that the &quot;same user&quot; access
+            control typically provided by default in D-Bus implementations
+            SHOULD be disabled. If the socket is only available to local users
+            (e.g. a Unix socket, an IPv4 socket bound to 127.0.0.1, or an
+            IPv6 socket bound to ::1), the <code>ANONYMOUS</code>
+            authentication mechanism MAY be enabled.</p>
+        </div><li>Port (1)</li>
+<div class="docstring">
+          May only be used on IP sockets, and only for Stream tubes.
+          <!-- ... and maybe Datagram tubes, one day... -->
+          The associated variant must contain
+          a struct Socket_Address_IPv4 (or Socket_Address_IPv6)
+          containing the string form of an IP address of the appropriate
+          version, and a port number. The socket can only be accessed if the
+          connecting process has that address and port number; all other
+          connections will be rejected.
+        </div><li>Netmask (2)</li>
+<div class="annotation deprecated"><span class="version">Deprecated since 0.17.25. </span>This has never been implemented.
+        If you want to share a service to your whole LAN, Telepathy is
+        not the way to do it.</div><div class="docstring">
+          May only be used on IP sockets. The associated variant must contain
+          a struct Socket_Netmask_IPv4 (or Socket_Netmask_IPv6) with
+          signature (sy), containing the string form of an
+          IP address of the appropriate version, and a prefix length &quot;n&quot;.
+          The socket can only be accessed if the first n bits of the
+          connecting address match the first n bits of the given address.
+        </div><li>Credentials (3)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The high-level meaning of this access control type is that
+            only the same user (e.g. same numeric Unix uid) is allowed to
+            interact with the tube. Exactly how this is achieved varies by
+            channel type.</p>
+
+          <p>For <a href="Channel_Type_Stream_Tube.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamTube">StreamTube</a> channels, this access control type
+            may only be used on UNIX sockets.
+            The connecting process must send a byte when
+            it first connects, which is not considered to be part of the data
+            stream. If the operating system uses sendmsg() with SCM_CREDS or
+            SCM_CREDENTIALS to pass credentials over sockets, the connecting
+            process must do so if possible; if not, it must still send the
+            byte, without any attached credentials. (This mechanism is
+            very similar to the first byte of a D-Bus connection, except that
+            in D-Bus the byte is always zero, whereas in Tubes it can be
+            nonzero.)</p>
+
+          <p>For <a href="Channel_Type_DBus_Tube.html" namespace="org.freedesktop.Telepathy.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.DBusTube">DBusTube</a> channels, this access control type
+            may be used on any type of socket, and there is no extra byte
+            added by Telepathy at the beginning of the stream: all bytes in
+            the stream are part of the D-Bus tube connection. The connecting
+            process should prove its identity via any of the SASL
+            authentication mechanisms usually used for D-Bus (in typical
+            D-Bus implementations this involves either sending and receiving
+            credentials as above, or demonstrating the ability to write to a
+            file in the user's home directory).</p>
+
+          <p>In either case, the listening process will disconnect the
+            connection unless it can determine by OS-specific means that
+            the connecting process has the same user ID as the listening
+            process.</p>
+
+          <p>In either tube type, the associated variant must be ignored.</p>
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

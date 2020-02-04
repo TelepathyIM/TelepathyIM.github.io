@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.CommunicationPolicy.DRAFT &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.CommunicationPolicy.DRAFT'>Connection.Interface.CommunicationPolicy.DRAFT</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Communication_Policy.html#Method:SetPolicy">SetPolicy</a></td>
+       <td>(s: Channel_Type, (uv): Policy)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Communication_Policy.html#Signal:PolicyChanged">PolicyChanged</a></td>
+       <td>(a{s(uv)}: Changed_Policies)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Communication_Policy.html#Property:SupportedPolicies">SupportedPolicies</a></td>
+       <td>
+        a(asau)
+        
+          (<a href="Connection_Interface_Communication_Policy.html#Struct:Supported_Policy" title="Array of Struct Supported_Policy">
+              Supported_Policy_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Communication_Policy.html#Property:ActivePolicies">ActivePolicies</a></td>
+       <td>
+        a{s(uv)}
+        
+          (<a href="Connection_Interface_Communication_Policy.html#Mapping:Active_Policies_Map" title="Mapping Active_Policies_Map">
+              Active_Policies_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Communication_Policy.html#Mapping:Active_Policies_Map">Active_Policies_Map</a></td>
+       <td>Mapping</td>
+       <td>a{s(uv)}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Communication_Policy.html#Struct:Supported_Policy">Supported_Policy</a></td>
+       <td>Struct</td>
+       <td>(asau)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is experimental and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   <div class="annotation added"><span class="version">Added in 0.21.1. </span>(draft 1)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection_Interface_Simple_Presence.html" title="Interface org.freedesktop.Telepathy.Connection.Interface.SimplePresence">org.freedesktop.Telepathy.Connection.Interface.SimplePresence</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        This interface supports controlling which contacts are allowed
+        to initiate text chats, incoming calls, and other forms of
+        communication as supported by the underlying protocol. The
+        policies supported for different communication methods on this
+        connection are listed in the
+        <a href="Connection_Interface_Communication_Policy.html#Property:SupportedPolicies" title="Property org.freedesktop.Telepathy.Connection.Interface.CommunicationPolicy.DRAFT.SupportedPolicies">SupportedPolicies</a> property. The
+        current configuration is held in
+        <a href="Connection_Interface_Communication_Policy.html#Property:ActivePolicies" title="Property org.freedesktop.Telepathy.Connection.Interface.CommunicationPolicy.DRAFT.ActivePolicies">ActivePolicies</a>; it can be modified
+        using <a href="Connection_Interface_Communication_Policy.html#Method:SetPolicy" title="Method org.freedesktop.Telepathy.Connection.Interface.CommunicationPolicy.DRAFT.SetPolicy">SetPolicy</a>, and changes
+        are signalled by <a href="Connection_Interface_Communication_Policy.html#Signal:PolicyChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.CommunicationPolicy.DRAFT.PolicyChanged">PolicyChanged</a>.
+      </p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:SetPolicy"></a>
+     <span class="permalink">(<a href="Connection_Interface_Communication_Policy.html#Method:SetPolicy">Permalink</a>)</span>
+     <h2>SetPolicy (s: Channel_Type, (uv): Policy) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Channel_Type &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Simple Type DBus_Interface">DBus_Interface</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The channel type to set the policy for.
+        </div>
+      
+       <li>
+        Policy &mdash; (uv)
+        
+          (<a href="Connection_Interface_Simple_Presence.html#Struct:Access_Control" title="Struct Access_Control">Access_Control</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The policy to set for this channel.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Set a policy for a communication method (channel
+        type). Depending on the server or protocol, more than one
+        communication method could be bound to the same policy, if
+        calling this method on one channel type changes the policy on
+        another channel type, the <a href="Connection_Interface_Communication_Policy.html#Signal:PolicyChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.CommunicationPolicy.DRAFT.PolicyChanged">PolicyChanged</a>
+        signal that would follow would include all the channel types
+        that have an altered policy.
+      </div>
+
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:PolicyChanged"></a>
+     <span class="permalink">(<a href="Connection_Interface_Communication_Policy.html#Signal:PolicyChanged">Permalink</a>)</span>
+     <h2>PolicyChanged (a{s(uv)}: Changed_Policies)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Changed_Policies &mdash; a{s(uv)}
+       
+        (<a href="Connection_Interface_Communication_Policy.html#Mapping:Active_Policies_Map" title="Mapping Active_Policies_Map">Active_Policies_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A subset of the active policies that have changed.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        <a href="Connection_Interface_Communication_Policy.html#Property:ActivePolicies" title="Property org.freedesktop.Telepathy.Connection.Interface.CommunicationPolicy.DRAFT.ActivePolicies">ActivePolicies</a> has
+        changed. This occurs when the server unilaterally changed the
+        policy or <a href="Connection_Interface_Communication_Policy.html#Method:SetPolicy" title="Method org.freedesktop.Telepathy.Connection.Interface.CommunicationPolicy.DRAFT.SetPolicy">SetPolicy</a> has been
+        called.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:SupportedPolicies"></a>
+     <span class="permalink">(<a href="Connection_Interface_Communication_Policy.html#Property:SupportedPolicies">Permalink</a>)</span>
+     <h2>
+      SupportedPolicies &mdash; a(asau)
+      
+        (<a href="Connection_Interface_Communication_Policy.html#Struct:Supported_Policy" title="Array of Struct Supported_Policy">Supported_Policy_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The communication policies supported by this connection.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:ActivePolicies"></a>
+     <span class="permalink">(<a href="Connection_Interface_Communication_Policy.html#Property:ActivePolicies">Permalink</a>)</span>
+     <h2>
+      ActivePolicies &mdash; a{s(uv)}
+      
+        (<a href="Connection_Interface_Communication_Policy.html#Mapping:Active_Policies_Map" title="Mapping Active_Policies_Map">Active_Policies_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The active communication policies on this
+        connection. Communication methods that are not in this
+        mapping are considered open.</p>
+
+        <p>For example, to allow incoming calls only from contacts
+          buddy list, and to allow text messages from anyone,
+          the policy would look like this:</p>
+
+        <pre>
+{
+    'org.freedesktop.Telepathy.Channel.Type.Text' : Access_Control_Type_Open,
+    'org.freedesktop.Telepathy.Channel.Type.Call' : Access_Control_Type_Publish_List
+}
+        </pre>
+
+        <p>Changes to this property are signalled by
+          <a href="Connection_Interface_Communication_Policy.html#Signal:PolicyChanged" title="Signal org.freedesktop.Telepathy.Connection.Interface.CommunicationPolicy.DRAFT.PolicyChanged">PolicyChanged</a>.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Mapping:Active_Policies_Map"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Communication_Policy.html#Mapping:Active_Policies_Map">Permalink</a>)</span>
+      <h2>
+       Active_Policies_Map &mdash; a{s(uv)}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A mapping of communication methods (channel types), and their
+        associated policy.
+      </div>
+      <ul>
+<li>Channel_Type &mdash; s (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Simple Type DBus_Interface">DBus_Interface</a>)</li>
+<div class="docstring">
+          The channel interface with the policy.
+        </div><li>Active_Policy &mdash; (uv) (<a href="Connection_Interface_Simple_Presence.html#Struct:Access_Control" title="Struct Access_Control">Access_Control</a>)</li>
+<div class="docstring">
+          The active policy for this channel type.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Supported_Policy"></a>
+      <span class="permalink">Struct (<a href="Connection_Interface_Communication_Policy.html#Struct:Supported_Policy">Permalink</a>)</span>
+      <h2>
+       Supported_Policy &mdash; (asau)
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The communication methods (channel types), and the policies
+        that can be applied to them. This is server and protocol
+        dependant.</p>
+
+        <p>Grouped channel types will always have the same policy applied
+        to them.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          Different protocols have different limitations to the
+          granularity of communication policies. One protocol might be
+          able to set a different policy for VoIP calls and text chat,
+          while another protocol might only be able to set one policy
+          to both VoIP and text chat.
+        </div></div>
+      </div>
+      <ul>
+<li>Channel_Types &mdash; as (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)</li>
+<div class="docstring">
+          A list of channel interfaces that support these policies.
+        </div><li>Supported_Policies &mdash; au (<a href="Connection_Interface_Simple_Presence.html#Enum:Access_Control_Type" title="Array of Enum Access_Control_Type">Access_Control_Type_List</a>)</li>
+<div class="docstring">
+          A list of supported policies.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

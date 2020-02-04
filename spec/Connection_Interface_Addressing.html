@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Conn.I.Addressing1 &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Connection.Interface.Addressing1'>Connection.Interface.Addressing1</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+   
+   
+    | <a href="#contact-attributes">Contact Attributes</a> 
+   
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Addressing.html#Method:GetContactsByVCardField">GetContactsByVCardField</a></td>
+       <td>(s: Field, as: Addresses, as: Interfaces)</td>
+       <td>&#8594;</td>
+       <td>a{su}: Requested, a{ua{sv}}: Attributes</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Addressing.html#Method:GetContactsByURI">GetContactsByURI</a></td>
+       <td>(as: URIs, as: Interfaces)</td>
+       <td>&#8594;</td>
+       <td>a{su}: Requested, a{ua{sv}}: Attributes</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+
+     
+
+     
+     <h3>Contact Attributes</h3>
+     <table class="summary">
+      
+       <tr class="contact-attribute">
+       <td><a href="Connection_Interface_Addressing.html#Contact-Attribute:addresses">org.freedesktop.Telepathy.Connection.Interface.Addressing1/addresses</a></td>
+       <td>
+        a{ss}
+        
+        (<a href="Connection_Interface_Addressing.html#Mapping:VCard_Field_Address_Map" title="Mapping VCard_Field_Address_Map">
+            VCard_Field_Address_Map</a>)
+        
+       </td>
+      </tr>
+      
+       <tr class="contact-attribute">
+       <td><a href="Connection_Interface_Addressing.html#Contact-Attribute:uris">org.freedesktop.Telepathy.Connection.Interface.Addressing1/uris</a></td>
+       <td>
+        as
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Addressing.html#Mapping:VCard_Field_Address_Map">VCard_Field_Address_Map</a></td>
+       <td>Mapping</td>
+       <td>a{ss}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Interface_Addressing.html#Mapping:Addressing_Normalization_Map">Addressing_Normalization_Map</a></td>
+       <td>Mapping</td>
+       <td>a{su}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.25.2. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a></li>
+    
+     <li><a href="Connection_Interface_Contacts.html" title="Interface org.freedesktop.Telepathy.Connection.Interface.Contacts">org.freedesktop.Telepathy.Connection.Interface.Contacts</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface deals with the multiple address types that can
+      refer to the same contact, such as vCard fields and URIs.</p>
+
+      <p>It can be used to retrieve contacts with a specific addresses
+        through <a href="Connection_Interface_Addressing.html#Method:GetContactsByVCardField" title="Method org.freedesktop.Telepathy.Connection.Interface.Addressing1.GetContactsByVCardField">GetContactsByVCardField</a> and
+        <a href="Connection_Interface_Addressing.html#Method:GetContactsByURI" title="Method org.freedesktop.Telepathy.Connection.Interface.Addressing1.GetContactsByURI">GetContactsByURI</a>, as well as
+        defining the various addressing methods for a given contact
+        through this interface's contact attributes.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:GetContactsByVCardField"></a>
+     <span class="permalink">(<a href="Connection_Interface_Addressing.html#Method:GetContactsByVCardField">Permalink</a>)</span>
+     <h2>GetContactsByVCardField (s: Field, as: Addresses, as: Interfaces) &#8594; a{su}: Requested, a{ua{sv}}: Attributes</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Field &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The vCard field of the addresses we are requesting. The
+            field name SHOULD be in lower case. Supported
+            fields can be found in
+            <a href="Protocol_Interface_Addressing.html#Property:AddressableVCardFields" namespace="org.freedesktop.Telepathy.Protocol.Interface.Addressing" title="Property org.freedesktop.Telepathy.Protocol.Interface.Addressing.AddressableVCardFields">AddressableVCardFields</a>.</p>
+
+          <p>The <code>url</code> vCard field MUST NOT appear here; see
+            <a href="Connection_Interface_Addressing.html#Method:GetContactsByURI" title="Method org.freedesktop.Telepathy.Connection.Interface.Addressing1.GetContactsByURI">GetContactsByURI</a> instead.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>In practice, protocols have a limited set of URI
+              schemes that make sense to resolve as a contact.</p>
+          </div></div>
+
+        </div>
+      
+       <li>
+        Addresses &mdash; as
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The addresses to get contact handles for. The address types
+          should match the given vCard field.
+        </div>
+      
+       <li>
+        Interfaces &mdash; as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A list of strings indicating which D-Bus interfaces the calling
+            process is interested in. All supported attributes from these
+            interfaces, whose values can be obtained without additional network
+            activity, will be in the reply.</p>
+
+          <p>Attributes from this interface and from
+            <a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a>
+            are always returned, and need not be requested
+            explicitly.</p>
+
+          <p>The behavior of this parameter is similar to the same
+            parameter in
+            <a href="Connection_Interface_Contacts.html#Method:GetContactAttributes" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Method org.freedesktop.Telepathy.Connection.Interface.Contacts.GetContactAttributes">Contacts.GetContactAttributes</a>.</p>
+          </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Requested &mdash; a{su}
+        
+          (<a href="Connection_Interface_Addressing.html#Mapping:Addressing_Normalization_Map" title="Mapping Addressing_Normalization_Map">Addressing_Normalization_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A mapping from requested vCard addresses to the corresponding
+            contact handles.</p>
+
+          <p>Requested addresses that are not valid or understood for this protocol
+            MUST be omitted from the mapping.</p>
+        </div>
+      
+       <li>
+        Attributes &mdash; a{ua{sv}}
+        
+          (<a href="Connection_Interface_Contacts.html#Mapping:Contact_Attributes_Map" title="Mapping Contact_Attributes_Map">Contact_Attributes_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A dictionary mapping the contact handles to contact attributes.
+            If any of the requested addresses are in fact invalid, they are
+            simply omitted from this mapping. If contact attributes are not
+            immediately known, the behaviour is defined by the interface;
+            the attribute should either be omitted from the result or
+            replaced with a default value.</p>
+
+          <p>Requested addresses that are not valid or understood for this protocol
+            MUST be omitted from the mapping.</p>
+
+          <p>Each contact's attributes will always include at least the
+            identifier that would be obtained by inspecting the handle
+            (<code>org.freedesktop.Telepathy.Connection/contact-id</code>).
+          </p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request contacts and retrieve their attributes using a given field
+          in their vCards.</p>
+
+        <p>The connection manager should record that these handles are in
+          use by the client who invokes this method, and must not
+          deallocate the handles until the client disconnects from the
+          bus or calls the
+          <a href="Connection.html#Method:ReleaseHandles" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.ReleaseHandles">Connection.ReleaseHandles</a>
+          method.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:GetContactsByURI"></a>
+     <span class="permalink">(<a href="Connection_Interface_Addressing.html#Method:GetContactsByURI">Permalink</a>)</span>
+     <h2>GetContactsByURI (as: URIs, as: Interfaces) &#8594; a{su}: Requested, a{ua{sv}}: Attributes</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        URIs &mdash; as
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The URI addresses to get contact handles for. Supported
+          schemes can be found in
+          <a href="Protocol_Interface_Addressing.html#Property:AddressableURISchemes" namespace="org.freedesktop.Telepathy.Protocol.Interface.Addressing" title="Property org.freedesktop.Telepathy.Protocol.Interface.Addressing.AddressableURISchemes">AddressableURISchemes</a>.
+        </div>
+      
+       <li>
+        Interfaces &mdash; as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A list of strings indicating which D-Bus interfaces the calling
+            process is interested in. All supported attributes from these
+            interfaces, whose values can be obtained without additional network
+            activity, will be in the reply.</p>
+
+          <p>Attributes from this interface and from
+            <a href="Connection.html" title="Interface org.freedesktop.Telepathy.Connection">org.freedesktop.Telepathy.Connection</a>
+            are always returned, and need not be requested
+            explicitly.</p>
+
+          <p>The behavior of this parameter is similar to the same
+            parameter in
+            <a href="Connection_Interface_Contacts.html#Method:GetContactAttributes" namespace="org.freedesktop.Telepathy.Connection.Interface" title="Method org.freedesktop.Telepathy.Connection.Interface.Contacts.GetContactAttributes">Contacts.GetContactAttributes</a>.</p>
+          </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Requested &mdash; a{su}
+        
+          (<a href="Connection_Interface_Addressing.html#Mapping:Addressing_Normalization_Map" title="Mapping Addressing_Normalization_Map">Addressing_Normalization_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A mapping of requested URIs to the corresponding contact handles.</p>
+
+          <p>Requested URIs that are not valid or understood for this protocol
+            MUST be omitted from the mapping.</p>
+        </div>
+      
+       <li>
+        Attributes &mdash; a{ua{sv}}
+        
+          (<a href="Connection_Interface_Contacts.html#Mapping:Contact_Attributes_Map" title="Mapping Contact_Attributes_Map">Contact_Attributes_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A dictionary mapping the contact handles to contact attributes.
+            If any of the requested addresses are in fact invalid, they are
+            simply omitted from this mapping. If contact attributes are not
+            immediately known, the behaviour is defined by the interface;
+            the attribute should either be omitted from the result or
+            replaced with a default value.</p>
+
+          <p>Requested URIs that are not valid or understood for this protocol
+            MUST be omitted from the mapping.</p>
+
+          <p>Each contact's attributes will always include at least the
+            identifier that would be obtained by inspecting the handle
+            (<code>org.freedesktop.Telepathy.Connection/contact-id</code>).
+          </p>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request contacts and retrieve their attributes using URI addresses.</p>
+
+        <p>The connection manager should record that these handles are in
+          use by the client who invokes this method, and must not
+          deallocate the handles until the client disconnects from the
+          bus or calls the
+          <a href="Connection.html#Method:ReleaseHandles" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.Connection.ReleaseHandles">Connection.ReleaseHandles</a>
+          method.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Disconnected" title="Error org.freedesktop.Telepathy.Error.Disconnected">Disconnected</a></li>
+       
+       
+       
+       <div class="docstring">
+      The connection is not currently connected and cannot be used.
+      This error may also be raised when operations are performed on a
+      Connection for which
+      <a href="Connection.html#Signal:StatusChanged" namespace="org.freedesktop.Telepathy.Connection" title="Signal org.freedesktop.Telepathy.Connection.StatusChanged">StatusChanged</a>
+      has signalled status Disconnected for reason None.
+
+      <div class="rationale"><h5>Rationale:</h5><div>
+        The second usage corresponds to None in the
+        <a href="Connection.html#Enum:Connection_Status_Reason">Connection_Status_Reason</a> enum; if a better reason
+        is available, the corresponding error should be used instead.
+      </div></div>
+    </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+   <div class="outset contact-attributes">
+    <a name="contact-attributes"></a>
+    <h1>Contact Attributes</h1>
+    <div>
+      Attributes that a contact can have, accessed with the
+      org.freedesktop.Telepathy.Connection.Interface.Contacts interface.
+    </div>
+    
+    <div class="inset contact-attribute">
+     <a name="Contact-Attribute:addresses"></a>
+     <span class="permalink">(<a href="Connection_Interface_Addressing.html#Contact-Attribute:addresses">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Connection.Interface.Addressing1/addresses &mdash; a{ss}
+      
+       (<a href="Connection_Interface_Addressing.html#Mapping:VCard_Field_Address_Map" title="Mapping VCard_Field_Address_Map">VCard_Field_Address_Map</a>)
+      
+     </h2>
+     
+     
+     
+     <div class="docstring">
+        The various vCard addresses that identify this contact.
+      </div>
+    </div>
+    
+    <div class="inset contact-attribute">
+     <a name="Contact-Attribute:uris"></a>
+     <span class="permalink">(<a href="Connection_Interface_Addressing.html#Contact-Attribute:uris">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Connection.Interface.Addressing1/uris &mdash; as
+      
+     </h2>
+     
+     
+     
+     <div class="docstring">
+        The various URI addresses that identify this contact.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Mapping:VCard_Field_Address_Map"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Addressing.html#Mapping:VCard_Field_Address_Map">Permalink</a>)</span>
+      <h2>
+       VCard_Field_Address_Map &mdash; a{ss}
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A mapping of vCard fields and addresses equivalent to a
+          particular contact's protocol identifier. For instance,
+          on XMPP this would contain <code>x-jabber</code> for all
+          contacts, and <code>x-facebook-id</code> for contacts on
+          Facebook's server.</p>
+      </div>
+      <ul>
+<li>VCard_Field &mdash; s</li>
+<div class="docstring">A vCard field, such as
+          <code>x-jabber</code>.</div><li>Address &mdash; s</li>
+<div class="docstring">The value of that vCard field for the
+          contact.</div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Addressing_Normalization_Map"></a>
+      <span class="permalink">Mapping (<a href="Connection_Interface_Addressing.html#Mapping:Addressing_Normalization_Map">Permalink</a>)</span>
+      <h2>
+       Addressing_Normalization_Map &mdash; a{su}
+      </h2>
+
+      <div class="annotation added"><span class="version">Added in 0.25.1. </span></div>
+      
+      
+      <div class="docstring">
+        A map from URIs/vCard addresses to the corresponding handle.
+      </div>
+      <ul>
+<li>Requested_String &mdash; s</li>
+<div class="docstring">
+        The URI or vCard address that has been requested by
+        <a href="Connection_Interface_Addressing.html#Method:GetContactsByVCardField" title="Method org.freedesktop.Telepathy.Connection.Interface.Addressing1.GetContactsByVCardField">GetContactsByVCardField</a> or
+        <a href="Connection_Interface_Addressing.html#Method:GetContactsByURI" title="Method org.freedesktop.Telepathy.Connection.Interface.Addressing1.GetContactsByURI">GetContactsByURI</a>.
+        </div><li>Handle &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+          A nonzero handle.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>

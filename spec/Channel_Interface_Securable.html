@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.I.Securable &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Interface.Securable'>Channel.Interface.Securable</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Securable.html#Property:Encrypted">Encrypted</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td>Sometimes immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Interface_Securable.html#Property:Verified">Verified</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td>Sometimes immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.21.5. </span>as stable API</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>This interface exists to expose security information about
+        <a href="Channel.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.Channel">Channel</a>s. The two
+        properties are sometimes immutable and can be used to make
+        decisions on how cautious to be about transferring sensitive
+        data. The special case of <a href="Channel_Type_Server_Authentication.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.ServerAuthentication">ServerAuthentication</a>
+        channels is one example of where the two properties are
+        immutable.</p>
+
+      <p>For example, clients MAY use these properties to decide
+        whether the <code>PLAIN</code> mechanism is acceptable for a
+        <a href="Channel_Interface_SASL_Authentication.html" namespace="ofdT.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.SASLAuthentication">SASLAuthentication</a>
+        channel.</p>
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Encrypted"></a>
+     <span class="permalink">(<a href="Channel_Interface_Securable.html#Property:Encrypted">Permalink</a>)</span>
+     <h2>
+      Encrypted &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">Depending on the protocol, this
+       property may be <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>True if this channel occurs over an encrypted
+          connection. This <strong>does not</strong> imply that steps
+          have been taken to avoid man-in-the-middle attacks.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>For future support for <a href="http://tools.ietf.org/html/rfc5056">RFC 5056 Channel
+              Binding</a> it is desirable to be able to use some SASL
+            mechanisms over an encrypted connection to an unverified peer,
+            which can prove that it is the desired destination during
+            the SASL negotiation.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Verified"></a>
+     <span class="permalink">(<a href="Channel_Interface_Securable.html#Property:Verified">Permalink</a>)</span>
+     <h2>
+      Verified &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">Depending on the protocol, this
+       property may be <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>True if this channel occurs over a connection that is
+          protected against tampering, and has been verified to be with
+          the desired destination: for instance, one where TLS was
+          previously negotiated, and the TLS certificate has been
+          verified against a configured certificate authority or
+          accepted by the user.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

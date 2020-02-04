@@ -1,0 +1,2900 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>Chan.T.Call1 &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.Channel.Type.Call1'>Channel.Type.Call1</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+    | <a href="#properties">Properties</a> 
+   
+    | <a href="#handler-capability-tokens">Handler Capability Tokens</a> 
+    | <a href="#types">Types</a> 
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Method:SetRinging">SetRinging</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Method:SetQueued">SetQueued</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Method:Accept">Accept</a></td>
+       <td>()</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Method:Hangup">Hangup</a></td>
+       <td>(u: Reason, s: Detailed_Hangup_Reason, s: Message)</td>
+       <td>&#8594;</td>
+       <td>nothing</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Method:AddContent">AddContent</a></td>
+       <td>(s: Content_Name, u: Content_Type, u: InitialDirection)</td>
+       <td>&#8594;</td>
+       <td>o: Content</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Signal:ContentAdded">ContentAdded</a></td>
+       <td>(o: Content)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Signal:ContentRemoved">ContentRemoved</a></td>
+       <td>(o: Content, (uuss): Reason)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Signal:CallStateChanged">CallStateChanged</a></td>
+       <td>(u: Call_State, u: Call_Flags, (uuss): Call_State_Reason, a{sv}: Call_State_Details)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Signal:CallMembersChanged">CallMembersChanged</a></td>
+       <td>(a{uu}: Flags_Changed, a{us}: Identifiers, au: Removed, (uuss): Reason)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Property:Contents">Contents</a></td>
+       <td>
+        ao
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Property:CallStateDetails">CallStateDetails</a></td>
+       <td>
+        a{sv}
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Property:CallState">CallState</a></td>
+       <td>
+        u
+        
+          (<a href="Channel_Type_Call.html#Enum:Call_State" title="Enum Call_State">
+              Call_State</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Property:CallFlags">CallFlags</a></td>
+       <td>
+        u
+        
+          (<a href="Channel_Type_Call.html#Flags:Call_Flags" title="Flags Call_Flags">
+              Call_Flags</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Property:CallStateReason">CallStateReason</a></td>
+       <td>
+        (uuss)
+        
+          (<a href="Channel_Type_Call.html#Struct:Call_State_Reason" title="Struct Call_State_Reason">
+              Call_State_Reason</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Property:HardwareStreaming">HardwareStreaming</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Property:CallMembers">CallMembers</a></td>
+       <td>
+        a{uu}
+        
+          (<a href="Channel_Type_Call.html#Mapping:Call_Member_Map" title="Mapping Call_Member_Map">
+              Call_Member_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Property:MemberIdentifiers">MemberIdentifiers</a></td>
+       <td>
+        a{us}
+        
+          (<a href="Channel_Interface_Group.html#Mapping:Handle_Identifier_Map" title="Mapping Handle_Identifier_Map">
+              Handle_Identifier_Map</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Property:InitialTransport">InitialTransport</a></td>
+       <td>
+        u
+        
+          (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Transport_Type" title="Enum Stream_Transport_Type">
+              Stream_Transport_Type</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Property:InitialAudio">InitialAudio</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Property:InitialVideo">InitialVideo</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Property:InitialAudioName">InitialAudioName</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Property:InitialVideoName">InitialVideoName</a></td>
+       <td>
+        s
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable, Requestable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Property:MutableContents">MutableContents</a></td>
+       <td>
+        b
+        
+       </td>
+       <td>Read only</td>
+       <td>Immutable</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+     <h3>Handler Capability Tokens</h3>
+     <table class="summary">
+      
+       <tr class="handler-capability-token">
+         <td><a href="Channel_Type_Call.html#Handler-Capability-Token:audio">org.freedesktop.Telepathy.Channel.Type.Call1/audio</a>
+           
+         </td>
+       <td>
+       </td>
+      </tr>
+      
+       <tr class="handler-capability-token">
+         <td><a href="Channel_Type_Call.html#Handler-Capability-Token:video">org.freedesktop.Telepathy.Channel.Type.Call1/video</a>
+           
+         </td>
+       <td>
+       </td>
+      </tr>
+      
+       <tr class="handler-capability-token">
+         <td><a href="Channel_Type_Call.html#Handler-Capability-Token:gtalk-p2p">org.freedesktop.Telepathy.Channel.Type.Call1/gtalk-p2p</a>
+           
+         </td>
+       <td>
+       </td>
+      </tr>
+      
+       <tr class="handler-capability-token">
+         <td><a href="Channel_Type_Call.html#Handler-Capability-Token:ice">org.freedesktop.Telepathy.Channel.Type.Call1/ice</a>
+           
+         </td>
+       <td>
+       </td>
+      </tr>
+      
+       <tr class="handler-capability-token">
+         <td><a href="Channel_Type_Call.html#Handler-Capability-Token:wlm-2009">org.freedesktop.Telepathy.Channel.Type.Call1/wlm-2009</a>
+           
+         </td>
+       <td>
+       </td>
+      </tr>
+      
+       <tr class="handler-capability-token">
+         <td><a href="Channel_Type_Call.html#Handler-Capability-Token:shm">org.freedesktop.Telepathy.Channel.Type.Call1/shm</a>
+           
+         </td>
+       <td>
+       </td>
+      </tr>
+      
+       <tr class="handler-capability-token">
+         <td><a href="Channel_Type_Call.html#Handler-Capability-Token:video/h264">org.freedesktop.Telepathy.Channel.Type.Call1/video/h264</a>
+           
+             (etc.)
+           
+         </td>
+       <td>
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+     <h3>Types</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Enum:Call_State">Call_State</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Enum:Call_State_Change_Reason">Call_State_Change_Reason</a></td>
+       <td>Enum</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Flags:Call_Flags">Call_Flags</a></td>
+       <td>Flags</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Flags:Call_Member_Flags">Call_Member_Flags</a></td>
+       <td>Flags</td>
+       <td>u</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Mapping:Call_Member_Map">Call_Member_Map</a></td>
+       <td>Mapping</td>
+       <td>a{uu}</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+       
+        <tr>
+       
+       <td><a href="Channel_Type_Call.html#Struct:Call_State_Reason">Call_State_Reason</a></td>
+       <td>Struct</td>
+       <td>(uuss)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.25.2. </span>(as stable API)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Channel.html" title="Interface org.freedesktop.Telepathy.Channel">org.freedesktop.Telepathy.Channel</a></li>
+    
+     <li><a href="Call_Interface_Mute.html" title="Interface org.freedesktop.Telepathy.Call1.Interface.Mute">org.freedesktop.Telepathy.Call1.Interface.Mute</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>A channel type for making audio and video calls. Call
+        channels supersede the old <a href="Channel_Type_Streamed_Media.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.StreamedMedia">StreamedMedia</a>
+        channel type. Call channels are much more flexible than its
+        predecessor and allow more than two participants.</p>
+
+      <p>Handlers are advised against executing all the media
+        signalling, codec and candidate negotiation themselves but
+        instead use a helper library such as <a href="http://telepathy.freedesktop.org/doc/telepathy-farstream/">telepathy-farstream</a>
+        which when given a new Call channel will set up the
+        transports and codecs and create GStreamer pads which
+        can be added to the handler UI. This is useful as it means
+        the handler does not have to worry how exactly the
+        connection between the call participants is being made.</p>
+
+      <p>The <a href="Channel.html#Property:TargetHandle" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a> and
+        <a href="Channel.html#Property:TargetID" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>
+        properties in a Call channel refer to the contact that the
+        user initially called, or which contact initially called the
+        user. Even in a conference call, where there are multiple
+        contacts in the call, these properties refer to the
+        initial contact, who might have left the conference since
+        then. As a result, handlers should not rely on these
+        properties.</p>
+
+      <h4>Contents</h4>
+
+      <p><a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a>
+        objects represent the actual media that forms the Call (for
+        example an audio content and a video content). Calls always
+        have one or more Content objects associated with them. As a
+        result, a new Call channel request MUST have either
+        <a href="Channel_Type_Call.html#Property:InitialAudio" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialAudio">InitialAudio</a>=True, or
+        <a href="Channel_Type_Call.html#Property:InitialVideo" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialVideo">InitialVideo</a>=True, or both,
+        as the Requestable Channel Classes will document.</p>
+
+      <p><a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a> objects have
+        one or more stream associated with them. More information on
+        these streams and how to maniuplate them can be found on the
+        <a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a>
+        interface page.</p>
+
+      <h4>Outgoing calls</h4>
+
+      <p>To make an audio-only call to a contact <tt>foo@example.com</tt>
+        handlers should call:</p>
+
+      <blockquote>
+        <pre>
+<a href="Connection_Interface_Requests.html#Method:CreateChannel" namespace="ofdT.Connection.Interface.Requests" title="Method org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>({
+  ...<a href="Channel.html#Property:ChannelType" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a>: ...<a href="Channel_Type_Call.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Call1">Call1</a>,
+  ...<a href="Channel.html#Property:TargetHandleType" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>: Contact,
+  ...<a href="Channel.html#Property:TargetID" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>: 'foo@example.com',
+  ...<a href="Channel_Type_Call.html#Property:InitialAudio" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialAudio">InitialAudio</a>: True,
+})</pre></blockquote>
+
+      <p>As always, <a href="Channel.html#Property:TargetHandle" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a> may be used
+        in place of
+        <a href="Channel.html#Property:TargetID" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>
+        if the contact's handle is already known. To make an audio
+        and video call, the handler should also specify
+        <a href="Channel_Type_Call.html#Property:InitialVideo" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialVideo">InitialVideo</a> The
+        connection manager SHOULD return a channel whose immutable
+        properties contain the local user as the <a href="Channel.html#Property:InitiatorHandle" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.InitiatorHandle">InitiatorHandle</a>, the
+        remote contact as the <a href="Channel.html#Property:TargetHandle" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>,
+        <a href="Channel.html#Property:Requested" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.Requested">Requested</a> =
+        <code>True</code> (indicating the call is outgoing).</p>
+
+      <p>After a new Call channel is requested, the
+        <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> property will be
+        <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Pending_Initiator</a>. As the local
+        user is the initiator, the call must be accepted by the handler
+        by calling the <a href="Channel_Type_Call.html#Method:Accept" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.Accept">Accept</a> method.
+        At this point, <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> changes
+        to <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Initialising</a>, which signifies
+        that the call is waiting for the network to do
+        something. When the CM has information indicating that the remote contact has been
+        notified about the call (or immediately if the network is known not to convey such
+        information) it should also change to
+        <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Initialised</a>. All changes to
+        the <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> property are signalled using
+        the <a href="Channel_Type_Call.html#Signal:CallStateChanged" title="Signal org.freedesktop.Telepathy.Channel.Type.Call1.CallStateChanged">CallStateChanged</a> signal.</p>
+
+      <p>When the call is accepted by the remote contact, the
+        <a href="Channel_Type_Call.html#Signal:CallStateChanged" title="Signal org.freedesktop.Telepathy.Channel.Type.Call1.CallStateChanged">CallStateChanged</a> signal fires
+        again to show that <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> =
+        <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Accepted</a>.</p>
+
+      <p>At this point <a href="http://telepathy.freedesktop.org/doc/telepathy-farstream/">telepathy-farstream</a>
+        will signal that a pad is available for the handler to show
+        in the user interface. Once media is correctly flowing in both
+        directions, the state will change to
+        <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Active</a>, to inform the user that they
+        have a correctly working call there is nothing amiss.</p>
+
+      <h5>Missed calls</h5>
+
+      <p>If the remote contact does not accept the call in time, then
+        the call can be terminated by the server. Note that this only
+        happens in some protocols. Most XMPP clients, for example, do
+        not do this and rely on the call initiator terminating the call.
+        A missed call is shown in a Call channel by the
+        <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> property changing to
+        <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Ended</a>, and the
+        <a href="Channel_Type_Call.html#Property:CallStateReason" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallStateReason">CallStateReason</a> property changing
+        to (remote contact,
+        <a href="Channel_Type_Call.html#Enum:Call_State_Change_Reason" type="Call_State_Change_Reason">No_Answer</a>, &quot;&quot;).</p>
+
+      <h5>Rejected calls</h5>
+
+      <p>If the remote contact decides he or she does not feel like
+        talking to the local user, he or she can reject his or her
+        incoming call. This will be shown in the Call channel by
+        <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> changing to
+        <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Ended</a> and the
+        <a href="Channel_Type_Call.html#Property:CallStateReason" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallStateReason">CallStateReason</a> property
+        changing to (remote contact,
+        <a href="Channel_Type_Call.html#Enum:Call_State_Change_Reason" type="Call_State_Change_Reason">User_Requested</a>,
+        &quot;org.freedesktop.Telepathy.Error.Rejected&quot;).</p>
+
+      <h4>Incoming calls</h4>
+
+      <p>When an incoming call occurs, something like the following
+        <a href="Connection_Interface_Requests.html#Signal:NewChannels" namespace="ofdT.Connection.Interface.Requests" title="Signal org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannels">NewChannels</a>
+        signal will occur:</p>
+
+      <blockquote>
+        <pre>
+<a href="Connection_Interface_Requests.html#Signal:NewChannels" namespace="ofdT.Connection.Interface.Requests" title="Signal org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannels">NewChannels</a>([
+  /org/freedesktop/Telepathy/Connection/foo/bar/foo_40bar_2ecom/CallChannel,
+  {
+    ...<a href="Channel.html#Property:ChannelType" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a>: ...<a href="Channel_Type_Call.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Call1">Call1</a>,
+    ...<a href="Channel.html#Property:TargetHandleType" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>: Contact,
+    ...<a href="Channel.html#Property:TargetID" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetID">TargetID</a>: 'foo@example.com',
+    ...<a href="Channel.html#Property:TargetHandle" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandle">TargetHandle</a>: 42,
+    ...<a href="Channel.html#Property:Requested" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.Requested">Requested</a>: False,
+    ...<a href="Channel_Type_Call.html#Property:InitialAudio" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialAudio">InitialAudio</a>: True,
+    ...<a href="Channel_Type_Call.html#Property:InitialVideo" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialVideo">InitialVideo</a>: True,
+    ...<a href="Channel_Type_Call.html#Property:InitialAudioName" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialAudioName">InitialAudioName</a>: &quot;audio&quot;,
+    ...<a href="Channel_Type_Call.html#Property:InitialVideoName" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialVideoName">InitialVideoName</a>: &quot;video&quot;,
+    ...<a href="Channel_Type_Call.html#Property:MutableContents" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.MutableContents">MutableContents</a>: True,
+  }])</pre></blockquote>
+
+      <p>The <a href="Channel_Type_Call.html#Property:InitialAudio" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialAudio">InitialAudio</a> and
+        <a href="Channel_Type_Call.html#Property:InitialVideo" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialVideo">InitialVideo</a> properties show that
+        the call has been started with two contents: one for audio
+        streaming and one for video streaming. The
+        <a href="Channel_Type_Call.html#Property:InitialAudioName" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialAudioName">InitialAudioName</a> and
+        <a href="Channel_Type_Call.html#Property:InitialVideoName" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialVideoName">InitialVideoName</a> properties also
+        show that the aforementioned audio and video contents have names
+        &quot;audio&quot; and &quot;video&quot;.</p>
+
+      <p>Once the handler has notified the local user that there is an
+        incoming call waiting for acceptance, the handler should call
+        <a href="Channel_Type_Call.html#Method:SetRinging" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.SetRinging">SetRinging</a> to let the CM know.
+        The new channel should also be given to telepathy-farstream to
+        work out how the two participants will connect together.
+        telepathy-farstream will call the appropriate methods on the call's
+        <a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a>s
+        to negotiate codecs and transports.</p>
+
+      <p>To pick up the call, the handler should call
+        <a href="Channel_Type_Call.html#Method:Accept" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.Accept">Accept</a>. The
+        <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> property changes to
+        <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Accepted</a> and once media is
+        being transferred, telepathy-farstream will notify the
+        handler of a new pad to be shown to the local user in the
+        UI. Once media is correctly flowing in both directions, the state will
+        change to <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Active</a>, to inform the user
+        that they have a correctly working call there is nothing amiss.</p>
+
+      <p>To reject the call, the handler should call the
+        <a href="Channel_Type_Call.html#Method:Hangup" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.Hangup">Hangup</a> method. The
+        <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> property will change to
+        <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Ended</a> and the
+        <a href="Channel_Type_Call.html#Property:CallStateReason" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallStateReason">CallStateReason</a> property will
+        change to (self handle,
+        <a href="Channel_Type_Call.html#Enum:Call_State_Change_Reason" type="Call_State_Change_Reason">User_Requested</a>,
+        &quot;org.freedesktop.Telepathy.Error.Rejected&quot;).</p>
+
+      <h4>Ongoing calls</h4>
+
+      <h5>Adding and removing contents</h5>
+
+      <p>When a call is open, new contents can be added as long as the
+        CM supports it. The
+        <a href="Channel_Type_Call.html#Property:MutableContents" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.MutableContents">MutableContents</a> property will let
+        the handler know whether further contents can be added or
+        existing contents removed. An example of this is starting a
+        voice call between a contact and then adding a video content.
+        To do this, the should call
+        <a href="Channel_Type_Call.html#Method:AddContent" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.AddContent">AddContent</a> like this:</p>
+
+      <blockquote>
+        <pre><a href="Channel_Type_Call.html#Method:AddContent" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.AddContent">AddContent</a>(&quot;video&quot;,
+           <a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Type" type="Media_Stream_Type">Video</a>)</pre>
+      </blockquote>
+
+      <p>Assuming no errors, the new video content will be added to
+        the call. telepathy-farstream will pick up the new content and
+        perform the transport and codec negotiation automatically.
+        telpathy-farstream will signal when the video is ready to
+        show in the handler's user interface.</p>
+
+      <p>A similar method is used for removing contents from a call,
+        except that the <a href="Call_Content.html#Method:Remove" namespace="ofdT.Call1.Content" title="Method org.freedesktop.Telepathy.Call1.Content.Remove">Remove</a> method
+        is on the <a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a> object.</p>
+
+      <h5>Ending the call</h5>
+
+      <p>To end the call, the handler should call the
+        <a href="Channel_Type_Call.html#Method:Hangup" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.Hangup">Hangup</a> method. The
+        <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> property will change to
+        <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Ended</a> and
+        <a href="Channel_Type_Call.html#Property:CallStateReason" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallStateReason">CallStateReason</a> will change
+        to (self handle,
+        <a href="Channel_Type_Call.html#Enum:Call_State_Change_Reason" type="Call_State_Change_Reason">User_Requested</a>,
+        &quot;org.freedesktop.Telepathy.Error.Cancelled&quot;).</p>
+
+      <p>If the other participant hangs up first then the
+        <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> property will change to
+        <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Ended</a> and
+        <a href="Channel_Type_Call.html#Property:CallStateReason" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallStateReason">CallStateReason</a> will change
+        to (remote contact,
+        <a href="Channel_Type_Call.html#Enum:Call_State_Change_Reason" type="Call_State_Change_Reason">User_Requested</a>,
+        &quot;org.freedesktop.Telepathy.Error.Terminated&quot;).</p>
+
+      <h4>Multi-party calls</h4>
+
+      <h4>Requestable channel classes</h4>
+
+      <p>The <a href="Connection_Interface_Requests.html#Property:RequestableChannelClasses" namespace="ofdT.Connection.Interface.Requests" title="Property org.freedesktop.Telepathy.Connection.Interface.Requests.RequestableChannelClasses">RequestableChannelClasses</a>
+        for <a href="Channel_Type_Call.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Call1">Call1</a> channels
+        can be:</p>
+
+      <blockquote>
+        <pre>
+[( Fixed = { ...<a href="Channel.html#Property:ChannelType" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a>: ...<a href="Channel_Type_Call.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Call1">Call1</a>,
+            ...<a href="Channel.html#Property:TargetHandleType" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>: Contact,
+            ...<a href="Channel_Type_Call.html#Property:InitialVideo" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialVideo">InitialVideo</a>: True
+          },
+  Allowed = [ ...<a href="Channel_Type_Call.html#Property:InitialVideoName" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialVideoName">InitialVideoName</a>,
+              ...<a href="Channel_Type_Call.html#Property:InitialAudio" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialAudio">InitialAudio</a>,
+              ...<a href="Channel_Type_Call.html#Property:InitialAudioName" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialAudioName">InitialAudioName</a>
+            ]
+),
+( Fixed = { ...<a href="Channel.html#Property:ChannelType" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.ChannelType">ChannelType</a>: ...<a href="Channel_Type_Call.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Call1">Call1</a>,
+            ...<a href="Channel.html#Property:TargetHandleType" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.TargetHandleType">TargetHandleType</a>: Contact,
+            ...<a href="Channel_Type_Call.html#Property:InitialAudio" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialAudio">InitialAudio</a>: True
+          },
+  Allowed = [ ...<a href="Channel_Type_Call.html#Property:InitialAudioName" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialAudioName">InitialAudioName</a>,
+              ...<a href="Channel_Type_Call.html#Property:InitialVideo" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialVideo">InitialVideo</a>,
+              ...<a href="Channel_Type_Call.html#Property:InitialVideoName" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialVideoName">InitialVideoName</a>
+            ]
+)]</pre></blockquote>
+
+      <p>Clients aren't allowed to make outgoing calls that have
+        neither initial audio nor initial video. Clearly, CMs
+        which don't support video should leave out the first class and
+        omit <a href="Channel_Type_Call.html#Property:InitialVideo" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialVideo">InitialVideo</a> from the second
+        class, and vice versa for CMs without audio support.</p>
+
+      <p>Handlers should not close <a href="Channel_Type_Call.html" namespace="ofdT.Channel.Type" title="Interface org.freedesktop.Telepathy.Channel.Type.Call1">Call1</a> channels
+        without first calling <a href="Channel_Type_Call.html#Method:Hangup" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.Hangup">Hangup</a> on
+        the channel. If a Call handler crashes, the <a href="Channel_Dispatcher.html" namespace="ofdT" title="Interface org.freedesktop.Telepathy.ChannelDispatcher">ChannelDispatcher</a> will call
+        <a href="Channel.html#Method:Close" namespace="ofdT.Channel" title="Method org.freedesktop.Telepathy.Channel.Close">Close</a> on the
+        channel which SHOULD also imply a call to
+        <a href="Channel_Type_Call.html#Method:Hangup" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.Hangup">Hangup</a>(<a href="Channel_Type_Call.html#Enum:Call_State_Change_Reason" type="Call_State_Change_Reason">User_Requested</a>,
+        &quot;org.freedesktop.Telepathy.Error.Terminated&quot;, &quot;&quot;) before
+        actually closing the channel.</p>
+
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:SetRinging"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Method:SetRinging">Permalink</a>)</span>
+     <h2>SetRinging () &#8594; nothing</h2>
+
+     
+     <div class="annotation changed"><span class="version">Changed in 0.21.2. </span>renamed from Ringing</div>
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Indicate that the local user has been alerted about the incoming
+          call.</p>
+
+        <p>This method is only useful if the
+          channel's <a href="Channel.html#Property:Requested" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.Requested">Requested</a>
+          property is False, and
+          the <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> is
+          <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Initialised</a> (an incoming
+          call is ready and waiting for the user to be notified). Calling this method
+          SHOULD set <a href="Channel_Type_Call.html#Property:CallFlags" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallFlags">CallFlags</a>' bit
+          <a href="Channel_Type_Call.html#Flags:Call_Flags" type="Call_Flags">Locally_Ringing</a>, and notify the
+          remote contact that the local user has been alerted (if the
+          protocol supports this); repeated calls to this method
+          SHOULD succeed, but have no further effect.</p>
+
+        <p>In all other states, this method SHOULD fail with the error
+          NotAvailable.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The call was <a href="Channel.html#Property:Requested" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.Requested">Requested</a>, so ringing does not make sense.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The call is no longer in state
+            <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Initialised</a>.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:SetQueued"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Method:SetQueued">Permalink</a>)</span>
+     <h2>SetQueued () &#8594; nothing</h2>
+
+     
+     <div class="annotation changed"><span class="version">Changed in 0.21.2. </span>renamed from Ringing</div>
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Notifies the CM that the local user is already in a call, so this
+          call has been put in a call-waiting style queue.</p>
+
+        <p>This method is only useful if the
+          channel's <a href="Channel.html#Property:Requested" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.Requested">Requested</a>
+          property is False, and
+          the <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> is
+          <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Initialising</a> or
+          <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Initialised</a>. Calling this method
+          SHOULD set <a href="Channel_Type_Call.html#Property:CallFlags" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallFlags">CallFlags</a>' bit
+          <a href="Channel_Type_Call.html#Flags:Call_Flags" type="Call_Flags">Locally_Queued</a>, and notify the
+          remote contact that the call is in a queue (if the
+          protocol supports this); repeated calls to this method
+          SHOULD succeed, but have no further effect.</p>
+
+        <p>Locally_Queued is a little like Locally_Held, but applies to calls that have not
+          been Accepted (the Locally_Queued flag should be unset by the CM when Accept
+          is called). It should also be set in response to the state of the
+          world, rather than in response to user action.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The call was <a href="Channel.html#Property:Requested" namespace="ofdT.Channel" title="Property org.freedesktop.Telepathy.Channel.Requested">Requested</a>, so queueing does not make sense.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The call is no longer in state
+            <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Initialising</a> or
+            <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Initialised</a>.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:Accept"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Method:Accept">Permalink</a>)</span>
+     <h2>Accept () &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>For incoming calls in state
+          <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Initialised</a>, accept the incoming call.
+          This changes the <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> to
+          <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Accepted</a>.</p>
+
+        <p>For outgoing calls in state
+          <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Pending_Initiator</a>, actually
+          call the remote contact; this changes the
+          <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> to
+          <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Initialising</a>.</p>
+
+        <p>Otherwise, this method SHOULD fail with the error NotAvailable.</p>
+
+        <p>This method should be called exactly once per Call, by whatever
+          client (user interface) is handling the channel.</p>
+
+        <p>When this method is called, for each <a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a> whose
+          <a href="Call_Content.html#Property:Disposition" namespace="ofdT.Call1.Content" title="Property org.freedesktop.Telepathy.Call1.Content.Disposition">Disposition</a> is
+          <a href="Call_Content.html#Enum:Call_Content_Disposition" type="Call_Content_Disposition">Initial</a>, any
+          streams where the <a href="Call_Stream.html#Property:LocalSendingState" namespace="ofdT.Call1.Stream" title="Property org.freedesktop.Telepathy.Call1.Stream.LocalSendingState">LocalSendingState</a>
+          is <a href="Call_Stream.html#Enum:Sending_State" type="Sending_State">Pending_Send</a> will be
+          moved to <a href="Call_Stream.html#Enum:Sending_State" type="Sending_State">Sending</a> as if
+          <a href="Call_Stream.html#Method:SetSending" namespace="ofdT.Call1.Stream" title="Method org.freedesktop.Telepathy.Call1.Stream.SetSending">SetSending</a>(True) had been called.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The call is not in one of the states where this method makes sense.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:Hangup"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Method:Hangup">Permalink</a>)</span>
+     <h2>Hangup (u: Reason, s: Detailed_Hangup_Reason, s: Message) &#8594; nothing</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Reason &mdash; u
+        
+          (<a href="Channel_Type_Call.html#Enum:Call_State_Change_Reason" title="Enum Call_State_Change_Reason">Call_State_Change_Reason</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A generic hangup reason.
+        </div>
+      
+       <li>
+        Detailed_Hangup_Reason &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">DBus_Error_Name</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A more specific reason for the call hangup, if one is available, or
+          an empty string otherwise.
+        </div>
+      
+       <li>
+        Message &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A human-readable message to be sent to the remote contact(s).
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            XMPP Jingle allows calls to be terminated with a human-readable
+            message.
+          </div></div>
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+
+     <div class="docstring">
+        Request that the call is ended. All contents will be removed
+        from the Call so that the
+        <a href="Channel_Type_Call.html#Property:Contents" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.Contents">Contents</a> property will be the
+        empty list.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The call has already been ended.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+    <div class="inset method">
+     <a name="Method:AddContent"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Method:AddContent">Permalink</a>)</span>
+     <h2>AddContent (s: Content_Name, u: Content_Type, u: InitialDirection) &#8594; o: Content</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Content_Name &mdash; s
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          <p>The suggested name of the content to add.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            The content name property should be meaningful, so should
+            be given a name which is significant to the user. The name
+            could be a localized &quot;audio&quot;, &quot;video&quot; or perhaps include
+            some string identifying the source, such as a webcam
+            identifier.
+          </div></div>
+
+          <p>If there is already a content with the same name as this
+            property then a sensible suffix should be added. For example,
+            if this argument is &quot;audio&quot; but a content of the same name
+            already exists, a sensible suffix such as &quot; (1)&quot; is appended
+            to name the new content &quot;audio (1)&quot;. A further content with the
+            name &quot;audio&quot; would then be named &quot;audio (2)&quot;.</p>
+
+        </div>
+      
+       <li>
+        Content_Type &mdash; u
+        
+          (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Type" title="Enum Media_Stream_Type">Media_Stream_Type</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The media stream type of the content to be added to the
+          call.
+        </div>
+      
+       <li>
+        InitialDirection &mdash; u
+        
+          (<a href="Channel_Type_Streamed_Media.html#Enum:Media_Stream_Direction" title="Enum Media_Stream_Direction">Media_Stream_Direction</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The requested initial direction of the new content.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Content &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Path to the newly-created <a href="Call_Content.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Call1.Content">Call1.Content</a> object.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Request that a new <a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a> of type
+        Content_Type is added to the Call1. Handlers should check the
+        value of the <a href="Channel_Type_Call.html#Property:MutableContents" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.MutableContents">MutableContents</a>
+        property before trying to add another content as it might not
+        be allowed.
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            The media stream type given is invalid.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The media stream type requested is not implemented by the
+            CM.
+          </div>
+      
+       <li><a href="errors.html#Error:Media.Unsupported Type" title="Error org.freedesktop.Telepathy.Error.Media.UnsupportedType">Media.Unsupported Type</a></li>
+       
+       
+       
+       <div class="docstring">
+            The media stream type requested is not supported by either the
+            local or remote side.
+          </div>
+      
+       <li><a href="errors.html#Error:Not Capable" title="Error org.freedesktop.Telepathy.Error.NotCapable">Not Capable</a></li>
+       
+       
+       
+       <div class="docstring">
+            The content type requested cannot be added to this
+            call. Examples of why this might be the case include
+            because a second video stream cannot be added, or a
+            content cannot be added when the content set isn't
+            mutable.
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:ContentAdded"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Signal:ContentAdded">Permalink</a>)</span>
+     <h2>ContentAdded (o: Content)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Content &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Path to the newly-created <a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a> object.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when a new <a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a> is added to the call.</p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:ContentRemoved"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Signal:ContentRemoved">Permalink</a>)</span>
+     <h2>ContentRemoved (o: Content, (uuss): Reason)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Content &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The <a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a> which was removed.
+        </div>
+      
+       <li>
+       Reason &mdash; (uuss)
+       
+        (<a href="Channel_Type_Call.html#Struct:Call_State_Reason" title="Struct Call_State_Reason">Call_State_Reason</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          Why the content was removed.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when a <a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a> is removed from the call.</p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:CallStateChanged"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Signal:CallStateChanged">Permalink</a>)</span>
+     <h2>CallStateChanged (u: Call_State, u: Call_Flags, (uuss): Call_State_Reason, a{sv}: Call_State_Details)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Call_State &mdash; u
+       
+        (<a href="Channel_Type_Call.html#Enum:Call_State" title="Enum Call_State">Call_State</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of the <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a>
+          property.
+        </div>
+      
+       <li>
+       Call_Flags &mdash; u
+       
+        (<a href="Channel_Type_Call.html#Flags:Call_Flags" title="Flags Call_Flags">Call_Flags</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of the <a href="Channel_Type_Call.html#Property:CallFlags" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallFlags">CallFlags</a>
+          property.
+        </div>
+      
+       <li>
+       Call_State_Reason &mdash; (uuss)
+       
+        (<a href="Channel_Type_Call.html#Struct:Call_State_Reason" title="Struct Call_State_Reason">Call_State_Reason</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of the <a href="Channel_Type_Call.html#Property:CallStateReason" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallStateReason">CallStateReason</a>
+          property.
+        </div>
+      
+       <li>
+       Call_State_Details &mdash; a{sv}
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The new value of the <a href="Channel_Type_Call.html#Property:CallStateDetails" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallStateDetails">CallStateDetails</a>
+          property.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Emitted when the state of the call as a whole changes.</p>
+
+        <p>This signal is emitted for any change in the properties
+          corresponding to its arguments, even if the other properties
+          referenced remain unchanged.</p>
+      </div>
+    </div>
+    
+    <div class="inset signal">
+     <a name="Signal:CallMembersChanged"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Signal:CallMembersChanged">Permalink</a>)</span>
+     <h2>CallMembersChanged (a{uu}: Flags_Changed, a{us}: Identifiers, au: Removed, (uuss): Reason)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Flags_Changed &mdash; a{uu}
+       
+        (<a href="Channel_Type_Call.html#Mapping:Call_Member_Map" title="Mapping Call_Member_Map">Call_Member_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A map from members of the call to their new call member flags,
+          including at least the members who have been added to
+          <a href="Channel_Type_Call.html#Property:CallMembers" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallMembers">CallMembers</a>, and the members whose
+          flags have changed.
+        </div>
+      
+       <li>
+       Identifiers &mdash; a{us}
+       
+        (<a href="Channel_Interface_Group.html#Mapping:Handle_Identifier_Map" title="Mapping Handle_Identifier_Map">Handle_Identifier_Map</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          The identifiers of the contacts in the <var>Flags_Changed</var> map.
+        </div>
+      
+       <li>
+       Removed &mdash; au
+       
+        (<a href="Connection.html#Simple-Type:Contact_Handle" title="Array of Simple Type Contact_Handle">Contact_Handle_List</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A list of members who have left the call, i.e. keys to be removed
+          from <a href="Channel_Type_Call.html#Property:CallMembers" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallMembers">CallMembers</a>.
+        </div>
+      
+       <li>
+       Reason &mdash; (uuss)
+       
+        (<a href="Channel_Type_Call.html#Struct:Call_State_Reason" title="Struct Call_State_Reason">Call_State_Reason</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A structured reason for the change.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when the <a href="Channel_Type_Call.html#Property:CallMembers" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallMembers">CallMembers</a> property
+        changes in any way, either because contacts have been added to the
+        call, contacts have been removed from the call, or contacts' flags
+        have changed.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Contents"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Property:Contents">Permalink</a>)</span>
+     <h2>
+      Contents &mdash; ao
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The list of <a href="Call_Content.html" namespace="ofdT.Call1" title="Interface org.freedesktop.Telepathy.Call1.Content">Content</a> objects that
+          are part of this call. Change notification is via the
+          <a href="Channel_Type_Call.html#Signal:ContentAdded" title="Signal org.freedesktop.Telepathy.Channel.Type.Call1.ContentAdded">ContentAdded</a> and
+          <a href="Channel_Type_Call.html#Signal:ContentRemoved" title="Signal org.freedesktop.Telepathy.Channel.Type.Call1.ContentRemoved">ContentRemoved</a> signals.
+        </p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CallStateDetails"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Property:CallStateDetails">Permalink</a>)</span>
+     <h2>
+      CallStateDetails &mdash; a{sv}
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A map used to provide optional extensible details for the
+          <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a>,
+          <a href="Channel_Type_Call.html#Property:CallFlags" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallFlags">CallFlags</a> and/or
+          <a href="Channel_Type_Call.html#Property:CallStateReason" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallStateReason">CallStateReason</a>.</p>
+
+        <p>Well-known keys and their corresponding value types include:</p>
+
+        <dl>
+          <dt>hangup-message - s</dt>
+          <dd>An optional human-readable message sent when the call was ended,
+            corresponding to the Message argument to the
+            <a href="Channel_Type_Call.html#Method:Hangup" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.Hangup">Hangup</a> method. This is only
+            applicable when the call state is <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Ended</a>.
+            <div class="rationale"><h5>Rationale:</h5><div>
+              XMPP Jingle can send such messages.
+            </div></div>
+          </dd>
+
+          <dt>queue-message - s</dt>
+          <dd>An optional human-readable message sent when the local contact
+            is being held in a queue. This is only applicable when
+            <a href="Channel_Type_Call.html#Flags:Call_Flags" type="Call_Flags">Locally_Queued</a> is in the call flags.
+            <div class="rationale"><h5>Rationale:</h5><div>
+              SIP 182 notifications can have human-readable messages attached.
+            </div></div>
+          </dd>
+
+          <dt>debug-message - s</dt>
+          <dd>A message giving further details of any error indicated by the
+            <a href="Channel_Type_Call.html#Property:CallStateReason" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallStateReason">CallStateReason</a>. This will not
+            normally be localized or suitable for display to users, and is only
+            applicable when the call state is
+            <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Ended</a>.</dd>
+
+          <dt>balance-required - i</dt>
+          <dd>Optionally included when a call cannot be connected because
+            there is <a href="errors.html#Error:Insufficient Balance" title="org.freedesktop.Telepathy.Error.InsufficientBalance">InsufficientBalance</a>,
+            indicating what the required balance would be to place this call.
+            The value of this key has the same units and scale as
+            <a href="Connection_Interface_Balance.html#Property:AccountBalance" namespace="ofdT.Connection.Interface.Balance" title="Property org.freedesktop.Telepathy.Connection.Interface.Balance.AccountBalance">AccountBalance</a>.
+            </dd>
+
+          <dt>forwarded-to - u</dt>
+          <dd>Optionally included when the
+            <a href="Channel_Type_Call.html#Property:CallStateReason" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallStateReason">CallStateReason</a> is
+            Forwarded. It indicates the handle to whom the Call was
+            forwarded.</dd>
+
+          <dt>forwarded-to-id - s</dt>
+          <dd>The string that would result from inspecting the
+            <code>forwarded-to</code> key
+            (i.e. the contact's identifier in the IM protocol).</dd>
+        </dl>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CallState"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Property:CallState">Permalink</a>)</span>
+     <h2>
+      CallState &mdash; u
+      
+        (<a href="Channel_Type_Call.html#Enum:Call_State" title="Enum Call_State">Call_State</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The current high-level state of this call. The
+          <a href="Channel_Type_Call.html#Property:CallFlags" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallFlags">CallFlags</a> provide additional
+          information, and the <a href="Channel_Type_Call.html#Property:CallStateReason" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallStateReason">CallStateReason</a>
+          and <a href="Channel_Type_Call.html#Property:CallStateDetails" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallStateDetails">CallStateDetails</a> explain the
+          reason for the current values for those properties.</p>
+
+        <p>Note that when in a conference call, this property is
+          purely to show your state in joining the call. The receiver
+          (or remote contact) in this context is the conference server
+          itself. The property does not change when other call members'
+          states change.</p>
+
+        <p>Clients MAY consider unknown values in this property to be an
+          error.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CallFlags"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Property:CallFlags">Permalink</a>)</span>
+     <h2>
+      CallFlags &mdash; u
+      
+        (<a href="Channel_Type_Call.html#Flags:Call_Flags" title="Flags Call_Flags">Call_Flags</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Flags representing the status of the call as a whole,
+          providing more specific information than the
+          <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a>.</p>
+
+        <p>Clients are expected to ignore unknown flags in this property,
+          without error.</p>
+
+        <p>When an ongoing call is active and not on hold or has any
+          other problems, this property will be 0.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CallStateReason"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Property:CallStateReason">Permalink</a>)</span>
+     <h2>
+      CallStateReason &mdash; (uuss)
+      
+        (<a href="Channel_Type_Call.html#Struct:Call_State_Reason" title="Struct Call_State_Reason">Call_State_Reason</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The reason for the last change to the
+          <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> and/or
+          <a href="Channel_Type_Call.html#Property:CallFlags" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallFlags">CallFlags</a>. The
+          <a href="Channel_Type_Call.html#Property:CallStateDetails" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallStateDetails">CallStateDetails</a> MAY provide additional
+          information.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:HardwareStreaming"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Property:HardwareStreaming">Permalink</a>)</span>
+     <h2>
+      HardwareStreaming &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If this property is True, all of the media streaming is done by some
+          mechanism outside the scope of Telepathy.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>A connection manager might be intended for a specialized hardware
+            device, which will take care of the audio streaming (e.g.
+            telepathy-ring, which uses GSM hardware which does the actual
+            audio streaming for the call).</p>
+        </div></div>
+
+        <p>If this is False, the handler is responsible for doing the actual
+          media streaming for at least some contents itself. Those contents
+          will have the <a href="Call_Content_Interface_Media.html" namespace="ofdT.Call1.Content.Interface" title="Interface org.freedesktop.Telepathy.Call1.Content.Interface.Media">Media</a> interface, to communicate the necessary
+          information to a streaming implementation. Connection managers SHOULD
+          operate like this, if possible.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Many connection managers (such as telepathy-gabble) only do the
+            call signalling, and expect the client to do the actual streaming
+            using something like
+            <a href="http://farsight.freedesktop.org/">Farsight</a>, to improve
+            latency and allow better UI integration.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:CallMembers"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Property:CallMembers">Permalink</a>)</span>
+     <h2>
+      CallMembers &mdash; a{uu}
+      
+        (<a href="Channel_Type_Call.html#Mapping:Call_Member_Map" title="Mapping Call_Member_Map">Call_Member_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A mapping from the remote contacts that are part of this call to flags
+          describing their status. This mapping never has the local user's handle
+          as a key.</p>
+
+        <p>When the call ends, this property should be an empty list,
+          and notified with
+          <a href="Channel_Type_Call.html#Signal:CallMembersChanged" title="Signal org.freedesktop.Telepathy.Channel.Type.Call1.CallMembersChanged">CallMembersChanged</a></p>
+
+        <p>If the Call implements
+          <a href="Channel_Interface_Group.html" namespace="ofdT.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.Group">Group</a> and the Group members are
+          channel-specific handles, then this call SHOULD also use
+          channel-specific handles.</p>
+
+        <p>Anonymous members are exposed as channel-specific handles
+          with no owner.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MemberIdentifiers"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Property:MemberIdentifiers">Permalink</a>)</span>
+     <h2>
+      MemberIdentifiers &mdash; a{us}
+      
+        (<a href="Channel_Interface_Group.html#Mapping:Handle_Identifier_Map" title="Mapping Handle_Identifier_Map">Handle_Identifier_Map</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring">
+        The string identifiers for handles mentioned in
+        <a href="Channel_Type_Call.html#Property:CallMembers" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallMembers">CallMembers</a>, to
+        give clients the minimal information necessary to create contacts
+        without waiting for round-trips.
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:InitialTransport"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Property:InitialTransport">Permalink</a>)</span>
+     <h2>
+      InitialTransport &mdash; u
+      
+        (<a href="Call_Stream_Interface_Media.html#Enum:Stream_Transport_Type" title="Enum Stream_Transport_Type">Stream_Transport_Type</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If set on a requested channel, this indicates the transport that
+          should be used for this call. Where not applicable, this property
+          is defined to be <a href="Call_Stream_Interface_Media.html#Enum:Stream_Transport_Type" type="Stream_Transport_Type">Unknown</a>,
+          in particular, on CMs with hardware streaming.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          When implementing a voip gateway one wants the outgoing leg of the
+          gatewayed to have the same transport as the incoming leg. This
+          property allows the gateway to request a Call with the right
+          transport from the CM.
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:InitialAudio"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Property:InitialAudio">Permalink</a>)</span>
+     <h2>
+      InitialAudio &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If set to True in a channel request that will create a new channel,
+          the connection manager should immediately attempt to establish an
+          audio stream to the remote contact, making it unnecessary for the
+          client to call <a href="Channel_Type_Call.html#Method:AddContent" namespace="ofdT.Channel.Type.Call1" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.AddContent">AddContent</a>.</p>
+
+        <p>If this property, or InitialVideo, is passed to EnsureChannel
+          (as opposed to CreateChannel), the connection manager SHOULD ignore
+          these properties when checking whether it can return an existing
+          channel as suitable; these properties only become significant when
+          the connection manager has decided to create a new channel.</p>
+
+        <p>If True on a requested channel, this indicates that the audio
+          stream has already been requested and the client does not need to
+          call RequestStreams, although it MAY still do so.</p>
+
+        <p>If True on an unrequested (incoming) channel, this indicates that
+          the remote contact initially requested an audio stream; this does
+          not imply that that audio stream is still active (as indicated by
+          <a href="Channel_Type_Call.html#Property:Contents" namespace="ofdT.Channel.Type.Call1" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.Contents">Contents</a>).</p>
+
+        <p>The name of this new content can be decided by using the
+          <a href="Channel_Type_Call.html#Property:InitialAudioName" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialAudioName">InitialAudioName</a> property.</p>
+
+        <p>Connection managers that support the <a href="Connection_Interface_Contact_Capabilities.html" namespace="ofdT.Connection.Interface" title="Interface org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities">ContactCapabilities</a>
+          interface SHOULD represent the capabilities of receiving audio
+          and/or video calls by including a channel class in
+          a contact's capabilities with ChannelType = Call
+          in the fixed properties dictionary, and InitialAudio and/or
+          InitialVideo in the allowed properties list. Clients wishing to
+          discover whether a particular contact is likely to be able to
+          receive audio and/or video calls SHOULD use this information.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Not all clients support video calls, and it would also be
+            possible (although unlikely) to have a client which could only
+            stream video, not audio.</p>
+        </div></div>
+
+        <p>Clients that are willing to receive audio and/or video calls
+          SHOULD include the following among their channel classes if
+          calling <a href="Connection_Interface_Contact_Capabilities.html#Method:UpdateCapabilities" namespace="ofdT.Connection.Interface.ContactCapabilities" title="Method org.freedesktop.Telepathy.Connection.Interface.ContactCapabilities.UpdateCapabilities">UpdateCapabilities</a>
+          (clients of a <a href="Channel_Dispatcher.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.ChannelDispatcher">ChannelDispatcher</a>
+          SHOULD instead arrange for the ChannelDispatcher to do this,
+          by including the filters in their <a href="Client_Handler.html#Property:HandlerChannelFilter" namespace="ofdT.Client.Handler" title="Property org.freedesktop.Telepathy.Client.Handler.HandlerChannelFilter">HandlerChannelFilter</a>
+          properties):</p>
+
+        <ul>
+          <li>{ ChannelType = Call }</li>
+          <li>{ ChannelType = Call, InitialAudio = True }
+            if receiving calls with audio is supported</li>
+          <li>{ ChannelType = Call, InitialVideo = True }
+            if receiving calls with video is supported</li>
+        </ul>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Connection managers for protocols with capability discovery,
+            like XMPP, need this information to advertise the appropriate
+            capabilities for their protocol.</p>
+        </div></div>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:InitialVideo"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Property:InitialVideo">Permalink</a>)</span>
+     <h2>
+      InitialVideo &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The same as <a href="Channel_Type_Call.html#Property:InitialAudio" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialAudio">InitialAudio</a>, but for
+          a video stream. This property is immutable (cannot change).</p>
+
+        <p>In particular, note that if this property is False, this does not
+          imply that an active video stream has not been added, only that no
+          video stream was active at the time the channel appeared.</p>
+
+        <p>This property is the correct way to discover whether connection
+          managers, contacts etc. support video calls; it appears in
+          capabilities structures in the same way as InitialAudio.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:InitialAudioName"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Property:InitialAudioName">Permalink</a>)</span>
+     <h2>
+      InitialAudioName &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     <div class="annotation added"><span class="version">Added in 0.21.2. </span></div>
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If <a href="Channel_Type_Call.html#Property:InitialAudio" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialAudio">InitialAudio</a> is set to
+          True, then this property will name the intial audio content
+          with the value of this property.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>Content names are meant to be significant, but if no name
+            can be given to initial audio content, then its name cannot
+            be meaningful or even localized.</p>
+        </div></div>
+
+        <p>If this property is empty or missing from the channel
+          request and InitialAudio is True, then the CM must come up
+          with a sensible for the content, such as &quot;audio&quot;.</p>
+
+        <p>If the protocol has no concept of stream names then this
+          property will not show up in the allowed properties list of
+          the Requestable Channel Classes for call channels.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:InitialVideoName"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Property:InitialVideoName">Permalink</a>)</span>
+     <h2>
+      InitialVideoName &mdash; s
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+     <div class="annotation requestable">This property
+       is <strong>requestable</strong>, which means that it is allowed
+       in the properties hash of a channel request such as in the
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.CreateChannel">CreateChannel</a>
+       and 
+       <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.EnsureChannel">EnsureChannel</a>
+       methods
+       on <a href="Connection_Interface_Requests.html">Requests</a>
+       and <a href="Channel_Dispatcher.html">ChannelDispatcher</a>.
+       The property should also appear in either the Fixed_Properties
+       or Allowed_Properties of
+       a <a href="Connection.html#org.freedesktop.Telepathy.Connection.RequestableChannelClasses">RequestableChannelClass</a>
+       advertised by the CM.</div>
+     
+
+     <div class="annotation added"><span class="version">Added in 0.21.2. </span></div>
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The same as
+          <a href="Channel_Type_Call.html#Property:InitialAudioName" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialAudioName">InitialAudioName</a>, but for a
+          video stream created by setting
+          <a href="Channel_Type_Call.html#Property:InitialVideo" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.InitialVideo">InitialVideo</a> to True. This
+          property is immutable and so cannot change.</p>
+      </div>
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:MutableContents"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Property:MutableContents">Permalink</a>)</span>
+     <h2>
+      MutableContents &mdash; b
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+     <div class="annotation immutable">This property is
+       <strong>immutable</strong> which means that it can never
+       
+       change once the channel has been created. Immutable properties SHOULD
+       appear in the channel detail list
+       of <a href="Connection_Interface_Requests.html#org.freedesktop.Telepathy.Connection.Interface.Requests.NewChannel">NewChannel</a>
+       signals.
+       
+     </div>
+     
+
+     
+
+     
+     
+     
+
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>If True, a stream of a different content type can be added
+        after the Channel has been requested </p>
+
+        <p>If this property is missing, clients SHOULD assume that it is False,
+          and thus that the channel's streams cannot be changed once the call
+          has started.</p>
+
+        <p>If this property isn't present in the &quot;allowed&quot; set in any of the
+          Call entries contact capabilities, then user interfaces MAY choose to
+          show a separate &quot;call&quot; option for each class of call.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>For example, once an audio-only Google Talk call has started,
+              it is not possible to add a video stream; both audio and video
+              must be requested at the start of the call if video is desired.
+              User interfaces may use this pseudo-capability as a hint to
+              display separate &quot;Audio call&quot; and &quot;Video call&quot; buttons, rather
+              than a single &quot;Call1&quot; button with the option to add and remove
+              video once the call has started for contacts without this flag.
+            </p>
+          </div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+   <div class="outset handler-capability-tokens">
+    <a name="handler-capability-tokens"></a>
+    <h1>Handler Capability Tokens</h1>
+    <div>
+      Tokens representing capabilities that a Client.Handler can have.
+    </div>
+    
+    <div class="inset handler-capability-token">
+     <a name="Handler-Capability-Token:audio"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Handler-Capability-Token:audio">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Channel.Type.Call1/audio
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>This client supports audio calls.</p>
+      </div>
+    </div>
+    
+    <div class="inset handler-capability-token">
+     <a name="Handler-Capability-Token:video"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Handler-Capability-Token:video">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Channel.Type.Call1/video
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>This client supports video calls.</p>
+      </div>
+    </div>
+    
+    <div class="inset handler-capability-token">
+     <a name="Handler-Capability-Token:gtalk-p2p"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Handler-Capability-Token:gtalk-p2p">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Channel.Type.Call1/gtalk-p2p
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The client can implement streaming for streams whose <a href="Call_Stream_Interface_Media.html#Property:Transport" namespace="ofdT.Call1.Stream.Interface.Media" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.Transport">Transport</a>
+          property is <a href="Call_Stream_Interface_Media.html#Enum:Stream_Transport_Type" type="Stream_Transport_Type">GTalk_P2P</a>.</p>
+      </div>
+    </div>
+    
+    <div class="inset handler-capability-token">
+     <a name="Handler-Capability-Token:ice"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Handler-Capability-Token:ice">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Channel.Type.Call1/ice
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The client can implement streaming for streams whose <a href="Call_Stream_Interface_Media.html#Property:Transport" namespace="ofdT.Call1.Stream.Interface.Media" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.Transport">Transport</a>
+          property is <a href="Call_Stream_Interface_Media.html#Enum:Stream_Transport_Type" type="Stream_Transport_Type">ICE</a>.</p>
+      </div>
+    </div>
+    
+    <div class="inset handler-capability-token">
+     <a name="Handler-Capability-Token:wlm-2009"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Handler-Capability-Token:wlm-2009">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Channel.Type.Call1/wlm-2009
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The client can implement streaming for streams whose <a href="Call_Stream_Interface_Media.html#Property:Transport" namespace="ofdT.Call1.Stream.Interface.Media" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.Transport">Transport</a>
+          property is <a href="Call_Stream_Interface_Media.html#Enum:Stream_Transport_Type" type="Stream_Transport_Type">WLM_2009</a>.</p>
+      </div>
+    </div>
+    
+    <div class="inset handler-capability-token">
+     <a name="Handler-Capability-Token:shm"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Handler-Capability-Token:shm">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Channel.Type.Call1/shm
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The client can implement streaming for streams whose <a href="Call_Stream_Interface_Media.html#Property:Transport" namespace="ofdT.Call1.Stream.Interface.Media" title="Property org.freedesktop.Telepathy.Call1.Stream.Interface.Media.Transport">Transport</a>
+          property is <a href="Call_Stream_Interface_Media.html#Enum:Stream_Transport_Type" type="Stream_Transport_Type">SHM</a>.</p>
+      </div>
+    </div>
+    
+    <div class="inset handler-capability-token">
+     <a name="Handler-Capability-Token:video/h264"></a>
+     <span class="permalink">(<a href="Channel_Type_Call.html#Handler-Capability-Token:video/h264">Permalink</a>)</span>
+     <h2>
+      org.freedesktop.Telepathy.Channel.Type.Call1/video/h264
+      
+      (etc.)
+      
+     </h2>
+     
+     
+     
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The client supports media streaming with H264 (etc.).</p>
+
+        <p>This handler capability token is a one of a family
+          of similar tokens: for any other audio or video codec whose MIME
+          type is audio/<em>subtype</em> or video/<em>subtype</em>, a handler
+          capability token of this form may exist (the subtype MUST appear
+          in lower case in this context). Clients MAY support more
+          codecs than they explicitly advertise support for; clients SHOULD
+          explicitly advertise support for their preferred codec(s), and
+          for codecs like H264 that are, in practice, significant in codec
+          negotiation.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>For instance, the XMPP capability used by the Google Video
+            Chat web client to determine whether a client is compatible
+            with it requires support for H264 video, so an XMPP
+            connection manager that supports this version of Jingle should
+            not advertise the Google Video Chat capability unless there
+            is at least one installed client that declares that it supports
+            <code>video/h264</code> on Call channels.</p>
+        </div></div>
+
+        <p>For example, a client could advertise support for audio and video
+          calls using Speex, Theora and H264 by having five handler capability
+          tokens in its <a href="Client_Handler.html#Property:Capabilities" namespace="ofdT.Client.Handler" title="Property org.freedesktop.Telepathy.Client.Handler.Capabilities">Capabilities</a>
+          property:</p>
+
+        <ul>
+          <li><code>org.freedesktop.Telepathy.Channel.Type.Call1/audio</code></li>
+          <li><code>org.freedesktop.Telepathy.Channel.Type.Call1/audio/speex</code></li>
+          <li><code>org.freedesktop.Telepathy.Channel.Type.Call1/video</code></li>
+          <li><code>org.freedesktop.Telepathy.Channel.Type.Call1/video/theora</code></li>
+          <li><code>org.freedesktop.Telepathy.Channel.Type.Call1/video/h264</code></li>
+        </ul>
+
+        <p>Clients MAY have media signalling abilities without explicitly
+          supporting any particular codec, and connection managers SHOULD
+          support this usage.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>This is necessary to support gatewaying between two Telepathy
+            connections, in which case the available codecs might not be
+            known to the gatewaying process.</p>
+        </div></div>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset types type">
+    <a name="types"></a>
+    <h1>Types</h1>
+    
+     <div class="inset type">
+      <a name="Enum:Call_State"></a>
+      <span class="permalink">Enum (<a href="Channel_Type_Call.html#Enum:Call_State">Permalink</a>)</span>
+      <h2>
+       Call_State &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The state of a call, as a whole.</p>
+
+        <p>The allowed transitions are:</p>
+
+        <ul>
+          <li>Pending_Initiator → Initialising (for outgoing calls,
+            when <a href="Channel_Type_Call.html#Method:Accept" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.Accept">Accept</a> is called)</li>
+          <li>Initialising → Initialised (for outgoing calls, when
+            the remote client indicates that the user has been notified about
+            the call. If the network is known not to provide feedback about whether
+            the remote side is ringing, then the call should immediately be
+            set to Initialised.</li>
+          <li>Initialising → Initialised (for incoming calls, when e.g. the
+            implementation has been initialised far enough that it is sensible
+            to notify the user about the call (to reduce the probability that
+            the user will pick up the call and have it immediately fail).
+            The UI should then alert the user about the call, and call
+            <a href="Channel_Type_Call.html#Method:SetRinging" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.SetRinging">SetRinging</a>)</li>
+          <li>Initialised → Accepted (for outgoing calls to a contact,
+            when the remote contact accepts the call; for incoming calls, when
+            <a href="Channel_Type_Call.html#Method:Accept" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.Accept">Accept</a> is called.)</li>
+          <li>Accepted → Active (when the local user successfully
+            joins the call/conference, and media is known to be flowing
+            successfully; also, when temporary connection problems are
+            resolved (See below)). If the network is known not to provide
+            feedback about when the call is properly connected, the call
+            should immediately be set to Active.</li>
+          <li>Active → Accepted (when there are temporary connection problems
+            that the CM is aware of and able to recover from)</li>
+          <li>any state → Ended (when the call is terminated
+            normally, or when an error occurs that the CM is unable to recover
+            from)</li>
+        </ul>
+
+        <p>Clients MAY consider unknown values from this enum to be an
+          error - additional values will not be defined after the Call
+          specification is declared to be stable.</p>
+      </div>
+      <ul>
+<li>Unknown (0)</li>
+<div class="docstring">
+          The call state is not known. This call state MUST NOT appear as a
+          value of the <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> property, but
+          MAY be used by client code to represent calls whose state is as yet
+          unknown.
+        </div><li>Pending_Initiator (1)</li>
+<div class="docstring">
+          The initiator of the call hasn't accepted the call yet. This state
+          only makes sense for outgoing calls, where it means that the local
+          user has not yet sent any signalling messages to the remote user(s),
+          and will not do so until <a href="Channel_Type_Call.html#Method:Accept" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.Accept">Accept</a> is
+          called.
+        </div><li>Initialising (2)</li>
+<div class="docstring">
+          Progress has been made in placing the call, but the
+          contact has not been made aware of the call yet. This corresponds to SIP's
+          status code 183 Session Progress, and should be used for the period
+          where the CM is waiting for the streaming implementation to
+          initialise (before sending the initial INVITE or equivalent) and when the
+          outgoing call has reached a gateway or ICE negotiation is pending.
+          UIs should not produce a dialtone or start ringing if the call is in
+          this state.
+        </div><li>Initialised (3)</li>
+<div class="docstring">
+          In the outgoing case: at least one called user has been alerted
+          about the call (a SIP 180 (Ringing) packet or equivalent has been
+          received) but none have answered, so the call cannot go to Accepted
+          (use <a href="Channel_Type_Call.html#Flags:Call_Member_Flags" type="Call_Member_Flags">Ringing</a> to determine which
+          members have been informed and which haven't, if you care). UIs
+          SHOULD produce a dialtone for outgoing calls in this state.
+
+          In the incoming case, the local user should be informed of the call
+          as soon as the call reaches this state (and
+          <a href="Channel_Type_Call.html#Method:SetRinging" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.SetRinging">SetRinging</a> should be called
+          to inform the CM that this has happened, so that it can relay this
+          fact to the caller using a SIP 180 (Ringing) packet or equivalent).
+        </div><li>Accepted (4)</li>
+<div class="docstring">
+          The contact being called has accepted the call, but the call is not
+          in the Active state (The most common reason for this is that the
+          streaming implementation hasn't connected yet).
+        </div><li>Active (5)</li>
+<div class="docstring">
+          The contact being called has accepted the call, and discourse between
+          at least two parties should now be possible.
+        </div><li>Ended (6)</li>
+<div class="docstring">
+          The call has ended, either via normal termination or an error.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Enum:Call_State_Change_Reason"></a>
+      <span class="permalink">Enum (<a href="Channel_Type_Call.html#Enum:Call_State_Change_Reason">Permalink</a>)</span>
+      <h2>
+       Call_State_Change_Reason &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A simple representation of the reason for a change in the call's
+        state, which may be used by simple clients, or used as a fallback
+        when the DBus_Reason member of a <a href="Channel_Type_Call.html#Struct:Call_State_Reason">Call_State_Reason</a>
+        struct is not understood.
+      </div>
+      <ul>
+<li>Unknown (0)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          We just don't know. Unknown values of this enum SHOULD also be
+          treated like this.
+        </div><li>Progress_Made (1)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          Situation normal. Progress has been made in the setup/teardown of
+          the call (and it didn't require any user interaction).
+        </div><li>User_Requested (2)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The change was requested by the contact indicated by the Actor
+            member of a <a href="Channel_Type_Call.html#Struct:Call_State_Reason">Call_State_Reason</a> struct.</p>
+
+          <p>The DBus_Reason SHOULD be the empty string if the call
+            was terminated normally, but MAY be a non-empty error name
+            to indicate error-like call termination reasons (kicked from
+            a conference by a moderator, etc.).</p>
+        </div><li>Forwarded (3)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The call was forwarded. If known, the handle of the
+          contact the call was forwarded to will be indicated by the
+          &quot;forwarded-to&quot; member of a
+          <a href="Channel_Type_Call.html#Property:CallStateDetails" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallStateDetails">CallStateDetails</a> dictionnary
+          in the <a href="Channel_Type_Call.html#Signal:CallStateChanged" title="Signal org.freedesktop.Telepathy.Channel.Type.Call1.CallStateChanged">CallStateChanged</a>
+          signal.</p>
+        </div><li>Rejected (4)</li>
+<div class="annotation added"><span class="version">Added in 0.21.2. </span></div><div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> changed from
+            <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Initialised</a> or
+            <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Ended</a> (or a content's direction
+            changed) because it was rejected by the remote user.</p>
+          <p>Corresponds to <a href="errors.html#Error:Rejected" title="org.freedesktop.Telepathy.Error.Rejected">Rejected</a></p>
+        </div><li>No_Answer (5)</li>
+<div class="annotation added"><span class="version">Added in 0.21.2. </span></div><div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> changed from
+            <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Initialised</a> or
+            <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Ended</a> because the initiator
+            ended the call before the receiver accepted it. With an
+            incoming call this state change reason signifies a missed
+            call, or one that was picked up elsewhere before it was
+            picked up here.</p>
+          <p>Corresponds to <a href="errors.html#Error:No Answer" title="org.freedesktop.Telepathy.Error.NoAnswer">NoAnswer</a> or
+            <a href="errors.html#Error:Picked Up Elsewhere" title="org.freedesktop.Telepathy.Error.PickedUpElsewhere">PickedUpElsewhere</a></p>
+        </div><li>Invalid_Contact (6)</li>
+<div class="annotation added"><span class="version">Added in 0.21.2. </span></div><div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> changed because one
+            of the addresses does not exist on the network.</p>
+          <p>Corresponds to <a href="errors.html#Error:Does Not Exist" title="org.freedesktop.Telepathy.Error.DoesNotExist">DoesNotExist</a></p>
+        </div><li>Permission_Denied (7)</li>
+<div class="annotation added"><span class="version">Added in 0.21.2. </span></div><div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> changed because the
+          local user is not authorised.</p>
+          <p>Corresponds to <a href="errors.html#Error:Permission Denied" title="org.freedesktop.Telepathy.Error.PermissionDenied">PermissionDenied</a> or
+            <a href="errors.html#Error:Insufficient Balance" title="org.freedesktop.Telepathy.Error.InsufficientBalance">InsufficientBalance</a>
+            </p>
+        </div><li>Busy (8)</li>
+<div class="annotation added"><span class="version">Added in 0.21.2. </span></div><div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> changed from
+            <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Initialised</a>
+            <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Ended</a> because the receiver is busy
+            (e.g. is already engaged in another call, and has not placed the
+            initiator in a call-waiting queue).</p>
+          <p>Corresponds to <a href="errors.html#Error:Busy" title="org.freedesktop.Telepathy.Error.Busy">Busy</a></p>
+        </div><li>Internal_Error (9)</li>
+<div class="annotation added"><span class="version">Added in 0.21.2. </span></div><div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>There has been an unexpected error in either the CM or some other
+            local component.</p>
+          <p>Corresponds to <a href="errors.html#Error:Confused" title="org.freedesktop.Telepathy.Error.Confused">Confused</a> or
+          <a href="errors.html#Error:Media.Streaming Error" title="org.freedesktop.Telepathy.Error.Media.StreamingError">Media.StreamingError</a>
+          </p>
+        </div><li>Service_Error (10)</li>
+<div class="annotation added"><span class="version">Added in 0.21.2. </span></div><div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>There has been an unexpected error in the server or some other
+            remote component.</p>
+          <p>Corresponds to
+            <a href="errors.html#Error:Service Confused" title="org.freedesktop.Telepathy.Error.ServiceConfused">ServiceConfused</a>
+          </p>
+        </div><li>Network_Error (11)</li>
+<div class="annotation added"><span class="version">Added in 0.21.2. </span></div><div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>There has been a network error related to the CM or the
+            signalling part of the call (compare and contrast:
+            Streaming_Error).</p>
+          <p>Corresponds to
+            <a href="errors.html#Error:Network Error" title="org.freedesktop.Telepathy.Error.NetworkError">NetworkError</a></p>
+        </div><li>Media_Error (12)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>Some aspect of the content is unsupported so has to be
+            removed from the call.</p>
+          <p>Corresponds to <a href="errors.html#Error:Media.Unsupported Type" title="org.freedesktop.Telepathy.Error.Media.UnsupportedType">Media.UnsupportedType</a>
+            or <a href="errors.html#Error:Media.Codecs Incompatible" title="org.freedesktop.Telepathy.Error.Media.CodecsIncompatible">Media.CodecsIncompatible</a>
+          </p>
+        </div><li>Connectivity_Error (13)</li>
+<div class="docstring">
+          <p>It was not possible for the streaming implementation to connect
+            to any of the users participating in this call or content.</p>
+          <p>Corresponds to <a href="errors.html#Error:Connection Failed" title="org.freedesktop.Telepathy.Error.ConnectionFailed">ConnectionFailed</a> or
+            <a href="errors.html#Error:Connection Lost" title="org.freedesktop.Telepathy.Error.ConnectionLost">ConnectionLost</a></p>
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Flags:Call_Flags"></a>
+      <span class="permalink">Flags (<a href="Channel_Type_Call.html#Flags:Call_Flags">Permalink</a>)</span>
+      <h2>
+       Call_Flags &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring">
+        A set of flags representing additional information than is available
+        in <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a>. Many of these flags only make
+        sense in a particular (or may explain why a call is in a specific
+        state).
+      </div>
+      <ul>
+<li>Locally_Held (1)</li>
+<div class="docstring">
+          The call has been put on hold by the local user, e.g. using
+          the <a href="Channel_Interface_Hold.html" namespace="ofdT.Channel.Interface" title="Interface org.freedesktop.Telepathy.Channel.Interface.Hold">Hold</a> interface. This flag SHOULD only be set
+          if there is at least one Content, and all Contents are
+          locally held.
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            Otherwise, in transient situations where some but not all contents
+            are on hold, UIs would falsely indicate that the call as a whole
+            is on hold, which could lead to the user saying something they'll
+            regret, while under the impression that the other contacts can't
+            hear them!
+
+            This flag exists as a simplified proxy for <a href="Channel_Interface_Hold.html#Signal:HoldStateChanged" namespace="ofdT.Channel.Interface.Hold" title="Signal org.freedesktop.Telepathy.Channel.Interface.Hold.HoldStateChanged">HoldStateChanged</a>,
+            to reduce the number of signals that need to be
+            listened to by a simple UI.
+          </div></div>
+        </div><li>Locally_Ringing (2)</li>
+<div class="docstring">
+          This flag exists for observability of the
+          <a href="Channel_Type_Call.html#Method:SetRinging" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.SetRinging">SetRinging</a> method (e.g. so that
+          loggers can tell whether the call got as far as alerting the user,
+          or whether something went wrong before then). It should be set when
+          the SetRinging is called, and unset when the call leaves
+          <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Initialised</a>.
+        </div><li>Locally_Queued (4)</li>
+<div class="docstring">
+          This flag exists for observability of the
+          <a href="Channel_Type_Call.html#Method:SetQueued" title="Method org.freedesktop.Telepathy.Channel.Type.Call1.SetQueued">SetQueued</a> method. It should be set
+          when the SetQueued is called, and unset when the call leaves
+          <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Initialising</a> or
+          <a href="Channel_Type_Call.html#Enum:Call_State" type="Call_State">Initialised</a>.
+        </div><li>Forwarded (8)</li>
+<div class="docstring">
+          The initiator of the call originally called a contact other than the
+          current recipient of the call, but the call was then forwarded or
+          diverted. This flag only makes sense on outgoing calls. It SHOULD be
+          set or unset according to informational messages from other
+          contacts.
+        </div><li>Clearing (16)</li>
+<div class="docstring">
+          This flag only occurs when the CallState is Ended. The call with
+          this flag set has ended, but not all resources corresponding to the
+          call have been freed yet.
+
+          Depending on the protocol there might be some audible feedback while
+          the clearing flag is set.
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            In calls following the ITU-T Q.931 standard there is a period of
+            time between the call ending and the underlying channel being
+            completely free for re-use.
+          </div></div>
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Flags:Call_Member_Flags"></a>
+      <span class="permalink">Flags (<a href="Channel_Type_Call.html#Flags:Call_Member_Flags">Permalink</a>)</span>
+      <h2>
+       Call_Member_Flags &mdash; u
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A set of flags representing the status of a remote contact in a
+          call.</p>
+
+        <p>It is protocol- and client-specific whether a particular contact
+          will ever have a particular flag set on them, and Telepathy clients
+          SHOULD NOT assume that a flag will ever be set.</p>
+
+        <div class="rationale"><h5>Rationale:</h5><div>
+          <p>180 Ringing in SIP, and its equivalent in XMPP, are optional
+            informational messages, and implementations are not required
+            to send them. The same applies to the messages used to indicate
+            hold state.</p>
+        </div></div>
+      </div>
+      <ul>
+<li>Ringing (1)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The remote contact's client has told us that the contact has been
+            alerted about the call but has not responded.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>This is a flag per member, not a flag for the call as a whole,
+              because in Muji conference calls, you could invite someone and
+              have their state be &quot;ringing&quot; for a while.</p>
+          </div></div>
+        </div><li>Held (2)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>The call member has put this call on hold.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>This is a flag per member, not a flag for the call as a whole,
+              because in conference calls, any member could put the conference
+              on hold.</p>
+          </div></div>
+        </div><li>Conference_Host (4)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          This contact has merged this call into a conference. Note that GSM
+          provides a notification when the remote party merges a call into a
+          conference, but not when it is split out again; thus, this flag can
+          only indicate that the call has been part of a conference at some
+          point. If a GSM connection manager receives a notification that a
+          call has been merged into a conference a second time, it SHOULD
+          represent this by clearing and immediately re-setting this flag on
+          the remote contact.
+        </div></ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Mapping:Call_Member_Map"></a>
+      <span class="permalink">Mapping (<a href="Channel_Type_Call.html#Mapping:Call_Member_Map">Permalink</a>)</span>
+      <h2>
+       Call_Member_Map &mdash; a{uu}
+      </h2>
+
+      
+      
+      
+      <div class="docstring">A mapping from handles to their current state in the call.
+        </div>
+      <ul>
+<li>key &mdash; u (<a href="Connection.html#Simple-Type:Handle" title="Simple Type Handle">Handle</a>)</li>
+<li>Flag &mdash; u (<a href="Channel_Type_Call.html#Flags:Call_Member_Flags" title="Flags Call_Member_Flags">Call_Member_Flags</a>)</li>
+</ul>
+
+     </div>
+    
+     <div class="inset type">
+      <a name="Struct:Call_State_Reason"></a>
+      <span class="permalink">Struct (<a href="Channel_Type_Call.html#Struct:Call_State_Reason">Permalink</a>)</span>
+      <h2>
+       Call_State_Reason &mdash; (uuss)
+      </h2>
+
+      
+      
+      
+      <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>A description of the reason for a change to the
+          <a href="Channel_Type_Call.html#Property:CallState" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallState">CallState</a> and/or
+          <a href="Channel_Type_Call.html#Property:CallFlags" title="Property org.freedesktop.Telepathy.Channel.Type.Call1.CallFlags">CallFlags</a>.</p>
+      </div>
+      <ul>
+<li>Actor &mdash; u (<a href="Connection.html#Simple-Type:Contact_Handle" title="Simple Type Contact_Handle">Contact_Handle</a>)</li>
+<div class="docstring">
+          The contact responsible for the change, or 0 if no contact was
+          responsible.
+        </div><li>Reason &mdash; u (<a href="Channel_Type_Call.html#Enum:Call_State_Change_Reason" title="Enum Call_State_Change_Reason">Call_State_Change_Reason</a>)</li>
+<div class="docstring">
+          The reason, chosen from a limited set of possibilities defined by
+          the Telepathy specification. If
+          <a href="Channel_Type_Call.html#Enum:Call_State_Change_Reason" type="Call_State_Change_Reason">User_Requested</a> then
+          the Actor member will dictate whether it was the local user or
+          a remote contact responsible.
+        </div><li>DBus_Reason &mdash; s (<a href="generic-types.html#Simple-Type:DBus_Error_Name" title="Simple Type DBus_Error_Name">DBus_Error_Name</a>)</li>
+<div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+          <p>A specific reason for the change, which may be a D-Bus error in
+            the Telepathy namespace, a D-Bus error in any other namespace
+            (for implementation-specific errors), or the empty string to
+            indicate that the state change was not an error.</p>
+
+          <p>This SHOULD be an empty string for changes to any state other
+            than Ended.</p>
+
+          <p>The errors Cancelled and Terminated SHOULD NOT be used here;
+            an empty string SHOULD be used instead.</p>
+
+          <div class="rationale"><h5>Rationale:</h5><div>
+            <p>Those error names are used to indicate normal call
+              termination by the local user or another user, respectively,
+              in contexts where a D-Bus error name must appear.</p>
+          </div></div>
+        </div><li>Message &mdash; s</li>
+<div class="docstring">
+          An optional debug message, to expediate debugging the potentially
+          many processes involved in a call. This may be communicated across
+          the network in protocols that support doing so, but it is not
+          essential.
+        </div></ul>
+
+     </div>
+    
+   </div>
+   
+
+   </div>
+
+ </body>
+</html>
