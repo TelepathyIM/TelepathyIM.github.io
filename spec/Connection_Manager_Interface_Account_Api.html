@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>ConnectionManager.I.AccountApi.DRAFT &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.ConnectionManager.Interface.AccountApi.DRAFT'>ConnectionManager.Interface.AccountApi.DRAFT</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+    | <a href="#methods">Methods</a> 
+    | <a href="#signals">Signals</a> 
+   
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+     <h3>Methods</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager_Interface_Account_Api.html#Method:RequestApi">RequestApi</a></td>
+       <td>(s: Protocol, a{sv}: Parameters)</td>
+       <td>&#8594;</td>
+       <td>s: Bus_Name, o: Object_Path</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+     
+
+     
+     <h3>Signals</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="Connection_Manager_Interface_Account_Api.html#Signal:NewApiInstance">NewApiInstance</a></td>
+       <td>(s: Bus_Name, o: Object_Path, s: Protocol)</td>
+       <td>
+        
+       </td>
+      </tr>
+      
+     </table>
+    
+
+     
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation havoc"><span class="warning">WARNING:</span>
+    This interface is experimental and is likely to cause havoc
+    to your API/ABI if bindings are generated. Do not include this interface
+    in libraries that care about compatibility.
+   </div>
+   
+   <div class="annotation added"><span class="version">Added in 0.UNRELEASED. </span>(draft 1)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+     <li><a href="Connection_Manager.html" title="Interface org.freedesktop.Telepathy.ConnectionManager">org.freedesktop.Telepathy.ConnectionManager</a></li>
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An interface for connection managers that expose account API
+        available without an active Connection.</p>
+    </div>
+   
+
+   
+
+   
+   <div class="outset methods method">
+    <a name="methods"></a>
+    <h1>Methods</h1>
+    
+    <div class="inset method">
+     <a name="Method:RequestApi"></a>
+     <span class="permalink">(<a href="Connection_Manager_Interface_Account_Api.html#Method:RequestApi">Permalink</a>)</span>
+     <h2>RequestApi (s: Protocol, a{sv}: Parameters) &#8594; s: Bus_Name, o: Object_Path</h2>
+
+     
+     
+     
+
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+        Protocol &mdash; s
+        
+          (<a href="Connection_Manager.html#Simple-Type:Protocol" title="Simple Type Protocol">Protocol</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The protocol identifier
+        </div>
+      
+       <li>
+        Parameters &mdash; a{sv}
+        
+          (<a href="generic-types.html#Mapping:String_Variant_Map" title="Mapping String_Variant_Map">String_Variant_Map</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A dictionary mapping parameter names to values of the appropriate
+          type, as indicated by
+          <a href="Connection_Manager.html#Method:GetParameters" namespace="ofdT.ConnectionManager" title="Method org.freedesktop.Telepathy.ConnectionManager.GetParameters">GetParameters</a>
+          and the well-known list of names and value types documented on the
+          <a href="Connection_Manager.html#Simple-Type:Connection_Parameter_Name">Connection_Parameter_Name</a> type.
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     
+     <div class="indent">
+      <h3>Returns</h3>
+      <ul>
+      
+       <li>
+        Bus_Name &mdash; s
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Bus_Name" title="Simple Type DBus_Bus_Name">DBus_Bus_Name</a>)
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          A D-Bus service name where the new AccountApi object can be found
+        </div>
+      
+       <li>
+        Object_Path &mdash; o
+        
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The D-Bus object path to the AccountApi on this service
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>Request a
+          <a href="AccountApi.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.AccountApi">AccountApi</a>
+          object representing a given account on a given
+          protocol with the given parameters. The method returns the bus name
+          and the object path where the new AccountApi object can be found.</p>
+
+        <p>The parameters which must and may be provided in the parameters
+        dictionary can be discovered with the
+        <a href="Connection_Manager.html#Method:GetParameters" namespace="ofdT.ConnectionManager" title="Method org.freedesktop.Telepathy.ConnectionManager.GetParameters">GetParameters</a>
+        method. These
+        parameters, their types, and their default values may be cached
+        in files so that all available connection managers do not need to be
+        started to discover which protocols are available.</p>
+
+        <p>Every successful RequestApi call will cause the emission of a
+        <a href="Connection_Manager_Interface_Account_Api.html#Signal:NewApiInstance" title="Signal org.freedesktop.Telepathy.ConnectionManager.Interface.AccountApi.DRAFT.NewApiInstance">NewApiInstance</a> signal for the same newly
+        created object. The
+        requester can use the returned object path and service name
+        independently of the emission of that signal. In that case this signal
+        emission is most useful for, e.g. other processes that are monitoring
+        the creation of new connections.</p>
+      </div>
+
+     
+     <hr/>
+     <div class="indent">
+      <h3>Possible Errors</h3>
+      <ul>
+      
+       <li><a href="errors.html#Error:Not Implemented" title="Error org.freedesktop.Telepathy.Error.NotImplemented">Not Implemented</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested protocol is not supported by this manager
+          </div>
+      
+       <li><a href="errors.html#Error:Not Available" title="Error org.freedesktop.Telepathy.Error.NotAvailable">Not Available</a></li>
+       
+       
+       
+       <div class="docstring">
+            The requested API object already appears to exist
+          </div>
+      
+       <li><a href="errors.html#Error:Invalid Argument" title="Error org.freedesktop.Telepathy.Error.InvalidArgument">Invalid Argument</a></li>
+       
+       
+       
+       <div class="docstring">
+            Unrecognised connection parameters
+          </div>
+      
+      </ul>
+     </div>
+     
+    </div>
+    
+   </div>
+   
+
+   
+   <div class="outset signals signal">
+    <a name="signals"></a>
+    <h1>Signals</h1>
+    
+    <div class="inset signal">
+     <a name="Signal:NewApiInstance"></a>
+     <span class="permalink">(<a href="Connection_Manager_Interface_Account_Api.html#Signal:NewApiInstance">Permalink</a>)</span>
+     <h2>NewApiInstance (s: Bus_Name, o: Object_Path, s: Protocol)</h2>
+
+     
+     
+     
+
+     
+     <div class="indent">
+      <h3>Parameters</h3>
+      <ul>
+      
+       <li>
+       Bus_Name &mdash; s
+       
+        (<a href="generic-types.html#Simple-Type:DBus_Bus_Name" title="Simple Type DBus_Bus_Name">DBus_Bus_Name</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The D-Bus service where the AccountApi object can be found
+        </div>
+      
+       <li>
+       Object_Path &mdash; o
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The object path of the AccountApi object on this service
+        </div>
+      
+       <li>
+       Protocol &mdash; s
+       
+        (<a href="Connection_Manager.html#Simple-Type:Protocol" title="Simple Type Protocol">Protocol</a>)
+       
+       </li>
+       
+       
+       
+       <div class="docstring">
+          The identifier for the protocol this connection uses
+        </div>
+      
+      </ul>
+     </div>
+     
+
+     <div class="docstring">
+        Emitted when a new <a href="AccountApi.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.AccountApi">AccountApi</a> object
+        is created.
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" "">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+ <head>
+  <title>AccountApi &mdash; Telepathy D-Bus Interface Specification</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="shortcut icon" type="image/png" media="all" href="favicon.png" />
+  <script src="jquery.min.js"></script>
+  <script src="magic.js"></script>
+ </head>
+ <body>
+  <div class="header">
+  <h1>Interface <abbr title='org.freedesktop.Telepathy.AccountApi'>AccountApi</abbr></h1>
+   <a href="index.html">Interface Index</a>
+   (<a href="interfaces.html">Compact</a>)
+   | <a href="#summary">Summary</a>
+   
+    | <a href="#description">Description</a> 
+   
+   
+    | <a href="#properties">Properties</a> 
+   
+   
+   
+  </div>
+  <div class="main">
+
+    
+    <div class="summary">
+     <a name="summary"></a>
+     
+     
+
+     
+
+     
+     <h3>Properties</h3>
+     <table class="summary">
+      
+       
+        <tr>
+       
+       <td><a href="AccountApi.html#Property:Interfaces">Interfaces</a></td>
+       <td>
+        as
+        
+          (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">
+              DBus_Interface_List</a>)
+        
+       </td>
+       <td>Read only</td>
+       <td></td>
+       <td>
+        
+       </td>
+      </tr>
+      
+    </table>
+    
+
+     
+
+     
+
+     
+   </div>
+   
+
+   
+   <div class="annotation added"><span class="version">Added in 0.UNRELEASED. </span>(draft 1)</div>
+   
+   
+
+   
+   <div class="requires">
+    Objects implementing this interface must also implement:
+    <ul>
+    
+    
+    </ul>
+   </div>
+   
+
+   
+    <a name="description"></a>
+    <h3>Description</h3>
+    <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+      <p>An AccountApi object provides access to account-specific API available
+      without an active Connection.</p>
+
+      <p>AccountApi instances are uniquely identified by object path. The
+      object path of an AccountApi MUST take the form
+        <code>/org/freedesktop/Telepathy/AccountApi/<em>cm</em>/<em>proto</em>/<em>acct</em></code>, where:</p>
+
+      <ul>
+        <li><em>cm</em> is the same <a href="Connection_Manager.html#Simple-Type:Connection_Manager_Name">Connection_Manager_Name</a>
+          that appears in the connection manager's well-known bus name and
+          object path</li>
+        <li><em>proto</em> is the <a href="Connection_Manager.html#Simple-Type:Protocol">Protocol</a> name as seen in
+          <a href="Connection_Manager.html#Method:ListProtocols" namespace="org.freedesktop.Telepathy" title="Method org.freedesktop.Telepathy.ConnectionManager.ListProtocols">ConnectionManager.ListProtocols</a>,
+          but with &quot;-&quot; replaced with &quot;_&quot;
+          (i.e. the same as in the object-path of a <a href="Connection.html" namespace="org.freedesktop.Telepathy" title="Interface org.freedesktop.Telepathy.Connection">Connection</a>)</li>
+        <li><em>acct</em> is an arbitrary string of ASCII letters, digits
+          and underscores, starting with a letter or underscore, which
+          uniquely identifies this account</li>
+        <li>Clients SHOULD parse the object path to discover the
+          connection manager and protocol</li>
+        <li>Clients MUST NOT attempt to parse <em>acct</em></li>
+        <li>Clients MUST NOT assume that <em>acct</em> matches
+          the connection-specific part of a Connection's object-path and
+          bus name</li>
+        <li>The account manager SHOULD choose <em>acct</em> such that if
+          an account is deleted, its object path will be re-used if and only
+          if the new account is in some sense &quot;the same&quot;
+          (incorporating the 'account' parameter in some way is
+          recommended)</li>
+      </ul>
+    </div>
+   
+
+   
+
+   
+
+   
+
+   
+   <div class="outset properties property">
+    <a name="properties"></a>
+    <h1>Properties</h1>
+    <div>
+     Accessed using the <a
+       href="http://dbus.freedesktop.org/doc/dbus-specification.html#standard-interfaces-properties">org.freedesktop.DBus.Properties</a>
+     interface.
+    </div>
+    
+    <div class="inset property">
+     <a name="Property:Interfaces"></a>
+     <span class="permalink">(<a href="AccountApi.html#Property:Interfaces">Permalink</a>)</span>
+     <h2>
+      Interfaces &mdash; as
+      
+        (<a href="generic-types.html#Simple-Type:DBus_Interface" title="Array of Simple Type DBus_Interface">DBus_Interface_List</a>)
+      
+     </h2>
+      <div class="access">Read only</div>
+
+     
+
+     
+
+     
+     
+     
+
+     
+     
+     
+
+      
+
+     <div class="docstring" xmlns="http://www.w3.org/1999/xhtml">
+        <p>The set of optional interfaces supported by this AccountApi
+          instance.</p>
+      </div>
+    </div>
+    
+   </div>
+   
+
+   
+
+   
+
+   
+
+   </div>
+
+ </body>
+</html>
